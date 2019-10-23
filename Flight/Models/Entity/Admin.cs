@@ -19,10 +19,10 @@ namespace Flight.Models.Entity
         [StringLength(50)]
         public string Lop { get; set; }
 
-        [StringLength(10)]
+        [StringLength(20)]
         public string UserName { get; set; }
 
-        [StringLength(10)]
+        [StringLength(20)]
         public string Password { get; set; }
     }
 }

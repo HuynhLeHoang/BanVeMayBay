@@ -47,8 +47,9 @@ namespace Flight.Areas.Admin.Controllers
                     }
                 else
                     {
-                        ModelState.AddModelError("", "Sai tên đăng nhập hoặc mật khẩu.");
-                    }
+                    TempData["notice"] = "Sai ten đăng nhập hoặc mật khẩu!";
+                    return View("Login");
+                }
                 
             }
             
