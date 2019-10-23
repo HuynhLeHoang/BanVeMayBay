@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Review";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@using Flight.Models.Entity;
+
+<div id="wrap">
+    <div class="review">
+
+
+
+
+        <h4 class="head-title1">Thông tin Khách hàng</h4>
+        <ul class="customer-info">
+            <li><span>Họ &amp; Tên: </span> @Model.HoTenKhachHang </li>
+            <li><span>Điện thoại: </span>@Model.DienThoai</li>
+            <li><span>Email: </span>@Model.Email</li>
+            <li><span>Địa chỉ: </span>@Model.Diachi</li>
+  
+            <li> <pre></pre> </li>
+        </ul>
+        <h4 class="head-title1">Thông tin Hành khách</h4>
+        <table class="table1 table-border table-hover" style="background: oldlace none repeat scroll 0% 0%; margin-bottom: 15px;">
+            <tbody>
+                <tr style="color: red;">
+                    <td style="width: 200px;">Người lớn 1</td>
+                    <td>Nguyen Van B ()</td>
+                    <td>  </td>
+                </tr>
+                <tr>
+                    <td>Hành lý ký gửi Chiều đi : </td>
+                    <td colspan="2">Không mua thêm: <span class="label label-success currency">0 VNĐ</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="total-price">
+            GIÁ VÉ: <span class="currency">0 VNĐ</span> <br>
+            <div style="font-size: 16px; padding-top: 9px; color: tomato;">
+                Phí xuất vé: <span class="currency">0 VNĐ</span>
+            </div>
+        </h3>
+        <img src="userupload/hinhanh/quydinhhanhly.png" width="100%">
+        <div id="note" style="background: #ED1C24 none repeat scroll 0% 0%; padding: 4px 1px 9px 6px; margin: 4px 0px 11px;">
+
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h3 style="font-size: 12px; color: white;">Tôi đã đọc, hiểu và đồng ý với các điều kiện, quy định đối với vật phẩm nguy hiểm.</h3>
+                        </td>
+                        <td style="text-align: right; padding-right: 10px;" width="15%">
+                            <span style="color: white;">Chọn ô này</span>
+                            <input name="dangerous_goods_check" id="dangerous_goods_check" value="1" checked="" type="checkbox">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <form method="post" id="place_order_form" role="form" action="~/Home/Thankyou">
+            <!--
+                <div id="payment-method">
+                    <!-- BEGIN: payment_method -- >
+                    <h3 data-id="4">
+                        Thanh toán online thẻ ATM
+                        <span style="float:right">Chọn</span>
+                        <span class="icon"></span>
+                        <div class="clear"></div>
+                    </h3>
+                    <div class="summary">
+                        <p><em>Qu&yacute; kh&aacute;ch đ&atilde; chọn thanh to&aacute;n online bằng thẻ ATM ...</em></p>
+        <p><strong>Ch&uacute;c Qu&yacute; kh&aacute;ch một chuyến bay tốt đẹp !</strong></p>
+                        <!-- BEGIN: sub_method -- >
+                            <table class="sub-method">
+                            <!-- BEGIN: item -- >
+                            <tr>
+                                <td class="bank-logo"><img src="https://vietjets.com.vn/userupload/Achau.png" alt="Ngân hàng TMCP Á Châu" title="Ngân hàng TMCP Á Châu" /></td>
+                                <td class="information">
+                                    <h3 class="title">Ngân hàng TMCP Á Châu</h3>
+                                    <div class="detail">
+                                        <p><strong>NG&Acirc;N H&Agrave;NG TMCP &Aacute; CH&Acirc;U - ACB</strong></p>
+        <p>Chủ TK :&nbsp;<strong>CTY CP XNK ĐẦU TƯ HẢI ĐĂNG</strong></p>
+        <p>Số t&agrave;i khoản: <strong>58557149</strong></p>
+        <p>Chi nh&aacute;nh :<strong> B&igrave;nh Thạnh</strong></p>
+                                    </div>
+                                </td>
+                                <td align="center"><span class="icon-check" data-id="10"></span></td>
+                            </tr>
+                            <!-- END: item -- >
+                            </table>
+                        <!-- END: sub_method -- >
+                    </div>
+                    <!-- END: payment_method -- >
+                </div>	-->
+
+
+
+            <div class="text-center">
+                <!--   <input type="hidden" name="payment_method" value="1" /> -->
+                <input type="hidden" name="amount" id="amount" value="0">
+                <input type="hidden" name="post_data" id="post_data" value="YToyNTp7czo4OiJmdWxsbmFtZSI7czoxMjoiTmd1eWVuIFZhbiBBIjtzOjEyOiJ0eHRQYXgxX0N0cnkiO3M6MzoiMjM0IjtzOjU6InBob25lIjtzOjIwOiJ1bmRlZmluZWQgMDMzMjI2NDEyMiI7czo1OiJlbWFpbCI7czoyNjoicGhhbWJhbmdiYW5nMTIzNUBnbWFpbC5jb20iO3M6NzoiYWRkcmVzcyI7czoxMzoic3N3cXNmZHdkZnZmYiI7czoxMzoiY29tcGFueS10YXhpZCI7czowOiIiO3M6MTI6ImNvbXBhbnktbmFtZSI7czowOiIiO3M6MTU6ImNvbXBhbnktYWRkcmVzcyI7czowOiIiO3M6MTc6ImNvbXBhbnktYWRkcmVzcy0yIjtzOjA6IiI7czoxMzoicGFzc2VuZ2VyX3NleCI7YToxOntpOjA7czoxOiIxIjt9czo5OiJwYXNzZW5nZXIiO2E6MTp7aTowO3M6MTI6Ik5ndXllbiBWYW4gQSI7fXM6MTg6InBhc3Nlbmdlcl9iaXJ0aGRheSI7YToxOntpOjA7czowOiIiO31zOjE0OiJwYXNzZW5nZXJfcGFzcyI7YToxOntpOjA7czowOiIiO31zOjIyOiJwYXNzZW5nZXJfZGF0ZXBhc3NkYXRlIjthOjE6e2k6MDtzOjA6IiI7fXM6MTg6InBhc3Nlbmdlcl9xdW9jdGljaCI7YToxOntpOjA7czowOiIiO31zOjE0OiJvcmlnaW5fYmFnZ2FnZSI7YToxOntpOjA7czoxOiIxIjt9czoxMDoibW9uYW5pbnB1dCI7czoyOiJuZCI7czo0OiJub3RlIjtzOjA6IiI7czo0OiJ0aHVlIjtzOjA6IiI7czoxMjoicmFkaW9wYXltZW50IjtzOjE6IjEiO3M6MTM6ImNoa0FncmVlVGVybXMiO3M6Mjoib24iO3M6NzoidGllcHR1YyI7czoxMjoiVGnhur9wIHThu6VjIjtzOjc6InNlc3Npb24iO2k6MTk2ODg5MTg3ODtzOjk6ImFuY2hpZXVkaSI7aTowO3M6OToiYW5jaGlldXZlIjtpOjA7fQ==">
+                <div class="clear"></div>
+                <img style="margin-top: 8px; margin-left: 168px;" src="themes/nokair/img/arrow1.gif">
+                <button class="common-button2" type="submit">XÁC NHẬN THÔNG TIN &amp; ĐẶT VÉ</button>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+
+
+
+
+
+
+        </form>
+    </div>
+  
+</div>

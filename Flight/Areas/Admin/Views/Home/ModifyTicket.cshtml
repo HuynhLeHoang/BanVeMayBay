@@ -1,0 +1,3353 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thông tin Khách hàng | Vietjet Air | Bay giá rẻ - Vui vẻ cả nhà | Giá chỉ từ 58.OOO VNĐ</title>
+    <meta name="description" content="Bay nội địa - Bay quốc tế siêu rẻ với VietJet Air - Giá chỉ từ 58.OOO VND. Đặt mua vé máy bay Vietjet Air dễ dàng, nhanh chóng, thanh toán bảo mật an toàn tuyệt đối." />
+    <meta name="keywords" content="Vietjet, vietjet air, Vietjet  air online vé máy bay giá rẻ vietjet, ve may bay, vé máy bay giá rẻ, vé khuyến mãi" />
+    <link href="vietjets.png" rel="shortcut icon" />
+    <link href="~/javascript/jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="stylesheet">
+    <link href="~/javascript/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css" rel="stylesheet">
+    <link href="~/javascript/bxslider/jquery.bxslider.css" rel="stylesheet">
+
+    <link href="~/themes/nokair/css/style_2019.css" rel="stylesheet">
+    <link href="~/themes/nokair/css/style2.css" rel="stylesheet">
+    <link href="~/javascript/datatables/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/themes/nokair/js/uniform/themes/default/css/uniform.default.css" media="screen" />
+    <script src="~/javascript/accounting.min.js"></script>
+    <script src="~/javascript/jquery.min.js"></script>
+    <link href="~/javascript/smoke.css" rel="stylesheet">
+    <script src="~/javascript/smoke.min.js"></script>
+
+
+
+    <meta name="google-site-verification" content="6NFXOM4EDOcL43T3fVj4Na_T2WJZKxppX20Gyms2RZE" />
+
+    <!--- Global config -->
+    <script>
+	var base_url = 'https://vietjets.com.vn/';
+	var _THEME_ = 'themes/nokair/';
+	var _LANG_ = 'vi';
+    </script>
+
+
+</head>
+<body>
+ 
+
+    <div id="content">
+        <header>
+
+            <div class="logo">
+                <a href="#" title="Vietjet Air | Bay giá rẻ - Vui vẻ cả nhà | Giá chỉ từ 58.OOO VNĐ">
+
+                </a>
+            </div>
+
+
+
+            <div id="toolbar">
+                <div id="toolbardiv"><a href="gioi-thieu-ve-chung-toi.html">Về chúng tôi</a></div>
+                <div id="toolbardiv"><a href="Logout">Đăng xuất</a></div>
+            </div>
+
+
+            <div class="user-menu">
+                <div class="userdmenud">
+                    <ul>
+
+                        <li><a href="index.html">Trang chủ</a></li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </header>  <div class="clear"></div>
+
+
+        <div id="wrap">
+            <style>
+                            #xuathoadon {
+                                /*	background: #F7FFF2;
+                padding: 1rem;*/
+                                opacity: 1;
+                                max-height: 1000px;
+                                overflow: hidden;
+                                transition: all 1s;
+                            }
+
+                                #xuathoadon.an {
+                                    company-taxid opacity: 0;
+                                    max-height: 0;
+                                }
+
+                            .passenger_name {
+                                height: 27px;
+                                padding: 0 0 3px 10px;
+                                width: 206px;
+                            }
+            </style>
+            <div class="customer-information">
+
+                <div class="review">
+                    <style>
+                        .block-title {
+                            font-size: 13px;
+                            padding: 8px 0 5px;
+                        }
+
+                        .block-content {
+                            border: 1px solid gainsboro;
+                            padding: 6px 8px 0;
+                        }
+
+                        .col-xs-3 {
+                            float: left;
+                            padding: 6px 0;
+                            width: 23%;
+                        }
+
+                        .row {
+                            overflow: auto;
+                        }
+                    </style>
+
+
+
+
+
+                </div>
+
+
+
+                <form id="book_information" method="POST" action="SuaVe" role="form">
+                    <h4 class="head-title1">SỬA THÔNG TIN KHÁCH HÀNG</h4>
+                    <table class="table1">
+                        <tr>
+                            <td class="text-right" style="width: 29%;">Mã vé<div style="color: red; display: inline;"> (*)</div></td>
+                            <td>
+                                <input name="fullname" class="form-control" id=ticketcode" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên." pattern=".{6,}" required="" />
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right" style="width: 29%;">Họ và Tên<div style="color: red; display: inline;"> (*)</div></td>
+                            <td>
+                                <input name="fullname" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên." pattern=".{6,}" required="" />
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-right">Khu Vực<div style="color: red; display: inline;"> (*)</div></td>
+                            <td>
+                                <div>
+                                    <select name="Country" id="txtPax1_Ctry" class="FormValue">
+                                        <option value="-1"></option>
+                                        <option value="234" selected="selected">Vietnam</option>
+                                        <option value="82">South Korea</option>
+                                        <option value="110">Japan</option>
+                                        <option value="210">Taiwan</option>
+                                        <option value="5">Singapore</option>
+                                        <option value="" disabled="" class="grot"> ------- </option>
+                                        <option value="7">Afghanistan</option>
+                                        <option value="8">Albania</option>
+                                        <option value="9">Algeria</option>
+                                        <option value="10">American Samoa</option>
+                                        <option value="11">Andorra</option>
+                                        <option value="12">Angola</option>
+                                        <option value="13">Anguilla</option>
+                                        <option value="14">Antarctica</option>
+                                        <option value="15">Antigua</option>
+                                        <option value="16">Argentina</option>
+                                        <option value="17">Armenia</option>
+                                        <option value="18">Aruba</option>
+                                        <option value="3">Australia</option>
+                                        <option value="19">Austria</option>
+                                        <option value="20">Azerbaijan</option>
+                                        <option value="21">Bahamas</option>
+                                        <option value="22">Bahrain</option>
+                                        <option value="23">Bangladesh</option>
+                                        <option value="24">Barbados</option>
+                                        <option value="25">Belarus</option>
+                                        <option value="26">Belgium</option>
+                                        <option value="27">Belize</option>
+                                        <option value="28">Benin</option>
+                                        <option value="29">Bermuda</option>
+                                        <option value="30">Bhutan</option>
+                                        <option value="31">Bolivia</option>
+                                        <option value="32">Bosnia Herzegovina</option>
+                                        <option value="33">Botswana</option>
+                                        <option value="34">Bouvet Island</option>
+                                        <option value="35">Brazil</option>
+                                        <option value="36">British Indian Ocean</option>
+                                        <option value="37">Brunei</option>
+                                        <option value="38">Bulgaria</option>
+                                        <option value="39">Burkina Faso</option>
+                                        <option value="40">Burundi</option>
+                                        <option value="41">Cambodia</option>
+                                        <option value="42">Cameroon</option>
+                                        <option value="1">Canada</option>
+                                        <option value="44">Cape Verde</option>
+                                        <option value="45">Cayman Islands</option>
+                                        <option value="46">Central African Repu</option>
+                                        <option value="47">Chad</option>
+                                        <option value="48">Chile</option>
+                                        <option value="49">China</option>
+                                        <option value="50">Cocs (Keeling) Islan</option>
+                                        <option value="51">Colombia</option>
+                                        <option value="52">Comoros</option>
+                                        <option value="53">Congo</option>
+                                        <option value="54">Cook Island</option>
+                                        <option value="55">Costa Rica</option>
+                                        <option value="56">Cote D'lvoire</option>
+                                        <option value="57">Croatia</option>
+                                        <option value="58">Cuba</option>
+                                        <option value="59">Cyprus</option>
+                                        <option value="60">Czech Republic</option>
+                                        <option value="61">Denmark</option>
+                                        <option value="62">Djibouti</option>
+                                        <option value="63">Dominica</option>
+                                        <option value="64">Dominican Republic</option>
+                                        <option value="66">Ecuador</option>
+                                        <option value="67">Egypt</option>
+                                        <option value="68">El Salvador</option>
+                                        <option value="69">Equatorial Guinea</option>
+                                        <option value="70">Eritrea</option>
+                                        <option value="71">Estonia</option>
+                                        <option value="72">Ethiopia</option>
+                                        <option value="73">Falkland Islands</option>
+                                        <option value="74">Faroe Islands</option>
+                                        <option value="75">Fiji Islands</option>
+                                        <option value="76">Finland</option>
+                                        <option value="77">France</option>
+                                        <option value="78">French Guiana</option>
+                                        <option value="79">French Polynesia</option>
+                                        <option value="80">French Southern Terr</option>
+                                        <option value="81">Gabon</option>
+                                        <option value="82">Gambia</option>
+                                        <option value="83">Georgia</option>
+                                        <option value="84">Germany</option>
+                                        <option value="85">Ghana</option>
+                                        <option value="86">Gibraltar</option>
+                                        <option value="87">Greece</option>
+                                        <option value="88">Greenland</option>
+                                        <option value="89">Grenada</option>
+                                        <option value="90">Guadeloupe</option>
+                                        <option value="91">Guam</option>
+                                        <option value="92">Guatemala</option>
+                                        <option value="93">Guinea</option>
+                                        <option value="94">Guinea-Bissau</option>
+                                        <option value="95">Guyana</option>
+                                        <option value="96">Haiti</option>
+                                        <option value="97">Heard Island</option>
+                                        <option value="98">Honduras</option>
+                                        <option value="99">Hong Kong</option>
+                                        <option value="100">Hungary</option>
+                                        <option value="101">Iceland</option>
+                                        <option value="102">India</option>
+                                        <option value="103">Indonesia</option>
+                                        <option value="104">Iran</option>
+                                        <option value="105">Iraq</option>
+                                        <option value="106">Ireland</option>
+                                        <option value="107">Israel</option>
+                                        <option value="108">Italy</option>
+                                        <option value="109">Jamaica</option>
+                                        <option value="111">Jordan</option>
+                                        <option value="112">Kazakhstan</option>
+                                        <option value="113">Kenya</option>
+                                        <option value="114">Kiribati</option>
+                                        <option value="117">Kuwait</option>
+                                        <option value="118">Kyrgyzstan</option>
+                                        <option value="119">Laos PDRC</option>
+                                        <option value="120">Latvia</option>
+                                        <option value="121">Lebanon</option>
+                                        <option value="122">Lesotho</option>
+                                        <option value="123">Liberia</option>
+                                        <option value="124">Libyan Arab</option>
+                                        <option value="125">Liechtenstein</option>
+                                        <option value="126">Lithuania</option>
+                                        <option value="127">Luxembourg</option>
+                                        <option value="128">Macau</option>
+                                        <option value="129">Macedonia</option>
+                                        <option value="130">Madagascar</option>
+                                        <option value="131">Malawi</option>
+                                        <option value="242">Malaysia</option>
+                                        <option value="132">Maldives</option>
+                                        <option value="133">Mali</option>
+                                        <option value="134">Malta</option>
+                                        <option value="135">Marshall Islands</option>
+                                        <option value="136">Martinique</option>
+                                        <option value="137">Mauritania</option>
+                                        <option value="138">Mauritius</option>
+                                        <option value="139">Mayotte</option>
+                                        <option value="140">Mexico</option>
+                                        <option value="141">Micronesia</option>
+                                        <option value="142">Moldova Republic of</option>
+                                        <option value="143">Monaco</option>
+                                        <option value="144">Mongolia</option>
+                                        <option value="250">Montenegro</option>
+                                        <option value="145">Morocco</option>
+                                        <option value="146">Mozambique</option>
+                                        <option value="147">Myanmar</option>
+                                        <option value="249">NA</option>
+                                        <option value="148">Namibia</option>
+                                        <option value="149">Nauru</option>
+                                        <option value="150">Nepal</option>
+                                        <option value="151">Netherlands</option>
+                                        <option value="152">Netherlands Antilles</option>
+                                        <option value="153">New Caledonia</option>
+                                        <option value="154">New Zealand</option>
+                                        <option value="155">Nicaragua</option>
+                                        <option value="156">Niger</option>
+                                        <option value="157">Nigeria</option>
+                                        <option value="158">Niue</option>
+                                        <option value="159">Norfolk Island</option>
+                                        <option value="115">North Korea</option>
+                                        <option value="160">Northern MarianaI</option>
+                                        <option value="161">Norway</option>
+                                        <option value="162">Oman</option>
+                                        <option value="163">Pakistan</option>
+                                        <option value="164">Palau</option>
+                                        <option value="165">Palestinain Terr</option>
+                                        <option value="166">Panama</option>
+                                        <option value="167">Papua New Guinea</option>
+                                        <option value="168">Paraguay</option>
+                                        <option value="169">Peru</option>
+                                        <option value="170">Philippines</option>
+                                        <option value="171">Pitcairn Islands</option>
+                                        <option value="172">Poland</option>
+                                        <option value="173">Portugal</option>
+                                        <option value="174">Puerto Rico</option>
+                                        <option value="175">Qatar</option>
+                                        <option value="176">Rep of Congo</option>
+                                        <option value="177">Reunion</option>
+                                        <option value="178">Romania</option>
+                                        <option value="179">Russia</option>
+                                        <option value="180">Rwanda</option>
+                                        <option value="181">Saint Helena</option>
+                                        <option value="182">Saint Kitts and Nevi</option>
+                                        <option value="183">Saint Lucia</option>
+                                        <option value="186">Samoa</option>
+                                        <option value="187">San Marino</option>
+                                        <option value="189">Saudi Arabia</option>
+                                        <option value="190">Senegal</option>
+                                        <option value="191">Serbia</option>
+                                        <option value="192">Seychelles</option>
+                                        <option value="193">Sierra Leone</option>
+                                        <option value="195">Slovakia</option>
+                                        <option value="196">Slovenia</option>
+                                        <option value="197">Solomon Islands</option>
+                                        <option value="198">Somalia</option>
+                                        <option value="199">South Africa</option>
+                                        <option value="200">South Georgia</option>
+
+                                        <option value="201">Spain</option>
+                                        <option value="202">Sri Lanka</option>
+                                        <option value="184">St Pierre &amp; Miquelon</option>
+                                        <option value="188">St Tome &amp; Princip</option>
+                                        <option value="185">St Vincent &amp; Grenadi</option>
+                                        <option value="203">Sudan</option>
+                                        <option value="204">Suriname</option>
+                                        <option value="205">Sval Vald and Jan Me</option>
+                                        <option value="206">Swaziland</option>
+                                        <option value="207">Sweden</option>
+                                        <option value="208">Switzerland</option>
+                                        <option value="209">Syrian Arab Republic</option>
+                                        <option value="211">Tajikistan</option>
+                                        <option value="212">Tanzania</option>
+                                        <option value="213">Thailand</option>
+                                        <option value="65">Timor Leste</option>
+                                        <option value="214">Togo</option>
+                                        <option value="215">Tokelau</option>
+                                        <option value="216">Tonga</option>
+                                        <option value="217">Trinidad and Tobago</option>
+                                        <option value="218">Tunisia</option>
+                                        <option value="219">Turkey</option>
+                                        <option value="220">Turkmenistan</option>
+                                        <option value="221">Turks / Caicos Isl</option>
+                                        <option value="222">Tuvalu</option>
+                                        <option value="223">Uganda</option>
+                                        <option value="224">Ukraine</option>
+                                        <option value="225">United Arab Emirates</option>
+                                        <option value="226">United Kingdom</option>
+                                        <option value="2">United States</option>
+                                        <option value="228">Uruguay</option>
+                                        <option value="229">US Minor Islands</option>
+                                        <option value="230">Uzbekistan</option>
+                                        <option value="231">Vanuatu</option>
+                                        <option value="232">Vatican City</option>
+                                        <option value="233">Venezuela</option>
+
+                                        <option value="235">Virgin Island Britis</option>
+                                        <option value="236">Virgin Islands US</option>
+                                        <option value="237">Wallis and Futuna</option>
+                                        <option value="238">Western Sahara</option>
+                                        <option value="239">Yemen</option>
+                                        <option value="246">Yugoslavia</option>
+                                        <option value="240">Zambia</option>
+                                        <option value="241">Zimbabwe</option>
+                                    </select>
+
+                                    </br>
+                                    <script language="JavaScript" type="text/javascript">
+function ProvDecode(inp) {while(inp.match(/&#(\d+);/ig)) {
+ inp = inp.replace(new RegExp("&#" + RegExp. + ";", "ig"), String.fromCharCode(RegExp.)); }
+return inp; }
+ var aProv=new Array();
+ function CountrySelect(ProvBox, CtyBox) { var cty2=gE(CtyBox); var prv2=gE(ProvBox); var Prvj;var Prvi;var bFound = 'False'; ProvID=prv2.options[prv2.selectedIndex].value; for(Prvi=0;Prvi<aProv.length;Prvi++) { if(aProv[Prvi]['Abbr']==ProvID) { for(Prvj=0;Prvj<cty2.options.length;Prvj++) { if(cty2.options[Prvj].value == aProv[Prvi]['OrigAbbr']) { cty2.selectedIndex = cty2.options[Prvj].index; break; bFound = 'True'; }} if(bFound == 'True'){break;}}}}
+	aProv[0] = new Object();
+	aProv[0]['OrigAbbr']='2';
+	aProv[0]['Abbr']='10306';
+	aProv[0]['Name']='Alabama';
+	aProv[1] = new Object();
+	aProv[1]['OrigAbbr']='2';
+	aProv[1]['Abbr']='10307';
+	aProv[1]['Name']='Alaska';
+	aProv[2] = new Object();
+	aProv[2]['OrigAbbr']='1';
+	aProv[2]['Abbr']='2';
+	aProv[2]['Name']='Alberta';
+	aProv[3] = new Object();
+	aProv[3]['OrigAbbr']='234';
+	aProv[3]['Abbr']='10245';
+	aProv[3]['Name']='An Giang';
+	aProv[4] = new Object();
+	aProv[4]['OrigAbbr']='2';
+	aProv[4]['Abbr']='10308';
+	aProv[4]['Name']='Arizona';
+	aProv[5] = new Object();
+	aProv[5]['OrigAbbr']='2';
+	aProv[5]['Abbr']='10309';
+	aProv[5]['Name']='Arkansas';
+	aProv[6] = new Object();
+	aProv[6]['OrigAbbr']='234';
+	aProv[6]['Abbr']='10246';
+	aProv[6]['Name']='Ba Ria - Vung Tau';
+	aProv[7] = new Object();
+	aProv[7]['OrigAbbr']='234';
+	aProv[7]['Abbr']='10249';
+	aProv[7]['Name']='Bac Giang';
+	aProv[8] = new Object();
+	aProv[8]['OrigAbbr']='234';
+	aProv[8]['Abbr']='10248';
+	aProv[8]['Name']='Bac Kan';
+	aProv[9] = new Object();
+	aProv[9]['OrigAbbr']='234';
+	aProv[9]['Abbr']='10247';
+	aProv[9]['Name']='Bac Lieu';
+	aProv[10] = new Object();
+	aProv[10]['OrigAbbr']='234';
+	aProv[10]['Abbr']='10250';
+	aProv[10]['Name']='Bac Ninh';
+	aProv[11] = new Object();
+	aProv[11]['OrigAbbr']='234';
+	aProv[11]['Abbr']='10251';
+	aProv[11]['Name']='Ben Tre';
+	aProv[12] = new Object();
+	aProv[12]['OrigAbbr']='234';
+	aProv[12]['Abbr']='10253';
+	aProv[12]['Name']='Binh Dinh';
+	aProv[13] = new Object();
+	aProv[13]['OrigAbbr']='234';
+	aProv[13]['Abbr']='10252';
+	aProv[13]['Name']='Binh Duong';
+	aProv[14] = new Object();
+	aProv[14]['OrigAbbr']='234';
+	aProv[14]['Abbr']='10254';
+	aProv[14]['Name']='Binh Phuoc';
+	aProv[15] = new Object();
+	aProv[15]['OrigAbbr']='234';
+	aProv[15]['Abbr']='10255';
+	aProv[15]['Name']='Binh Thuan';
+	aProv[16] = new Object();
+	aProv[16]['OrigAbbr']='1';
+	aProv[16]['Abbr']='1';
+	aProv[16]['Name']='British Columbia';
+	aProv[17] = new Object();
+	aProv[17]['OrigAbbr']='234';
+	aProv[17]['Abbr']='10256';
+	aProv[17]['Name']='Ca Mau';
+	aProv[18] = new Object();
+	aProv[18]['OrigAbbr']='2';
+	aProv[18]['Abbr']='10305';
+	aProv[18]['Name']='California';
+	aProv[19] = new Object();
+	aProv[19]['OrigAbbr']='234';
+	aProv[19]['Abbr']='10258';
+	aProv[19]['Name']='Can Tho';
+	aProv[20] = new Object();
+	aProv[20]['OrigAbbr']='234';
+	aProv[20]['Abbr']='10257';
+	aProv[20]['Name']='Cao Bang';
+	aProv[21] = new Object();
+	aProv[21]['OrigAbbr']='2';
+	aProv[21]['Abbr']='10310';
+	aProv[21]['Name']='Colorado';
+	aProv[22] = new Object();
+	aProv[22]['OrigAbbr']='2';
+	aProv[22]['Abbr']='10311';
+	aProv[22]['Name']='Connecticut';
+	aProv[23] = new Object();
+	aProv[23]['OrigAbbr']='234';
+	aProv[23]['Abbr']='10243';
+	aProv[23]['Name']='Da Nang';
+	aProv[24] = new Object();
+	aProv[24]['OrigAbbr']='234';
+	aProv[24]['Abbr']='10259';
+	aProv[24]['Name']='Dac Lak';
+	aProv[25] = new Object();
+	aProv[25]['OrigAbbr']='234';
+	aProv[25]['Abbr']='10260';
+	aProv[25]['Name']='Dac Nong';
+	aProv[26] = new Object();
+	aProv[26]['OrigAbbr']='2';
+	aProv[26]['Abbr']='10312';
+	aProv[26]['Name']='Delaware';
+	aProv[27] = new Object();
+	aProv[27]['OrigAbbr']='234';
+	aProv[27]['Abbr']='10261';
+	aProv[27]['Name']='Dien Bien';
+	aProv[28] = new Object();
+	aProv[28]['OrigAbbr']='234';
+	aProv[28]['Abbr']='10262';
+	aProv[28]['Name']='Dong Nai';
+	aProv[29] = new Object();
+	aProv[29]['OrigAbbr']='234';
+	aProv[29]['Abbr']='10263';
+	aProv[29]['Name']='Dong Thap';
+	aProv[30] = new Object();
+	aProv[30]['OrigAbbr']='2';
+	aProv[30]['Abbr']='10313';
+	aProv[30]['Name']='Florida';
+	aProv[31] = new Object();
+	aProv[31]['OrigAbbr']='2';
+	aProv[31]['Abbr']='10314';
+	aProv[31]['Name']='Georgia';
+	aProv[32] = new Object();
+	aProv[32]['OrigAbbr']='234';
+	aProv[32]['Abbr']='10264';
+	aProv[32]['Name']='Gia Lai';
+	aProv[33] = new Object();
+	aProv[33]['OrigAbbr']='234';
+	aProv[33]['Abbr']='10265';
+	aProv[33]['Name']='Ha Giang';
+	aProv[34] = new Object();
+	aProv[34]['OrigAbbr']='234';
+	aProv[34]['Abbr']='10266';
+	aProv[34]['Name']='Ha Nam';
+	aProv[35] = new Object();
+	aProv[35]['OrigAbbr']='234';
+	aProv[35]['Abbr']='10242';
+	aProv[35]['Name']='Ha Noi';
+	aProv[36] = new Object();
+	aProv[36]['OrigAbbr']='234';
+	aProv[36]['Abbr']='10267';
+	aProv[36]['Name']='Ha Tay';
+	aProv[37] = new Object();
+	aProv[37]['OrigAbbr']='234';
+	aProv[37]['Abbr']='10268';
+	aProv[37]['Name']='Ha Tinh';
+	aProv[38] = new Object();
+	aProv[38]['OrigAbbr']='234';
+	aProv[38]['Abbr']='10269';
+	aProv[38]['Name']='Hai Duong';
+	aProv[39] = new Object();
+	aProv[39]['OrigAbbr']='234';
+	aProv[39]['Abbr']='10270';
+	aProv[39]['Name']='Hai Phong';
+	aProv[40] = new Object();
+	aProv[40]['OrigAbbr']='234';
+	aProv[40]['Abbr']='10271';
+	aProv[40]['Name']='Hau Giang';
+	aProv[41] = new Object();
+	aProv[41]['OrigAbbr']='2';
+	aProv[41]['Abbr']='10315';
+	aProv[41]['Name']='Hawaii';
+	aProv[42] = new Object();
+	aProv[42]['OrigAbbr']='234';
+	aProv[42]['Abbr']='10241';
+	aProv[42]['Name']='Ho Chi Minh City';
+	aProv[43] = new Object();
+	aProv[43]['OrigAbbr']='234';
+	aProv[43]['Abbr']='10272';
+	aProv[43]['Name']='Hoa Binh';
+	aProv[44] = new Object();
+	aProv[44]['OrigAbbr']='234';
+	aProv[44]['Abbr']='10244';
+	aProv[44]['Name']='Hue';
+	aProv[45] = new Object();
+	aProv[45]['OrigAbbr']='234';
+	aProv[45]['Abbr']='10273';
+	aProv[45]['Name']='Hung Yen';
+	aProv[46] = new Object();
+	aProv[46]['OrigAbbr']='2';
+	aProv[46]['Abbr']='10316';
+	aProv[46]['Name']='Idaho';
+	aProv[47] = new Object();
+	aProv[47]['OrigAbbr']='2';
+	aProv[47]['Abbr']='10317';
+	aProv[47]['Name']='Illinois';
+	aProv[48] = new Object();
+	aProv[48]['OrigAbbr']='2';
+	aProv[48]['Abbr']='10318';
+	aProv[48]['Name']='Indiana';
+	aProv[49] = new Object();
+	aProv[49]['OrigAbbr']='2';
+	aProv[49]['Abbr']='10320';
+	aProv[49]['Name']='Iowa';
+	aProv[50] = new Object();
+	aProv[50]['OrigAbbr']='2';
+	aProv[50]['Abbr']='10321';
+	aProv[50]['Name']='Kansas';
+	aProv[51] = new Object();
+	aProv[51]['OrigAbbr']='2';
+	aProv[51]['Abbr']='10322';
+	aProv[51]['Name']='Kentucky';
+	aProv[52] = new Object();
+	aProv[52]['OrigAbbr']='234';
+	aProv[52]['Abbr']='10274';
+	aProv[52]['Name']='Khanh Hoa';
+	aProv[53] = new Object();
+	aProv[53]['OrigAbbr']='234';
+	aProv[53]['Abbr']='10275';
+	aProv[53]['Name']='Kien Giang';
+	aProv[54] = new Object();
+	aProv[54]['OrigAbbr']='234';
+	aProv[54]['Abbr']='10276';
+	aProv[54]['Name']='Kon Tum';
+	aProv[55] = new Object();
+	aProv[55]['OrigAbbr']='234';
+	aProv[55]['Abbr']='10277';
+	aProv[55]['Name']='Lai Chau';
+	aProv[56] = new Object();
+	aProv[56]['OrigAbbr']='234';
+	aProv[56]['Abbr']='10278';
+	aProv[56]['Name']='Lam Dong';
+	aProv[57] = new Object();
+	aProv[57]['OrigAbbr']='234';
+	aProv[57]['Abbr']='10279';
+	aProv[57]['Name']='Lang Son';
+	aProv[58] = new Object();
+	aProv[58]['OrigAbbr']='234';
+	aProv[58]['Abbr']='10280';
+	aProv[58]['Name']='Lao Cai';
+	aProv[59] = new Object();
+	aProv[59]['OrigAbbr']='226';
+	aProv[59]['Abbr']='10356';
+	aProv[59]['Name']='London';
+	aProv[60] = new Object();
+	aProv[60]['OrigAbbr']='234';
+	aProv[60]['Abbr']='10281';
+	aProv[60]['Name']='Long An';
+	aProv[61] = new Object();
+	aProv[61]['OrigAbbr']='2';
+	aProv[61]['Abbr']='10323';
+	aProv[61]['Name']='Louisiana';
+	aProv[62] = new Object();
+	aProv[62]['OrigAbbr']='2';
+	aProv[62]['Abbr']='10324';
+	aProv[62]['Name']='Maine';
+	aProv[63] = new Object();
+	aProv[63]['OrigAbbr']='1';
+	aProv[63]['Abbr']='4';
+	aProv[63]['Name']='Manitoba';
+	aProv[64] = new Object();
+	aProv[64]['OrigAbbr']='2';
+	aProv[64]['Abbr']='10325';
+	aProv[64]['Name']='Maryland';
+	aProv[65] = new Object();
+	aProv[65]['OrigAbbr']='2';
+	aProv[65]['Abbr']='10326';
+	aProv[65]['Name']='Massachusetts';
+	aProv[66] = new Object();
+	aProv[66]['OrigAbbr']='2';
+	aProv[66]['Abbr']='10327';
+	aProv[66]['Name']='Michigan';
+	aProv[67] = new Object();
+	aProv[67]['OrigAbbr']='2';
+	aProv[67]['Abbr']='10328';
+	aProv[67]['Name']='Minnesota';
+	aProv[68] = new Object();
+	aProv[68]['OrigAbbr']='2';
+	aProv[68]['Abbr']='10329';
+	aProv[68]['Name']='Mississippi';
+	aProv[69] = new Object();
+	aProv[69]['OrigAbbr']='2';
+	aProv[69]['Abbr']='10330';
+	aProv[69]['Name']='Missouri';
+	aProv[70] = new Object();
+	aProv[70]['OrigAbbr']='2';
+	aProv[70]['Abbr']='10331';
+	aProv[70]['Name']='Montana';
+	aProv[71] = new Object();
+	aProv[71]['OrigAbbr']='249';
+	aProv[71]['Abbr']='10357';
+	aProv[71]['Name']='NA';
+	aProv[72] = new Object();
+	aProv[72]['OrigAbbr']='250';
+	aProv[72]['Abbr']='10358';
+	aProv[72]['Name']='NA';
+	aProv[73] = new Object();
+	aProv[73]['OrigAbbr']='-1';
+	aProv[73]['Abbr']='9999';
+	aProv[73]['Name']='NA';
+	aProv[74] = new Object();
+	aProv[74]['OrigAbbr']='1';
+	aProv[74]['Abbr']='10000';
+	aProv[74]['Name']='NA';
+	aProv[75] = new Object();
+	aProv[75]['OrigAbbr']='2';
+	aProv[75]['Abbr']='10001';
+	aProv[75]['Name']='NA';
+	aProv[76] = new Object();
+	aProv[76]['OrigAbbr']='3';
+	aProv[76]['Abbr']='10002';
+	aProv[76]['Name']='NA';
+	aProv[77] = new Object();
+	aProv[77]['OrigAbbr']='5';
+	aProv[77]['Abbr']='10003';
+	aProv[77]['Name']='NA';
+	aProv[78] = new Object();
+	aProv[78]['OrigAbbr']='7';
+	aProv[78]['Abbr']='10004';
+	aProv[78]['Name']='NA';
+	aProv[79] = new Object();
+	aProv[79]['OrigAbbr']='8';
+	aProv[79]['Abbr']='10005';
+	aProv[79]['Name']='NA';
+	aProv[80] = new Object();
+	aProv[80]['OrigAbbr']='9';
+	aProv[80]['Abbr']='10006';
+	aProv[80]['Name']='NA';
+	aProv[81] = new Object();
+	aProv[81]['OrigAbbr']='10';
+	aProv[81]['Abbr']='10007';
+	aProv[81]['Name']='NA';
+	aProv[82] = new Object();
+	aProv[82]['OrigAbbr']='11';
+	aProv[82]['Abbr']='10008';
+	aProv[82]['Name']='NA';
+	aProv[83] = new Object();
+	aProv[83]['OrigAbbr']='12';
+	aProv[83]['Abbr']='10009';
+	aProv[83]['Name']='NA';
+	aProv[84] = new Object();
+	aProv[84]['OrigAbbr']='13';
+	aProv[84]['Abbr']='10010';
+	aProv[84]['Name']='NA';
+	aProv[85] = new Object();
+	aProv[85]['OrigAbbr']='14';
+	aProv[85]['Abbr']='10011';
+	aProv[85]['Name']='NA';
+	aProv[86] = new Object();
+	aProv[86]['OrigAbbr']='15';
+	aProv[86]['Abbr']='10012';
+	aProv[86]['Name']='NA';
+	aProv[87] = new Object();
+	aProv[87]['OrigAbbr']='16';
+	aProv[87]['Abbr']='10013';
+	aProv[87]['Name']='NA';
+	aProv[88] = new Object();
+	aProv[88]['OrigAbbr']='17';
+	aProv[88]['Abbr']='10014';
+	aProv[88]['Name']='NA';
+	aProv[89] = new Object();
+	aProv[89]['OrigAbbr']='18';
+	aProv[89]['Abbr']='10015';
+	aProv[89]['Name']='NA';
+	aProv[90] = new Object();
+	aProv[90]['OrigAbbr']='19';
+	aProv[90]['Abbr']='10016';
+	aProv[90]['Name']='NA';
+	aProv[91] = new Object();
+	aProv[91]['OrigAbbr']='20';
+	aProv[91]['Abbr']='10017';
+	aProv[91]['Name']='NA';
+	aProv[92] = new Object();
+	aProv[92]['OrigAbbr']='21';
+	aProv[92]['Abbr']='10018';
+	aProv[92]['Name']='NA';
+	aProv[93] = new Object();
+	aProv[93]['OrigAbbr']='22';
+	aProv[93]['Abbr']='10019';
+	aProv[93]['Name']='NA';
+	aProv[94] = new Object();
+	aProv[94]['OrigAbbr']='23';
+	aProv[94]['Abbr']='10020';
+	aProv[94]['Name']='NA';
+	aProv[95] = new Object();
+	aProv[95]['OrigAbbr']='24';
+	aProv[95]['Abbr']='10021';
+	aProv[95]['Name']='NA';
+	aProv[96] = new Object();
+	aProv[96]['OrigAbbr']='25';
+	aProv[96]['Abbr']='10022';
+	aProv[96]['Name']='NA';
+	aProv[97] = new Object();
+	aProv[97]['OrigAbbr']='26';
+	aProv[97]['Abbr']='10023';
+	aProv[97]['Name']='NA';
+	aProv[98] = new Object();
+	aProv[98]['OrigAbbr']='27';
+	aProv[98]['Abbr']='10024';
+	aProv[98]['Name']='NA';
+	aProv[99] = new Object();
+	aProv[99]['OrigAbbr']='28';
+	aProv[99]['Abbr']='10025';
+	aProv[99]['Name']='NA';
+	aProv[100] = new Object();
+	aProv[100]['OrigAbbr']='29';
+	aProv[100]['Abbr']='10026';
+	aProv[100]['Name']='NA';
+	aProv[101] = new Object();
+	aProv[101]['OrigAbbr']='30';
+	aProv[101]['Abbr']='10027';
+	aProv[101]['Name']='NA';
+	aProv[102] = new Object();
+	aProv[102]['OrigAbbr']='31';
+	aProv[102]['Abbr']='10028';
+	aProv[102]['Name']='NA';
+	aProv[103] = new Object();
+	aProv[103]['OrigAbbr']='32';
+	aProv[103]['Abbr']='10029';
+	aProv[103]['Name']='NA';
+	aProv[104] = new Object();
+	aProv[104]['OrigAbbr']='33';
+	aProv[104]['Abbr']='10030';
+	aProv[104]['Name']='NA';
+	aProv[105] = new Object();
+	aProv[105]['OrigAbbr']='34';
+	aProv[105]['Abbr']='10031';
+	aProv[105]['Name']='NA';
+	aProv[106] = new Object();
+	aProv[106]['OrigAbbr']='35';
+	aProv[106]['Abbr']='10032';
+	aProv[106]['Name']='NA';
+	aProv[107] = new Object();
+	aProv[107]['OrigAbbr']='36';
+	aProv[107]['Abbr']='10033';
+	aProv[107]['Name']='NA';
+	aProv[108] = new Object();
+	aProv[108]['OrigAbbr']='37';
+	aProv[108]['Abbr']='10034';
+	aProv[108]['Name']='NA';
+	aProv[109] = new Object();
+	aProv[109]['OrigAbbr']='38';
+	aProv[109]['Abbr']='10035';
+	aProv[109]['Name']='NA';
+	aProv[110] = new Object();
+	aProv[110]['OrigAbbr']='39';
+	aProv[110]['Abbr']='10036';
+	aProv[110]['Name']='NA';
+	aProv[111] = new Object();
+	aProv[111]['OrigAbbr']='40';
+	aProv[111]['Abbr']='10037';
+	aProv[111]['Name']='NA';
+	aProv[112] = new Object();
+	aProv[112]['OrigAbbr']='41';
+	aProv[112]['Abbr']='10038';
+	aProv[112]['Name']='NA';
+	aProv[113] = new Object();
+	aProv[113]['OrigAbbr']='42';
+	aProv[113]['Abbr']='10039';
+	aProv[113]['Name']='NA';
+	aProv[114] = new Object();
+	aProv[114]['OrigAbbr']='44';
+	aProv[114]['Abbr']='10041';
+	aProv[114]['Name']='NA';
+	aProv[115] = new Object();
+	aProv[115]['OrigAbbr']='45';
+	aProv[115]['Abbr']='10042';
+	aProv[115]['Name']='NA';
+	aProv[116] = new Object();
+	aProv[116]['OrigAbbr']='46';
+	aProv[116]['Abbr']='10043';
+	aProv[116]['Name']='NA';
+	aProv[117] = new Object();
+	aProv[117]['OrigAbbr']='47';
+	aProv[117]['Abbr']='10044';
+	aProv[117]['Name']='NA';
+	aProv[118] = new Object();
+	aProv[118]['OrigAbbr']='48';
+	aProv[118]['Abbr']='10045';
+	aProv[118]['Name']='NA';
+	aProv[119] = new Object();
+	aProv[119]['OrigAbbr']='49';
+	aProv[119]['Abbr']='10046';
+	aProv[119]['Name']='NA';
+	aProv[120] = new Object();
+	aProv[120]['OrigAbbr']='50';
+	aProv[120]['Abbr']='10047';
+	aProv[120]['Name']='NA';
+	aProv[121] = new Object();
+	aProv[121]['OrigAbbr']='51';
+	aProv[121]['Abbr']='10048';
+	aProv[121]['Name']='NA';
+	aProv[122] = new Object();
+	aProv[122]['OrigAbbr']='52';
+	aProv[122]['Abbr']='10049';
+	aProv[122]['Name']='NA';
+	aProv[123] = new Object();
+	aProv[123]['OrigAbbr']='53';
+	aProv[123]['Abbr']='10050';
+	aProv[123]['Name']='NA';
+	aProv[124] = new Object();
+	aProv[124]['OrigAbbr']='54';
+	aProv[124]['Abbr']='10051';
+	aProv[124]['Name']='NA';
+	aProv[125] = new Object();
+	aProv[125]['OrigAbbr']='55';
+	aProv[125]['Abbr']='10052';
+	aProv[125]['Name']='NA';
+	aProv[126] = new Object();
+	aProv[126]['OrigAbbr']='56';
+	aProv[126]['Abbr']='10053';
+	aProv[126]['Name']='NA';
+	aProv[127] = new Object();
+	aProv[127]['OrigAbbr']='57';
+	aProv[127]['Abbr']='10054';
+	aProv[127]['Name']='NA';
+	aProv[128] = new Object();
+	aProv[128]['OrigAbbr']='58';
+	aProv[128]['Abbr']='10055';
+	aProv[128]['Name']='NA';
+	aProv[129] = new Object();
+	aProv[129]['OrigAbbr']='59';
+	aProv[129]['Abbr']='10056';
+	aProv[129]['Name']='NA';
+	aProv[130] = new Object();
+	aProv[130]['OrigAbbr']='60';
+	aProv[130]['Abbr']='10057';
+	aProv[130]['Name']='NA';
+	aProv[131] = new Object();
+	aProv[131]['OrigAbbr']='61';
+	aProv[131]['Abbr']='10058';
+	aProv[131]['Name']='NA';
+	aProv[132] = new Object();
+	aProv[132]['OrigAbbr']='62';
+	aProv[132]['Abbr']='10059';
+	aProv[132]['Name']='NA';
+	aProv[133] = new Object();
+	aProv[133]['OrigAbbr']='63';
+	aProv[133]['Abbr']='10060';
+	aProv[133]['Name']='NA';
+	aProv[134] = new Object();
+	aProv[134]['OrigAbbr']='64';
+	aProv[134]['Abbr']='10061';
+	aProv[134]['Name']='NA';
+	aProv[135] = new Object();
+	aProv[135]['OrigAbbr']='65';
+	aProv[135]['Abbr']='10062';
+	aProv[135]['Name']='NA';
+	aProv[136] = new Object();
+	aProv[136]['OrigAbbr']='66';
+	aProv[136]['Abbr']='10063';
+	aProv[136]['Name']='NA';
+	aProv[137] = new Object();
+	aProv[137]['OrigAbbr']='67';
+	aProv[137]['Abbr']='10064';
+	aProv[137]['Name']='NA';
+	aProv[138] = new Object();
+	aProv[138]['OrigAbbr']='68';
+	aProv[138]['Abbr']='10065';
+	aProv[138]['Name']='NA';
+	aProv[139] = new Object();
+	aProv[139]['OrigAbbr']='69';
+	aProv[139]['Abbr']='10066';
+	aProv[139]['Name']='NA';
+	aProv[140] = new Object();
+	aProv[140]['OrigAbbr']='70';
+	aProv[140]['Abbr']='10067';
+	aProv[140]['Name']='NA';
+	aProv[141] = new Object();
+	aProv[141]['OrigAbbr']='71';
+	aProv[141]['Abbr']='10068';
+	aProv[141]['Name']='NA';
+	aProv[142] = new Object();
+	aProv[142]['OrigAbbr']='72';
+	aProv[142]['Abbr']='10069';
+	aProv[142]['Name']='NA';
+	aProv[143] = new Object();
+	aProv[143]['OrigAbbr']='73';
+	aProv[143]['Abbr']='10070';
+	aProv[143]['Name']='NA';
+	aProv[144] = new Object();
+	aProv[144]['OrigAbbr']='74';
+	aProv[144]['Abbr']='10071';
+	aProv[144]['Name']='NA';
+	aProv[145] = new Object();
+	aProv[145]['OrigAbbr']='75';
+	aProv[145]['Abbr']='10072';
+	aProv[145]['Name']='NA';
+	aProv[146] = new Object();
+	aProv[146]['OrigAbbr']='76';
+	aProv[146]['Abbr']='10073';
+	aProv[146]['Name']='NA';
+	aProv[147] = new Object();
+	aProv[147]['OrigAbbr']='77';
+	aProv[147]['Abbr']='10074';
+	aProv[147]['Name']='NA';
+	aProv[148] = new Object();
+	aProv[148]['OrigAbbr']='78';
+	aProv[148]['Abbr']='10075';
+	aProv[148]['Name']='NA';
+	aProv[149] = new Object();
+	aProv[149]['OrigAbbr']='79';
+	aProv[149]['Abbr']='10076';
+	aProv[149]['Name']='NA';
+	aProv[150] = new Object();
+	aProv[150]['OrigAbbr']='80';
+	aProv[150]['Abbr']='10077';
+	aProv[150]['Name']='NA';
+	aProv[151] = new Object();
+	aProv[151]['OrigAbbr']='81';
+	aProv[151]['Abbr']='10078';
+	aProv[151]['Name']='NA';
+	aProv[152] = new Object();
+	aProv[152]['OrigAbbr']='82';
+	aProv[152]['Abbr']='10079';
+	aProv[152]['Name']='NA';
+	aProv[153] = new Object();
+	aProv[153]['OrigAbbr']='83';
+	aProv[153]['Abbr']='10080';
+	aProv[153]['Name']='NA';
+	aProv[154] = new Object();
+	aProv[154]['OrigAbbr']='84';
+	aProv[154]['Abbr']='10081';
+	aProv[154]['Name']='NA';
+	aProv[155] = new Object();
+	aProv[155]['OrigAbbr']='85';
+	aProv[155]['Abbr']='10082';
+	aProv[155]['Name']='NA';
+	aProv[156] = new Object();
+	aProv[156]['OrigAbbr']='86';
+	aProv[156]['Abbr']='10083';
+	aProv[156]['Name']='NA';
+	aProv[157] = new Object();
+	aProv[157]['OrigAbbr']='87';
+	aProv[157]['Abbr']='10084';
+	aProv[157]['Name']='NA';
+	aProv[158] = new Object();
+	aProv[158]['OrigAbbr']='88';
+	aProv[158]['Abbr']='10085';
+	aProv[158]['Name']='NA';
+	aProv[159] = new Object();
+	aProv[159]['OrigAbbr']='89';
+	aProv[159]['Abbr']='10086';
+	aProv[159]['Name']='NA';
+	aProv[160] = new Object();
+	aProv[160]['OrigAbbr']='90';
+	aProv[160]['Abbr']='10087';
+	aProv[160]['Name']='NA';
+	aProv[161] = new Object();
+	aProv[161]['OrigAbbr']='91';
+	aProv[161]['Abbr']='10088';
+	aProv[161]['Name']='NA';
+	aProv[162] = new Object();
+	aProv[162]['OrigAbbr']='92';
+	aProv[162]['Abbr']='10089';
+	aProv[162]['Name']='NA';
+	aProv[163] = new Object();
+	aProv[163]['OrigAbbr']='93';
+	aProv[163]['Abbr']='10090';
+	aProv[163]['Name']='NA';
+	aProv[164] = new Object();
+	aProv[164]['OrigAbbr']='94';
+	aProv[164]['Abbr']='10091';
+	aProv[164]['Name']='NA';
+	aProv[165] = new Object();
+	aProv[165]['OrigAbbr']='95';
+	aProv[165]['Abbr']='10092';
+	aProv[165]['Name']='NA';
+	aProv[166] = new Object();
+	aProv[166]['OrigAbbr']='96';
+	aProv[166]['Abbr']='10093';
+	aProv[166]['Name']='NA';
+	aProv[167] = new Object();
+	aProv[167]['OrigAbbr']='97';
+	aProv[167]['Abbr']='10094';
+	aProv[167]['Name']='NA';
+	aProv[168] = new Object();
+	aProv[168]['OrigAbbr']='98';
+	aProv[168]['Abbr']='10095';
+	aProv[168]['Name']='NA';
+	aProv[169] = new Object();
+	aProv[169]['OrigAbbr']='99';
+	aProv[169]['Abbr']='10096';
+	aProv[169]['Name']='NA';
+	aProv[170] = new Object();
+	aProv[170]['OrigAbbr']='100';
+	aProv[170]['Abbr']='10097';
+	aProv[170]['Name']='NA';
+	aProv[171] = new Object();
+	aProv[171]['OrigAbbr']='101';
+	aProv[171]['Abbr']='10098';
+	aProv[171]['Name']='NA';
+	aProv[172] = new Object();
+	aProv[172]['OrigAbbr']='102';
+	aProv[172]['Abbr']='10099';
+	aProv[172]['Name']='NA';
+	aProv[173] = new Object();
+	aProv[173]['OrigAbbr']='103';
+	aProv[173]['Abbr']='10100';
+	aProv[173]['Name']='NA';
+	aProv[174] = new Object();
+	aProv[174]['OrigAbbr']='104';
+	aProv[174]['Abbr']='10101';
+	aProv[174]['Name']='NA';
+	aProv[175] = new Object();
+	aProv[175]['OrigAbbr']='105';
+	aProv[175]['Abbr']='10102';
+	aProv[175]['Name']='NA';
+	aProv[176] = new Object();
+	aProv[176]['OrigAbbr']='106';
+	aProv[176]['Abbr']='10103';
+	aProv[176]['Name']='NA';
+	aProv[177] = new Object();
+	aProv[177]['OrigAbbr']='107';
+	aProv[177]['Abbr']='10104';
+	aProv[177]['Name']='NA';
+	aProv[178] = new Object();
+	aProv[178]['OrigAbbr']='108';
+	aProv[178]['Abbr']='10105';
+	aProv[178]['Name']='NA';
+	aProv[179] = new Object();
+	aProv[179]['OrigAbbr']='109';
+	aProv[179]['Abbr']='10106';
+	aProv[179]['Name']='NA';
+	aProv[180] = new Object();
+	aProv[180]['OrigAbbr']='110';
+	aProv[180]['Abbr']='10107';
+	aProv[180]['Name']='NA';
+	aProv[181] = new Object();
+	aProv[181]['OrigAbbr']='111';
+	aProv[181]['Abbr']='10108';
+	aProv[181]['Name']='NA';
+	aProv[182] = new Object();
+	aProv[182]['OrigAbbr']='112';
+	aProv[182]['Abbr']='10109';
+	aProv[182]['Name']='NA';
+	aProv[183] = new Object();
+	aProv[183]['OrigAbbr']='113';
+	aProv[183]['Abbr']='10110';
+	aProv[183]['Name']='NA';
+	aProv[184] = new Object();
+	aProv[184]['OrigAbbr']='114';
+	aProv[184]['Abbr']='10111';
+	aProv[184]['Name']='NA';
+	aProv[185] = new Object();
+	aProv[185]['OrigAbbr']='115';
+	aProv[185]['Abbr']='10112';
+	aProv[185]['Name']='NA';
+	aProv[186] = new Object();
+	aProv[186]['OrigAbbr']='116';
+	aProv[186]['Abbr']='10113';
+	aProv[186]['Name']='NA';
+	aProv[187] = new Object();
+	aProv[187]['OrigAbbr']='117';
+	aProv[187]['Abbr']='10114';
+	aProv[187]['Name']='NA';
+	aProv[188] = new Object();
+	aProv[188]['OrigAbbr']='118';
+	aProv[188]['Abbr']='10115';
+	aProv[188]['Name']='NA';
+	aProv[189] = new Object();
+	aProv[189]['OrigAbbr']='119';
+	aProv[189]['Abbr']='10116';
+	aProv[189]['Name']='NA';
+	aProv[190] = new Object();
+	aProv[190]['OrigAbbr']='120';
+	aProv[190]['Abbr']='10117';
+	aProv[190]['Name']='NA';
+	aProv[191] = new Object();
+	aProv[191]['OrigAbbr']='121';
+	aProv[191]['Abbr']='10118';
+	aProv[191]['Name']='NA';
+	aProv[192] = new Object();
+	aProv[192]['OrigAbbr']='122';
+	aProv[192]['Abbr']='10119';
+	aProv[192]['Name']='NA';
+	aProv[193] = new Object();
+	aProv[193]['OrigAbbr']='123';
+	aProv[193]['Abbr']='10120';
+	aProv[193]['Name']='NA';
+	aProv[194] = new Object();
+	aProv[194]['OrigAbbr']='124';
+	aProv[194]['Abbr']='10121';
+	aProv[194]['Name']='NA';
+	aProv[195] = new Object();
+	aProv[195]['OrigAbbr']='125';
+	aProv[195]['Abbr']='10122';
+	aProv[195]['Name']='NA';
+	aProv[196] = new Object();
+	aProv[196]['OrigAbbr']='126';
+	aProv[196]['Abbr']='10123';
+	aProv[196]['Name']='NA';
+	aProv[197] = new Object();
+	aProv[197]['OrigAbbr']='127';
+	aProv[197]['Abbr']='10124';
+	aProv[197]['Name']='NA';
+	aProv[198] = new Object();
+	aProv[198]['OrigAbbr']='128';
+	aProv[198]['Abbr']='10125';
+	aProv[198]['Name']='NA';
+	aProv[199] = new Object();
+	aProv[199]['OrigAbbr']='129';
+	aProv[199]['Abbr']='10126';
+	aProv[199]['Name']='NA';
+	aProv[200] = new Object();
+	aProv[200]['OrigAbbr']='130';
+	aProv[200]['Abbr']='10127';
+	aProv[200]['Name']='NA';
+	aProv[201] = new Object();
+	aProv[201]['OrigAbbr']='131';
+	aProv[201]['Abbr']='10128';
+	aProv[201]['Name']='NA';
+	aProv[202] = new Object();
+	aProv[202]['OrigAbbr']='132';
+	aProv[202]['Abbr']='10129';
+	aProv[202]['Name']='NA';
+	aProv[203] = new Object();
+	aProv[203]['OrigAbbr']='133';
+	aProv[203]['Abbr']='10130';
+	aProv[203]['Name']='NA';
+	aProv[204] = new Object();
+	aProv[204]['OrigAbbr']='134';
+	aProv[204]['Abbr']='10131';
+	aProv[204]['Name']='NA';
+	aProv[205] = new Object();
+	aProv[205]['OrigAbbr']='135';
+	aProv[205]['Abbr']='10132';
+	aProv[205]['Name']='NA';
+	aProv[206] = new Object();
+	aProv[206]['OrigAbbr']='136';
+	aProv[206]['Abbr']='10133';
+	aProv[206]['Name']='NA';
+	aProv[207] = new Object();
+	aProv[207]['OrigAbbr']='137';
+	aProv[207]['Abbr']='10134';
+	aProv[207]['Name']='NA';
+	aProv[208] = new Object();
+	aProv[208]['OrigAbbr']='138';
+	aProv[208]['Abbr']='10135';
+	aProv[208]['Name']='NA';
+	aProv[209] = new Object();
+	aProv[209]['OrigAbbr']='139';
+	aProv[209]['Abbr']='10136';
+	aProv[209]['Name']='NA';
+	aProv[210] = new Object();
+	aProv[210]['OrigAbbr']='140';
+	aProv[210]['Abbr']='10137';
+	aProv[210]['Name']='NA';
+	aProv[211] = new Object();
+	aProv[211]['OrigAbbr']='141';
+	aProv[211]['Abbr']='10138';
+	aProv[211]['Name']='NA';
+	aProv[212] = new Object();
+	aProv[212]['OrigAbbr']='142';
+	aProv[212]['Abbr']='10139';
+	aProv[212]['Name']='NA';
+	aProv[213] = new Object();
+	aProv[213]['OrigAbbr']='143';
+	aProv[213]['Abbr']='10140';
+	aProv[213]['Name']='NA';
+	aProv[214] = new Object();
+	aProv[214]['OrigAbbr']='144';
+	aProv[214]['Abbr']='10141';
+	aProv[214]['Name']='NA';
+	aProv[215] = new Object();
+	aProv[215]['OrigAbbr']='145';
+	aProv[215]['Abbr']='10142';
+	aProv[215]['Name']='NA';
+	aProv[216] = new Object();
+	aProv[216]['OrigAbbr']='146';
+	aProv[216]['Abbr']='10143';
+	aProv[216]['Name']='NA';
+	aProv[217] = new Object();
+	aProv[217]['OrigAbbr']='147';
+	aProv[217]['Abbr']='10144';
+	aProv[217]['Name']='NA';
+	aProv[218] = new Object();
+	aProv[218]['OrigAbbr']='148';
+	aProv[218]['Abbr']='10145';
+	aProv[218]['Name']='NA';
+	aProv[219] = new Object();
+	aProv[219]['OrigAbbr']='149';
+	aProv[219]['Abbr']='10146';
+	aProv[219]['Name']='NA';
+	aProv[220] = new Object();
+	aProv[220]['OrigAbbr']='150';
+	aProv[220]['Abbr']='10147';
+	aProv[220]['Name']='NA';
+	aProv[221] = new Object();
+	aProv[221]['OrigAbbr']='151';
+	aProv[221]['Abbr']='10148';
+	aProv[221]['Name']='NA';
+	aProv[222] = new Object();
+	aProv[222]['OrigAbbr']='152';
+	aProv[222]['Abbr']='10149';
+	aProv[222]['Name']='NA';
+	aProv[223] = new Object();
+	aProv[223]['OrigAbbr']='153';
+	aProv[223]['Abbr']='10150';
+	aProv[223]['Name']='NA';
+	aProv[224] = new Object();
+	aProv[224]['OrigAbbr']='154';
+	aProv[224]['Abbr']='10151';
+	aProv[224]['Name']='NA';
+	aProv[225] = new Object();
+	aProv[225]['OrigAbbr']='155';
+	aProv[225]['Abbr']='10152';
+	aProv[225]['Name']='NA';
+	aProv[226] = new Object();
+	aProv[226]['OrigAbbr']='156';
+	aProv[226]['Abbr']='10153';
+	aProv[226]['Name']='NA';
+	aProv[227] = new Object();
+	aProv[227]['OrigAbbr']='157';
+	aProv[227]['Abbr']='10154';
+	aProv[227]['Name']='NA';
+	aProv[228] = new Object();
+	aProv[228]['OrigAbbr']='158';
+	aProv[228]['Abbr']='10155';
+	aProv[228]['Name']='NA';
+	aProv[229] = new Object();
+	aProv[229]['OrigAbbr']='159';
+	aProv[229]['Abbr']='10156';
+	aProv[229]['Name']='NA';
+	aProv[230] = new Object();
+	aProv[230]['OrigAbbr']='160';
+	aProv[230]['Abbr']='10157';
+	aProv[230]['Name']='NA';
+	aProv[231] = new Object();
+	aProv[231]['OrigAbbr']='161';
+	aProv[231]['Abbr']='10158';
+	aProv[231]['Name']='NA';
+	aProv[232] = new Object();
+	aProv[232]['OrigAbbr']='162';
+	aProv[232]['Abbr']='10159';
+	aProv[232]['Name']='NA';
+	aProv[233] = new Object();
+	aProv[233]['OrigAbbr']='163';
+	aProv[233]['Abbr']='10160';
+	aProv[233]['Name']='NA';
+	aProv[234] = new Object();
+	aProv[234]['OrigAbbr']='164';
+	aProv[234]['Abbr']='10161';
+	aProv[234]['Name']='NA';
+	aProv[235] = new Object();
+	aProv[235]['OrigAbbr']='165';
+	aProv[235]['Abbr']='10162';
+	aProv[235]['Name']='NA';
+	aProv[236] = new Object();
+	aProv[236]['OrigAbbr']='166';
+	aProv[236]['Abbr']='10163';
+	aProv[236]['Name']='NA';
+	aProv[237] = new Object();
+	aProv[237]['OrigAbbr']='167';
+	aProv[237]['Abbr']='10164';
+	aProv[237]['Name']='NA';
+	aProv[238] = new Object();
+	aProv[238]['OrigAbbr']='168';
+	aProv[238]['Abbr']='10165';
+	aProv[238]['Name']='NA';
+	aProv[239] = new Object();
+	aProv[239]['OrigAbbr']='169';
+	aProv[239]['Abbr']='10166';
+	aProv[239]['Name']='NA';
+	aProv[240] = new Object();
+	aProv[240]['OrigAbbr']='170';
+	aProv[240]['Abbr']='10167';
+	aProv[240]['Name']='NA';
+	aProv[241] = new Object();
+	aProv[241]['OrigAbbr']='171';
+	aProv[241]['Abbr']='10168';
+	aProv[241]['Name']='NA';
+	aProv[242] = new Object();
+	aProv[242]['OrigAbbr']='172';
+	aProv[242]['Abbr']='10169';
+	aProv[242]['Name']='NA';
+	aProv[243] = new Object();
+	aProv[243]['OrigAbbr']='173';
+	aProv[243]['Abbr']='10170';
+	aProv[243]['Name']='NA';
+	aProv[244] = new Object();
+	aProv[244]['OrigAbbr']='174';
+	aProv[244]['Abbr']='10171';
+	aProv[244]['Name']='NA';
+	aProv[245] = new Object();
+	aProv[245]['OrigAbbr']='175';
+	aProv[245]['Abbr']='10172';
+	aProv[245]['Name']='NA';
+	aProv[246] = new Object();
+	aProv[246]['OrigAbbr']='176';
+	aProv[246]['Abbr']='10173';
+	aProv[246]['Name']='NA';
+	aProv[247] = new Object();
+	aProv[247]['OrigAbbr']='177';
+	aProv[247]['Abbr']='10174';
+	aProv[247]['Name']='NA';
+	aProv[248] = new Object();
+	aProv[248]['OrigAbbr']='178';
+	aProv[248]['Abbr']='10175';
+	aProv[248]['Name']='NA';
+	aProv[249] = new Object();
+	aProv[249]['OrigAbbr']='179';
+	aProv[249]['Abbr']='10176';
+	aProv[249]['Name']='NA';
+	aProv[250] = new Object();
+	aProv[250]['OrigAbbr']='180';
+	aProv[250]['Abbr']='10177';
+	aProv[250]['Name']='NA';
+	aProv[251] = new Object();
+	aProv[251]['OrigAbbr']='181';
+	aProv[251]['Abbr']='10178';
+	aProv[251]['Name']='NA';
+	aProv[252] = new Object();
+	aProv[252]['OrigAbbr']='182';
+	aProv[252]['Abbr']='10179';
+	aProv[252]['Name']='NA';
+	aProv[253] = new Object();
+	aProv[253]['OrigAbbr']='183';
+	aProv[253]['Abbr']='10180';
+	aProv[253]['Name']='NA';
+	aProv[254] = new Object();
+	aProv[254]['OrigAbbr']='184';
+	aProv[254]['Abbr']='10181';
+	aProv[254]['Name']='NA';
+	aProv[255] = new Object();
+	aProv[255]['OrigAbbr']='185';
+	aProv[255]['Abbr']='10182';
+	aProv[255]['Name']='NA';
+	aProv[256] = new Object();
+	aProv[256]['OrigAbbr']='186';
+	aProv[256]['Abbr']='10183';
+	aProv[256]['Name']='NA';
+	aProv[257] = new Object();
+	aProv[257]['OrigAbbr']='187';
+	aProv[257]['Abbr']='10184';
+	aProv[257]['Name']='NA';
+	aProv[258] = new Object();
+	aProv[258]['OrigAbbr']='188';
+	aProv[258]['Abbr']='10185';
+	aProv[258]['Name']='NA';
+	aProv[259] = new Object();
+	aProv[259]['OrigAbbr']='189';
+	aProv[259]['Abbr']='10186';
+	aProv[259]['Name']='NA';
+	aProv[260] = new Object();
+	aProv[260]['OrigAbbr']='190';
+	aProv[260]['Abbr']='10187';
+	aProv[260]['Name']='NA';
+	aProv[261] = new Object();
+	aProv[261]['OrigAbbr']='191';
+	aProv[261]['Abbr']='10188';
+	aProv[261]['Name']='NA';
+	aProv[262] = new Object();
+	aProv[262]['OrigAbbr']='192';
+	aProv[262]['Abbr']='10189';
+	aProv[262]['Name']='NA';
+	aProv[263] = new Object();
+	aProv[263]['OrigAbbr']='193';
+	aProv[263]['Abbr']='10190';
+	aProv[263]['Name']='NA';
+	aProv[264] = new Object();
+	aProv[264]['OrigAbbr']='195';
+	aProv[264]['Abbr']='10191';
+	aProv[264]['Name']='NA';
+	aProv[265] = new Object();
+	aProv[265]['OrigAbbr']='196';
+	aProv[265]['Abbr']='10192';
+	aProv[265]['Name']='NA';
+	aProv[266] = new Object();
+	aProv[266]['OrigAbbr']='197';
+	aProv[266]['Abbr']='10193';
+	aProv[266]['Name']='NA';
+	aProv[267] = new Object();
+	aProv[267]['OrigAbbr']='198';
+	aProv[267]['Abbr']='10194';
+	aProv[267]['Name']='NA';
+	aProv[268] = new Object();
+	aProv[268]['OrigAbbr']='199';
+	aProv[268]['Abbr']='10195';
+	aProv[268]['Name']='NA';
+	aProv[269] = new Object();
+	aProv[269]['OrigAbbr']='200';
+	aProv[269]['Abbr']='10196';
+	aProv[269]['Name']='NA';
+	aProv[270] = new Object();
+	aProv[270]['OrigAbbr']='201';
+	aProv[270]['Abbr']='10197';
+	aProv[270]['Name']='NA';
+	aProv[271] = new Object();
+	aProv[271]['OrigAbbr']='202';
+	aProv[271]['Abbr']='10198';
+	aProv[271]['Name']='NA';
+	aProv[272] = new Object();
+	aProv[272]['OrigAbbr']='203';
+	aProv[272]['Abbr']='10199';
+	aProv[272]['Name']='NA';
+	aProv[273] = new Object();
+	aProv[273]['OrigAbbr']='204';
+	aProv[273]['Abbr']='10200';
+	aProv[273]['Name']='NA';
+	aProv[274] = new Object();
+	aProv[274]['OrigAbbr']='205';
+	aProv[274]['Abbr']='10201';
+	aProv[274]['Name']='NA';
+	aProv[275] = new Object();
+	aProv[275]['OrigAbbr']='206';
+	aProv[275]['Abbr']='10202';
+	aProv[275]['Name']='NA';
+	aProv[276] = new Object();
+	aProv[276]['OrigAbbr']='207';
+	aProv[276]['Abbr']='10203';
+	aProv[276]['Name']='NA';
+	aProv[277] = new Object();
+	aProv[277]['OrigAbbr']='208';
+	aProv[277]['Abbr']='10204';
+	aProv[277]['Name']='NA';
+	aProv[278] = new Object();
+	aProv[278]['OrigAbbr']='209';
+	aProv[278]['Abbr']='10205';
+	aProv[278]['Name']='NA';
+	aProv[279] = new Object();
+	aProv[279]['OrigAbbr']='210';
+	aProv[279]['Abbr']='10206';
+	aProv[279]['Name']='NA';
+	aProv[280] = new Object();
+	aProv[280]['OrigAbbr']='211';
+	aProv[280]['Abbr']='10207';
+	aProv[280]['Name']='NA';
+	aProv[281] = new Object();
+	aProv[281]['OrigAbbr']='212';
+	aProv[281]['Abbr']='10208';
+	aProv[281]['Name']='NA';
+	aProv[282] = new Object();
+	aProv[282]['OrigAbbr']='213';
+	aProv[282]['Abbr']='10209';
+	aProv[282]['Name']='NA';
+	aProv[283] = new Object();
+	aProv[283]['OrigAbbr']='214';
+	aProv[283]['Abbr']='10210';
+	aProv[283]['Name']='NA';
+	aProv[284] = new Object();
+	aProv[284]['OrigAbbr']='215';
+	aProv[284]['Abbr']='10211';
+	aProv[284]['Name']='NA';
+	aProv[285] = new Object();
+	aProv[285]['OrigAbbr']='216';
+	aProv[285]['Abbr']='10212';
+	aProv[285]['Name']='NA';
+	aProv[286] = new Object();
+	aProv[286]['OrigAbbr']='217';
+	aProv[286]['Abbr']='10213';
+	aProv[286]['Name']='NA';
+	aProv[287] = new Object();
+	aProv[287]['OrigAbbr']='218';
+	aProv[287]['Abbr']='10214';
+	aProv[287]['Name']='NA';
+	aProv[288] = new Object();
+	aProv[288]['OrigAbbr']='219';
+	aProv[288]['Abbr']='10215';
+	aProv[288]['Name']='NA';
+	aProv[289] = new Object();
+	aProv[289]['OrigAbbr']='220';
+	aProv[289]['Abbr']='10216';
+	aProv[289]['Name']='NA';
+	aProv[290] = new Object();
+	aProv[290]['OrigAbbr']='221';
+	aProv[290]['Abbr']='10217';
+	aProv[290]['Name']='NA';
+	aProv[291] = new Object();
+	aProv[291]['OrigAbbr']='222';
+	aProv[291]['Abbr']='10218';
+	aProv[291]['Name']='NA';
+	aProv[292] = new Object();
+	aProv[292]['OrigAbbr']='223';
+	aProv[292]['Abbr']='10219';
+	aProv[292]['Name']='NA';
+	aProv[293] = new Object();
+	aProv[293]['OrigAbbr']='224';
+	aProv[293]['Abbr']='10220';
+	aProv[293]['Name']='NA';
+	aProv[294] = new Object();
+	aProv[294]['OrigAbbr']='225';
+	aProv[294]['Abbr']='10221';
+	aProv[294]['Name']='NA';
+	aProv[295] = new Object();
+	aProv[295]['OrigAbbr']='226';
+	aProv[295]['Abbr']='10222';
+	aProv[295]['Name']='NA';
+	aProv[296] = new Object();
+	aProv[296]['OrigAbbr']='228';
+	aProv[296]['Abbr']='10224';
+	aProv[296]['Name']='NA';
+	aProv[297] = new Object();
+	aProv[297]['OrigAbbr']='229';
+	aProv[297]['Abbr']='10225';
+	aProv[297]['Name']='NA';
+	aProv[298] = new Object();
+	aProv[298]['OrigAbbr']='230';
+	aProv[298]['Abbr']='10226';
+	aProv[298]['Name']='NA';
+	aProv[299] = new Object();
+	aProv[299]['OrigAbbr']='231';
+	aProv[299]['Abbr']='10227';
+	aProv[299]['Name']='NA';
+	aProv[300] = new Object();
+	aProv[300]['OrigAbbr']='232';
+	aProv[300]['Abbr']='10228';
+	aProv[300]['Name']='NA';
+	aProv[301] = new Object();
+	aProv[301]['OrigAbbr']='233';
+	aProv[301]['Abbr']='10229';
+	aProv[301]['Name']='NA';
+	aProv[302] = new Object();
+	aProv[302]['OrigAbbr']='234';
+	aProv[302]['Abbr']='10230';
+	aProv[302]['Name']='NA';
+	aProv[303] = new Object();
+	aProv[303]['OrigAbbr']='235';
+	aProv[303]['Abbr']='10231';
+	aProv[303]['Name']='NA';
+	aProv[304] = new Object();
+	aProv[304]['OrigAbbr']='236';
+	aProv[304]['Abbr']='10232';
+	aProv[304]['Name']='NA';
+	aProv[305] = new Object();
+	aProv[305]['OrigAbbr']='237';
+	aProv[305]['Abbr']='10233';
+	aProv[305]['Name']='NA';
+	aProv[306] = new Object();
+	aProv[306]['OrigAbbr']='238';
+	aProv[306]['Abbr']='10234';
+	aProv[306]['Name']='NA';
+	aProv[307] = new Object();
+	aProv[307]['OrigAbbr']='239';
+	aProv[307]['Abbr']='10235';
+	aProv[307]['Name']='NA';
+	aProv[308] = new Object();
+	aProv[308]['OrigAbbr']='240';
+	aProv[308]['Abbr']='10236';
+	aProv[308]['Name']='NA';
+	aProv[309] = new Object();
+	aProv[309]['OrigAbbr']='241';
+	aProv[309]['Abbr']='10237';
+	aProv[309]['Name']='NA';
+	aProv[310] = new Object();
+	aProv[310]['OrigAbbr']='242';
+	aProv[310]['Abbr']='10238';
+	aProv[310]['Name']='NA';
+	aProv[311] = new Object();
+	aProv[311]['OrigAbbr']='246';
+	aProv[311]['Abbr']='10239';
+	aProv[311]['Name']='NA';
+	aProv[312] = new Object();
+	aProv[312]['OrigAbbr']='234';
+	aProv[312]['Abbr']='10282';
+	aProv[312]['Name']='Nam Dinh';
+	aProv[313] = new Object();
+	aProv[313]['OrigAbbr']='2';
+	aProv[313]['Abbr']='10332';
+	aProv[313]['Name']='Nebraska';
+	aProv[314] = new Object();
+	aProv[314]['OrigAbbr']='2';
+	aProv[314]['Abbr']='10333';
+	aProv[314]['Name']='Nevada';
+	aProv[315] = new Object();
+	aProv[315]['OrigAbbr']='1';
+	aProv[315]['Abbr']='7';
+	aProv[315]['Name']='New Brunswick';
+	aProv[316] = new Object();
+	aProv[316]['OrigAbbr']='2';
+	aProv[316]['Abbr']='10334';
+	aProv[316]['Name']='New Hampshire';
+	aProv[317] = new Object();
+	aProv[317]['OrigAbbr']='2';
+	aProv[317]['Abbr']='10335';
+	aProv[317]['Name']='New Jersey';
+	aProv[318] = new Object();
+	aProv[318]['OrigAbbr']='2';
+	aProv[318]['Abbr']='10336';
+	aProv[318]['Name']='New Mexico';
+	aProv[319] = new Object();
+	aProv[319]['OrigAbbr']='2';
+	aProv[319]['Abbr']='10337';
+	aProv[319]['Name']='New York';
+	aProv[320] = new Object();
+	aProv[320]['OrigAbbr']='1';
+	aProv[320]['Abbr']='10';
+	aProv[320]['Name']='Newfoundland';
+	aProv[321] = new Object();
+	aProv[321]['OrigAbbr']='234';
+	aProv[321]['Abbr']='10283';
+	aProv[321]['Name']='Nghe An';
+	aProv[322] = new Object();
+	aProv[322]['OrigAbbr']='234';
+	aProv[322]['Abbr']='10284';
+	aProv[322]['Name']='Ninh Binh';
+	aProv[323] = new Object();
+	aProv[323]['OrigAbbr']='234';
+	aProv[323]['Abbr']='10285';
+	aProv[323]['Name']='Ninh Thuan';
+	aProv[324] = new Object();
+	aProv[324]['OrigAbbr']='2';
+	aProv[324]['Abbr']='10338';
+	aProv[324]['Name']='North Carolina';
+	aProv[325] = new Object();
+	aProv[325]['OrigAbbr']='2';
+	aProv[325]['Abbr']='10339';
+	aProv[325]['Name']='North Dakota';
+	aProv[326] = new Object();
+	aProv[326]['OrigAbbr']='1';
+	aProv[326]['Abbr']='12';
+	aProv[326]['Name']='Northwest Territories';
+	aProv[327] = new Object();
+	aProv[327]['OrigAbbr']='1';
+	aProv[327]['Abbr']='9';
+	aProv[327]['Name']='Nova Scotia';
+	aProv[328] = new Object();
+	aProv[328]['OrigAbbr']='1';
+	aProv[328]['Abbr']='13';
+	aProv[328]['Name']='Nunavut';
+	aProv[329] = new Object();
+	aProv[329]['OrigAbbr']='2';
+	aProv[329]['Abbr']='10340';
+	aProv[329]['Name']='Ohio';
+	aProv[330] = new Object();
+	aProv[330]['OrigAbbr']='2';
+	aProv[330]['Abbr']='10341';
+	aProv[330]['Name']='Oklahoma';
+	aProv[331] = new Object();
+	aProv[331]['OrigAbbr']='1';
+	aProv[331]['Abbr']='5';
+	aProv[331]['Name']='Ontario';
+	aProv[332] = new Object();
+	aProv[332]['OrigAbbr']='2';
+	aProv[332]['Abbr']='10342';
+	aProv[332]['Name']='Oregon';
+	aProv[333] = new Object();
+	aProv[333]['OrigAbbr']='2';
+	aProv[333]['Abbr']='10343';
+	aProv[333]['Name']='Pennsylvania';
+	aProv[334] = new Object();
+	aProv[334]['OrigAbbr']='234';
+	aProv[334]['Abbr']='10286';
+	aProv[334]['Name']='Phu Tho';
+	aProv[335] = new Object();
+	aProv[335]['OrigAbbr']='234';
+	aProv[335]['Abbr']='10287';
+	aProv[335]['Name']='Phu Yen';
+	aProv[336] = new Object();
+	aProv[336]['OrigAbbr']='1';
+	aProv[336]['Abbr']='8';
+	aProv[336]['Name']='Prince Edward Island';
+	aProv[337] = new Object();
+	aProv[337]['OrigAbbr']='234';
+	aProv[337]['Abbr']='10288';
+	aProv[337]['Name']='Quang Binh';
+	aProv[338] = new Object();
+	aProv[338]['OrigAbbr']='234';
+	aProv[338]['Abbr']='10289';
+	aProv[338]['Name']='Quang Nam';
+	aProv[339] = new Object();
+	aProv[339]['OrigAbbr']='234';
+	aProv[339]['Abbr']='10290';
+	aProv[339]['Name']='Quang Ngai';
+	aProv[340] = new Object();
+	aProv[340]['OrigAbbr']='234';
+	aProv[340]['Abbr']='10291';
+	aProv[340]['Name']='Quang Ninh';
+	aProv[341] = new Object();
+	aProv[341]['OrigAbbr']='234';
+	aProv[341]['Abbr']='10292';
+	aProv[341]['Name']='Quang Tri';
+	aProv[342] = new Object();
+	aProv[342]['OrigAbbr']='1';
+	aProv[342]['Abbr']='6';
+	aProv[342]['Name']='Quebec';
+	aProv[343] = new Object();
+	aProv[343]['OrigAbbr']='2';
+	aProv[343]['Abbr']='10344';
+	aProv[343]['Name']='Rhode Island';
+	aProv[344] = new Object();
+	aProv[344]['OrigAbbr']='1';
+	aProv[344]['Abbr']='3';
+	aProv[344]['Name']='Saskatchewan';
+	aProv[345] = new Object();
+	aProv[345]['OrigAbbr']='234';
+	aProv[345]['Abbr']='10293';
+	aProv[345]['Name']='Soc Trang';
+	aProv[346] = new Object();
+	aProv[346]['OrigAbbr']='234';
+	aProv[346]['Abbr']='10294';
+	aProv[346]['Name']='Son La';
+	aProv[347] = new Object();
+	aProv[347]['OrigAbbr']='2';
+	aProv[347]['Abbr']='10345';
+	aProv[347]['Name']='South Carolina';
+	aProv[348] = new Object();
+	aProv[348]['OrigAbbr']='2';
+	aProv[348]['Abbr']='10346';
+	aProv[348]['Name']='South Dakota';
+	aProv[349] = new Object();
+	aProv[349]['OrigAbbr']='234';
+	aProv[349]['Abbr']='10295';
+	aProv[349]['Name']='Tay Ninh';
+	aProv[350] = new Object();
+	aProv[350]['OrigAbbr']='2';
+	aProv[350]['Abbr']='10347';
+	aProv[350]['Name']='Tennessee';
+	aProv[351] = new Object();
+	aProv[351]['OrigAbbr']='2';
+	aProv[351]['Abbr']='10348';
+	aProv[351]['Name']='Texas';
+	aProv[352] = new Object();
+	aProv[352]['OrigAbbr']='234';
+	aProv[352]['Abbr']='10296';
+	aProv[352]['Name']='Thai Binh';
+	aProv[353] = new Object();
+	aProv[353]['OrigAbbr']='234';
+	aProv[353]['Abbr']='10297';
+	aProv[353]['Name']='Thai Nguyen';
+	aProv[354] = new Object();
+	aProv[354]['OrigAbbr']='234';
+	aProv[354]['Abbr']='10298';
+	aProv[354]['Name']='Thanh Hoa';
+	aProv[355] = new Object();
+	aProv[355]['OrigAbbr']='234';
+	aProv[355]['Abbr']='10299';
+	aProv[355]['Name']='Tien Giang';
+	aProv[356] = new Object();
+	aProv[356]['OrigAbbr']='234';
+	aProv[356]['Abbr']='10300';
+	aProv[356]['Name']='Tra Vinh';
+	aProv[357] = new Object();
+	aProv[357]['OrigAbbr']='234';
+	aProv[357]['Abbr']='10301';
+	aProv[357]['Name']='Tuyen Quang';
+	aProv[358] = new Object();
+	aProv[358]['OrigAbbr']='2';
+	aProv[358]['Abbr']='10349';
+	aProv[358]['Name']='Utah';
+	aProv[359] = new Object();
+	aProv[359]['OrigAbbr']='2';
+	aProv[359]['Abbr']='10350';
+	aProv[359]['Name']='Vermont';
+	aProv[360] = new Object();
+	aProv[360]['OrigAbbr']='234';
+	aProv[360]['Abbr']='10302';
+	aProv[360]['Name']='Vinh Long';
+	aProv[361] = new Object();
+	aProv[361]['OrigAbbr']='234';
+	aProv[361]['Abbr']='10303';
+	aProv[361]['Name']='Vinh Phuc';
+	aProv[362] = new Object();
+	aProv[362]['OrigAbbr']='2';
+	aProv[362]['Abbr']='10351';
+	aProv[362]['Name']='Virginia';
+	aProv[363] = new Object();
+	aProv[363]['OrigAbbr']='2';
+	aProv[363]['Abbr']='10352';
+	aProv[363]['Name']='Washington';
+	aProv[364] = new Object();
+	aProv[364]['OrigAbbr']='2';
+	aProv[364]['Abbr']='10353';
+	aProv[364]['Name']='West Virginia';
+	aProv[365] = new Object();
+	aProv[365]['OrigAbbr']='2';
+	aProv[365]['Abbr']='10354';
+	aProv[365]['Name']='Wisconsin';
+	aProv[366] = new Object();
+	aProv[366]['OrigAbbr']='2';
+	aProv[366]['Abbr']='10355';
+	aProv[366]['Name']='Wyoming';
+	aProv[367] = new Object();
+	aProv[367]['OrigAbbr']='234';
+	aProv[367]['Abbr']='10304';
+	aProv[367]['Name']='Yen Bai';
+	aProv[368] = new Object();
+	aProv[368]['OrigAbbr']='1';
+	aProv[368]['Abbr']='11';
+	aProv[368]['Name']='Yukon Territory';
+                                    </script>
+                                    <script language="JavaScript" type="text/javascript">
+$(document).ready(function() {
+
+}); </script>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-right">Số điện thoại di động<div style="color: red; display: inline;"> (*)</div></td>
+                            <td>
+
+                                <span class="mobileNumber">
+                                    <div class="intl-tel-input allow-dropdown separate-dial-code iti-sdc-3">
+                                        <div class="flag-container"> </div>
+
+                                        <input name="phone" id="txtPax1_Phone2" class="FormValue" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" id="phone" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại." pattern="\d{10,11}" required="" style="width: 350px;" />
+                                    </div>
+                                </span>
+                            </td>
+                        </tr>
+
+
+
+
+
+
+
+
+
+                        
+
+                        
+
+                        <tr>
+                            <td class="text-right">Email<div style="color: red; display: inline;"> (*)</div></td>
+                            <td>
+                                <input name="email" class="form-control" id="email" value="" type="email" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Email bắt buộc" placeholder="nguyenvana@gmail.com" title="Vui lòng nhập email." pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,4}$" required="" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-right">Địa chỉ</td>
+                            <td>
+                                <textarea name="address" class="form-control" rows="3" style="padding: 10px; width: 328px;"></textarea>
+                            </td>
+                        </tr>
+
+                        <tr><td></td><td><label><input id="xuathoadon-toggle" type="checkbox" onclick="checkThue2()" /> Tôi muốn xuất hóa đơn </label></td></tr>
+                    </table>
+                    <link rel="stylesheet" href="javascript/intlTelInput/intlTelInput.css">
+                    <script src="javascript/intlTelInput/intlTelInput.js"></script>
+                    <script src="javascript/intlTelInput/ISOCtry.js"></script>
+
+                    <style>
+                        .FormValue {
+                            padding: 6px 6px 7px;
+                        }
+                    </style>
+
+                    <div id="xuathoadon" class="an">
+                        <table class="table1">
+                            <tr><td class="text-right">Mã số thuế<div style="color: red; display: inline;"> (*)</div></td><td><input id="company-taxid" name="company-taxid" type="text" class="form-control" /></td></tr>
+                            <tr><td class="text-right">Tên công ty<div style="color: red; display: inline;"> (*)</div></td><td><input id="company-name" name="company-name" type="text" class="form-control" /></td></tr>
+                            <tr><td class="text-right">Địa chỉ công ty<div style="color: red; display: inline;"> (*)</div></td><td><textarea id="company-address" name="company-address" class="form-control" rows="3" placeholder="Vui lòng nhập địa chỉ công ty của bạn"></textarea></td></tr>
+                            <tr><td class="text-right">Địa chỉ nhận hóa đơn</td><td><textarea id="company-address-2" name="company-address-2" class="form-control" rows="3" placeholder="Chúng tôi sẽ gửi hóa đơn đến địa chỉ này"></textarea></td></tr>
+                        </table>
+                    </div>
+
+
+
+
+                    <style>
+                        .table1b tr td {
+                            padding: 10px 3px;
+                            vertical-align: top;
+                        }
+
+                        .table1b input, .table1b select, .table1b textarea {
+                            margin-top: 4px;
+                        }
+                    </style>
+
+
+                    <h4 class="head-title1">
+                        2. NHẬP Thông tin Hành khách <i style="text-transform: lowercase ! important; color: #525759;font-size: 14px;font-style: normal;font-weight: normal;">(Vui lòng nhập tên không dấu)</i>
+                    </h4>
+                    <table class="table1b" style="width: 100%;">
+                        <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Người lớn 1  </div>	</td>	</tr>
+                        <tr style="background: whitesmoke none repeat scroll 0px 0px; border-top: 1px solid rgb(0, 99, 152);">
+                            <td style="width: 200px;">
+                                <span>Giới tính<div style="color: red; display: inline;"> (*)</div></span> </br>
+                                <select name="passenger_sex" style=" ">
+                                    <option value="1">Ông</option>
+                                    <option value="0">Bà</option>
+                                </select>
+                            </td>
+                            <td style="width: 310px;">
+                                <span>Họ tên<div style="color: red; display: inline;"> (*)</div></span> </br>
+                                <input placeholder="Nguyen Van A" id="passenger0" name="passenger[0]" class="passenger_name" type="text" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" title="Vui lòng nhập họ và tên." pattern=".{6,}" required="" />
+
+                            </td>
+                            <td>
+                                <span>Ngày sinh</span> </br>
+                                <input name="passenger_birthday" type="text" class="form-controlxxx input-smxxx adult_birthday" placeholder="28/01/1970" style="padding: 6px 1px 7px 11px;" />
+                            </td>
+                        </tr>
+
+                        <tr style="background: whitesmoke none repeat scroll 0px 0px;">
+
+                            <td style="width: 150px;">
+                                <span>Số hộ chiếu / CMND</span> </br>
+                                <input name="passenger_pass" type="text" class="form-controlx input-sm passenger_pass" placeholder="B9887544" style="padding: 6px;" />
+                            </td>
+                            <td style="width: 310px;">
+                                <span>Ngày cấp</span> </br>
+                                <input name="passenger_datepassdate" type="text" class="form-controlx input-sm passenger_datepassdate" placeholder="20/10/2018" style="padding: 6px;" />
+                            </td>
+                            <td>
+                                <span>Quốc tịch</span> </br>
+                                <input name="passenger_quoctich" type="text" class="form-controlx input-sm passenger_quoctich" placeholder="VIET NAM" style="margin-bottom: 0px; padding: 6px;" />
+                            </td>
+
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+
+                    </table>
+
+
+                    <style>
+                        .addition-bag select {
+                            -moz-appearance: none;
+                            background-image: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"12\" height=\"6\" viewBox=\"0 0 12 6\"><polygon points=\"0,0 12,0 6,6\" style=\"fill: rgb(45, 45, 45)\"></polygon></svg>");
+                            background-position: right 5px center;
+                            background-repeat: no-repeat;
+                            background-size: 12px 6px;
+                            border: 1px solid #666;
+                            padding: 2px 20px 5px 5px;
+                            position: relative;
+                        }
+
+
+                        .customer-information .addition-bag {
+                            display: block;
+                        }
+
+                        .group-flight-info .row-flight-info .LRow-flight-info::after {
+                            content: ":";
+                            position: absolute;
+                            right: 10px;
+                            top: 6px;
+                        }
+
+                        .group-flight-info .row-flight-info .LRow-flight-info {
+                            display: table-cell;
+                            font-size: 14px;
+                            font-weight: bold;
+                            line-height: 17px;
+                            padding: 6px 0 7px;
+                            position: relative;
+                            width: 180px;
+                        }
+
+                        .group-flight-info .row-flight-info .RRow-flight-info {
+                            display: table-cell;
+                            font-size: 14px;
+                            line-height: 17px;
+                            padding: 6px 0 8px 10px;
+                        }
+
+                        .box-template {
+                            margin-top: 20px;
+                        }
+
+                            .box-template .box-template-title {
+                                background: #dedede none repeat scroll 0 0;
+                                height: 50px;
+                                position: relative;
+                            }
+
+                                .box-template .box-template-title::after {
+                                    border-left: 10px solid transparent;
+                                    border-right: 10px solid transparent;
+                                    border-top: 10px solid #dedede;
+                                    content: "";
+                                    left: 25px;
+                                    position: absolute;
+                                    top: 100%;
+                                }
+
+                                .box-template .box-template-title .box-template-title-cont::before {
+                                    color: #333333;
+                                    font-family: "fontawesome";
+                                    font-size: 30px;
+                                    line-height: 35px;
+                                    padding-right: 15px;
+                                }
+
+
+                                .box-template .box-template-title .box-template-title-cont {
+                                    color: #333333;
+                                    font-size: 25px;
+                                    line-height: 35px;
+                                    overflow: hidden;
+                                    padding: 7px 15px;
+                                    position: relative;
+                                    text-overflow: ellipsis;
+                                    text-transform: uppercase;
+                                    white-space: nowrap;
+                                }
+
+                            .box-template .box-template-content {
+                                -moz-border-bottom-colors: none;
+                                -moz-border-left-colors: none;
+                                -moz-border-right-colors: none;
+                                -moz-border-top-colors: none;
+                                border-color: currentcolor #e5e5e5 #e5e5e5;
+                                border-image: none;
+                                border-style: none solid solid;
+                                border-width: medium 1px 1px;
+                                overflow: auto;
+                                padding: 20px 15px 11px;
+                            }
+
+
+
+
+                        .hasDatepicker {
+                            color: red;
+                        }
+
+
+                        .fade {
+                            opacity: 0;
+                            transition: opacity 0.15s linear 0s;
+                        }
+
+                            .fade.show {
+                                opacity: 1;
+                            }
+
+                        .collapse {
+                            display: none;
+                        }
+
+                            .collapse.show {
+                                display: block;
+                            }
+
+                            .collapse.in {
+                                display: block;
+                            }
+
+                        tr.collapse.show {
+                            display: table-row;
+                        }
+
+                        tbody.collapse.show {
+                            display: table-row-group;
+                        }
+
+                        .collapsing {
+                            height: 0;
+                            overflow: hidden;
+                            position: relative;
+                            transition: height 0.35s ease 0s;
+                        }
+
+
+
+                        .card {
+                            margin-bottom: 10px;
+                            overflow-wrap: break-word;
+                        }
+
+                        .card-header {
+                            background-color: rgba(0, 0, 0, 0.03);
+                            border: 1px solid rgba(0, 0, 0, 0.125);
+                            margin-bottom: 0;
+                            padding: 0.75rem 1.25rem;
+                        }
+
+                            .card-header:first-child {
+                                border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+                            }
+
+                            .card-header + .list-group .list-group-item:first-child {
+                                border-top: 0 none;
+                            }
+
+                        .card-footer {
+                            background-color: rgba(0, 0, 0, 0.03);
+                            border-top: 1px solid rgba(0, 0, 0, 0.125);
+                            padding: 0.75rem 1.25rem;
+                        }
+
+                            .card-footer:last-child {
+                                border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+                            }
+
+                        .card-header-tabs {
+                            border-bottom: 0 none;
+                            margin-bottom: -0.75rem;
+                            margin-left: -0.625rem;
+                            margin-right: -0.625rem;
+                        }
+
+                        .card-header-pills {
+                            margin-left: -0.625rem;
+                            margin-right: -0.625rem;
+                        }
+
+                        .card-body {
+                            flex: 1 1 auto;
+                            padding: 1.25rem;
+                            border: 1px solid rgba(0, 0, 0, 0.125);
+                        }
+                    </style>
+
+
+
+                    <style>
+                        .tlb-food li {
+                            display: inline-block;
+                            list-style: outside none none;
+                            margin: 5px;
+                            min-height: 198px;
+                            vertical-align: top;
+                            width: 23.7%;
+                        }
+
+                        .box-img-food > img {
+                            width: 100%;
+                        }
+
+                        .tlb-food li label {
+                            display: block;
+                            text-align: center;
+                        }
+
+                        .tlb-food li .prices-food {
+                            color: #000000;
+                            display: block;
+                            font-size: 14px;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                    </style>
+
+
+
+
+                    <style>
+                                                .table1 .form-control {
+                                                    width: 338px;
+                                                }
+                                                /*
+                        .paymentForm_do {
+                          width: 96%;
+                        }*/
+
+
+
+                                                div.methods-header div.methods-header {
+                                                    margin-right: 5px;
+                                                }
+
+                                                .methods-header {
+                                                    border: 1px solid #808080;
+                                                    border-radius: 3px;
+                                                    margin-bottom: 5px;
+                                                    margin-right: 0;
+                                                    margin-top: 15px;
+                                                    overflow: auto;
+                                                    position: relative;
+                                                }
+
+                                                    .methods-header label {
+                                                        display: block;
+                                                        line-height: 18px;
+                                                        padding: 10px 10px 10px 40px;
+                                                        white-space: normal;
+                                                    }
+
+                                                        .methods-header label br {
+                                                            display: none;
+                                                            visibility: hidden;
+                                                        }
+
+                                                    .methods-header input[type="radio"] {
+                                                        left: 9px;
+                                                        position: absolute;
+                                                        top: 20px;
+                                                    }
+
+                                                    .methods-header input[type="checkbox"] {
+                                                        left: 9px;
+                                                        position: absolute;
+                                                        top: 20px;
+                                                    }
+
+                                                    .methods-header h3 {
+                                                        padding-bottom: 5px;
+                                                    }
+
+                                                        .methods-header h3 strong {
+                                                            color: #e52620;
+                                                        }
+
+                                                    .methods-header label {
+                                                        color: #666666;
+                                                    }
+
+                                                .payment h2 {
+                                                    font-size: 14px;
+                                                    margin: 0;
+                                                    text-transform: uppercase;
+                                                }
+
+                                                .methods h3 {
+                                                    font-size: 12px;
+                                                    margin: 0;
+                                                    padding-bottom: 10px;
+                                                    text-transform: uppercase;
+                                                }
+
+                                                .methods p {
+                                                    margin: 0;
+                                                }
+
+                                                .tb_method {
+                                                    width: 100%;
+                                                }
+                    </style>
+                    <div class="main cf" style="display: ">
+
+
+
+
+
+
+                        <div class="cheap" style="height: 41px; margin-top: 13px;">
+                            <img src="~/themes/nokair/img/arrow1.gif" style="margin-top: 8px; margin-left: calc(100% - 255px);" />
+                            <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" />
+                        </div>
+
+
+                        <div id="submitFlight" class="fixed">
+                            <span class="moreScroll">Vui lòng điền đầy đủ thông tin và nhấp nút TIẾP TỤC  &nbsp;<img style="margin-top: -16px;" src="arrow-down.gif" /></span>
+                        </div>
+                        <style>
+                            #submitFlight.fixed {
+                                border: 1px dashed rgb(237, 27, 36);
+                            }
+                        </style>
+                        <script>
+
+        $('#submitFlight').show();
+
+		$(window).scroll(function() {
+			if ($(document).height()-($(window).scrollTop() + $(window).height())<380) {
+				if($("#submitFlight").hasClass('fixed')){
+					$("#submitFlight").removeClass('fixed');
+				}
+			}else{
+				if(! $("#submitFlight").hasClass('fixed')){
+					$("#submitFlight").addClass('fixed');
+				}
+			}
+		});
+                        </script>
+
+                        <div class="clear"> </div> <br />
+
+                    </div>
+            </div>
+<style>
+                #domestict-bank-info {
+                    overflow: auto;
+                    padding-bottom: 10px;
+                    padding-left: 11px;
+                }
+
+                .main cf .title {
+                    border-bottom: 1px solid #eeeeee;
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+                }
+
+
+                div.methods-header div.methods-header {
+                    margin-right: 5px;
+                }
+
+                .methods-header {
+                    border: 1px solid #808080;
+                    border-radius: 3px;
+                    margin-bottom: 5px;
+                    margin-right: 0px;
+                    margin-top: 15px;
+                    overflow: auto;
+                    position: relative;
+                }
+
+                    .methods-header label {
+                        display: block;
+                        line-height: 18px;
+                        padding: 10px 10px 10px 40px;
+                        white-space: normal;
+                    }
+
+
+                        .methods-header label br {
+                            display: none;
+                            visibility: hidden;
+                        }
+
+                    .methods-header input[type="radio"] {
+                        left: 9px;
+                        position: absolute;
+                        top: 20px;
+                    }
+
+                    .methods-header input[type="checkbox"] {
+                        left: 9px;
+                        position: absolute;
+                        top: 20px;
+                    }
+
+                    .methods-header h3 {
+                        padding-bottom: 5px;
+                    }
+
+                        .methods-header h3 strong {
+                            color: #e52620;
+                        }
+
+                    .methods-header label {
+                        color: #666666;
+                    }
+
+                .payment h2 {
+                    font-size: 14px;
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+
+                .methods h3 {
+                    font-size: 12px;
+                    margin: 0;
+                    padding-bottom: 10px;
+                    text-transform: uppercase;
+                }
+
+                .methods p {
+                    margin: 0;
+                }
+
+                .tb_method {
+                    width: 100%;
+                }
+
+                #booking-agreement {
+                    color: #0000ff;
+                }
+
+                    #booking-agreement a {
+                        color: #ff0000;
+                    }
+
+                .select-bank { /* width: 22%;*/
+                    border: 1px solid ghostwhite;
+                    border-radius: 4px;
+                    display: inline-block;
+                    margin: 9px 8px;
+                }
+            </style>
+
+            </form>
+        </div>
+        <script>
+$(document).ready(function(){
+	$('.show-bag').change(function(){
+		var sel = $(this).data('target');
+		if($(this).prop("checked")){
+			$(sel).show();
+		}else{
+			$(sel).hide();
+		}
+	});
+	$(".selected-dial-code").text("+84");
+	//document.getElementById("txtPax1_Phone2").value = "6666" + "88888";
+	//$('input[name="phone').val('3453453453');
+
+					//alert("dfgdfgdf");
+					//return false;
+
+		 //alert("Price: " + price);
+
+					// var cphone = document.getElementById('txtPax1_Phone2').value;
+
+					//$('input[name="phone').val(ccode);
+
+				 	/*
+					  $("input[name='phone']").change(function () {
+						// alert("dfgdfgdf");
+
+
+					});  */
+
+    $("#passenger0").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[0]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger1").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[1]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger2").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[2]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger3").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[3]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger4").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[4]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger5").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[5]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger6").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[6]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger7").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[7]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger8").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[8]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger9").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[9]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger10").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[10]"]').val(text_create);
+    }).keyup();
+
+    $("#passenger11").keyup(function () {
+        var text = $(this).val();
+        var text_create;
+       text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
+       // alert(text_create);
+	   //$('#passenger1').text(text_create);
+	   $('input[name="passenger[11]"]').val(text_create);
+    }).keyup();
+
+
+});
+        </script>
+
+        <style>
+            .table1 select {
+                padding: 6px 1px 7px 3px;
+            }
+        </style>
+        <script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+        $('#place_order_form').submit(function(event) {
+            /*
+			if ($('input[name="payment_method"]').val()=='') {
+                alert('Vui lòng chọn hình thức thanh toán');
+                event.preventDefault();
+                return false;
+            }
+			*/
+            return true;
+        });
+
+        $('#book_information').validate({
+            rules: {
+                fullname: {
+                    required: true,
+                    minlength: 5
+                },
+                phone: {
+                    maxlength: 12,
+                    number: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+				,
+            //    passenger[]: {
+                passenger[]: {
+                    required: true,
+                }
+            },
+            errorClass: 'text-danger',
+            validClass: 'text-success',
+            highlight: function(element, errorClass) {
+                $(element).addClass(errorClass);
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass(errorClass);
+				$(element).addClass(errorClass);
+            },
+			submitHandler: function(form) {
+				if($("#company-taxid").val()!==""){
+					var val = '\r\n======== Thông tin xuất hóa đơn ======='
+					val+='\r\nMST: ' + $('#company-taxid').val();
+					val+='\r\nCông ty: '+ $('#company-name').val()
+					val+='\r\nĐịa chỉ: ' + $('#company-address').val()
+					if($("#company-address-2").val()!==""){
+						val+='\r\nĐịa chỉ nhận hóa đơn: ' + $('#company-address-2').val()
+					}
+					val+='\r\n======================================='
+
+					$("textarea[name='note']").val($("textarea[name='note']").val()+val);
+				}
+
+
+				// form.submit();
+				return true;
+			}
+        });
+        jQuery.validator.addClassRules({
+            adult_birthday: {
+				required: true
+            },
+			child_birthday: {
+                required: true
+            },
+            infant_birthday: {
+                required: true
+            },
+            passenger_name: {
+                required: true
+            }
+        });
+
+		$('#xuathoadon-toggle').change(function(){
+			if($('#xuathoadon-toggle').prop('checked')){
+				$('#xuathoadon').removeClass('an')
+				$('#book_information').validate();
+				$('#company-name').rules( "add", {
+				  required: true
+				});
+				$('#company-taxid').rules( "add", {
+				  required: true
+				});
+				$('#company-address').rules( "add", {
+				  required: true
+				});
+			}else{
+				$('#xuathoadon').addClass('an')
+				$('#book_information').validate();
+				$( "#company-name" ).rules( "remove" );
+				$( "#company-taxid" ).rules( "remove" );
+				$( "#company-address" ).rules( "remove" );
+			}
+		})
+
+
+
+
+    });
+        </script>
+        <div class="sidebarDLP">
+            <div class="search-flightd">
+                <div class="search-flight">
+                    <div class="tabABAY">
+                        <h2 class="tabDatvemaybay">
+                            <img src="Plane.png" class="airplane" alt=""> Vé máy bay
+                            <div class="clr"></div>
+                        </h2>
+                        <a href="https://www.agoda.com/vi-vn?cid=1759323" target="_blank" rel="nofollow">
+                            <h2 class="TabKhachsan">
+                                <img src="HotelIcon.png" class="hotel" alt=""> Khách sạn
+                                <div class=" clr"></div>
+                            </h2>
+                        </a>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="content-flight">
+
+                        <form method="POST" class="search-form" action="https://vietjets.com.vn/">
+                            <div class="pad3">
+
+                                <!--line-->
+                                <div class="clear"></div>
+                                <div class="radiox" style="color: #333; padding: 4px 0px;">
+
+                                    <label><input type="radio" name="flightType" checked="" id="flightType1" value="0"> Một chiều</label>
+                                    <label><input type="radio" name="flightType" id="flightType" value="1"> Khứ hồi</label>
+                                </div>
+
+
+
+                                <div class="col1">
+                                    <div class="in">
+                                        <div class="in-left">
+                                            <div class="input-group" style="overflow: hidden; width: 204px; border-right: 1px solid rgb(105, 105, 105);">
+
+                                                <select name="depAirport" id="depAirport" data-mini="true" class="airport-input" placeholder="Điểm khởi hành">
+                                                    <option value="" disabled="" class="grot">Vietnam</option>
+                                                    <option value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                                                    <option selected="selected" value="TP.Hồ Chí Minh (SGN)">TP.Hồ Chí Minh (SGN)</option>
+                                                    <option value="Huế (HUI)">Huế (HUI)</option>
+
+                                                    <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                                                    <option value="Nha Trang (NHA)">Nha Trang (NHA)</option>
+                                                    <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                                                    <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+
+                                                    <option value="Điện Biên (DIN)">Điện Biên (DIN)</option>
+                                                    <option value="Hải Phòng (HPH)">Hải Phòng (HPH)</option>
+                                                    <option value="Thanh Hóa (THD)">Thanh Hóa (THD)</option>
+
+                                                    <option value="Vinh (VII)">Vinh (VII)</option>
+                                                    <option value="Đồng Hới (VDH)">Đồng Hới (VDH)</option>
+
+                                                    <option value="Tam kỳ (VCL)">Tam kỳ (VCL)</option>
+                                                    <option value="Quy Nhơn (UIH)">Quy Nhơn (UIH)</option>
+                                                    <option value="Tuy Hòa (TBB)">Tuy Hòa (TBB)</option>
+
+                                                    <option value="Cần Thơ (VCA)">Cần Thơ (VCA)</option>
+                                                    <option value="Rạch Giá (VKG)">Rạch Giá (VKG)</option>
+                                                    <option value="Côn Đảo (VCS)">Côn Đảo (VCS)</option>
+                                                    <option value="Cà Mau (CAH)">Cà Mau (CAH)</option>
+
+                                                    <option value="Pleiku (PXU)">Pleiku (PXU)</option>
+                                                    <option value="Ban Mê Thuột (BMV)">Ban Mê Thuột (BMV)</option>
+
+
+
+                                                    <option value="" disabled="" class="grot">Thailand</option>
+                                                    <option value="Bangkok (BKK)">Bangkok (BKK)</option>
+                                                    <option value="Phuket (CNX)">Chiang Mai (CNX)</option>
+                                                    <option value="Phuket (HKT)">Phuket (HKT)</option>
+
+                                                    <option value="" disabled="" class="grot">Singapore</option>
+                                                    <option value="Singapore (SIN)">Singapore Terminal 3(SIN)</option>
+
+                                                    <option value="" disabled="" class="grot">Malaysia</option>
+                                                    <option value="Kuala Lumpur (KUL)">Kuala Lumpur KLIA (KUL)</option>
+
+                                                    <option value="" disabled="" class="grot">Korea</option>
+                                                    <option value="Seoul (ICN)">Seoul (ICN)</option>
+                                                    <option value="Busan (PUS)">Busan (PUS)</option>
+
+                                                    <option value="" disabled="" class="grot">Myanmar</option>
+                                                    <option value="Yangon (RGN)">Yangon (RGN)</option>
+
+                                                    <option value="" disabled="" class="grot">Hong  Kong</option>
+                                                    <option value="Hồng Kông (HKG)">Hong Kong (HKG)</option>
+
+                                                    <option value="" disabled="" class="grot">Cambodia</option>
+                                                    <option value="Phnom penh (PNH)">Phnom penh (PNH)</option>
+
+                                                    <option value="" disabled="" class="grot">Taiwan</option>
+                                                    <option value="Taipei (TPE)">Taipei (TPE)</option>
+                                                    <option value="Cao Hùng (KHH)">Cao Hùng (KHH)</option>
+                                                    <option value="Đài Nam (TNN)">Đài Nam (TNN)</option>
+                                                    <option value="Taichung (RMQ)">Taichung (RMQ)</option>
+
+                                                    <option value="" disabled="" class="grot">Other</option>
+                                                    <option value="Siem Reap (REP)">Siem Reap (REP)</option>
+                                                    <option value="Hàng Châu (HGH)">Hàng Châu (HGH)</option>
+
+                                                </select>
+
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="in">
+                                        <div class="in-left">
+                                            <div class="input-group" style="overflow: hidden; width: 204px; border-right: 1px solid rgb(105, 105, 105);">
+                                                <select name="arvAirport" id="arvAirport" data-mini="true" class="airport-input" placeholder="Điểm đến">
+                                                    <option value="" disabled="" class="grot">Vietnam</option>
+                                                    <option selected="selected" value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                                                    <option value="TP.Hồ Chí Minh (SGN)">TP.Hồ Chí Minh (SGN)</option>
+                                                    <option value="Huế (HUI)">Huế (HUI)</option>
+
+                                                    <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                                                    <option value="Nha Trang (NHA)">Nha Trang (NHA)</option>
+                                                    <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                                                    <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+
+                                                    <option value="Điện Biên (DIN)">Điện Biên (DIN)</option>
+                                                    <option value="Hải Phòng (HPH)">Hải Phòng (HPH)</option>
+                                                    <option value="Thanh Hóa (THD)">Thanh Hóa (THD)</option>
+
+                                                    <option value="Vinh (VII)">Vinh (VII)</option>
+                                                    <option value="Đồng Hới (VDH)">Đồng Hới (VDH)</option>
+
+                                                    <option value="Tam kỳ (VCL)">Tam kỳ (VCL)</option>
+                                                    <option value="Quy Nhơn (UIH)">Quy Nhơn (UIH)</option>
+                                                    <option value="Tuy Hòa (TBB)">Tuy Hòa (TBB)</option>
+
+                                                    <option value="Cần Thơ (VCA)">Cần Thơ (VCA)</option>
+                                                    <option value="Rạch Giá (VKG)">Rạch Giá (VKG)</option>
+                                                    <option value="Côn Đảo (VCS)">Côn Đảo (VCS)</option>
+                                                    <option value="Cà Mau (CAH)">Cà Mau (CAH)</option>
+
+                                                    <option value="Pleiku (PXU)">Pleiku (PXU)</option>
+                                                    <option value="Ban Mê Thuột (BMV)">Ban Mê Thuột (BMV)</option>
+
+
+                                                    <option value="" disabled="" class="grot">Thailand</option>
+                                                    <option value="Bangkok (BKK)">Bangkok (BKK)</option>
+                                                    <option value="Phuket (CNX)">Chiang Mai (CNX)</option>
+                                                    <option value="Phuket (HKT)">Phuket (HKT)</option>
+
+                                                    <option value="" disabled="" class="grot">Singapore</option>
+                                                    <option value="Singapore (SIN)">Singapore Terminal 3(SIN)</option>
+
+                                                    <option value="" disabled="" class="grot">Malaysia</option>
+                                                    <option value="Kuala Lumpur (KUL)">Kuala Lumpur KLIA (KUL)</option>
+
+                                                    <option value="" disabled="" class="grot">Korea</option>
+                                                    <option value="Seoul (ICN)">Seoul (ICN)</option>
+                                                    <option value="Busan (PUS)">Busan (PUS)</option>
+
+                                                    <option value="" disabled="" class="grot">Myanmar</option>
+                                                    <option value="Yangon (RGN)">Yangon (RGN)</option>
+
+                                                    <option value="" disabled="" class="grot">Hong  Kong</option>
+                                                    <option value="Hồng Kông (HKG)">Hong Kong (HKG)</option>
+
+                                                    <option value="" disabled="" class="grot">Cambodia</option>
+                                                    <option value="Phnom penh (PNH)">Phnom penh (PNH)</option>
+
+                                                    <option value="" disabled="" class="grot">Taiwan</option>
+                                                    <option value="Taipei (TPE)">Taipei (TPE)</option>
+                                                    <option value="Cao Hùng (KHH)">Cao Hùng (KHH)</option>
+                                                    <option value="Đài Nam (TNN)">Đài Nam (TNN)</option>
+                                                    <option value="Taichung (RMQ)">Taichung (RMQ)</option>
+
+                                                    <option value="" disabled="" class="grot">Other</option>
+                                                    <option value="Siem Reap (REP)">Siem Reap (REP)</option>
+                                                    <option value="Hàng Châu (HGH)">Hàng Châu (HGH)</option>
+
+                                                </select>
+
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                    <style>
+                                        #depAirport > option {
+                                            text-indent: 15px;
+                                        }
+
+                                        #arvAirport > option {
+                                            text-indent: 15px;
+                                        }
+
+                                        .grot {
+                                            color: red;
+                                            font-weight: bold;
+                                            font-style: italic;
+                                            text-indent: 0 !important;
+                                        }
+                                    </style>
+                                    <div class="in-right">
+                                        <div class="bg-text">
+                                            <div class="col-xs-6" style="float: left; width: 106px;">
+                                                <label for="depAirport">Ngày đi</label>
+                                                <img src="up.png" class="hotel" alt="" style="float: right;">
+                                            </div>
+                                            <div class="col-xs-6" style="float: left; width: 103px;">
+                                                <label for="depAirport">Ngày về</label>
+                                                <img src="down.png" class="hotel" alt="" style="float: right;">
+                                            </div>
+
+                                            <input type="text" id="depDate" name="depDate" class="flight-date" value="13/10/2019" />
+
+                                            <input type="text" id="rtnDate" name="rtnDate" class="flight-date" value="16/10/2019" />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <style>
+                                    .col2 .field {
+                                        margin-bottom: 21px;
+                                    }
+
+                                    .in {
+                                        margin-bottom: 9px !important;
+                                        margin-top: 3px;
+                                    }
+                                </style>
+                                <div class="col2">
+
+                                    <div class="field">
+                                        <label id="ctl05_ctl08_ctl00_rptNavigationSection_ctl00_0_rptTopNavigationLevel1_0_ctl00_0_lblAdults_0" for="ddlAdults" style="position: relative; top: -8px;">
+                                            Người lớn
+                                            <span style="position: absolute; left: 14px; font-weight: bold; font-size: 10px; top: 17px;">&gt;=12 tuổi</span>
+                                        </label>
+                                        <select id="ddlAdults" name="adultNo">
+                                            <option value="1" selected="selected">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <label for="ddlKids" style="position: relative; top: -8px;">
+                                            Trẻ
+                                            <span>em</span>
+                                            <span style="position: absolute; left: 14px; font-weight: bold; font-size: 10px; top: 17px;">2-11 tuổi</span>
+                                        </label>
+                                        <select id="ddlKids" name="childNo">
+                                            <option value="0" selected="selected">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+
+                                        </select>
+
+                                    </div>
+                                    <div class="field">
+                                        <label for="ddlInfants" style="position: relative; top: -8px;">
+                                            Em
+                                            <span>bé</span>
+                                            <span style="position: absolute; left: 9px; font-weight: bold; font-size: 10px; top: 17px;">< 24 tháng</span>
+                                        </label>
+                                        <select id="ddlInfants" name="infantNo">
+                                            <option value="0" selected="selected">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                                <div class="clear"></div>
+                                <div class="">
+
+                                    <div class="fields travel-range clearer">
+                                        <div class="field radio">
+                                            <input type="radio" checked="checked" name="rdoTravelPref" id="rdoTravelPrefFixed">
+                                            <label class="small" for="rdoTravelPrefFixed">
+                                                Bay vào ngày này
+                                            </label>
+                                        </div>   <a rel="#overlay" class="info-icon-text launch-modal" id="ctl05_ctl08_ctl00_rptNavigationSection_ctl00_0_rptTopNavigationLevel1_0_ctl00_0_aChildren_0" href="#" style="float: right; color: #333; padding-right: 19px; padding-top: 8px;">Trẻ em cần người giám hộ</a> <div class="clear"></div>
+                                        <div class="field radio" style="display: block;">
+                                            <!-- input type="radio" name="rdoTravelPref" id="rdoTravelPrefCheap" -->
+                                            <img src="new-xxl.png" style="width: 23px; margin-bottom: -6px;">
+                                            <a href="tim-ve-thang.html" target="_blank" class="small" for="rdoTravelPrefCheap" style="color: red; font-weight: bold;">
+                                                Tìm vé rẻ trong tháng
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+
+
+                                </div>
+
+
+                                <div class="clear"></div>
+
+                                <div class="field right">
+                                    <button id="btnSearchForFlights" class="png-bg" type="submit">
+                                        Tìm chuyến bay
+                                    </button>
+                                </div>
+
+                                <div style="float: left; padding: 15px 0 0 5px; font-weight: bold;"> <a target="blank" href="huong-dan-dat-cho.html" style="font-family: tahoma;">* Hướng dẫn đặt chỗ</a> </div>
+
+                                <div style="float: right; padding: 15px 23px 4px 3px; font-weight: bold;"> <a target="blank" href="https://m.vietjetair.com/#src/check_in/step1_enter_info.html" style="font-family: tahoma;">* Check-In online</a> </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+            <script>
+
+$(document).ready(function(){
+/*	$('#sub-form').submit(function(event){
+		event.preventDefault();
+		var email = $(this).find('#email');
+		var str = $(this).serialize();
+		var patt = /[\w-]+([\w-]+\.)+[\w-]+/;
+		if(patt.test(email.val())){
+			$.ajax(base_url+'service/subscribe',{
+				type: 'POST',
+				dataType: 'json',
+				data: str
+			}).done(function(d,r,t){
+				alert(d.message);
+				email.val('');
+			});
+		}else{
+			alert('Vui lòng nhập email hợp lệ');
+		}
+
+	});*/
+
+
+
+
+	/*
+	if($.cookie('dep_airport')){
+	//alert('fghfghfgh');
+		$('#depAirport').val($.cookie('dep_airport'));
+	}else{
+		$('#depAirport').val('Hồ Chí Minh (SGN)');
+	}
+	if($.cookie('arv_airport')){
+	//alert('fghfghfghfffffffffffff');
+		$('#arvAirport').val($.cookie('arv_airport'));
+	}else{
+		$('#arvAirport').val('Hà Nội (HAN)');
+	}
+	*/
+
+});
+
+
+        $("#btnSearchForFlights").click(function(event) {
+            event.preventDefault();
+            var flag = true;
+            if ($("#depDate").val() === 'Ngày đi') {
+                flag = false;
+            }
+            if (flag) {
+				//$("#btnSearchForFlights").attr('value', 'đang xử lý...');
+				$('#btnSearchForFlights').empty();
+				$('#btnSearchForFlights').append('đang xử lý...');
+                $(".search-form").submit();
+                return true;
+            } else {
+                smoke.signal("Vui lòng chọn ngày bay...", function(e){
+				}, {
+					duration: 1000,
+					classname: "custom-class"
+				});
+				//alert('Vui lòng chọn chuyến bay...');
+                return false;
+            }
+        });
+            </script>
+
+
+
+            <style>
+                .j30-alerts-and-ads {
+                    float: right;
+                    padding-top: 20px;
+                    width: 373px;
+                }
+
+                .search-flightd {
+                    float: right;
+                    padding-top: 20px;
+                }
+            </style>
+            <div class="j30-alerts-and-ads">
+                <div class="callcenter">
+                    Call center: 028.3898 3898
+                </div>
+                <div class="calljetstar">
+                    <div style="background: rgb(253, 235, 199) none repeat scroll 0% 0%; margin: 17px 0px 10px; padding: 23px 29px 10px;" class="join-myjetstar">
+
+                        <div class="field">
+
+                            <form name="frmSubcribe" id="frmSubcribe" class="form-inlinex subscribe-formx" method="POST" action="https://vietjets.com.vn/home/subscribe">
+
+
+                                <input type="text" class="text focus-clear txtJetmailEmail" title="Email của bạn" id="ctl06_ctl00_JetmailSignup2_txtJetmailEmail" value="" name="email" placeholder="Đăng ký Email khuyến mãi" style="float: left; border-radius: 4px; border: 1px solid rgb(209, 209, 209); color: rgb(78, 78, 80); padding: 8px 4px; width: 205px;" />
+
+                                <button class="btnEmailSubmit dkmail" id="" value="" name="" type="submit">
+                                    Đăng ký
+                                </button>
+
+
+                                <div class="error" style="margin-top: 10px; color: #C00101"></div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="j30-alerts-and-ads">
+                    <div class="promo image-promo"><img src="https://vietjets.com.vn/userupload/Od-1_1.jpg" alt="" width="375" height="325" />&nbsp;</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+
+
+
+
+
+    <div id="footerx" class="clearfix j30-footer" style="padding: 10px; background: white none repeat scroll 0% 0%; line-height: 21px; border-bottom: 3px solid rgb(255, 81, 17); margin-bottom: 8px; font-family: GraublauWeb;">
+
+
+
+
+        <div class="clearfix " id="footers">
+
+
+
+
+            <div class="" style="float: left ;">
+                © Copyright by MTAbooking | All Rights Reserved.
+            </div>
+            <div class="menu-bottom2ds" style="color: rgb(254, 25, 27); float: right; font-size: 18px; font-style: italic;"> Bay giá rẻ - Vui vẻ cả nhà ! </div>
+
+            <div class="clear"></div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+    </div>
+
+
+    <div id="listCity">
+        <ul class="list-group">
+            <li class="list-group-item"><a data-airportcode="HAN" href="javascript:void(0)"><b>Hà Nội </b><span>(HAN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="SGN" href="javascript:void(0)"><b>Hồ Chí Minh </b><span>(SGN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="DAD" href="javascript:void(0)"><b>Đà Nẵng </b><span>(DAD)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="NHA" href="javascript:void(0)"><b>Nha Trang </b><span>(NHA)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="PQC" href="javascript:void(0)"><b>Phú Quốc </b><span>(PQC)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="DLI" href="javascript:void(0)"><b>Đà Lạt </b><span>(DLI)</span></a></li>
+
+            <li class="list-group-item"><a data-airportcode="DIN" href="javascript:void(0)"><b>Điện Biên </b><span>(DIN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="HPH" href="javascript:void(0)"><b>Hải Phòng </b><span>(HPH)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="THD" href="javascript:void(0)"><b>Thanh Hóa </b><span>(THD)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="VII" href="javascript:void(0)"><b>Vinh </b><span>(VII)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="VDH" href="javascript:void(0)"><b>Đồng Hới </b><span>(VDH)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="HUI" href="javascript:void(0)"><b>Huế </b><span>(HUI)</span></a></li>
+
+            <li class="list-group-item"><a data-airportcode="VCL" href="javascript:void(0)"><b>Chu Lai </b><span>(VCL)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="UIH" href="javascript:void(0)"><b>Quy Nhơn </b><span>(UIH)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="TBB" href="javascript:void(0)"><b>Tuy Hòa </b><span>(TBB)</span></a></li>
+
+
+            <li class="list-group-item"><a data-airportcode="VCA" href="javascript:void(0)"><b>Cần Thơ </b><span>(VCA)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="VKG" href="javascript:void(0)"><b>Rạch Giá </b><span>(VKG)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="VCS" href="javascript:void(0)"><b>Côn Đảo </b><span>(VCS)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="CAH" href="javascript:void(0)"><b>Cà Mau </b><span>(CAH)</span></a></li>
+
+            <li class="list-group-item"><a data-airportcode="PXU" href="javascript:void(0)"><b>Pleiku </b><span>(PXU)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="BMV" href="javascript:void(0)"><b>Ban Mê Thuột </b><span>(BMV)</span></a></li>
+
+            <li class="list-group-item"><a data-airportcode="BKK" href="javascript:void(0)"><b>Bangkok </b><span>(BKK)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="SIN" href="javascript:void(0)"><b>Singapore </b><span>(SIN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="KUL" href="javascript:void(0)"><b>Kuala Lumpur </b><span>(KUL)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="ICN" href="javascript:void(0)"><b>Seoul </b><span>(ICN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="RGN" href="javascript:void(0)"><b>Yangon </b><span>(RGN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="TPE" href="javascript:void(0)"><b>Taipei </b><span>(TPE)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="REP" href="javascript:void(0)"><b>Siem Reap </b><span>(REP)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="HGH" href="javascript:void(0)"><b>Hàng Châu </b><span>(HGH)</span></a></li>
+        </ul>
+    </div>
+    <script src="themes/nokair/js/uniform/jquery.uniform.js"></script>
+    <script src="themes/nokair/js/jquery.nicescroll.min.js"></script>
+    <script src="themes/nokair/js/ext.js"></script>
+    <script src="themes/nokair/js/bootstrap.min.js"></script>
+
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5653b7a90f76a5ca39f16081/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+    </script>
+    <!--End of Tawk.to Script-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145015097-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145015097-1');
+    </script>
+
+    <script>
+changeViewportMeta = function() {
+  jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=device-width');
+  if (jQuery(window).width() <= 320) {
+    return jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=480');
+  } else if (jQuery(window).width() <= 480) {
+    return jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=480');
+  } else if (jQuery(window).width() <= 768) {
+    return jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=920');
+  } else if (jQuery(window).width() <= 1024) {
+    return jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=920');
+  }
+};
+
+jQuery(window).bind('orientationchange', changeViewportMeta)
+
+jQuery(document).ready(function() {
+  changeViewportMeta();
+});
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="~/javascript/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script src="~/javascript/jquery.validate.min.js"></script>
+    <script src="~/javascript/ui.datepicker.lunar.min.js"></script>
+    <script src="~/javascript/bxslider/jquery.bxslider.js"></script>
+    <script src="~/javascript/jquery.cookie.js"></script>
+    <script src="~/javascript/app2.js"></script>
+</body>
+</html>
+

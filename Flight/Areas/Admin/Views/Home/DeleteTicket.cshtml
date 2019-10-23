@@ -1,0 +1,755 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<!-- Mirrored from vietjets.com.vn/gioi-thieu-ve-chung-toi.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Oct 2019 14:27:26 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <base />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hủy vé</title>
+    <meta name="description" content="Không chỉ đơn thuần là phương tiện vận chuyển Vietjet là luôn mang đến cho hành khách nhiều điếu bất ngờ thú vị trên mỗi chuyến bay và tạo thêm nhiều cơ hội bay cho khách hàng bằng chính sách giá vé hết sức linh hoạt trong mỗi chuyến bay." />
+    <meta name="keywords" content="vietjet, vietjet air. vé máy bay vietjet" />
+    <link href="vietjets.png" rel="shortcut icon" />
+    <link href="~/javascript/jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="stylesheet">
+    <link href="~/javascript/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css" rel="stylesheet">
+    <link href="~/javascript/bxslider/jquery.bxslider.css" rel="stylesheet">
+
+    <link href="~/themes/nokair/css/style_2019.css" rel="stylesheet">
+    <link href="~/themes/nokair/css/style2.css" rel="stylesheet">
+    <link href="~/javascript/datatables/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/themes/nokair/js/uniform/themes/default/css/uniform.default.css" media="screen" />
+    <script src="~/javascript/accounting.min.js"></script>
+    <script src="~/javascript/jquery.min.js"></script>
+    <link href="~/javascript/smoke.css" rel="stylesheet">
+    <script src="~/javascript/smoke.min.js"></script>
+
+
+
+    <meta name="google-site-verification" content="6NFXOM4EDOcL43T3fVj4Na_T2WJZKxppX20Gyms2RZE" />
+
+    <!--- Global config -->
+    <script>
+	var base_url = 'index.html';
+	var _THEME_ = 'themes/nokair/index.html';
+	var _LANG_ = 'vi';
+    </script>
+
+
+</head>
+<body>
+    <h1 style="display: none;">Giới thiệu về chúng tôi | Vietjet Air | Bay giá rẻ - Vui vẻ cả nhà | Giá chỉ từ 58.OOO VNĐ</h1>
+    <h2 style="display: none;">Vietjetbooking | Bay là thích ngay !</h2>
+    @if (TempData["notice"] != null)
+    {
+        var message = @TempData["notice"];
+        <script>
+            var message = '@message';
+            alert(message);
+        </script>
+    }
+    
+    <div id="content">
+        <header>
+
+            <div class="logo">
+                <a href="#" title="Vietjet Air | Bay giá rẻ - Vui vẻ cả nhà | Giá chỉ từ 58.OOO VNĐ">
+
+                </a>
+            </div>
+
+
+
+            <div id="toolbar">
+                <div id="toolbardiv"><a href="gioi-thieu-ve-chung-toi.html">Về chúng tôi</a></div>
+                <div id="toolbardiv"><a href="Logout">Đăng xuất</a></div>
+            </div>
+
+
+            <div class="user-menu">
+                <div class="userdmenud">
+                    <ul>
+
+                        <li><a href="index.html">Trang chủ</a></li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </header>  <div class="clear"></div>
+
+
+        <div id="wrap">
+            <h4 class="head-title3"><a href="gioi-thieu-ve-chung-toi.html">HỦY ĐẶT VÉ</a></h4>
+            <p style="text-align: justify;">Quy định hủy đặt vé:</p>
+            <p style="text-align: justify;">Quý khách hủy đặt vé không thể nhận lại tiền đặt vé</p>
+            <div class="customer-information">
+                <form id="book_information" method="POST" action="Delete" role="form">
+                    <table class="table1">
+                        <tr>
+                            <td class="text-right" style="width: 29%;">Ticket code<div style="color: red; display: inline;"> (*)</div></td>
+                            <td>
+                                <input name="MaVe" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Ticket code bắt buộc" title="Vui lòng nhập Tick code." pattern=".{6,}" required="" />
+                                <input type="submit" id="copy-name" class="btn btn-default" value="Delete" type="button" style="border: 0px none; cursor: pointer; color: white; background: rgb(244, 123, 54) none repeat scroll 0% 0%; margin: 0 7px; border-radius: 4px; font-weight: normal; padding: 4px 10px;">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <style>
+                #content #wrap {
+                    background: #ffffff none repeat scroll 0 0;
+                    border-bottom: 0 solid #dddede;
+                    border-radius: 16px 0 4px 4px;
+                    border-top: 3px solid #fe5815;
+                    color: black;
+                    font-family: Helvetica,Arial,sans-serif;
+                    font-size: 15px;
+                    margin: 22px auto 12px;
+                    min-height: 489px;
+                    padding: 6px 20px 20px;
+                    position: relative;
+                }
+            </style>
+
+            <div class="sidebarDLP">
+                <div class="search-flightd">
+                    <div class="search-flight">
+                        <div class="tabABAY">
+                            <h2 class="tabDatvemaybay">
+                                <img src="Plane.png" class="airplane" alt=""> Vé máy bay
+                                <div class="clr"></div>
+                            </h2>
+                            <a href="https://www.agoda.com/vi-vn?cid=1759323" target="_blank" rel="nofollow">
+                                <h2 class="TabKhachsan">
+                                    <img src="HotelIcon.png" class="hotel" alt=""> Khách sạn
+                                    <div class=" clr"></div>
+                                </h2>
+                            </a>
+                            <div class="clr"></div>
+                        </div>
+                        <div class="content-flight">
+
+                            <form method="POST" class="search-form" action="https://vietjets.com.vn/">
+                                <div class="pad3">
+
+                                    <!--line-->
+                                    <div class="clear"></div>
+                                    <div class="radiox" style="color: #333; padding: 4px 0px;">
+
+                                        <label><input type="radio" name="flightType" checked="" id="flightType1" value="0"> Một chiều</label>
+                                        <label><input type="radio" name="flightType" id="flightType" value="1"> Khứ hồi</label>
+                                    </div>
+
+
+
+                                    <div class="col1">
+                                        <div class="in">
+                                            <div class="in-left">
+                                                <div class="input-group" style="overflow: hidden; width: 204px; border-right: 1px solid rgb(105, 105, 105);">
+
+                                                    <select name="depAirport" id="depAirport" data-mini="true" class="airport-input" placeholder="Điểm khởi hành">
+                                                        <option value="" disabled="" class="grot">Vietnam</option>
+                                                        <option value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                                                        <option selected="selected" value="TP.Hồ Chí Minh (SGN)">TP.Hồ Chí Minh (SGN)</option>
+                                                        <option value="Huế (HUI)">Huế (HUI)</option>
+
+                                                        <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                                                        <option value="Nha Trang (NHA)">Nha Trang (NHA)</option>
+                                                        <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                                                        <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+
+                                                        <option value="Điện Biên (DIN)">Điện Biên (DIN)</option>
+                                                        <option value="Hải Phòng (HPH)">Hải Phòng (HPH)</option>
+                                                        <option value="Thanh Hóa (THD)">Thanh Hóa (THD)</option>
+
+                                                        <option value="Vinh (VII)">Vinh (VII)</option>
+                                                        <option value="Đồng Hới (VDH)">Đồng Hới (VDH)</option>
+
+                                                        <option value="Tam kỳ (VCL)">Tam kỳ (VCL)</option>
+                                                        <option value="Quy Nhơn (UIH)">Quy Nhơn (UIH)</option>
+                                                        <option value="Tuy Hòa (TBB)">Tuy Hòa (TBB)</option>
+
+                                                        <option value="Cần Thơ (VCA)">Cần Thơ (VCA)</option>
+                                                        <option value="Rạch Giá (VKG)">Rạch Giá (VKG)</option>
+                                                        <option value="Côn Đảo (VCS)">Côn Đảo (VCS)</option>
+                                                        <option value="Cà Mau (CAH)">Cà Mau (CAH)</option>
+
+                                                        <option value="Pleiku (PXU)">Pleiku (PXU)</option>
+                                                        <option value="Ban Mê Thuột (BMV)">Ban Mê Thuột (BMV)</option>
+
+
+
+                                                        <option value="" disabled="" class="grot">Thailand</option>
+                                                        <option value="Bangkok (BKK)">Bangkok (BKK)</option>
+                                                        <option value="Phuket (CNX)">Chiang Mai (CNX)</option>
+                                                        <option value="Phuket (HKT)">Phuket (HKT)</option>
+
+                                                        <option value="" disabled="" class="grot">Singapore</option>
+                                                        <option value="Singapore (SIN)">Singapore Terminal 3(SIN)</option>
+
+                                                        <option value="" disabled="" class="grot">Malaysia</option>
+                                                        <option value="Kuala Lumpur (KUL)">Kuala Lumpur KLIA (KUL)</option>
+
+                                                        <option value="" disabled="" class="grot">Korea</option>
+                                                        <option value="Seoul (ICN)">Seoul (ICN)</option>
+                                                        <option value="Busan (PUS)">Busan (PUS)</option>
+
+                                                        <option value="" disabled="" class="grot">Myanmar</option>
+                                                        <option value="Yangon (RGN)">Yangon (RGN)</option>
+
+                                                        <option value="" disabled="" class="grot">Hong  Kong</option>
+                                                        <option value="Hồng Kông (HKG)">Hong Kong (HKG)</option>
+
+                                                        <option value="" disabled="" class="grot">Cambodia</option>
+                                                        <option value="Phnom penh (PNH)">Phnom penh (PNH)</option>
+
+                                                        <option value="" disabled="" class="grot">Taiwan</option>
+                                                        <option value="Taipei (TPE)">Taipei (TPE)</option>
+                                                        <option value="Cao Hùng (KHH)">Cao Hùng (KHH)</option>
+                                                        <option value="Đài Nam (TNN)">Đài Nam (TNN)</option>
+                                                        <option value="Taichung (RMQ)">Taichung (RMQ)</option>
+
+                                                        <option value="" disabled="" class="grot">Other</option>
+                                                        <option value="Siem Reap (REP)">Siem Reap (REP)</option>
+                                                        <option value="Hàng Châu (HGH)">Hàng Châu (HGH)</option>
+
+                                                    </select>
+
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="in">
+                                            <div class="in-left">
+                                                <div class="input-group" style="overflow: hidden; width: 204px; border-right: 1px solid rgb(105, 105, 105);">
+                                                    <select name="arvAirport" id="arvAirport" data-mini="true" class="airport-input" placeholder="Điểm đến">
+                                                        <option value="" disabled="" class="grot">Vietnam</option>
+                                                        <option selected="selected" value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                                                        <option value="TP.Hồ Chí Minh (SGN)">TP.Hồ Chí Minh (SGN)</option>
+                                                        <option value="Huế (HUI)">Huế (HUI)</option>
+
+                                                        <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                                                        <option value="Nha Trang (NHA)">Nha Trang (NHA)</option>
+                                                        <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                                                        <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+
+                                                        <option value="Điện Biên (DIN)">Điện Biên (DIN)</option>
+                                                        <option value="Hải Phòng (HPH)">Hải Phòng (HPH)</option>
+                                                        <option value="Thanh Hóa (THD)">Thanh Hóa (THD)</option>
+
+                                                        <option value="Vinh (VII)">Vinh (VII)</option>
+                                                        <option value="Đồng Hới (VDH)">Đồng Hới (VDH)</option>
+
+                                                        <option value="Tam kỳ (VCL)">Tam kỳ (VCL)</option>
+                                                        <option value="Quy Nhơn (UIH)">Quy Nhơn (UIH)</option>
+                                                        <option value="Tuy Hòa (TBB)">Tuy Hòa (TBB)</option>
+
+                                                        <option value="Cần Thơ (VCA)">Cần Thơ (VCA)</option>
+                                                        <option value="Rạch Giá (VKG)">Rạch Giá (VKG)</option>
+                                                        <option value="Côn Đảo (VCS)">Côn Đảo (VCS)</option>
+                                                        <option value="Cà Mau (CAH)">Cà Mau (CAH)</option>
+
+                                                        <option value="Pleiku (PXU)">Pleiku (PXU)</option>
+                                                        <option value="Ban Mê Thuột (BMV)">Ban Mê Thuột (BMV)</option>
+
+
+                                                        <option value="" disabled="" class="grot">Thailand</option>
+                                                        <option value="Bangkok (BKK)">Bangkok (BKK)</option>
+                                                        <option value="Phuket (CNX)">Chiang Mai (CNX)</option>
+                                                        <option value="Phuket (HKT)">Phuket (HKT)</option>
+
+                                                        <option value="" disabled="" class="grot">Singapore</option>
+                                                        <option value="Singapore (SIN)">Singapore Terminal 3(SIN)</option>
+
+                                                        <option value="" disabled="" class="grot">Malaysia</option>
+                                                        <option value="Kuala Lumpur (KUL)">Kuala Lumpur KLIA (KUL)</option>
+
+                                                        <option value="" disabled="" class="grot">Korea</option>
+                                                        <option value="Seoul (ICN)">Seoul (ICN)</option>
+                                                        <option value="Busan (PUS)">Busan (PUS)</option>
+
+                                                        <option value="" disabled="" class="grot">Myanmar</option>
+                                                        <option value="Yangon (RGN)">Yangon (RGN)</option>
+
+                                                        <option value="" disabled="" class="grot">Hong  Kong</option>
+                                                        <option value="Hồng Kông (HKG)">Hong Kong (HKG)</option>
+
+                                                        <option value="" disabled="" class="grot">Cambodia</option>
+                                                        <option value="Phnom penh (PNH)">Phnom penh (PNH)</option>
+
+                                                        <option value="" disabled="" class="grot">Taiwan</option>
+                                                        <option value="Taipei (TPE)">Taipei (TPE)</option>
+                                                        <option value="Cao Hùng (KHH)">Cao Hùng (KHH)</option>
+                                                        <option value="Đài Nam (TNN)">Đài Nam (TNN)</option>
+                                                        <option value="Taichung (RMQ)">Taichung (RMQ)</option>
+
+                                                        <option value="" disabled="" class="grot">Other</option>
+                                                        <option value="Siem Reap (REP)">Siem Reap (REP)</option>
+                                                        <option value="Hàng Châu (HGH)">Hàng Châu (HGH)</option>
+
+                                                    </select>
+
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="clear"></div>
+                                        </div>
+                                        <style>
+                                            #depAirport > option {
+                                                text-indent: 15px;
+                                            }
+
+                                            #arvAirport > option {
+                                                text-indent: 15px;
+                                            }
+
+                                            .grot {
+                                                color: red;
+                                                font-weight: bold;
+                                                font-style: italic;
+                                                text-indent: 0 !important;
+                                            }
+                                        </style>
+                                        <div class="in-right">
+                                            <div class="bg-text">
+                                                <div class="col-xs-6" style="float: left; width: 106px;">
+                                                    <label for="depAirport">Ngày đi</label>
+                                                    <img src="up.png" class="hotel" alt="" style="float: right;">
+                                                </div>
+                                                <div class="col-xs-6" style="float: left; width: 103px;">
+                                                    <label for="depAirport">Ngày về</label>
+                                                    <img src="down.png" class="hotel" alt="" style="float: right;">
+                                                </div>
+
+                                                <input type="text" id="depDate" name="depDate" class="flight-date" value="09/10/2019" />
+
+                                                <input type="text" id="rtnDate" name="rtnDate" class="flight-date" value="12/10/2019" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <style>
+                                        .col2 .field {
+                                            margin-bottom: 21px;
+                                        }
+
+                                        .in {
+                                            margin-bottom: 9px !important;
+                                            margin-top: 3px;
+                                        }
+                                    </style>
+                                    <div class="col2">
+
+                                        <div class="field">
+                                            <label id="ctl05_ctl08_ctl00_rptNavigationSection_ctl00_0_rptTopNavigationLevel1_0_ctl00_0_lblAdults_0" for="ddlAdults" style="position: relative; top: -8px;">
+                                                Người lớn
+                                                <span style="position: absolute; left: 14px; font-weight: bold; font-size: 10px; top: 17px;">&gt;=12 tuổi</span>
+                                            </label>
+                                            <select id="ddlAdults" name="adultNo">
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="field">
+                                            <label for="ddlKids" style="position: relative; top: -8px;">
+                                                Trẻ
+                                                <span>em</span>
+                                                <span style="position: absolute; left: 14px; font-weight: bold; font-size: 10px; top: 17px;">2-11 tuổi</span>
+                                            </label>
+                                            <select id="ddlKids" name="childNo">
+                                                <option value="0" selected="selected">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+
+                                            </select>
+
+                                        </div>
+                                        <div class="field">
+                                            <label for="ddlInfants" style="position: relative; top: -8px;">
+                                                Em
+                                                <span>bé</span>
+                                                <span style="position: absolute; left: 9px; font-weight: bold; font-size: 10px; top: 17px;">< 24 tháng</span>
+                                            </label>
+                                            <select id="ddlInfants" name="infantNo">
+                                                <option value="0" selected="selected">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+                                    <div class="clear"></div>
+                                    <div class="">
+
+                                        <div class="fields travel-range clearer">
+                                            <div class="field radio">
+                                                <input type="radio" checked="checked" name="rdoTravelPref" id="rdoTravelPrefFixed">
+                                                <label class="small" for="rdoTravelPrefFixed">
+                                                    Bay vào ngày này
+                                                </label>
+                                            </div>   <a rel="#overlay" class="info-icon-text launch-modal" id="ctl05_ctl08_ctl00_rptNavigationSection_ctl00_0_rptTopNavigationLevel1_0_ctl00_0_aChildren_0" href="#" style="float: right; color: #333; padding-right: 19px; padding-top: 8px;">Trẻ em cần người giám hộ</a> <div class="clear"></div>
+                                            <div class="field radio" style="display: block;">
+                                                <!-- input type="radio" name="rdoTravelPref" id="rdoTravelPrefCheap" -->
+                                                <img src="new-xxl.png" style="width: 23px; margin-bottom: -6px;">
+                                                <a href="tim-ve-thang.html" target="_blank" class="small" for="rdoTravelPrefCheap" style="color: red; font-weight: bold;">
+                                                    Tìm vé rẻ trong tháng
+                                                </a>
+                                            </div>
+
+                                        </div>
+
+
+
+
+
+
+
+                                    </div>
+
+
+                                    <div class="clear"></div>
+
+                                    <div class="field right">
+                                        <button id="btnSearchForFlights" class="png-bg" type="submit">
+                                            Tìm chuyến bay
+                                        </button>
+                                    </div>
+
+                                    <div style="float: left; padding: 15px 0 0 5px; font-weight: bold;"> <a target="blank" href="huong-dan-dat-cho.html" style="font-family: tahoma;">* Hướng dẫn đặt chỗ</a> </div>
+
+                                    <div style="float: right; padding: 15px 23px 4px 3px; font-weight: bold;"> <a target="blank" href="https://m.vietjetair.com/#src/check_in/step1_enter_info.html" style="font-family: tahoma;">* Check-In online</a> </div>
+
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+                <script>
+
+$(document).ready(function(){
+/*	$('#sub-form').submit(function(event){
+		event.preventDefault();
+		var email = $(this).find('#email');
+		var str = $(this).serialize();
+		var patt = /[\w-]+([\w-]+\.)+[\w-]+/;
+		if(patt.test(email.val())){
+			$.ajax(base_url+'service/subscribe',{
+				type: 'POST',
+				dataType: 'json',
+				data: str
+			}).done(function(d,r,t){
+				alert(d.message);
+				email.val('');
+			});
+		}else{
+			alert('Vui lòng nhập email hợp lệ');
+		}
+
+	});*/
+
+
+
+
+	/*
+	if($.cookie('dep_airport')){
+	//alert('fghfghfgh');
+		$('#depAirport').val($.cookie('dep_airport'));
+	}else{
+		$('#depAirport').val('Hồ Chí Minh (SGN)');
+	}
+	if($.cookie('arv_airport')){
+	//alert('fghfghfghfffffffffffff');
+		$('#arvAirport').val($.cookie('arv_airport'));
+	}else{
+		$('#arvAirport').val('Hà Nội (HAN)');
+	}
+	*/
+
+});
+
+
+        $("#btnSearchForFlights").click(function(event) {
+            event.preventDefault();
+            var flag = true;
+            if ($("#depDate").val() === 'Ngày đi') {
+                flag = false;
+            }
+            if (flag) {
+				//$("#btnSearchForFlights").attr('value', 'đang xử lý...');
+				$('#btnSearchForFlights').empty();
+				$('#btnSearchForFlights').append('đang xử lý...');
+                $(".search-form").submit();
+                return true;
+            } else {
+                smoke.signal("Vui lòng chọn ngày bay...", function(e){
+				}, {
+					duration: 1000,
+					classname: "custom-class"
+				});
+				//alert('Vui lòng chọn chuyến bay...');
+                return false;
+            }
+        });
+                </script>
+
+
+
+                <style>
+                    .j30-alerts-and-ads {
+                        float: right;
+                        padding-top: 20px;
+                        width: 373px;
+                    }
+
+                    .search-flightd {
+                        float: right;
+                        padding-top: 20px;
+                    }
+                </style>
+                <div class="j30-alerts-and-ads">
+                    <div class="callcenter">
+                        Call center: 028.3898 3898
+                    </div>
+                    <div class="calljetstar">
+                        <div style="background: rgb(253, 235, 199) none repeat scroll 0% 0%; margin: 17px 0px 10px; padding: 23px 29px 10px;" class="join-myjetstar">
+
+                            <div class="field">
+
+                                <form name="frmSubcribe" id="frmSubcribe" class="form-inlinex subscribe-formx" method="POST" action="https://vietjets.com.vn/home/subscribe">
+
+
+                                    <input type="text" class="text focus-clear txtJetmailEmail" title="Email của bạn" id="ctl06_ctl00_JetmailSignup2_txtJetmailEmail" value="" name="email" placeholder="Đăng ký Email khuyến mãi" style="float: left; border-radius: 4px; border: 1px solid rgb(209, 209, 209); color: rgb(78, 78, 80); padding: 8px 4px; width: 205px;" />
+
+                                    <button class="btnEmailSubmit dkmail" id="" value="" name="" type="submit">
+                                        Đăng ký
+                                    </button>
+
+
+                                    <div class="error" style="margin-top: 10px; color: #C00101"></div>
+                                </form>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="j30-alerts-and-ads">
+                        <div class="promo image-promo"><img src="userupload/Od-1_1.jpg" alt="" width="375" height="325" />&nbsp;</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+
+
+
+
+
+        <div id="footerx" class="clearfix j30-footer" style="padding: 10px; background: white none repeat scroll 0% 0%; line-height: 21px; border-bottom: 3px solid rgb(255, 81, 17); margin-bottom: 8px; font-family: GraublauWeb;">
+
+
+
+
+            <div class="clearfix " id="footers">
+
+
+
+
+                <div class="" style="float: left ;">
+                    © Copyright by Vietjetbooking | All Rights Reserved.
+                </div>
+                <div class="menu-bottom2ds" style="color: rgb(254, 25, 27); float: right; font-size: 18px; font-style: italic;"> Bay giá rẻ - Vui vẻ cả nhà ! </div>
+
+                <div class="clear"></div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <div id="listCity">
+        <ul class="list-group">
+            <li class="list-group-item"><a data-airportcode="HAN" href="javascript:void(0)"><b>Hà Nội </b><span>(HAN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="SGN" href="javascript:void(0)"><b>Hồ Chí Minh </b><span>(SGN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="DAD" href="javascript:void(0)"><b>Đà Nẵng </b><span>(DAD)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="NHA" href="javascript:void(0)"><b>Nha Trang </b><span>(NHA)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="PQC" href="javascript:void(0)"><b>Phú Quốc </b><span>(PQC)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="DLI" href="javascript:void(0)"><b>Đà Lạt </b><span>(DLI)</span></a></li>
+
+            <li class="list-group-item"><a data-airportcode="DIN" href="javascript:void(0)"><b>Điện Biên </b><span>(DIN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="HPH" href="javascript:void(0)"><b>Hải Phòng </b><span>(HPH)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="THD" href="javascript:void(0)"><b>Thanh Hóa </b><span>(THD)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="VII" href="javascript:void(0)"><b>Vinh </b><span>(VII)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="VDH" href="javascript:void(0)"><b>Đồng Hới </b><span>(VDH)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="HUI" href="javascript:void(0)"><b>Huế </b><span>(HUI)</span></a></li>
+
+            <li class="list-group-item"><a data-airportcode="VCL" href="javascript:void(0)"><b>Chu Lai </b><span>(VCL)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="UIH" href="javascript:void(0)"><b>Quy Nhơn </b><span>(UIH)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="TBB" href="javascript:void(0)"><b>Tuy Hòa </b><span>(TBB)</span></a></li>
+
+
+            <li class="list-group-item"><a data-airportcode="VCA" href="javascript:void(0)"><b>Cần Thơ </b><span>(VCA)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="VKG" href="javascript:void(0)"><b>Rạch Giá </b><span>(VKG)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="VCS" href="javascript:void(0)"><b>Côn Đảo </b><span>(VCS)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="CAH" href="javascript:void(0)"><b>Cà Mau </b><span>(CAH)</span></a></li>
+
+            <li class="list-group-item"><a data-airportcode="PXU" href="javascript:void(0)"><b>Pleiku </b><span>(PXU)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="BMV" href="javascript:void(0)"><b>Ban Mê Thuột </b><span>(BMV)</span></a></li>
+
+            <li class="list-group-item"><a data-airportcode="BKK" href="javascript:void(0)"><b>Bangkok </b><span>(BKK)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="SIN" href="javascript:void(0)"><b>Singapore </b><span>(SIN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="KUL" href="javascript:void(0)"><b>Kuala Lumpur </b><span>(KUL)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="ICN" href="javascript:void(0)"><b>Seoul </b><span>(ICN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="RGN" href="javascript:void(0)"><b>Yangon </b><span>(RGN)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="TPE" href="javascript:void(0)"><b>Taipei </b><span>(TPE)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="REP" href="javascript:void(0)"><b>Siem Reap </b><span>(REP)</span></a></li>
+            <li class="list-group-item"><a data-airportcode="HGH" href="javascript:void(0)"><b>Hàng Châu </b><span>(HGH)</span></a></li>
+        </ul>
+    </div>
+    <script src="themes/nokair/js/uniform/jquery.uniform.js"></script>
+    <script src="themes/nokair/js/jquery.nicescroll.min.js"></script>
+    <script src="themes/nokair/js/ext.js"></script>
+    <script src="themes/nokair/js/bootstrap.min.js"></script>
+
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5653b7a90f76a5ca39f16081/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+    </script>
+    <!--End of Tawk.to Script-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145015097-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145015097-1');
+    </script>
+
+    <script>
+changeViewportMeta = function() {
+  jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=device-width');
+  if (jQuery(window).width() <= 320) {
+    return jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=480');
+  } else if (jQuery(window).width() <= 480) {
+    return jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=480');
+  } else if (jQuery(window).width() <= 768) {
+    return jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=920');
+  } else if (jQuery(window).width() <= 1024) {
+    return jQuery('meta[name=viewport]').attr('content', 'user-scalable=yes, initial-scale=0.7, maximum-scale=1.3, width=920');
+  }
+};
+
+jQuery(window).bind('orientationchange', changeViewportMeta)
+
+jQuery(document).ready(function() {
+  changeViewportMeta();
+});
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="~/javascript/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script src="~/javascript/jquery.validate.min.js"></script>
+    <script src="~/javascript/ui.datepicker.lunar.min.js"></script>
+    <script src="~/javascript/bxslider/jquery.bxslider.js"></script>
+    <script src="~/javascript/jquery.cookie.js"></script>
+    <script src="~/javascript/app2.js"></script>
+</body>
+<!-- Mirrored from vietjets.com.vn/gioi-thieu-ve-chung-toi.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Oct 2019 14:27:27 GMT -->
+</html>
+

@@ -1,0 +1,263 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+
+@using Flight.Models.Entity;
+
+    <div id="wrap">
+        <style>
+            .search-result table.dataTable .i-result .td1.price {
+                text-align: right;
+                cursor: pointer;
+            }
+
+            .search-result table.dataTable .i-result .td1.price {
+                background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #ffdbcd 0%, #ffb99d 61%, #ffb79a 100%) repeat scroll 0 0;
+                color: #525759;
+                font-size: 16px;
+                padding-left: 15px;
+                width: 207px !important;
+            }
+            /*
+                .search-result table.dataTable .i-result .label-select {
+                  float: left;
+                  margin: 0;
+                  min-width: unset;
+                  width: 50px;
+                }*/
+            .search-result table.dataTable .i-result .label-select {
+                float: right;
+                margin: 2px 0 0 11px;
+                min-width: unset;
+                width: 50px;
+            }
+
+                .search-result table.dataTable .i-result .label-select .button-select {
+                    background: #ffa500 none repeat scroll 0 0;
+                    border-radius: 4px;
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-family: Verdana;
+                    font-size: 13px;
+                    font-weight: normal;
+                    margin: 0;
+                    padding: 5px 4px;
+                }
+                    /*
+                .search-result table.dataTable .i-result .label-select .button-select {
+                  background: #ff191a none repeat scroll 0 0;
+                  color: #ffffff;
+                }
+                */
+
+                    .search-result table.dataTable .i-result .label-select .button-select:hover, .search-result table.dataTable .i-result .label-select .button-select:active, .search-result table.dataTable .i-result .label-select .button-select:focus {
+                        /* background: #04468c none repeat scroll 0 0; */
+                        color: white;
+                    }
+
+            .search-result table.dataTable .i-result.selected:hover .label-select .button-select, .search-result table.dataTable .i-result.selected .label-select .button-select {
+                background: #f20000 none repeat scroll 0 0;
+                color: white;
+            }
+
+            .td1.price > span {
+                line-height: 27px;
+            }
+
+
+
+            .flight_select {
+                float: left;
+            }
+
+            table.dataTable.no-footer {
+                border-bottom: 1px solid #ddd;
+            }
+
+            .fixed .common-button2 {
+                display: none;
+            }
+
+            .fixed .commonimg {
+                display: none;
+            }
+
+            #submitFlight.fixed {
+                border: 1px dashed rgb(237, 27, 36);
+            }
+        </style>
+
+        <script type="text/javascript">
+            function myFunctionx() { /*
+//alert("Hello! I am an alert box!!");
+                                $('.price').bind("click tap",function() {
+                                    $(this).find(':radio').attr('checked','checked');
+                                            $(this).closest('table').find('.selected').removeClass('selected');
+                                            $(this).closest('tr').addClass('selected');
+
+                                });
+*/
+            }
+        </script>
+
+
+
+        <style>
+            .detail-holder {
+                float: right;
+            }
+
+                .detail-holder .way-holder {
+                    line-height: 20px;
+                    padding: 5px 10px;
+                }
+
+                    .detail-holder .way-holder .way {
+                        margin: 0;
+                    }
+        </style>
+
+
+        <div id="detail-holder" class="detail-holder">
+
+            <style>
+                .detail-holder {
+                    border-radius: 8px;
+                }
+                /* .detail-holder.fly {
+                      margin-bottom: 10px;
+                      position: unset;
+                    }*/
+
+                .block-week ul.block-content > li {
+                    width: 95px;
+                }
+
+                .bgtext2 {
+                    color: #ffffff;
+                    padding: 0 1px 8px 0;
+                }
+            </style>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <script src="~/javascript/datatables/jquery.dataTables.min.js"></script>
+        <div class="search-result">
+
+            <div id="closeday-xxx" class="alert warning-xxx" style='display: none;'>
+
+                <strong>Lưu ý: </strong> Hệ thống không thể giữ chỗ vì sát ngày bay.
+                <p>Vui lòng liên hệ:  <strong>028.3898 3898</strong></p>
+
+            </div>
+            <script>
+                //$('#closeday').show();
+            </script>
+
+            
+
+
+                <div class="flight-info">
+                    <ul>
+                        <li style="font-size: 23px;">
+                            <span class="first-upper">1. Lựa chọn chuyến bay chặng đi</span> <br />
+                            <b>@Model.departAirport</b> đến <b>@Model.arrivedAirport</b>
+                        </li>
+
+                        <li>
+                            Bay ngày: <b class="date-go">@Model.date</b>.
+                            Hành khách: <strong>@Model.adultNo Người lớn,  @Model.childNo Trẻ em, @Model.infantNo Em bé</strong>.
+                            <i>Giá <u>chưa</u> bao gồm thuế và phí.</i>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <table class="datTable0 display dataTable no-footer" cellpadding="0" id="DataTables_Table_0" role="grid" style="width: 1004px;">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 100px;">Mã Chuyến Bay</th>
+                            <th class="hidden-xs td1 text-center flightcode sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Chuyến bay: activate to sort column ascending" style="width: 212px;">Chuyến bay</th>
+                            <th class="td1 f-time sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Khởi hành: activate to sort column ascending" style="width: 192px;">Khởi hành</th>
+                            <th class="hidden-xs td1 t-time sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Đến: activate to sort column ascending" style="width: 100px;">Đến</th>
+                            <th rel="0" data-order="asc" class="clickable sorting  td1 price sorting_disabled" rowspan="1" colspan="1" aria-label="Giá" style="width: 94px;">Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ChuyenBay item in Model.cb)
+                        {
+                            <tr role="row" class="i-result">
+                                <td class=" td1 text-center hidden-xs flightcode" id="MaChuyenBay">@item.MaChuyenBay</td>
+                                <td>
+                                    <img title="@item.Title" src="~/Content/image/@item.UrlAnh">
+                                </td>
+                                <ensp></ensp>
+
+                                <td class=" td1 f-time">@item.KhoiHanh</td>
+                                <td class=" td1 t-time hidden-xs">@item.Den</td>
+                                <td class=" td1 price">
+                                    <form method="get" action="Detail">
+                                        <span data-base="@item.Gia">@item.Gia VNĐ</span>
+                                        <input name="MaChuyenBay" value="@item.MaChuyenBay" hidden="hidden" />
+                                        <input name="adultNo" value="@Model.adultNo" hidden="hidden" />
+                                        <input name="childNo" value="@Model.childNo" hidden="hidden" />
+                                        <input name="infantNo" value="@Model.infantNo" hidden="hidden" />
+                                        <label class="label-select">
+                                            <!--        <input type="radio" value="0-0-0" name="flight0" class="flight_select" style="display: none;">-->
+                                            <button id="Chon_Button" class="button-select" type="submit">Chọn</button>
+                                        </label>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+               
+
+
+
+                <script>
+                    $('#submitFlight').show();
+
+                </script>
+
+
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
+                <br />
+            
+            <br />
+            <br />
+        </div>
+        <script>
+            function Chon_Click(giatien) {
+                
+                $.ajax({
+                    type: "POST",
+                    url: "Detail",
+                    data: "id=" + giatien,
+                    success: function (msg) {
+                        alert("Data Saved: " + msg);
+                    }
+                });
+            }
+        </script>
