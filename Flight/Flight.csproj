@@ -144,7 +144,6 @@
     <Compile Include="Models\Entity\AirLineDbContext.cs" />
     <Compile Include="Models\Entity\ChuyenBay.cs" />
     <Compile Include="Models\Entity\FlightInfo.cs" />
-    <Compile Include="Models\Entity\HanhKhach.cs" />
     <Compile Include="Models\Entity\HanhLy.cs" />
     <Compile Include="Models\Entity\KhachHang.cs" />
     <Compile Include="Models\Entity\KhachHang_ChuyenBay.cs" />

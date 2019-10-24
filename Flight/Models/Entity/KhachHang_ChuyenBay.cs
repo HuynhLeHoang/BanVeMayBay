@@ -14,9 +14,6 @@ namespace Flight.Models.Entity
         [StringLength(10)]
         public string MaChuyenBay { get; set; }
 
-        [StringLength(10)]
-        public string MaHanhLy { get; set; }
-
         [Key]
         [StringLength(10)]
         public string MaCode { get; set; }
@@ -27,8 +24,6 @@ namespace Flight.Models.Entity
         public virtual ChuyenBay ChuyenBay { get; set; }
 
         public virtual HanhKhach HanhKhach { get; set; }
-
-        public virtual HanhLy HanhLy { get; set; }
 
         public virtual KhachHang KhachHang { get; set; }
     }

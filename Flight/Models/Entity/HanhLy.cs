@@ -12,11 +12,11 @@ namespace Flight.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HanhLy()
         {
-            KhachHang_ChuyenBay = new HashSet<KhachHang_ChuyenBay>();
+            HanhKhaches = new HashSet<HanhKhach>();
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(3)]
         public string MaHanhLy { get; set; }
 
         public int? LoaiHanhLy { get; set; }
@@ -24,6 +24,6 @@ namespace Flight.Models.Entity
         public int? GiaTien { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachHang_ChuyenBay> KhachHang_ChuyenBay { get; set; }
+        public virtual ICollection<HanhKhach> HanhKhaches { get; set; }
     }
 }

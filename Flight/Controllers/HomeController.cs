@@ -61,6 +61,7 @@ namespace Flight.Controllers
             Session[CommonSession.FLIGHT_SESION]= Flightif;
             return View(Flightif);
         }
+       
         public ActionResult Review(string fullname,string txtPax1_Ctry, string phone, string email, string address)
         {
             new F_ThemKhachHang().ThemKhachHang( fullname, txtPax1_Ctry, phone, email, address);

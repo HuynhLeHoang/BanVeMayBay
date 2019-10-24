@@ -28,15 +28,10 @@ namespace Flight.Models.Entity
         [Column(TypeName = "date")]
         public DateTime? NgaySinh { get; set; }
 
-        [Column("SohoChieu-CMND")]
-        [StringLength(20)]
-        public string SohoChieu_CMND { get; set; }
+        [StringLength(3)]
+        public string MaHanhLy { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? NgayCap { get; set; }
-
-        [StringLength(50)]
-        public string QuocTich { get; set; }
+        public virtual HanhLy HanhLy { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhachHang_ChuyenBay> KhachHang_ChuyenBay { get; set; }

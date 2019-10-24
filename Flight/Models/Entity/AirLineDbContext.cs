@@ -19,6 +19,7 @@ namespace Flight.Models.Entity
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<MayBay> MayBays { get; set; }
         public virtual DbSet<PhiCong> PhiCongs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<KhachHang_ChuyenBay> KhachHang_ChuyenBay { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -48,9 +49,17 @@ namespace Flight.Models.Entity
                 .IsUnicode(false);
 
             modelBuilder.Entity<HanhKhach>()
+                .Property(e => e.MaHanhLy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<HanhKhach>()
                 .HasMany(e => e.KhachHang_ChuyenBay)
                 .WithOptional(e => e.HanhKhach)
                 .HasForeignKey(e => e.MaKhachHang);
+
+            modelBuilder.Entity<HanhLy>()
+                .Property(e => e.MaHanhLy)
+                .IsUnicode(false);
 
             modelBuilder.Entity<KhachHang>()
                 .Property(e => e.DienThoai)

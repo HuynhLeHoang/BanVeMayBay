@@ -2064,10 +2064,7 @@
 
                                     </select>
                                 </td>
-                                <td style="width: 150px;">
-                                    <span>Số hộ chiếu / CMND</span> <br>
-                                    <input id="adultPass" name="adultPass" type="text" class="form-controlx input-sm passenger_pass" placeholder="B9887544" style="padding: 6px;">
-                                </td>
+                                
                             </tr>
                         }
                         @for (int i = 1; i <= @Model.childNo; i++)
@@ -2090,6 +2087,25 @@
                                 <td>
                                     <span>Ngày sinh<div style="color: red; display: inline;"> (*)</div></span> <br>
                                     <input name="childBirthday" type="text" class="childBirthday hasDatepicker" placeholder="20/10/2007" style="padding: 6px 1px 7px 11px;" id="dp1571880104824">
+                                </td>
+                                <td>
+                                    <span>Hành Lý</span> <br>
+                                    <select id="adultBaggage" name="adultBaggage">
+                                        <option value="1">Không mua thêm hành lý</option>
+
+                                        <option value="2">Gói 1 - 15kg - 175.000 VNĐ</option>
+
+                                        <option value="3">Gói 2 - 20kg - 196.000 VNĐ</option>
+
+                                        <option value="11">Gói 3 - 25kg - 260.000 VNĐ</option>
+
+                                        <option value="12">Gói 4 - 30kg - 370.000 VNĐ</option>
+
+                                        <option value="13">Gói 5 - 35kg - 430.000 VNĐ</option>
+
+                                        <option value="14">Gói 6 - 40kg - 480.000 VNĐ</option>
+
+                                    </select>
                                 </td>
                             </tr>
                         }
