@@ -65,24 +65,28 @@
                         };
                         if (Login["username"] != "" && Login["password"] != "")
                         {
+                            document.getElementById("SubmitButton").alt = "ĐANG XỬ LÝ ...";
                             $.ajax({
                                 type: "POST",
                                 url: "/Admin/Login/SignIn",
                                 data: JSON.stringify(Login),
                                 dataType: "json",
-                        contentType: 'application/json; charset=utf-8',
+                                contentType: 'application/json; charset=utf-8',
                         success: function (data) {
                                     if (data.msg === "S") {
                                         window.location.href = "/Admin/Home/AddFlight";
+                                        
                                     }
                                         
                                     else {
                                         document.getElementById("ThongBaoDangNhap").innerHTML = "";
                                         document.getElementById("ThongBaoDangNhap").innerHTML = "Sai tên đăng nhập hoặc mật khẩu!";
                                     }
+                                    document.getElementById("SubmitButton").alt = "LOGIN";
                                 },
                                 error: function (data) {
-                                    
+                                    document.getElementById("ThongBaoDangNhap").innerHTML = "Something Wrong!";
+                                    document.getElementById("SubmitButton").alt = "LOGIN";
                                 }
                             });
                         }
@@ -256,7 +260,7 @@
                             
                             <div class="field right">
                                 <button id="btnSubmit" class="png-bg" type="submit">
-                                    <img alt="SUBMIT" src="timicon.png" style="border-width: 0px; width: 24px; margin: 0px -1px -4px 0px;">
+                                    <img id="SubmitButton" alt="LOGIN" src="timicon.png" style="border-width: 0px; width: 24px; margin: 0px -1px -4px 0px;">
 
                                 </button>
                             </div>
