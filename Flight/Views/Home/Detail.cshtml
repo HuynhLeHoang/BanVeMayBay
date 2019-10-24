@@ -1898,11 +1898,11 @@
                             </div>
                         </td>
                     </tr>
-                   
+
                     <tr>
                         <td class="text-right" style="width: 29%;">Số điện thoại di động<div style="color: red; display: inline;"> (*)</div></td>
                         <td>
-                            <input name="phone" class="form-control" id="phone" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại." pattern=".{10,11}" required="" style="width: 350px;" />                      
+                            <input name="phone" class="form-control" id="phone" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại." pattern=".{10,11}" required="" style="width: 350px;" />
                         </td>
                     </tr>
 
@@ -2020,31 +2020,34 @@
                     }
                 </style>
 
+                <h4 class="head-title1">
+                    2. NHẬP Thông tin Hành khách <i style="text-transform: lowercase ! important; color: #525759;font-size: 14px;font-style: normal;font-weight: normal;">(Vui lòng nhập tên không dấu)</i>
+                </h4>
+                <table id="tblFlight_Information" class="table1b" style="width: 100%;">
+                    <tbody>
+                        @for (int i = 1; i <= @Model.adultNo; i++)
+                        {
+                            <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Người lớn @i  </div>	</td>	</tr>
+                            <tr style=" none repeat scroll 0px 0px; border-top: 1px solid rgb(0, 99, 152);">
+                                <td style="width: 200px;">
+                                    <span>Giới tính<div style="color: red; display: inline;"> (*)</div></span> <br>
+                                    <select id="adultSex" name="adultSex" style=" ">
+                                        <option value="Ông">Ông</option>
+                                        <option value="Bà">Bà</option>
+                                    </select>
+                                </td>
+                                <td style="width: 310px;">
+                                    <span>Họ tên<div style="color: red; display: inline;"> (*)</div></span> <br>
+                                    <input placeholder="Nguyen Van A" id="adultName" name="adultName" class="adultName_name" type="text" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" title="Vui lòng nhập họ và tên." pattern=".{6,}" required="">
 
-                
-
-
-                <div class="box-template">
-                    <div class="box-template-title">
-                        <div class="box-template-title-cont fa-suitcase">  <img src="hanhlyicon.jpg" alt="Thông tin hành lý" style="margin: 0px 0px -4px;"> Thông tin hành lý</div>
-                    </div>
-                    <div class="box-template-content">
-
-                        <div class="group-flight-info">
-                            <div class="row-flight-info">
-                                <div class="LRow-flight-info">1. Hành lý xách tay</div>
-                                <div class="RRow-flight-info">Mỗi hành khách được mang theo tối đa 7kg hành lý xách tay. (trừ em bé)</div>
-                            </div>
-                            <div class="row-flight-info">
-                                <div class="LRow-flight-info">2. Hành lý ký gửi</div>
-                                <div class="RRow-flight-info">Vui lòng chọn nếu quý khách có nhu cầu ...</div>
-                            </div>
-                            <div style="border-bottom: 0px solid gray; color: rgb(0, 99, 152); text-transform: uppercase; font-weight: bold; width: 100%; clear: left; padding-top: 10px;">Người lớn 1  </div>
-
-                            <div class="addition-bag pass-0" style="float: left; width: 22%; padding: 0px 15px 8px 0px;">
-                                <div style="font-size: 12px; padding: 9px 3px 3px 0px; font-weight: bold;">Chiều đi</div>
-                                <div>
-                                    <select name="origin_baggage[]">
+                                </td>
+                                <td>
+                                    <span>Ngày sinh</span> <br>
+                                    <input id="adultBirthday" name="adultBirthday" type="text" class="form-controlxxx input-smxxx adult_birthday" placeholder="28/01/1970" style="padding: 6px 1px 7px 11px;">
+                                </td>
+                                <td>
+                                    <span>Hành Lý</span> <br>
+                                    <select id="adultBaggage" name="adultBaggage">
                                         <option value="1">Không mua thêm hành lý</option>
 
                                         <option value="2">Gói 1 - 15kg - 175.000 VNĐ</option>
@@ -2060,23 +2063,61 @@
                                         <option value="14">Gói 6 - 40kg - 480.000 VNĐ</option>
 
                                     </select>
-                                </div>
-                            </div>
+                                </td>
+                                <td style="width: 150px;">
+                                    <span>Số hộ chiếu / CMND</span> <br>
+                                    <input id="adultPass" name="adultPass" type="text" class="form-controlx input-sm passenger_pass" placeholder="B9887544" style="padding: 6px;">
+                                </td>
+                            </tr>
+                        }
+                        @for (int i = 1; i <= @Model.childNo; i++)
+                        {
+                            <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Trẻ em @i  </div>	</td>	</tr>
+                            <tr style=" none repeat scroll 0px 0px; border-top: 1px solid rgb(0, 99, 152);">
 
+                                <td>
+                                    <span>Giới tính<div style="color: red; display: inline;"> (*)</div></span> <br>
+                                    <select name="childSex">
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <span>Họ tên<div style="color: red; display: inline;"> (*)</div></span> <br>
+                                    <input id="childName" placeholder="Nguyen Van A" name="childName" class="childName" type="text" required="" aria-required="true" aria-invalid="true">
 
+                                </td>
+                                <td>
+                                    <span>Ngày sinh<div style="color: red; display: inline;"> (*)</div></span> <br>
+                                    <input name="childBirthday" type="text" class="childBirthday hasDatepicker" placeholder="20/10/2007" style="padding: 6px 1px 7px 11px;" id="dp1571880104824">
+                                </td>
+                            </tr>
+                        }
 
+                        @for (int i = 1; i <= @Model.infantNo; i++)
+                        {
+                            <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Em bé @i  </div>	</td>	</tr>
+                            <tr style=" none repeat scroll 0px 0px; border-top: 1px solid rgb(0, 99, 152);">
 
-
-
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-
+                                <td>
+                                    <span>Giới tính<div style="color: red; display: inline;"> (*)</div></span> <br>
+                                    <select name="infantSex">
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <span>Họ tên<div style="color: red; display: inline;"> (*)</div></span> <br>
+                                    <input id="infantName" placeholder="Nguyen Van A" name="infantName" class="infantName" type="text" required="" aria-required="true" aria-invalid="true">
+                                </td>
+                                <td>
+                                    <span>Ngày sinh<div style="color: red; display: inline;"> (*)</div> </span> <br>
+                                    <input name="infantBirthday" type="text" class="infantBirthday hasDatepicker" placeholder="20/10/2016" style="padding: 6px 1px 7px 11px;" required="" aria-required="true" aria-invalid="true" id="dp1571880104825">
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
                 <style>
                     .addition-bag select {
                         -moz-appearance: none;
@@ -2275,7 +2316,7 @@
 
 
 
-             
+
 
 
 
@@ -2310,11 +2351,7 @@
                 </style>
 
 
-
-                <label>Ghi chú:</label>
-
-            
-                </div>
+</div>
 
 
 
@@ -2766,9 +2803,38 @@
 
                         <div class="cheap" style="height: 41px; margin-top: 13px;">
                             <img src="themes/nokair/img/arrow1.gif" style="margin-top: 8px; margin-left: calc(100% - 255px);" />
-                            <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" />
+                            <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" onclick="" />
                         </div>
+                        <!--
+                        dùng ajax và jquery để truyền qua controller    
+                        -->
+                        <script type="text/javascript">
+                            $("body").on("click", "#btnContinue", function () {
+                                var nguoilons = new Array();
+                                var treems = new Array();
+                                var embes = new Array();
+                                $("#tblFlight_Information TBODY TR").each(function () {
+                                    var row = $(this);
+                                    var nguoilon = {};
+                                    nguoilon.gioitinh = row.find("#adultSex").val();
+                                    nguoilon.hoten = row.find("#adultName").html();
+                                    nguoilon.ngaysinh = row.find("#adultBirthday").html();
+                                    nguoilon.hanhly = row.find("adultBaggage").val();
+                                    nguoilon.cmnd = row.find("adultPass").html();
+                                    nguoilons.push(nguoilon);
+                                    //gui edu lieu toi controller
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/Home/Review",
+                                        data = JSON.stringify(nguoilons),
+                                        contentType: "application/json; charset=utf-8",
+                                        dataType: "json",
 
+
+                                    })
+                                });
+                            });
+                        </script>
 
                         <div id="submitFlight" class="fixed">
                             <span class="moreScroll">Vui lòng điền đầy đủ thông tin và nhấp nút TIẾP TỤC  &nbsp;<img style="margin-top: -16px;" src="arrow-down.gif" /></span>
