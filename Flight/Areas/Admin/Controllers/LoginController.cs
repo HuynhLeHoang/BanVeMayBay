@@ -25,8 +25,8 @@ namespace Flight.Areas.Admin.Controllers
         {
             return View();
         }
-
-       public ActionResult SignIn(LoginModel model)
+        [HttpPost]
+        public ActionResult SignIn(LoginModel model)
         {
 
 
@@ -43,12 +43,17 @@ namespace Flight.Areas.Admin.Controllers
                         UserSession.UserName = model.Username;
                         UserSession.UserID = temp.MaThanhVien;
                         Session.Add(CommonSession.USER_SESSION,UserSession);
-                        return RedirectToAction("AddFlight", "Home");
-                    }
+                    return Json(new
+                    {
+                        msg = "S"
+                    });
+                }
                 else
                     {
-                    TempData["notice"] = "Sai ten đăng nhập hoặc mật khẩu!";
-                    return View("Login");
+                    return Json(new
+                    {
+                        msg = "F"
+                    });
                 }
                 
             }

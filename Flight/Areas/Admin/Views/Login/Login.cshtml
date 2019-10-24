@@ -53,6 +53,50 @@
             alert(message);
         </script>
     }
+    <script type="text/javascript">
+
+            $(document).ready(function () {
+                $(function () {
+                    $('#btnSubmit').click(function (event) {
+                        event.preventDefault();
+                        var Login = {
+                            username: document.getElementById("user").value,
+                            password: document.getElementById("pwd").value,
+                        };
+                        if (Login["username"] != "" && Login["password"] != "")
+                        {
+                            document.getElementById("SubmitButton").alt = "ĐANG XỬ LÝ ...";
+                            $.ajax({
+                                type: "POST",
+                                url: "/Admin/Login/SignIn",
+                                data: JSON.stringify(Login),
+                                dataType: "json",
+                                contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                                    if (data.msg === "S") {
+                                        window.location.href = "/Admin/Home/AddFlight";
+                                        
+                                    }
+                                        
+                                    else {
+                                        document.getElementById("ThongBaoDangNhap").innerHTML = "";
+                                        document.getElementById("ThongBaoDangNhap").innerHTML = "Sai tên đăng nhập hoặc mật khẩu!";
+                                    }
+                                    document.getElementById("SubmitButton").alt = "LOGIN";
+                                },
+                                error: function (data) {
+                                    document.getElementById("ThongBaoDangNhap").innerHTML = "Something Wrong!";
+                                    document.getElementById("SubmitButton").alt = "LOGIN";
+                                }
+                            });
+                        }
+                        else {
+                            document.getElementById("ThongBaoDangNhap").innerHTML = "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu";
+                        }
+                        });
+                    });
+                });
+    </script> 
     <h1 style="display: none;">Vietjet Air | Bay giá rẻ - Vui vẻ cả nhà | Giá chỉ từ 58.OOO VNĐ</h1>
     <div id="content">
         <header>
@@ -112,7 +156,7 @@
                     </div>
                     <div class="content-flight">
 
-                        <form method="POST" class="search-form" action="/Admin/Login/SignIn">
+                        <form">
                             <div class="pad3">
 
                                 <!--line-->
@@ -123,6 +167,7 @@
 
                                 <div class="col1">
                                     <table>
+                                        
                                         <tr>
                                             <td>
                                                 <div class="in">
@@ -140,7 +185,7 @@
                                                     <div class="in-left">
                                                         <div class="input-group" style="overflow: hidden; width: 204px; border-right: 1px solid rgb(105, 105, 105);">
 
-                                                            <input type="username" name="username" class="airport-input" placeholder="username" />
+                                                            <input id="user" type="username" name="username" class="airport-input" placeholder="username"/>
 
                                                         </div>
                                                     </div>
@@ -168,7 +213,7 @@
                                         <div class="in">
                                             <div class="in-left">
                                                 <div class="input-group" style="overflow: hidden; width: 204px; border-right: 1px solid rgb(105, 105, 105);">
-                                                    <input type="password" name="password" class="airport-input" placeholder="password" />
+                                                    <input id="pwd" type="password" name="password" class="airport-input" placeholder="password"/>
                                                 </div>
                                             </div>
 
@@ -212,42 +257,18 @@
                                     color: white;
                                 }
                             </style>
-                            <div class="col2">
-
-
-                            </div>
-
-
-
-
-
-
-
-                            <div class="clear"></div>
-                            <div class="">
-
-
-
-
-
-
-
-
-
-                            </div>
-
-
-                            <div class="clear"></div>
-
+                            
                             <div class="field right">
-                                <button class="png-bg" type="submit">
-                                    <img alt="SUBMIT" src="timicon.png" style="border-width: 0px; width: 24px; margin: 0px -1px -4px 0px;">
+                                <button id="btnSubmit" class="png-bg" type="submit">
+                                    <img id="SubmitButton" alt="LOGIN" src="timicon.png" style="border-width: 0px; width: 24px; margin: 0px -1px -4px 0px;">
 
                                 </button>
                             </div>
 
-                            <div style="float: left; padding: 15px 0 0 5px; font-weight: bold;"> <a target="blank" href="huong-dan-dat-cho.html" style="font-family: tahoma;">* Quên mật khẩu</a> </div>
-
+                            <div style="float: left; padding: 15px 0 0 5px; font-weight: bold;"> <a target="blank" href="huong-dan-dat-cho.html" style="font-family: tahoma;">* Quên mật khẩu</a> </div><br />
+                                <br />
+                                <br />
+                                <div style="float: left; padding: 15px 0 0 5px; font-weight: bold;"> <a id="ThongBaoDangNhap" href="#" style="font-family: tahoma;"></a> </div>
 
 
 
