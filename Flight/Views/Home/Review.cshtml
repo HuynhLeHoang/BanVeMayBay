@@ -13,29 +13,29 @@
 
         <h4 class="head-title1">Thông tin Khách hàng</h4>
         <ul class="customer-info">
-            <li><span>Họ &amp; Tên: </span> @Model.HoTenKhachHang </li>
-            <li><span>Điện thoại: </span>@Model.DienThoai</li>
-            <li><span>Email: </span>@Model.Email</li>
-            <li><span>Địa chỉ: </span>@Model.Diachi</li>
+            <li><span>Họ &amp; Tên: </span> @ViewBag.khachhang.HoTenKhachHang </li>
+            <li><span>Điện thoại: </span>@ViewBag.khachhang.DienThoai</li>
+            <li><span>Email: </span>@ViewBag.khachhang.Email</li>
+            <li><span>Địa chỉ: </span>@ViewBag.khachhang.Diachi</li>
   
             <li> <pre></pre> </li>
         </ul>
         <h4 class="head-title1">Thông tin Hành khách</h4>
         <table class="table1 table-border table-hover" style="background: oldlace none repeat scroll 0% 0%; margin-bottom: 15px;">
             <tbody>
-                <tr style="color: red;">
-                    <td style="width: 200px;">Người lớn 1</td>
-                    <td>Nguyen Van B ()</td>
-                    <td>  </td>
-                </tr>
-                <tr>
-                    <td>Hành lý ký gửi Chiều đi : </td>
-                    <td colspan="2">Không mua thêm: <span class="label label-success currency">0 VNĐ</span></td>
-                </tr>
+                @foreach (HanhKhach item in Model)
+                {
+                    <tr style="color: red;">
+                        <td style="width: 200px;">@item.GioiTinh </td>
+                        <td>@item.HoTen</td>
+                        <td>@item.MaHanhLy  </td>
+                    </tr>
+                    
+                }
             </tbody>
         </table>
         <h3 class="total-price">
-            GIÁ VÉ: <span class="currency">0 VNĐ</span> <br>
+            GIÁ VÉ: <span class="currency">@ViewBag.TongTien VNĐ</span> <br>
             <div style="font-size: 16px; padding-top: 9px; color: tomato;">
                 Phí xuất vé: <span class="currency">0 VNĐ</span>
             </div>

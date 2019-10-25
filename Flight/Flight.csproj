@@ -145,8 +145,10 @@
     <Compile Include="Models\Entity\ChuyenBay.cs" />
     <Compile Include="Models\Entity\FlightInfo.cs" />
     <Compile Include="Models\Entity\HanhKhach.cs" />
+    <Compile Include="Models\Entity\HanhKhachModel.cs" />
     <Compile Include="Models\Entity\HanhLy.cs" />
     <Compile Include="Models\Entity\KhachHang.cs" />
+    <Compile Include="Models\Entity\KhachHangModel.cs" />
     <Compile Include="Models\Entity\KhachHang_ChuyenBay.cs" />
     <Compile Include="Models\Entity\LoginModel.cs" />
     <Compile Include="Models\Entity\MaCB.cs" />
@@ -156,6 +158,7 @@
     <Compile Include="Models\Entity\sysdiagram.cs" />
     <Compile Include="Models\Functions\F_Login.cs" />
     <Compile Include="Models\Functions\F_DanhSachChuyenBay.cs" />
+    <Compile Include="Models\Functions\F_ThemHanhKhach.cs" />
     <Compile Include="Models\Functions\F_ThemKhachHang.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\UserLogin.cs" />

@@ -17,6 +17,18 @@ begin
 end
 go 
 
+create proc ThemHanhKhach
+@GioiTinh nvarchar(3),
+@HoTen nvarchar(50),
+@NgaySinh date,
+@MaHanhLi int 
+as
+begin 
+	
+	declare @MaHanhKhach nvarchar (10)
+	insert into HanhKhach(MaHanhKhach,GioiTinh, HoTen, NgaySinh, MaHanhLy) values('HK'+CONVERT(NVARCHAR(4),cast(rand()*10000 as int)), @GioiTinh, @HoTen, @NgaySinh, @MaHanhLi)
+end
+go
 
 
 

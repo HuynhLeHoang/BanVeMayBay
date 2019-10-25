@@ -129,7 +129,8 @@
 
 
                     </div>
-                    <h4 style="text-align:center; color:red" class="total"><span class=""><b>Tổng tiền: </b></span>&nbsp;<strong><span class="currency">@tong VNĐ</span></strong></h4>
+                    <h4 style="text-align:center; color:red" class="total"><span class=""><b>Tổng tiền: </b></span>&nbsp;<strong><span  id="TongTien"class="currency">@tong VNĐ</span></strong></h4>
+                    
                 </div>
                  
               
@@ -143,7 +144,8 @@
 
 
 
-            <form id="book_information" method="POST" action="~/Home/Review" role="form">
+            <form id="book_information" method="POST" role="form">
+           
                 <h4 class="head-title1">1. NHẬP THÔNG TIN NGƯỜI LIÊN HỆ</h4>
                 <table class="table1">
                     <tr>
@@ -2023,8 +2025,9 @@
                 <h4 class="head-title1">
                     2. NHẬP Thông tin Hành khách <i style="text-transform: lowercase ! important; color: #525759;font-size: 14px;font-style: normal;font-weight: normal;">(Vui lòng nhập tên không dấu)</i>
                 </h4>
-                <table id="tblFlight_Information" class="table1b" style="width: 100%;">
+                <table id="Information_adult" class="table1b" style="width: 100%;">
                     <tbody>
+
                         @for (int i = 1; i <= @Model.adultNo; i++)
                         {
                             <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Người lớn @i  </div>	</td>	</tr>
@@ -2064,9 +2067,14 @@
 
                                     </select>
                                 </td>
-                                
+
                             </tr>
                         }
+
+                        </body>
+                </table>
+                <table id="Information_child" class="table1b" style="width: 100%;">
+                    <tbody>
                         @for (int i = 1; i <= @Model.childNo; i++)
                         {
                             <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Trẻ em @i  </div>	</td>	</tr>
@@ -2074,9 +2082,9 @@
 
                                 <td>
                                     <span>Giới tính<div style="color: red; display: inline;"> (*)</div></span> <br>
-                                    <select name="childSex">
-                                        <option value="1">Nam</option>
-                                        <option value="0">Nữ</option>
+                                    <select id="childSex" name="childSex">
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
                                     </select>
                                 </td>
                                 <td>
@@ -2086,11 +2094,11 @@
                                 </td>
                                 <td>
                                     <span>Ngày sinh<div style="color: red; display: inline;"> (*)</div></span> <br>
-                                    <input name="childBirthday" type="text" class="childBirthday hasDatepicker" placeholder="20/10/2007" style="padding: 6px 1px 7px 11px;" id="dp1571880104824">
+                                    <input id="childBirthday" name="childBirthday" type="text" class="childBirthday hasDatepicker" placeholder="20/10/2007" style="padding: 6px 1px 7px 11px;" id="dp1571880104824">
                                 </td>
                                 <td>
                                     <span>Hành Lý</span> <br>
-                                    <select id="adultBaggage" name="adultBaggage">
+                                    <select id="childBaggage" name="childBaggage">
                                         <option value="1">Không mua thêm hành lý</option>
 
                                         <option value="2">Gói 1 - 15kg - 175.000 VNĐ</option>
@@ -2109,7 +2117,10 @@
                                 </td>
                             </tr>
                         }
-
+                    </tbody>
+                </table>
+                <table id="Information_infant" class="table1b" style="width: 100%;">
+                    <tbody>
                         @for (int i = 1; i <= @Model.infantNo; i++)
                         {
                             <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Em bé @i  </div>	</td>	</tr>
@@ -2118,8 +2129,8 @@
                                 <td>
                                     <span>Giới tính<div style="color: red; display: inline;"> (*)</div></span> <br>
                                     <select name="infantSex">
-                                        <option value="1">Nam</option>
-                                        <option value="0">Nữ</option>
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
                                     </select>
                                 </td>
                                 <td>
@@ -2819,39 +2830,83 @@
 
                         <div class="cheap" style="height: 41px; margin-top: 13px;">
                             <img src="themes/nokair/img/arrow1.gif" style="margin-top: 8px; margin-left: calc(100% - 255px);" />
-                            <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" onclick="" />
+                            <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" />
                         </div>
                         <!--
                         dùng ajax và jquery để truyền qua controller    
                         -->
                         <script type="text/javascript">
-                            $("body").on("click", "#btnContinue", function () {
-                                var nguoilons = new Array();
-                                var treems = new Array();
-                                var embes = new Array();
-                                $("#tblFlight_Information TBODY TR").each(function () {
-                                    var row = $(this);
-                                    var nguoilon = {};
-                                    nguoilon.gioitinh = row.find("#adultSex").val();
-                                    nguoilon.hoten = row.find("#adultName").html();
-                                    nguoilon.ngaysinh = row.find("#adultBirthday").html();
-                                    nguoilon.hanhly = row.find("adultBaggage").val();
-                                    nguoilon.cmnd = row.find("adultPass").html();
-                                    nguoilons.push(nguoilon);
-                                    //gui edu lieu toi controller
+                            $("#book_information").on("click", "#btnContinue", function () {
+                                var hanhkhach = new Array();
+                                    
+                                    $("#Information_adult tr:gt(0)").each(function () {
+                                        var row = $(this);
+                                        var nguoilon = {};
+                                        nguoilon.gioitinh= row.find("#adultSex").value,
+                                        nguoilon.hoten = row.find("#adultName").value,
+                                        nguoilon.ngaysinh = row.find("#adultBirthday").value,
+                                        nguoilon.hanhly  =  row.find("#adultBaggage").value
+                                        
+                                        hanhkhach.push(nguoilon);
+                                    });
+                                    $("Information_child tr:gt(0)").each(function () {
+                                        var row = $(this);
+                                        var treem = {};
+                                        treem.gioitinh =  row.find("#childSex").value,
+                                        treem.hoten =     row.find("#childName").value,
+                                        treem.ngaysinh = row.find("#childBirthday").value,
+                                        treem.hanhli=    row.find("#childBaggage").value
+                                        hanhkhach.push(treem);
+                                    });
+                                    $("Information_infant").each(function () {
+                                        var row = $(this);
+                                        var embe = {};
+                                            embe.gioitinh = row.find("#infantSex").value,
+                                            embe.hoten=    row.find("#infantName").value,
+                                            embe.ngaysinh = row.find("#infantBirthday").value,
+                                            embe.hanhli= null,
+                                        hanhkhach.push(embe);
+                                    });
+
                                     $.ajax({
                                         type: "POST",
                                         url: "/Home/Review",
-                                        data = JSON.stringify(nguoilons),
+                                        data = JSON.stringify(hanhkhach),
                                         contentType: "application/json; charset=utf-8",
                                         dataType: "json",
-
-
-                                    })
-                                });
-                            });
+                                    });
+                            });                                          
                         </script>
-
+                        <script>
+                            $(document).ready(function () {
+                                $(function () {
+                                    $('#btnContinue').click(function (event) {
+                                        event.preventDefault();
+                                        adult = document.getElementById("Information_adult");
+                                         
+                                        var Info{
+                                            
+                                           };
+                                                                           
+                                            $.ajax({
+                                            type: "POST",
+                                            url: "/Admin/Login/SignIn",
+                                            data: JSON.stringify(Info),
+                                            dataType: "json",
+                                            contentType: 'application/json; charset=utf-8',
+                                            success: function (data) {
+                                                
+                                            },
+                                            error: function (data) {
+                                                
+                                            }
+                                            });
+                        
+                        
+                                        });
+                                    });
+                                });
+                        </script> 
                         <div id="submitFlight" class="fixed">
                             <span class="moreScroll">Vui lòng điền đầy đủ thông tin và nhấp nút TIẾP TỤC  &nbsp;<img style="margin-top: -16px;" src="arrow-down.gif" /></span>
                         </div>

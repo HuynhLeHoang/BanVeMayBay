@@ -61,17 +61,24 @@ namespace Flight.Controllers
             Session[CommonSession.FLIGHT_SESION]= Flightif;
             return View(Flightif);
         }
-       
-        public ActionResult Review(string fullname,string txtPax1_Ctry, string phone, string email, string address)
+       [HttpPost]
+        public ActionResult Review(string fullname,string txtPax1_Ctry, string phone, string email, string address, List<HanhKhachModel> HanhKhachs)
         {
             new F_ThemKhachHang().ThemKhachHang( fullname, txtPax1_Ctry, phone, email, address);
+            foreach(HanhKhachModel item in HanhKhachs)
+            {
+                new F_ThemHanhKhach().ThemHanhKhach(item);
+            }
+           
             KhachHang model = new KhachHang();
             model.HoTenKhachHang = fullname;
             model.KhuVuc = txtPax1_Ctry;
             model.DienThoai = phone;
             model.Email = email;
             model.Diachi = address;
-            return View(model);
+            ViewBag.khachhang = model;
+     
+            return View(HanhKhachs);
         }
         public ActionResult Thankyou()
         {
