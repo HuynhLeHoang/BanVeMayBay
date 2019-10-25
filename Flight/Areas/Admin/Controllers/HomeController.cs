@@ -22,7 +22,11 @@ namespace Flight.Areas.Admin.Controllers
         {
             return View();
         }
-        
+        public ActionResult ModifyFlight()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult ModifyFlight(ThongTinChuyenBay ThongTin)
         {
             var id = ThongTin.flightID;

@@ -2126,7 +2126,7 @@
     <Content Include="Assets\admin\vendor\jquery\jquery.min.map" />
     <Content Include="Assets\admin\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\AddFlight.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ModifyFlight.cshtml" />
     <Content Include="Areas\Admin\Views\Home\DeleteTicket.cshtml" />
     <Content Include="Areas\Admin\Views\Home\ModifyTicket.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Login.cshtml" />
