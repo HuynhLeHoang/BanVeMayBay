@@ -136,14 +136,14 @@
                         <tr>
                             <td class="text-right" style="width: 29%;">Mã vé<div style="color: red; display: inline;"> (*)</div></td>
                             <td>
-                                <input name="fullname" class="form-control" id=ticketcode" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên." pattern=".{6,}" required="" />
+                                <input name="ticketcode" class="form-control" id=ticketcode" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên."/>
 
                             </td>
                         </tr>
                         <tr>
                             <td class="text-right" style="width: 29%;">Họ và Tên<div style="color: red; display: inline;"> (*)</div></td>
                             <td>
-                                <input name="fullname" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên." pattern=".{6,}" required="" />
+                                <input name="fullname" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên."/>
 
                             </td>
                         </tr>
@@ -152,7 +152,8 @@
                             <td class="text-right">Khu Vực<div style="color: red; display: inline;"> (*)</div></td>
                             <td>
                                 <div>
-                                    <select name="Country" id="txtPax1_Ctry" class="FormValue">
+
+                                    <select name="country" id="txtPax1_Ctry" class="FormValue">
                                         <option value="-1"></option>
                                         <option value="234" selected="selected">Vietnam</option>
                                         <option value="82">South Korea</option>
@@ -1899,7 +1900,7 @@ $(document).ready(function() {
                                     <div class="intl-tel-input allow-dropdown separate-dial-code iti-sdc-3">
                                         <div class="flag-container"> </div>
 
-                                        <input name="phone" id="txtPax1_Phone2" class="FormValue" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" id="phone" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại." pattern="\d{10,11}" required="" style="width: 350px;" />
+                                        <input name="phone" id="txtPax1_Phone2" class="FormValue" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" id="phone" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại."style="width: 350px;" />
                                     </div>
                                 </span>
                             </td>
@@ -1920,14 +1921,14 @@ $(document).ready(function() {
                         <tr>
                             <td class="text-right">Email<div style="color: red; display: inline;"> (*)</div></td>
                             <td>
-                                <input name="email" class="form-control" id="email" value="" type="email" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Email bắt buộc" placeholder="nguyenvana@gmail.com" title="Vui lòng nhập email." pattern="[a-z0-9._%+-]+[a-z0-9.-]+\.[a-z]{2,4}$" required="" />
+                                <input name="email" class="form-control" id="email" value="" type="email" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Email bắt buộc" placeholder="nguyenvana@gmail.com" title="Vui lòng nhập email."/>
                             </td>
                         </tr>
 
                         <tr>
                             <td class="text-right">Địa chỉ</td>
                             <td>
-                                <textarea name="address" class="form-control" rows="3" style="padding: 10px; width: 328px;"></textarea>
+                                <input name="address" class="form-control" rows="3" style="padding: 10px; width: 328px;"></input>
                             </td>
                         </tr>
 

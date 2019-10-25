@@ -22,6 +22,47 @@ namespace Flight.Areas.Admin.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult AddFlight(ThongTinChuyenBay ThongTin)
+        {
+            try
+            {
+                var connect = new AirLineDbContext();
+                var info = new ChuyenBay();
+                info.Title = "VietJet";
+                info.UrlAnh = "vietJet.png";
+                info.DiemDi = ThongTin.depAirport;
+                info.DiemDen = ThongTin.arvAirport;
+                info.Ngay = ThongTin.date.Date;
+                info.ChuyenBay1 = ThongTin.chuyenBay;
+                info.KhoiHanh = ThongTin.gioDi;
+                info.Den = ThongTin.gioDen;
+                info.Gia = int.Parse(ThongTin.gia);
+                info.Thue = int.Parse(ThongTin.thue);
+                info.GiaTreEm = int.Parse(ThongTin.giatreem);
+                info.ThueTreEm = int.Parse(ThongTin.thuetreem);
+                info.GiaVeTreSoSinh = int.Parse(ThongTin.giavetresosinh);
+                info.SoChoConTrong = int.Parse(ThongTin.sochocontrong);
+                info.PlaneID = ThongTin.planeID;
+                info.PilotID1 = ThongTin.pilotID1;
+                info.PilotID2 = ThongTin.pilotID2;
+                connect.ChuyenBays.Add(info);
+                connect.SaveChanges();
+                
+                return View("Success", TempData["notice"] = "Thêm chuyến bay thành công!");
+            }
+            catch
+            {
+                
+                return View("Success", TempData["notice"] = "Đã có lỗi xảy ra!");
+            }
+        }
+
+        public ActionResult Success()
+        {
+            return View();
+        }
         public ActionResult ModifyFlight()
         {
             return View();
@@ -29,23 +70,35 @@ namespace Flight.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult ModifyFlight(ThongTinChuyenBay ThongTin)
         {
-            var id = ThongTin.flightID;
-            var date = ThongTin.date.Date.ToString("yyyy/MM/dd");
-            var connect = new AirLineDbContext();
-            var info = connect.ChuyenBays.SingleOrDefault(x => x.MaChuyenBay == id);
-            info.Title = "VietJet";
-            info.UrlAnh = "vietJet.png";
-            info.DiemDi = ThongTin.depAirport;
-            info.DiemDen = ThongTin.arvAirport;
-            info.Ngay = ThongTin.date.Date;
-            info.ChuyenBay1 = ThongTin.chuyenBay;
-            info.KhoiHanh = ThongTin.gioDi;
-            info.Den = ThongTin.gioDen;
-            info.Gia = int.Parse(ThongTin.gia);
-            info.PlaneID = ThongTin.planeID;
-            info.PilotID1 = ThongTin.pilotID1;
-            info.PilotID2 = ThongTin.pilotID2;
-            connect.SaveChanges();
+            try
+            {
+                var id = ThongTin.flightID;
+                var date = ThongTin.date.Date.ToString("yyyy/MM/dd");
+                var connect = new AirLineDbContext();
+                var info = connect.ChuyenBays.SingleOrDefault(x => x.MaChuyenBay == id);
+                info.Title = "VietJet";
+                info.UrlAnh = "vietJet.png";
+                info.DiemDi = ThongTin.depAirport;
+                info.DiemDen = ThongTin.arvAirport;
+                info.Ngay = ThongTin.date.Date;
+                info.ChuyenBay1 = ThongTin.chuyenBay;
+                info.KhoiHanh = ThongTin.gioDi;
+                info.Den = ThongTin.gioDen;
+                info.Gia = int.Parse(ThongTin.gia);
+                info.Thue = int.Parse(ThongTin.thue);
+                info.GiaTreEm = int.Parse(ThongTin.giatreem);
+                info.ThueTreEm = int.Parse(ThongTin.thuetreem);
+                info.GiaVeTreSoSinh = int.Parse(ThongTin.giavetresosinh);
+                info.SoChoConTrong = int.Parse(ThongTin.sochocontrong);
+                info.PlaneID = ThongTin.planeID;
+                info.PilotID1 = ThongTin.pilotID1;
+                info.PilotID2 = ThongTin.pilotID2;
+                connect.SaveChanges();
+            }
+            catch
+            {
+
+            }
             return RedirectToAction("Index", "Home");
         }
 
@@ -53,6 +106,8 @@ namespace Flight.Areas.Admin.Controllers
         {
             return View();        
         }
+
+        
 
         public ActionResult SuaVe(ThongTinKhachHang ThongTin)
         {
@@ -66,15 +121,13 @@ namespace Flight.Areas.Admin.Controllers
             }
             else
             {
-                var khachhang = new KhachHang
-                {
-                    HoTenKhachHang = ThongTin.fullname,
-                    KhuVuc = ThongTin.country,
-                    DienThoai = ThongTin.phone,
-                    Email = ThongTin.email,
-                    Diachi = ThongTin.address
-                };
-                connection.Entry(khachhang).State = EntityState.Modified;
+
+                ticket.HoTenKhachHang = ThongTin.fullname;
+                ticket.KhuVuc = ThongTin.country;
+                ticket.DienThoai = ThongTin.phone;
+                ticket.Email = ThongTin.email;
+                ticket.Diachi = ThongTin.address;
+                
                 connection.SaveChanges();
                 return View("ModifyTicket");
             }

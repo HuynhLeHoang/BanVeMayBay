@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Thankyou";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["notice"] != null)
+{
+    var message = @TempData["notice"];
+    <script>
+        var message = '@message';
+        window.onload = function () {
+            var thongbao = document.getElementById("ThongBao");
+            thongbao.innerHTML = message;
+        }
+    </script>
+}
+<div id="wrap">
+    <h4 class="expire-time text-center" style="font-weight: bold; color: red; line-height: 30px; font-size: 16px;">
+        <b style="" id="ThongBao"></b>
+    </h4>
+</div>

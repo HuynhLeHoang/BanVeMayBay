@@ -13,8 +13,12 @@ namespace Flight.Areas.Admin.Models
         public string phone { set; get; }
         public string email { set; get; }
         public string address { set; get; }
+
         public string passenger_sex { set; get; }
-
-
+        public string passenger_name { set; get; }
+        public DateTime passenger_birthday { set; get; }
+        public string passenger_pass { set; get; }
+        public string passenger_datepassdate { set; get; }
+        public string passenger_quoctich { set; get; }
     }
 }

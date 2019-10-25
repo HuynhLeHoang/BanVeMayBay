@@ -1,0 +1,1871 @@
+﻿
+@{
+    ViewBag.Title = "AddFlight";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout1.cshtml";
+}
+
+
+<div id="wrap">
+    <style>
+        #xuathoadon {
+            /*	background: #F7FFF2;
+                padding: 1rem;*/
+            opacity: 1;
+            max-height: 1000px;
+            overflow: hidden;
+            transition: all 1s;
+        }
+
+            #xuathoadon.an {
+                company-taxid opacity: 0;
+                max-height: 0;
+            }
+
+        .passenger_name {
+            height: 27px;
+            padding: 0 0 3px 10px;
+            width: 206px;
+        }
+    </style>
+    <div class="customer-information">
+
+        <div class="review">
+            <style>
+                .block-title {
+                    font-size: 13px;
+                    padding: 8px 0 5px;
+                }
+
+                .block-content {
+                    border: 1px solid gainsboro;
+                    padding: 6px 8px 0;
+                }
+
+                .col-xs-3 {
+                    float: left;
+                    padding: 6px 0;
+                    width: 23%;
+                }
+
+                .row {
+                    overflow: auto;
+                }
+            </style>
+
+
+
+
+
+
+        </div>
+
+
+
+        <form id="book_information" method="POST" action="AddFlight" role="form">
+            <h4 class="head-title1">SỬA CHUYẾN BAY</h4>
+            <table class="table1">
+                <tr>
+                    <td class="text-right" style="width: 29%;">Mã chuyến bay<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="flightID" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" placeholder="MTA Air" required="" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Điểm đi<div style="color: red; display: inline;"> (*)</div></td>
+                    <td class="form-control">
+                        <select name="depAirport" id="depAirport" data-mini="true" class="airport-input" placeholder="Điểm khởi hành">
+                            <option value="" disabled="" class="grot">Vietnam</option>
+                            <option value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                            <option selected="selected" value="TP.Hồ Chí Minh (SGN)">TP.Hồ Chí Minh (SGN)</option>
+                            <option value="Huế (HUI)">Huế (HUI)</option>
+
+                            <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                            <option value="Nha Trang (CXR)">Nha Trang (CXR)</option>
+                            <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                            <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+
+                            <option value="Hải Phòng (HPH)">Hải Phòng (HPH)</option>
+                            <option value="Vân Đồn (VDO)">Vân Đồn (VDO)</option>
+                            <option value="Thanh Hóa (THD)">Thanh Hóa (THD)</option>
+
+                            <option value="Vinh (VII)">Vinh (VII)</option>
+                            <option value="Đồng Hới (VDH)">Đồng Hới (VDH)</option>
+
+                            <option value="TChu Lai (VCL)">Chu Lai (VCL)</option>
+                            <option value="Quy Nhơn (UIH)">Quy Nhơn (UIH)</option>
+                            <option value="Tuy Hòa (TBB)">Tuy Hòa (TBB)</option>
+
+                            <option value="Cần Thơ (VCA)">Cần Thơ (VCA)</option>
+
+                            <option value="Pleiku (PXU)">Pleiku (PXU)</option>
+                            <option value="Ban Mê Thuột (BMV)">Ban Mê Thuột (BMV)</option>
+
+                            <option value="" disabled="" class="grot">Ấn Độ</option>
+                            <option value="New Delhi (DEL)">New Delhi (DEL)</option>
+
+                            <option value="" disabled="" class="grot">Thailand</option>
+                            <option value="Bangkok (BKK)">Bangkok (BKK)</option>
+                            <option value="Phuket (CNX)">Chiang Mai (CNX)</option>
+                            <option value="Phuket (HKT)">Phuket (HKT)</option>
+
+                            <option value="" disabled="" class="grot">Indonesia</option>
+                            <option value="Ngurah Rai - Bali (DPS)">Ngurah Rai - Bali (DPS)</option>
+
+                            <option value="" disabled="" class="grot">Singapore</option>
+                            <option value="Singapore (SIN)">Singapore Terminal 4(SIN)</option>
+
+                            <option value="" disabled="" class="grot">Malaysia</option>
+                            <option value="Kuala Lumpur (KUL)">Kuala Lumpur KLIA (KUL)</option>
+
+                            <option value="" disabled="" class="grot">Japan</option>
+                            <option value="Osaka (KIX)">Osaka (KIX)</option>
+                            <option value="Tokyo (NRT)">Tokyo (NRT)</option>
+
+                            <option value="" disabled="" class="grot">Korea</option>
+                            <option value="Seoul (ICN)">Seoul (ICN)</option>
+                            <option value="Busan (PUS)">Busan (PUS)</option>
+                            <option value="Daegu (TAE)">Daegu (TAE)</option>
+
+                            <option value="" disabled="" class="grot">Myanmar</option>
+                            <option value="Yangon (RGN)">Yangon (RGN)</option>
+
+                            <option value="" disabled="" class="grot">Hong  Kong</option>
+                            <option value="Hồng Kông (HKG)">Hong Kong (HKG)</option>
+
+                            <option value="" disabled="" class="grot">Cambodia</option>
+                            <option value="Phnom penh (PNH)">Phnom penh (PNH)</option>
+                            <option value="Siem Reap (REP)">Siem Reap (REP)</option>
+
+                            <option value="" disabled="" class="grot">Taiwan</option>
+                            <option value="Taipei (TPE)">Taipei (TPE)</option>
+                            <option value="Cao Hùng (KHH)">Cao Hùng (KHH)</option>
+                            <option value="Đài Nam (TNN)">Đài Nam (TNN)</option>
+                            <option value="Taichung (RMQ)">Taichung (RMQ)</option>
+
+                            <option value="" disabled="" class="grot">Other</option>
+                            <option value="Hàng Châu (HGH)">Hàng Châu (HGH)</option>
+
+                        </select>
+
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="text-right" style="width: 29%;">Điểm đến<div style="color: red; display: inline;"> (*)</div></td>
+                    <td class="form-control">
+                        <select name="arvAirport" id="depAirport" data-mini="true" class="airport-input" placeholder="Điểm khởi hành">
+                            <option value="" disabled="" class="grot">Vietnam</option>
+                            <option selected="selected" value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                            <option value="TP.Hồ Chí Minh (SGN)">TP.Hồ Chí Minh (SGN)</option>
+                            <option value="Huế (HUI)">Huế (HUI)</option>
+
+                            <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                            <option value="Nha Trang (CXR)">Nha Trang (CXR)</option>
+                            <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                            <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+
+                            <option value="Hải Phòng (HPH)">Hải Phòng (HPH)</option>
+                            <option value="Vân Đồn (VDO)">Vân Đồn (VDO)</option>
+                            <option value="Thanh Hóa (THD)">Thanh Hóa (THD)</option>
+
+                            <option value="Vinh (VII)">Vinh (VII)</option>
+                            <option value="Đồng Hới (VDH)">Đồng Hới (VDH)</option>
+
+                            <option value="TChu Lai (VCL)">Chu Lai (VCL)</option>
+                            <option value="Quy Nhơn (UIH)">Quy Nhơn (UIH)</option>
+                            <option value="Tuy Hòa (TBB)">Tuy Hòa (TBB)</option>
+
+                            <option value="Cần Thơ (VCA)">Cần Thơ (VCA)</option>
+
+                            <option value="Pleiku (PXU)">Pleiku (PXU)</option>
+                            <option value="Ban Mê Thuột (BMV)">Ban Mê Thuột (BMV)</option>
+
+                            <option value="" disabled="" class="grot">Ấn Độ</option>
+                            <option value="New Delhi (DEL)">New Delhi (DEL)</option>
+
+                            <option value="" disabled="" class="grot">Thailand</option>
+                            <option value="Bangkok (BKK)">Bangkok (BKK)</option>
+                            <option value="Phuket (CNX)">Chiang Mai (CNX)</option>
+                            <option value="Phuket (HKT)">Phuket (HKT)</option>
+
+                            <option value="" disabled="" class="grot">Indonesia</option>
+                            <option value="Ngurah Rai - Bali (DPS)">Ngurah Rai - Bali (DPS)</option>
+
+                            <option value="" disabled="" class="grot">Singapore</option>
+                            <option value="Singapore (SIN)">Singapore Terminal 4(SIN)</option>
+
+                            <option value="" disabled="" class="grot">Malaysia</option>
+                            <option value="Kuala Lumpur (KUL)">Kuala Lumpur KLIA (KUL)</option>
+
+                            <option value="" disabled="" class="grot">Japan</option>
+                            <option value="Osaka (KIX)">Osaka (KIX)</option>
+                            <option value="Tokyo (NRT)">Tokyo (NRT)</option>
+
+                            <option value="" disabled="" class="grot">Korea</option>
+                            <option value="Seoul (ICN)">Seoul (ICN)</option>
+                            <option value="Busan (PUS)">Busan (PUS)</option>
+                            <option value="Daegu (TAE)">Daegu (TAE)</option>
+
+                            <option value="" disabled="" class="grot">Myanmar</option>
+                            <option value="Yangon (RGN)">Yangon (RGN)</option>
+
+                            <option value="" disabled="" class="grot">Hong  Kong</option>
+                            <option value="Hồng Kông (HKG)">Hong Kong (HKG)</option>
+
+                            <option value="" disabled="" class="grot">Cambodia</option>
+                            <option value="Phnom penh (PNH)">Phnom penh (PNH)</option>
+                            <option value="Siem Reap (REP)">Siem Reap (REP)</option>
+
+                            <option value="" disabled="" class="grot">Taiwan</option>
+                            <option value="Taipei (TPE)">Taipei (TPE)</option>
+                            <option value="Cao Hùng (KHH)">Cao Hùng (KHH)</option>
+                            <option value="Đài Nam (TNN)">Đài Nam (TNN)</option>
+                            <option value="Taichung (RMQ)">Taichung (RMQ)</option>
+
+                            <option value="" disabled="" class="grot">Other</option>
+                            <option value="Hàng Châu (HGH)">Hàng Châu (HGH)</option>
+
+                        </select>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Ngày<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input type="date" name="date" class="flight-date" value="13/10/2019" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Chuyến bay<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="chuyenBay" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" placeholder="MTA Air" pattern=".{6,}" required="" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Khởi hành<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="gioDi" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Giờ bay bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Đến<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="gioDen" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Giờ bay bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Giá<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="gia" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Giá bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Thuế<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="thue" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Giá bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Giá trẻ em<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="giatreem" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Giá bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Thuế trẻ em<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="thuetreem" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Giá bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Giá vé trẻ sơ sinh<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="giavetresosinh" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Giá bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">Số chỗ còn trống<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="sochocontrong" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Giá bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">PlaneID<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="planeID" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">PilotID1<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="pilotID1" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right" style="width: 29%;">PilotID2<div style="color: red; display: inline;"> (*)</div></td>
+                    <td>
+                        <input name="pilotID2" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Bắt buộc" pattern=".{6,}" required="" />
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                    <td class="text-right" style="width: 29%;"><div style="color: red; display: inline;"></div></td>
+                    <td>
+                        <input id="copy-name" class="btn btn-default" value="Submit" type="submit" style="border: 0px none; cursor: pointer; color: white; background: rgb(244, 123, 54) none repeat scroll 0% 0%; margin: 0 7px; border-radius: 4px; font-weight: normal; padding: 4px 10px;">
+                    </td>
+
+                </tr>
+                <link rel="stylesheet" href="javascript/intlTelInput/intlTelInput.css">
+                <script src="javascript/intlTelInput/intlTelInput.js"></script>
+                <script src="javascript/intlTelInput/ISOCtry.js"></script>
+
+                <style>
+                    .FormValue {
+                        padding: 6px 6px 7px;
+                    }
+                </style>
+
+                <script>
+                    loadCountryCode()
+
+                    $('#txtPax1_Ctry').on("change", function () {
+                        $(".mobileNumber input").intlTelInput("destroy");
+                        loadCountryCodeOnChange();
+                    });
+                    function initalizeCountry() {
+                        var selectedCountry = $('#txtPax1_Ctry :selected').text();
+                        if ($('#txtPax1_Ctry').val() != -1) {
+                            return getCountryCode(selectedCountry);
+                        }
+                        else {
+                            return 'VN';
+                        }
+
+                    }
+                    //Disable autofill of firstname and last name
+                    if (navigator.userAgent.search("Chrome") >= 0) {
+                        $("input[name*='_FName']").attr("autocomplete", "new-user-full-name");
+                        $("input[name*='_LName']").attr("autocomplete", "new-user-full-name");
+                    }
+
+
+                    function loadCountryCode() {
+                        var selectedCountry = $('#txtPax1_Ctry :selected').text();
+                        $(".mobileNumber input").intlTelInput("destroy");
+                        if (selectedCountry == "Canada") {
+                            //alert(selectedCountry);
+                            $(".mobileNumber input").intlTelInput({ onlyCountries: ["ca"], selectCountry: "ca" });
+                        } else {
+                            $(".mobileNumber input").intlTelInput({
+                                initialCountry: "auto",
+                                separateDialCode: true,
+                                setCountry: initalizeCountry(),
+                                utilsScript: "javascript/intlTelInput/utils.js"
+
+                            });
+                        }
+
+                        //console.log("onchange success");
+                        //console.log("Selected Country details ", initalizeCountry());
+                    }
+                    function loadCountryCodeOnChange() {
+                        $(".mobileNumber input").intlTelInput({
+                            nationalMode: false,
+                            separateDialCode: true,
+                            initialCountry: initalizeCountry(),
+                            utilsScript: "javascript/intlTelInput/utils.js"
+                        });
+
+                        //console.log("onchange success");
+                        //console.log("Selected Country details ", initalizeCountry());
+                    }
+
+                </script>
+
+
+
+            </table>
+
+
+
+
+
+            <style>
+                .table1b tr td {
+                    padding: 10px 3px;
+                    vertical-align: top;
+                }
+
+                .table1b input, .table1b select, .table1b textarea {
+                    margin-top: 4px;
+                }
+            </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </table>
+
+
+
+
+    </div>
+
+
+    <style>
+        .addition-bag select {
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"12\" height=\"6\" viewBox=\"0 0 12 6\"><polygon points=\"0,0 12,0 6,6\" style=\"fill: rgb(45, 45, 45)\"></polygon></svg>");
+            background-position: right 5px center;
+            background-repeat: no-repeat;
+            background-size: 12px 6px;
+            border: 1px solid #666;
+            padding: 2px 20px 5px 5px;
+            position: relative;
+        }
+
+
+        .customer-information .addition-bag {
+            display: block;
+        }
+
+        .group-flight-info .row-flight-info .LRow-flight-info::after {
+            content: ":";
+            position: absolute;
+            right: 10px;
+            top: 6px;
+        }
+
+        .group-flight-info .row-flight-info .LRow-flight-info {
+            display: table-cell;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 17px;
+            padding: 6px 0 7px;
+            position: relative;
+            width: 180px;
+        }
+
+        .group-flight-info .row-flight-info .RRow-flight-info {
+            display: table-cell;
+            font-size: 14px;
+            line-height: 17px;
+            padding: 6px 0 8px 10px;
+        }
+
+        .box-template {
+            margin-top: 20px;
+        }
+
+            .box-template .box-template-title {
+                background: #dedede none repeat scroll 0 0;
+                height: 50px;
+                position: relative;
+            }
+
+                .box-template .box-template-title::after {
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-top: 10px solid #dedede;
+                    content: "";
+                    left: 25px;
+                    position: absolute;
+                    top: 100%;
+                }
+
+                .box-template .box-template-title .box-template-title-cont::before {
+                    color: #333333;
+                    font-family: "fontawesome";
+                    font-size: 30px;
+                    line-height: 35px;
+                    padding-right: 15px;
+                }
+
+
+                .box-template .box-template-title .box-template-title-cont {
+                    color: #333333;
+                    font-size: 25px;
+                    line-height: 35px;
+                    overflow: hidden;
+                    padding: 7px 15px;
+                    position: relative;
+                    text-overflow: ellipsis;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+
+            .box-template .box-template-content {
+                -moz-border-bottom-colors: none;
+                -moz-border-left-colors: none;
+                -moz-border-right-colors: none;
+                -moz-border-top-colors: none;
+                border-color: currentcolor #e5e5e5 #e5e5e5;
+                border-image: none;
+                border-style: none solid solid;
+                border-width: medium 1px 1px;
+                overflow: auto;
+                padding: 20px 15px 11px;
+            }
+
+
+
+
+        .hasDatepicker {
+            color: red;
+        }
+
+
+        .fade {
+            opacity: 0;
+            transition: opacity 0.15s linear 0s;
+        }
+
+            .fade.show {
+                opacity: 1;
+            }
+
+        .collapse {
+            display: none;
+        }
+
+            .collapse.show {
+                display: block;
+            }
+
+            .collapse.in {
+                display: block;
+            }
+
+        tr.collapse.show {
+            display: table-row;
+        }
+
+        tbody.collapse.show {
+            display: table-row-group;
+        }
+
+        .collapsing {
+            height: 0;
+            overflow: hidden;
+            position: relative;
+            transition: height 0.35s ease 0s;
+        }
+
+
+
+        .card {
+            margin-bottom: 10px;
+            overflow-wrap: break-word;
+        }
+
+        .card-header {
+            background-color: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            margin-bottom: 0;
+            padding: 0.75rem 1.25rem;
+        }
+
+            .card-header:first-child {
+                border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+            }
+
+            .card-header + .list-group .list-group-item:first-child {
+                border-top: 0 none;
+            }
+
+        .card-footer {
+            background-color: rgba(0, 0, 0, 0.03);
+            border-top: 1px solid rgba(0, 0, 0, 0.125);
+            padding: 0.75rem 1.25rem;
+        }
+
+            .card-footer:last-child {
+                border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+            }
+
+        .card-header-tabs {
+            border-bottom: 0 none;
+            margin-bottom: -0.75rem;
+            margin-left: -0.625rem;
+            margin-right: -0.625rem;
+        }
+
+        .card-header-pills {
+            margin-left: -0.625rem;
+            margin-right: -0.625rem;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+    </style>
+
+
+
+
+</div>
+<br />
+<br />
+
+
+
+
+
+
+
+<input type="hidden" name="monaninput" value="nd" />
+
+
+
+
+
+<style>
+    .tlb-food li {
+        display: inline-block;
+        list-style: outside none none;
+        margin: 5px;
+        min-height: 198px;
+        vertical-align: top;
+        width: 23.7%;
+    }
+
+    .box-img-food > img {
+        width: 100%;
+    }
+
+    .tlb-food li label {
+        display: block;
+        text-align: center;
+    }
+
+    .tlb-food li .prices-food {
+        color: #000000;
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    .table1 .form-control {
+        width: 338px;
+    }
+    /*
+            .paymentForm_do {
+              width: 96%;
+            }*/
+
+
+
+    div.methods-header div.methods-header {
+        margin-right: 5px;
+    }
+
+    .methods-header {
+        border: 1px solid #808080;
+        border-radius: 3px;
+        margin-bottom: 5px;
+        margin-right: 0;
+        margin-top: 15px;
+        overflow: auto;
+        position: relative;
+    }
+
+        .methods-header label {
+            display: block;
+            line-height: 18px;
+            padding: 10px 10px 10px 40px;
+            white-space: normal;
+        }
+
+            .methods-header label br {
+                display: none;
+                visibility: hidden;
+            }
+
+        .methods-header input[type="radio"] {
+            left: 9px;
+            position: absolute;
+            top: 20px;
+        }
+
+        .methods-header input[type="checkbox"] {
+            left: 9px;
+            position: absolute;
+            top: 20px;
+        }
+
+        .methods-header h3 {
+            padding-bottom: 5px;
+        }
+
+            .methods-header h3 strong {
+                color: #e52620;
+            }
+
+        .methods-header label {
+            color: #666666;
+        }
+
+    .payment h2 {
+        font-size: 14px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .methods h3 {
+        font-size: 12px;
+        margin: 0;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .methods p {
+        margin: 0;
+    }
+
+    .tb_method {
+        width: 100%;
+    }
+</style>
+
+
+
+<br />
+
+    </div>
+
+
+<script>
+
+                    function checkThue1() {
+                        var hoadon = document.getElementById("xuathoadon-toggle").checked;
+                        //alert(hoadon);
+                        if (hoadon == true) {
+                            // alert("a");
+                            //	if($("textarea[name='note']").val().length <= 140 ){
+                            if ($("#company-taxid").val() !== "") {
+                                //  alert("co thue");
+                                var val = '<br/>======== Thông tin xuất hóa đơn =======';
+                                val += '<br/>MST: ' + $('#company-taxid').val();
+                                val += '<br/>Công ty: ' + $('#company-name').val();
+                                val += '<br/>Địa chỉ: ' + $('#company-address').val();
+                                if ($("#company-address-2").val() !== "") {
+                                    val += '<br/>Địa chỉ nhận hóa đơn: ' + $('#company-address-2').val();
+                                }
+                                val += '<br/>===================================';
+
+                                //$("textarea[name='note']").val()+val;
+                                //$("textarea[name='note']").val($("textarea[name='note']").val()+val);
+                                $("input[name='thue']").val(val);
+                            }
+                            //	}
+                        } else {
+                            $("input[name='thue']").val('');
+                        }
+                    }
+                    function checkThue2() {
+                        var hoadon = document.getElementById("xuathoadon-toggle").checked;
+                        //alert(hoadon);
+                        if (hoadon == true) {
+                            // alert("a");
+                            //	if($("textarea[name='note']").val().length <= 140 ){
+                            if ($("#company-taxid").val() !== "") {
+                                //  alert("co thue");
+                                var val = '<br/>======== Thông tin xuất hóa đơn =======';
+                                val += '<br/>MST: ' + $('#company-taxid').val();
+                                val += '<br/>Công ty: ' + $('#company-name').val();
+                                val += '<br/>Địa chỉ: ' + $('#company-address').val();
+                                if ($("#company-address-2").val() !== "") {
+                                    val += '<br/>Địa chỉ nhận hóa đơn: ' + $('#company-address-2').val();
+                                }
+                                val += '<br/>===================================';
+
+                                //$("textarea[name='note']").val()+val;
+                                //$("textarea[name='note']").val($("textarea[name='note']").val()+val);
+                                $("input[name='thue']").val(val);
+                            }
+                            //	}
+
+                            // fix hoa don 2018
+                            $('#chkAgreeTerms').removeAttr('checked');
+                        } else {
+                            $("input[name='thue']").val('');
+                        }
+                    }
+
+
+
+
+                    jQuery(function ($) {
+                        //form submit handler
+                        $('#book_information').submit(function (e) {
+                            var priceEls = document.getElementsByClassName("selected-dial-code");
+                            for (var i = 0; i < priceEls.length; i++) {
+                                var price = priceEls[i].innerText;
+                            }
+                            document.getElementById("txtPax1_Phone2").value = price + " " + document.getElementById('txtPax1_Phone2').value;
+
+
+                            var paymentmethod = $("input[name=paymentmethod]:checked").length;
+                            var radiopayment = $("input[name=radiopayment]:checked").length;
+                            var paymentbank = $("input[name=paymentbank]:checked").length;
+                            var number_of_checked_checkbox = $("input[name=chkAgreeTerms]:checked").length;
+                            /*	if(paymentmethod==0){
+                                    smoke.signal("Vui lòng chọn hình thức thanh toán!", function(e){
+                                    }, {
+                                        duration: 3000,
+                                        classname: "custom-class"
+                                    });
+                                    //alert("Vui lòng chọn hình thức thanh toán.");
+                                    return false;
+                                }
+
+                                // fix buoc phai chon hinh thuc thanh toan chi tiet
+                                if(paymentmethod==1){
+                                    if(radiopayment==0){
+                                        smoke.signal("Vui lòng chọn 1 hình thức thanh toán!", function(e){
+                                        }, {
+                                            duration: 3000,
+                                            classname: "custom-class"
+                                        });
+                                        //alert("Vui lòng chọn 1 hình thức thanh toán.");
+                                        return false;
+                                    }
+                                    var radiopayment_ck = $('#radiopayment_ck:checked').val();
+                                    if(radiopayment_ck==3){
+                                        if(paymentbank==0){
+                                            smoke.signal("Vui lòng chọn 1 ngân hàng!", function(e){
+                                            }, {
+                                                duration: 3000,
+                                                classname: "custom-class"
+                                            });
+                                            //alert("Vui lòng chọn 1 hình thức thanh toán.");
+                                            return false;
+                                        }
+                                    }
+                                }
+                            */
+
+
+                            var radiopayment_ck = $('#radiopayment_ck:checked').val();
+                            if (radiopayment_ck == 3) {
+                                if (paymentbank == 0) {
+                                    smoke.signal("Vui lòng chọn 1 ngân hàng!", function (e) {
+                                    }, {
+                                            duration: 3000,
+                                            classname: "custom-class"
+                                        });
+                                    //alert("Vui lòng chọn 1 hình thức thanh toán.");
+                                    return false;
+                                }
+                            }
+
+
+                            if (number_of_checked_checkbox == 0) {
+                                //alert("Bạn phải chấp nhận các điều kiện & điều khoản của MTAbooking!");
+                                smoke.signal("Bạn phải chấp nhận các điều kiện & điều khoản của MTAbooking!", function (e) {
+                                }, {
+                                        duration: 3000,
+                                        classname: "custom-class"
+                                    });
+                                return false;
+                            } else {
+                                //$("input[name$='tieptuc']").attr('value', 'đang xử lý...');
+                                //$("#book_information").submit();
+                                var fullname = document.getElementById('fullname').value;
+                                if (fullname.length < 3) {
+                                    alert("Vui lòng nhập đầy đủ thông tin.");
+                                    return false;
+                                }
+                                var phone = document.getElementById('phone').value;
+                                if (phone.length < 3) {
+                                    alert("Vui lòng nhập đầy đủ thông tin.");
+                                    return false;
+                                }
+                                var email = document.getElementById('email').value;
+                                if (email.length < 3) {
+                                    alert("Vui lòng nhập đầy đủ thông tin.");
+                                    return false;
+                                }
+                                var pass = document.getElementById('passenger[0]').value;
+                                if (pass.length < 3) {
+                                    alert("Vui lòng nhập đầy đủ thông tin.");
+                                    return false;
+                                } else {
+                                    $("input[name$='tieptuc']").attr('value', 'đang xử lý...');
+                                    $("#book_information").submit();
+                                }
+                            }
+                        });
+                    });
+
+                    $('#HoldBooking').click(function () {
+                        $('#rowpaymentInfo11').hide();
+                        $(':input[name="paymentbank"]').each(function () {
+                            $(this).removeAttr('checked');
+                        });
+
+                        // fix chon online roi chon off - se phai reset lai
+                        $(':input[name="radiopayment"]').each(function () {
+                            $(this).removeAttr('checked');
+                        });
+
+                        $("input[name='paymentmethod'][value='11']").removeAttr('checked');
+
+                        $('#HoldBookingInfo').show();
+                        $('#PaymentOnlineInfo').hide();
+                    });
+
+                    $("input[name='paymentmethod'][value='11']").click(function () {
+                        // fix chon online roi chon off - se phai reset lai
+                        $(':input[name="radiopayment"]').each(function () {
+                            $(this).removeAttr('checked');
+                        });
+
+                        $('#HoldBooking').removeAttr('checked');
+                        $('#HoldBookingInfo').hide();
+                        $('#PaymentOnlineInfo').show();
+                    });
+                    $("input[name='radiopayment'][id='atmcard']").click(function () {
+                        $('#HoldBooking').removeAttr('checked');
+                        $('#HoldBookingInfo').hide();
+                        $('#domestict-bank-info').show();
+                        $('#payment11_info').hide();
+                    });
+                    $("input[name='radiopayment'][id='foreigncard']").click(function () {
+                        $('#HoldBooking').removeAttr('checked');
+                        $('#HoldBookingInfo').hide();
+                        $('#domestict-bank-info').hide();
+                        $('#payment11_info').show();
+                    });
+
+                    $("input[name='radiopayment'][value='3']").click(function () {
+                        //  $('#HoldBooking').removeAttr('checked');
+                        //  $('#HoldBookingInfo').hide();
+                        $('#domestict-bank-info').hide();
+                        $('#rowpaymentInfo3').show();
+                    });
+
+                    $("input[name='radiopayment']").ready(function () {
+
+                        var radioButtons = $(':input[name="radiopayment"]');
+                        for (var i = 0; i < radioButtons.length; i++) {
+                            if (radioButtons[i].checked) {
+                                $('#rowpaymentInfo' + radioButtons[i].value).show();
+                            } else {
+                                $('#rowpaymentInfo' + radioButtons[i].value).hide();
+                            }
+                        }
+                    });
+                    $("input[name='radiopayment']").change(function () {
+                        var radioButtons = $(':input[name="radiopayment"]');
+                        for (var i = 0; i < radioButtons.length; i++) {
+                            if (radioButtons[i].checked) {
+
+                                $('#rowpaymentInfo' + radioButtons[i].value).show();
+                            } else {
+
+                                $('#rowpaymentInfo' + radioButtons[i].value).hide();
+                            }
+                        }
+                    });
+
+
+                    if ('' == 1) {
+                        alert('Mã Voucher không đúng');
+                    }
+                    else {
+                        if ('' == 2) {
+                            alert("Voucher này đã hết hạn sử dụng");
+                        }
+                        else {
+                            if ('' == 3) {
+                                alert('Voucher này đã được sử dụng');
+                            }
+                        }
+                    }
+</script>
+
+<style>
+    #domestict-bank-info {
+        overflow: auto;
+        padding-bottom: 10px;
+        padding-left: 11px;
+    }
+
+    .main cf .title {
+        border-bottom: 1px solid #eeeeee;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    div.methods-header div.methods-header {
+        margin-right: 5px;
+    }
+
+    .methods-header {
+        border: 1px solid #808080;
+        border-radius: 3px;
+        margin-bottom: 5px;
+        margin-right: 0px;
+        margin-top: 15px;
+        overflow: auto;
+        position: relative;
+    }
+
+        .methods-header label {
+            display: block;
+            line-height: 18px;
+            padding: 10px 10px 10px 40px;
+            white-space: normal;
+        }
+
+
+            .methods-header label br {
+                display: none;
+                visibility: hidden;
+            }
+
+        .methods-header input[type="radio"] {
+            left: 9px;
+            position: absolute;
+            top: 20px;
+        }
+
+        .methods-header input[type="checkbox"] {
+            left: 9px;
+            position: absolute;
+            top: 20px;
+        }
+
+        .methods-header h3 {
+            padding-bottom: 5px;
+        }
+
+            .methods-header h3 strong {
+                color: #e52620;
+            }
+
+        .methods-header label {
+            color: #666666;
+        }
+
+    .payment h2 {
+        font-size: 14px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .methods h3 {
+        font-size: 12px;
+        margin: 0;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .methods p {
+        margin: 0;
+    }
+
+    .tb_method {
+        width: 100%;
+    }
+
+    #booking-agreement {
+        color: #0000ff;
+    }
+
+        #booking-agreement a {
+            color: #ff0000;
+        }
+
+    .select-bank { /* width: 22%;*/
+        border: 1px solid ghostwhite;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 9px 8px;
+    }
+</style>
+
+    </form>
+    </div>
+<script>
+                    $(document).ready(function () {
+                        $('.show-bag').change(function () {
+                            var sel = $(this).data('target');
+                            if ($(this).prop("checked")) {
+                                $(sel).show();
+                            } else {
+                                $(sel).hide();
+                            }
+                        });
+                        $(".selected-dial-code").text("+84");
+                        //document.getElementById("txtPax1_Phone2").value = "6666" + "88888";
+                        //$('input[name="phone').val('3453453453');
+
+                        //alert("dfgdfgdf");
+                        //return false;
+
+                        //alert("Price: " + price);
+
+                        // var cphone = document.getElementById('txtPax1_Phone2').value;
+
+                        //$('input[name="phone').val(ccode);
+
+                        /*
+                        $("input[name='phone']").change(function () {
+                          // alert("dfgdfgdf");
+
+
+                      });  */
+
+                        $("#passenger0").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[0]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger1").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[1]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger2").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[2]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger3").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[3]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger4").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[4]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger5").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[5]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger6").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[6]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger7").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[7]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger8").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[8]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger9").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[9]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger10").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[10]"]').val(text_create);
+                        }).keyup();
+
+                        $("#passenger11").keyup(function () {
+                            var text = $(this).val();
+                            var text_create;
+                            text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, ' ').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g, "O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g, "i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                            // alert(text_create);
+                            //$('#passenger1').text(text_create);
+                            $('input[name="passenger[11]"]').val(text_create);
+                        }).keyup();
+
+
+                    });
+</script>
+
+<style>
+    .table1 select {
+        padding: 6px 1px 7px 3px;
+    }
+</style>
+<script language="javascript" type="text/javascript">
+                    $(document).ready(function () {
+                        $('#place_order_form').submit(function (event) {
+                            /*
+                            if ($('input[name="payment_method"]').val()=='') {
+                                alert('Vui lòng chọn hình thức thanh toán');
+                                event.preventDefault();
+                                return false;
+                            }
+                            */
+                            return true;
+                        });
+
+                        $('#book_information').validate({
+                            rules: {
+                                fullname: {
+                                    required: true,
+                                    minlength: 5
+                                },
+                                phone: {
+                                    maxlength: 12,
+                                    number: true
+                                },
+                                email: {
+                                    required: true,
+                                    email: true
+                                }
+                                ,
+                                //    passenger[]: {
+                                passenger[]: {
+                                required: true,
+                            }
+            },
+                        errorClass: 'text-danger',
+                        validClass: 'text-success',
+                        highlight: function (element, errorClass) {
+                            $(element).addClass(errorClass);
+                        },
+                        unhighlight: function (element, errorClass, validClass) {
+                            $(element).removeClass(errorClass);
+                            $(element).addClass(errorClass);
+                        },
+                        submitHandler: function (form) {
+                            if ($("#company-taxid").val() !== "") {
+                                var val = '\r\n======== Thông tin xuất hóa đơn ======='
+                                val += '\r\nMST: ' + $('#company-taxid').val();
+                                val += '\r\nCông ty: ' + $('#company-name').val()
+                                val += '\r\nĐịa chỉ: ' + $('#company-address').val()
+                                if ($("#company-address-2").val() !== "") {
+                                    val += '\r\nĐịa chỉ nhận hóa đơn: ' + $('#company-address-2').val()
+                                }
+                                val += '\r\n======================================='
+
+                                $("textarea[name='note']").val($("textarea[name='note']").val() + val);
+                            }
+
+
+                            // form.submit();
+                            return true;
+                        }
+        });
+                    jQuery.validator.addClassRules({
+                        adult_birthday: {
+                            required: true
+                        },
+                        child_birthday: {
+                            required: true
+                        },
+                        infant_birthday: {
+                            required: true
+                        },
+                        passenger_name: {
+                            required: true
+                        }
+                    });
+
+                    $('#xuathoadon-toggle').change(function () {
+                        if ($('#xuathoadon-toggle').prop('checked')) {
+                            $('#xuathoadon').removeClass('an')
+                            $('#book_information').validate();
+                            $('#company-name').rules("add", {
+                                required: true
+                            });
+                            $('#company-taxid').rules("add", {
+                                required: true
+                            });
+                            $('#company-address').rules("add", {
+                                required: true
+                            });
+                        } else {
+                            $('#xuathoadon').addClass('an')
+                            $('#book_information').validate();
+                            $("#company-name").rules("remove");
+                            $("#company-taxid").rules("remove");
+                            $("#company-address").rules("remove");
+                        }
+                    })
+
+
+
+
+    });
+</script>
+
+<div class="sidebarDLP">
+    <div class="search-flightd">
+        <div class="search-flight">
+            <div class="tabABAY">
+                <h2 class="tabDatvemaybay">
+                    <img src="Plane.png" class="airplane" alt=""> Vé máy bay
+                    <div class="clr"></div>
+                </h2>
+                <a href="https://www.agoda.com/vi-vn?cid=1759323" target="_blank" rel="nofollow">
+                    <h2 class="TabKhachsan">
+                        <img src="HotelIcon.png" class="hotel" alt=""> Khách sạn
+                        <div class=" clr"></div>
+                    </h2>
+                </a>
+                <div class="clr"></div>
+            </div>
+            <div class="content-flight">
+
+                <form method="POST" class="search-form" action="https://vietjets.com.vn/">
+                    <div class="pad3">
+
+                        <!--line-->
+                        <div class="clear"></div>
+                        <div class="radiox" style="color: #333; padding: 4px 0px;">
+
+                            <label><input type="radio" name="flightType" checked="" id="flightType1" value="0"> Một chiều</label>
+                            <label><input type="radio" name="flightType" id="flightType" value="1"> Khứ hồi</label>
+                        </div>
+
+
+
+                        <div class="col1">
+                            <div class="in">
+                                <div class="in-left">
+                                    <div class="input-group" style="overflow: hidden; width: 204px; border-right: 1px solid rgb(105, 105, 105);">
+
+                                        <select name="depAirport" id="depAirport" data-mini="true" class="airport-input" placeholder="Điểm khởi hành">
+                                            <option value="" disabled="" class="grot">Vietnam</option>
+                                            <option value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                                            <option selected="selected" value="TP.Hồ Chí Minh (SGN)">TP.Hồ Chí Minh (SGN)</option>
+                                            <option value="Huế (HUI)">Huế (HUI)</option>
+
+                                            <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                                            <option value="Nha Trang (NHA)">Nha Trang (NHA)</option>
+                                            <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                                            <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+
+                                            <option value="Điện Biên (DIN)">Điện Biên (DIN)</option>
+                                            <option value="Hải Phòng (HPH)">Hải Phòng (HPH)</option>
+                                            <option value="Thanh Hóa (THD)">Thanh Hóa (THD)</option>
+
+                                            <option value="Vinh (VII)">Vinh (VII)</option>
+                                            <option value="Đồng Hới (VDH)">Đồng Hới (VDH)</option>
+
+                                            <option value="Tam kỳ (VCL)">Tam kỳ (VCL)</option>
+                                            <option value="Quy Nhơn (UIH)">Quy Nhơn (UIH)</option>
+                                            <option value="Tuy Hòa (TBB)">Tuy Hòa (TBB)</option>
+
+                                            <option value="Cần Thơ (VCA)">Cần Thơ (VCA)</option>
+                                            <option value="Rạch Giá (VKG)">Rạch Giá (VKG)</option>
+                                            <option value="Côn Đảo (VCS)">Côn Đảo (VCS)</option>
+                                            <option value="Cà Mau (CAH)">Cà Mau (CAH)</option>
+
+                                            <option value="Pleiku (PXU)">Pleiku (PXU)</option>
+                                            <option value="Ban Mê Thuột (BMV)">Ban Mê Thuột (BMV)</option>
+
+
+
+                                            <option value="" disabled="" class="grot">Thailand</option>
+                                            <option value="Bangkok (BKK)">Bangkok (BKK)</option>
+                                            <option value="Phuket (CNX)">Chiang Mai (CNX)</option>
+                                            <option value="Phuket (HKT)">Phuket (HKT)</option>
+
+                                            <option value="" disabled="" class="grot">Singapore</option>
+                                            <option value="Singapore (SIN)">Singapore Terminal 3(SIN)</option>
+
+                                            <option value="" disabled="" class="grot">Malaysia</option>
+                                            <option value="Kuala Lumpur (KUL)">Kuala Lumpur KLIA (KUL)</option>
+
+                                            <option value="" disabled="" class="grot">Korea</option>
+                                            <option value="Seoul (ICN)">Seoul (ICN)</option>
+                                            <option value="Busan (PUS)">Busan (PUS)</option>
+
+                                            <option value="" disabled="" class="grot">Myanmar</option>
+                                            <option value="Yangon (RGN)">Yangon (RGN)</option>
+
+                                            <option value="" disabled="" class="grot">Hong  Kong</option>
+                                            <option value="Hồng Kông (HKG)">Hong Kong (HKG)</option>
+
+                                            <option value="" disabled="" class="grot">Cambodia</option>
+                                            <option value="Phnom penh (PNH)">Phnom penh (PNH)</option>
+
+                                            <option value="" disabled="" class="grot">Taiwan</option>
+                                            <option value="Taipei (TPE)">Taipei (TPE)</option>
+                                            <option value="Cao Hùng (KHH)">Cao Hùng (KHH)</option>
+                                            <option value="Đài Nam (TNN)">Đài Nam (TNN)</option>
+                                            <option value="Taichung (RMQ)">Taichung (RMQ)</option>
+
+                                            <option value="" disabled="" class="grot">Other</option>
+                                            <option value="Siem Reap (REP)">Siem Reap (REP)</option>
+                                            <option value="Hàng Châu (HGH)">Hàng Châu (HGH)</option>
+
+                                        </select>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="in">
+                                <div class="in-left">
+                                    <div class="input-group" style="overflow: hidden; width: 204px; border-right: 1px solid rgb(105, 105, 105);">
+                                        <select name="arvAirport" id="arvAirport" data-mini="true" class="airport-input" placeholder="Điểm đến">
+                                            <option value="" disabled="" class="grot">Vietnam</option>
+                                            <option selected="selected" value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                                            <option value="TP.Hồ Chí Minh (SGN)">TP.Hồ Chí Minh (SGN)</option>
+                                            <option value="Huế (HUI)">Huế (HUI)</option>
+
+                                            <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                                            <option value="Nha Trang (NHA)">Nha Trang (NHA)</option>
+                                            <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                                            <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+
+                                            <option value="Điện Biên (DIN)">Điện Biên (DIN)</option>
+                                            <option value="Hải Phòng (HPH)">Hải Phòng (HPH)</option>
+                                            <option value="Thanh Hóa (THD)">Thanh Hóa (THD)</option>
+
+                                            <option value="Vinh (VII)">Vinh (VII)</option>
+                                            <option value="Đồng Hới (VDH)">Đồng Hới (VDH)</option>
+
+                                            <option value="Tam kỳ (VCL)">Tam kỳ (VCL)</option>
+                                            <option value="Quy Nhơn (UIH)">Quy Nhơn (UIH)</option>
+                                            <option value="Tuy Hòa (TBB)">Tuy Hòa (TBB)</option>
+
+                                            <option value="Cần Thơ (VCA)">Cần Thơ (VCA)</option>
+                                            <option value="Rạch Giá (VKG)">Rạch Giá (VKG)</option>
+                                            <option value="Côn Đảo (VCS)">Côn Đảo (VCS)</option>
+                                            <option value="Cà Mau (CAH)">Cà Mau (CAH)</option>
+
+                                            <option value="Pleiku (PXU)">Pleiku (PXU)</option>
+                                            <option value="Ban Mê Thuột (BMV)">Ban Mê Thuột (BMV)</option>
+
+
+                                            <option value="" disabled="" class="grot">Thailand</option>
+                                            <option value="Bangkok (BKK)">Bangkok (BKK)</option>
+                                            <option value="Phuket (CNX)">Chiang Mai (CNX)</option>
+                                            <option value="Phuket (HKT)">Phuket (HKT)</option>
+
+                                            <option value="" disabled="" class="grot">Singapore</option>
+                                            <option value="Singapore (SIN)">Singapore Terminal 3(SIN)</option>
+
+                                            <option value="" disabled="" class="grot">Malaysia</option>
+                                            <option value="Kuala Lumpur (KUL)">Kuala Lumpur KLIA (KUL)</option>
+
+                                            <option value="" disabled="" class="grot">Korea</option>
+                                            <option value="Seoul (ICN)">Seoul (ICN)</option>
+                                            <option value="Busan (PUS)">Busan (PUS)</option>
+
+                                            <option value="" disabled="" class="grot">Myanmar</option>
+                                            <option value="Yangon (RGN)">Yangon (RGN)</option>
+
+                                            <option value="" disabled="" class="grot">Hong  Kong</option>
+                                            <option value="Hồng Kông (HKG)">Hong Kong (HKG)</option>
+
+                                            <option value="" disabled="" class="grot">Cambodia</option>
+                                            <option value="Phnom penh (PNH)">Phnom penh (PNH)</option>
+
+                                            <option value="" disabled="" class="grot">Taiwan</option>
+                                            <option value="Taipei (TPE)">Taipei (TPE)</option>
+                                            <option value="Cao Hùng (KHH)">Cao Hùng (KHH)</option>
+                                            <option value="Đài Nam (TNN)">Đài Nam (TNN)</option>
+                                            <option value="Taichung (RMQ)">Taichung (RMQ)</option>
+
+                                            <option value="" disabled="" class="grot">Other</option>
+                                            <option value="Siem Reap (REP)">Siem Reap (REP)</option>
+                                            <option value="Hàng Châu (HGH)">Hàng Châu (HGH)</option>
+
+                                        </select>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+                            </div>
+                            <style>
+                                #depAirport > option {
+                                    text-indent: 15px;
+                                }
+
+                                #arvAirport > option {
+                                    text-indent: 15px;
+                                }
+
+                                .grot {
+                                    color: red;
+                                    font-weight: bold;
+                                    font-style: italic;
+                                    text-indent: 0 !important;
+                                }
+                            </style>
+                            <div class="in-right">
+                                <div class="bg-text">
+                                    <div class="col-xs-6" style="float: left; width: 106px;">
+                                        <label for="depAirport">Ngày đi</label>
+                                        <img src="up.png" class="hotel" alt="" style="float: right;">
+                                    </div>
+                                    <div class="col-xs-6" style="float: left; width: 103px;">
+                                        <label for="depAirport">Ngày về</label>
+                                        <img src="down.png" class="hotel" alt="" style="float: right;">
+                                    </div>
+
+                                    <input type="text" id="depDate" name="depDate" class="flight-date" value="13/10/2019" />
+
+                                    <input type="text" id="rtnDate" name="rtnDate" class="flight-date" value="16/10/2019" />
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <style>
+                            .col2 .field {
+                                margin-bottom: 21px;
+                            }
+
+                            .in {
+                                margin-bottom: 9px !important;
+                                margin-top: 3px;
+                            }
+                        </style>
+                        <div class="col2">
+
+                            <div class="field">
+                                <label id="ctl05_ctl08_ctl00_rptNavigationSection_ctl00_0_rptTopNavigationLevel1_0_ctl00_0_lblAdults_0" for="ddlAdults" style="position: relative; top: -8px;">
+                                    Người lớn
+                                    <span style="position: absolute; left: 14px; font-weight: bold; font-size: 10px; top: 17px;">&gt;=12 tuổi</span>
+                                </label>
+                                <select id="ddlAdults" name="adultNo">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="ddlKids" style="position: relative; top: -8px;">
+                                    Trẻ
+                                    <span>em</span>
+                                    <span style="position: absolute; left: 14px; font-weight: bold; font-size: 10px; top: 17px;">2-11 tuổi</span>
+                                </label>
+                                <select id="ddlKids" name="childNo">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+
+                                </select>
+
+                            </div>
+                            <div class="field">
+                                <label for="ddlInfants" style="position: relative; top: -8px;">
+                                    Em
+                                    <span>bé</span>
+                                    <span style="position: absolute; left: 9px; font-weight: bold; font-size: 10px; top: 17px;">< 24 tháng</span>
+                                </label>
+                                <select id="ddlInfants" name="infantNo">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="clear"></div>
+                        <div class="">
+
+                            <div class="fields travel-range clearer">
+                                <div class="field radio">
+                                    <input type="radio" checked="checked" name="rdoTravelPref" id="rdoTravelPrefFixed">
+                                    <label class="small" for="rdoTravelPrefFixed">
+                                        Bay vào ngày này
+                                    </label>
+                                </div>   <a rel="#overlay" class="info-icon-text launch-modal" id="ctl05_ctl08_ctl00_rptNavigationSection_ctl00_0_rptTopNavigationLevel1_0_ctl00_0_aChildren_0" href="#" style="float: right; color: #333; padding-right: 19px; padding-top: 8px;">Trẻ em cần người giám hộ</a> <div class="clear"></div>
+                                <div class="field radio" style="display: block;">
+                                    <!-- input type="radio" name="rdoTravelPref" id="rdoTravelPrefCheap" -->
+                                    <img src="new-xxl.png" style="width: 23px; margin-bottom: -6px;">
+                                    <a href="tim-ve-thang.html" target="_blank" class="small" for="rdoTravelPrefCheap" style="color: red; font-weight: bold;">
+                                        Tìm vé rẻ trong tháng
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+
+
+                        <div class="clear"></div>
+
+                        <div class="field right">
+                            <button id="btnSearchForFlights" class="png-bg" type="submit">
+                                Tìm chuyến bay
+                            </button>
+                        </div>
+
+                        <div style="float: left; padding: 15px 0 0 5px; font-weight: bold;"> <a target="blank" href="huong-dan-dat-cho.html" style="font-family: tahoma;">* Hướng dẫn đặt chỗ</a> </div>
+
+                        <div style="float: right; padding: 15px 23px 4px 3px; font-weight: bold;"> <a target="blank" href="https://m.vietjetair.com/#src/check_in/step1_enter_info.html" style="font-family: tahoma;">* Check-In online</a> </div>
+
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+    <script>
+
+        $(document).ready(function () {
+            /*	$('#sub-form').submit(function(event){
+                    event.preventDefault();
+                    var email = $(this).find('#email');
+                    var str = $(this).serialize();
+                    var patt = /[\w-]+([\w-]+\.)+[\w-]+/;
+                    if(patt.test(email.val())){
+                        $.ajax(base_url+'service/subscribe',{
+                            type: 'POST',
+                            dataType: 'json',
+                            data: str
+                        }).done(function(d,r,t){
+                            alert(d.message);
+                            email.val('');
+                        });
+                    }else{
+                        alert('Vui lòng nhập email hợp lệ');
+                    }
+
+                });*/
+
+
+
+
+            /*
+            if($.cookie('dep_airport')){
+            //alert('fghfghfgh');
+                $('#depAirport').val($.cookie('dep_airport'));
+            }else{
+                $('#depAirport').val('Hồ Chí Minh (SGN)');
+            }
+            if($.cookie('arv_airport')){
+            //alert('fghfghfghfffffffffffff');
+                $('#arvAirport').val($.cookie('arv_airport'));
+            }else{
+                $('#arvAirport').val('Hà Nội (HAN)');
+            }
+            */
+
+        });
+
+
+        $("#btnSearchForFlights").click(function (event) {
+            event.preventDefault();
+            var flag = true;
+            if ($("#depDate").val() === 'Ngày đi') {
+                flag = false;
+            }
+            if (flag) {
+                //$("#btnSearchForFlights").attr('value', 'đang xử lý...');
+                $('#btnSearchForFlights').empty();
+                $('#btnSearchForFlights').append('đang xử lý...');
+                $(".search-form").submit();
+                return true;
+            } else {
+                smoke.signal("Vui lòng chọn ngày bay...", function (e) {
+                }, {
+                        duration: 1000,
+                        classname: "custom-class"
+                    });
+                //alert('Vui lòng chọn chuyến bay...');
+                return false;
+            }
+        });
+    </script>
+
+
+
+    <style>
+        .j30-alerts-and-ads {
+            float: right;
+            padding-top: 20px;
+            width: 373px;
+        }
+
+        .search-flightd {
+            float: right;
+            padding-top: 20px;
+        }
+    </style>
+    <div class="j30-alerts-and-ads">
+        <div class="callcenter">
+            Call center: 028.3898 3898
+        </div>
+        <div class="calljetstar">
+            <div style="background: rgb(253, 235, 199) none repeat scroll 0% 0%; margin: 17px 0px 10px; padding: 23px 29px 10px;" class="join-myjetstar">
+
+                <div class="field">
+
+                    <form name="frmSubcribe" id="frmSubcribe" class="form-inlinex subscribe-formx" method="POST" action="https://vietjets.com.vn/home/subscribe">
+
+
+                        <input type="text" class="text focus-clear txtJetmailEmail" title="Email của bạn" id="ctl06_ctl00_JetmailSignup2_txtJetmailEmail" value="" name="email" placeholder="Đăng ký Email khuyến mãi" style="float: left; border-radius: 4px; border: 1px solid rgb(209, 209, 209); color: rgb(78, 78, 80); padding: 8px 4px; width: 205px;" />
+
+                        <button class="btnEmailSubmit dkmail" id="" value="" name="" type="submit">
+                            Đăng ký
+                        </button>
+
+
+                        <div class="error" style="margin-top: 10px; color: #C00101"></div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="j30-alerts-and-ads">
+            <div class="promo image-promo"><img src="https://vietjets.com.vn/userupload/Od-1_1.jpg" alt="" width="375" height="325" />&nbsp;</div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
