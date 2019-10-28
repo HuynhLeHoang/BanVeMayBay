@@ -4,6 +4,7 @@ using Flight.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,33 +30,46 @@ namespace Flight.Areas.Admin.Controllers
             try
             {
                 var connect = new AirLineDbContext();
-                var info = new ChuyenBay();
-                info.Title = "VietJet";
-                info.UrlAnh = "vietJet.png";
-                info.DiemDi = ThongTin.depAirport;
-                info.DiemDen = ThongTin.arvAirport;
-                info.Ngay = ThongTin.date.Date;
-                info.ChuyenBay1 = ThongTin.chuyenBay;
-                info.KhoiHanh = ThongTin.gioDi;
-                info.Den = ThongTin.gioDen;
-                info.Gia = int.Parse(ThongTin.gia);
-                info.Thue = int.Parse(ThongTin.thue);
-                info.GiaTreEm = int.Parse(ThongTin.giatreem);
-                info.ThueTreEm = int.Parse(ThongTin.thuetreem);
-                info.GiaVeTreSoSinh = int.Parse(ThongTin.giavetresosinh);
-                info.SoChoConTrong = int.Parse(ThongTin.sochocontrong);
-                info.PlaneID = ThongTin.planeID;
-                info.PilotID1 = ThongTin.pilotID1;
-                info.PilotID2 = ThongTin.pilotID2;
-                connect.ChuyenBays.Add(info);
+                var info = new ThongTinChuyenBay();
+
+                connect.ChuyenBays.Add(new ChuyenBay {
+                    Title = "VietJet",
+                    UrlAnh = "vietJet.png",
+                    MaChuyenBay = ThongTin.flightID,
+                    DiemDi = ThongTin.depAirport,
+                    DiemDen = ThongTin.arvAirport,
+                    Ngay = ThongTin.date.Date,
+                    ChuyenBay1 = ThongTin.chuyenBay,
+                    KhoiHanh = ThongTin.gioDi,
+                    Den = ThongTin.gioDen,
+                    Gia = int.Parse(ThongTin.gia),
+                    Thue = int.Parse(ThongTin.thue),
+                    GiaTreEm = int.Parse(ThongTin.giatreem),
+                    ThueTreEm = int.Parse(ThongTin.thuetreem),
+                    GiaVeTreSoSinh = int.Parse(ThongTin.giavetresosinh),
+                    SoChoConTrong = int.Parse(ThongTin.sochocontrong),
+                    PlaneID = ThongTin.planeID,
+                    PilotID1 = ThongTin.pilotID1,
+                    PilotID2 = ThongTin.pilotID2,
+                });
                 connect.SaveChanges();
                 
                 return View("Success", TempData["notice"] = "Thêm chuyến bay thành công!");
             }
-            catch
+            catch (DbEntityValidationException e)
             {
-                
-                return View("Success", TempData["notice"] = "Đã có lỗi xảy ra!");
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+                //return View("Success", TempData["notice"] = "Đã có lỗi xảy ra!");
             }
         }
 
