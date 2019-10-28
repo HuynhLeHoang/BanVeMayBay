@@ -2832,81 +2832,64 @@
                             <img src="themes/nokair/img/arrow1.gif" style="margin-top: 8px; margin-left: calc(100% - 255px);" />
                             <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" />
                         </div>
-                        <!--
-                        dùng ajax và jquery để truyền qua controller    
-                        -->
+                        <!-- dùng ajax và jquery để truyền qua controller -->
                         <script type="text/javascript">
                             $("#book_information").on("click", "#btnContinue", function () {
-                                var hanhkhach = new Array();
-                                    
-                                    $("#Information_adult tr:gt(0)").each(function () {
-                                        var row = $(this);
-                                        var nguoilon = {};
-                                        nguoilon.gioitinh= row.find("#adultSex").value,
+                                 var hanhkhach = new Array();
+                                $("#Information_adult tr:gt(0)").eq(3).each(function () {
+                                    var row = $(this);
+                                    var nguoilon = {};
+                                    nguoilon.gioitinh = row.find("#adultSex").value,
                                         nguoilon.hoten = row.find("#adultName").value,
                                         nguoilon.ngaysinh = row.find("#adultBirthday").value,
-                                        nguoilon.hanhly  =  row.find("#adultBaggage").value
-                                        
-                                        hanhkhach.push(nguoilon);
-                                    });
-                                    $("Information_child tr:gt(0)").each(function () {
-                                        var row = $(this);
-                                        var treem = {};
-                                        treem.gioitinh =  row.find("#childSex").value,
-                                        treem.hoten =     row.find("#childName").value,
-                                        treem.ngaysinh = row.find("#childBirthday").value,
-                                        treem.hanhli=    row.find("#childBaggage").value
-                                        hanhkhach.push(treem);
-                                    });
-                                    $("Information_infant").each(function () {
-                                        var row = $(this);
-                                        var embe = {};
-                                            embe.gioitinh = row.find("#infantSex").value,
-                                            embe.hoten=    row.find("#infantName").value,
-                                            embe.ngaysinh = row.find("#infantBirthday").value,
-                                            embe.hanhli= null,
-                                        hanhkhach.push(embe);
-                                    });
+                                        nguoilon.hanhly = row.find("#adultBaggage").value
 
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "/Home/Review",
-                                        data = JSON.stringify(hanhkhach),
-                                        contentType: "application/json; charset=utf-8",
-                                        dataType: "json",
-                                    });
-                            });                                          
-                        </script>
-                        <script>
-                            $(document).ready(function () {
-                                $(function () {
-                                    $('#btnContinue').click(function (event) {
-                                        event.preventDefault();
-                                        adult = document.getElementById("Information_adult");
-                                         
-                                        var Info{
-                                            
-                                           };
-                                                                           
-                                            $.ajax({
+                                    hanhkhach.push(nguoilon);
+                                });
+                                $("Information_child tr:gt(0)").eq(4).each(function () {
+                                    var row = $(this);
+                                    var treem = {};
+                                    treem.gioitinh = row.find("#childSex").value,
+                                        treem.hoten = row.find("#childName").value,
+                                        treem.ngaysinh = row.find("#childBirthday").value,
+                                        treem.hanhli = row.find("#childBaggage").value
+                                    hanhkhach.push(treem);
+                                });
+                                $("Information_infant").eq(5).each(function () {
+                                    var row = $(this);
+                                    var embe = {};
+                                    embe.gioitinh = row.find("#infantSex").value,
+                                        embe.hoten = row.find("#infantName").value,
+                                        embe.ngaysinh = row.find("#infantBirthday").value,
+                                        embe.hanhli = null,
+                                        hanhkhach.push(embe);
+                                });
+
+                                        $.ajax({
                                             type: "POST",
-                                            url: "/Admin/Login/SignIn",
-                                            data: JSON.stringify(Info),
+                                            url: "~/Home/Review",
+                                            data: JSON.stringify(hanhkhach),
                                             dataType: "json",
                                             contentType: 'application/json; charset=utf-8',
                                             success: function (data) {
-                                                
-                                            },
-                                            error: function (data) {
-                                                
+                                                window.location.href = "~/Home/Review";
                                             }
-                                            });
-                        
-                        
+                                           
                                         });
-                                    });
-                                });
-                        </script> 
+                            });
+                        </script>
+                        <!--<script>
+        $(document).ready(function () {
+            $(function () {
+                $('#btnContinue').click(function (event) {
+                    event.preventDefault();
+
+
+
+                });
+            });
+        });
+    </script>-->
                         <div id="submitFlight" class="fixed">
                             <span class="moreScroll">Vui lòng điền đầy đủ thông tin và nhấp nút TIẾP TỤC  &nbsp;<img style="margin-top: -16px;" src="arrow-down.gif" /></span>
                         </div>
