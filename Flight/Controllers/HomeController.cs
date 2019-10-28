@@ -69,7 +69,10 @@ namespace Flight.Controllers
             {
                 new F_ThemHanhKhach().ThemHanhKhach(item);
             }
-           
+            return Json(new
+            {
+                msg = "S"
+            });
             KhachHang model = new KhachHang();
             model.HoTenKhachHang = fullname;
             model.KhuVuc = txtPax1_Ctry;
