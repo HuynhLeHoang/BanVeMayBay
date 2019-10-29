@@ -23,19 +23,36 @@
         <h4 class="head-title1">Thông tin Hành khách</h4>
         <table class="table1 table-border table-hover" style="background: oldlace none repeat scroll 0% 0%; margin-bottom: 15px;">
             <tbody>
-                @foreach (HanhKhach item in Model)
+                @foreach (adult item in Model.adultList)
                 {
                     <tr style="color: red;">
-                        <td style="width: 200px;">@item.GioiTinh </td>
-                        <td>@item.HoTen</td>
-                        <td>@item.MaHanhLy  </td>
+                        <td style="width: 200px;">@item.adultSex </td>
+                        <td>@item.adultName</td>
+                        <td>@item.adultBaggageType  </td>
                     </tr>
-                    
+
+                }
+                @foreach (child item in Model.childList)
+                {
+                    <tr style="color: red;">
+                        <td style="width: 200px;">@item.childSex </td>
+                        <td>@item.childName</td>
+                        <td>@item.childBaggageType </td>
+                    </tr>
+
+                }
+                @foreach (infant item in Model.infantList)
+                {
+                    <tr style="color: red;">
+                        <td style="width: 200px;">@item.infantSex </td>
+                        <td>@item.infantName</td>
+                    </tr>
+
                 }
             </tbody>
         </table>
         <h3 class="total-price">
-            GIÁ VÉ: <span class="currency">@ViewBag.TongTien VNĐ</span> <br>
+            GIÁ VÉ: <span class="currency">@ViewBag.tongtien VNĐ</span> <br>
             <div style="font-size: 16px; padding-top: 9px; color: tomato;">
                 Phí xuất vé: <span class="currency">0 VNĐ</span>
             </div>
@@ -99,7 +116,7 @@
             <div class="text-center">
                 <!--   <input type="hidden" name="payment_method" value="1" /> -->
                 <input type="hidden" name="amount" id="amount" value="0">
-                <input type="hidden" name="post_data" id="post_data" value="YToyNTp7czo4OiJmdWxsbmFtZSI7czoxMjoiTmd1eWVuIFZhbiBBIjtzOjEyOiJ0eHRQYXgxX0N0cnkiO3M6MzoiMjM0IjtzOjU6InBob25lIjtzOjIwOiJ1bmRlZmluZWQgMDMzMjI2NDEyMiI7czo1OiJlbWFpbCI7czoyNjoicGhhbWJhbmdiYW5nMTIzNUBnbWFpbC5jb20iO3M6NzoiYWRkcmVzcyI7czoxMzoic3N3cXNmZHdkZnZmYiI7czoxMzoiY29tcGFueS10YXhpZCI7czowOiIiO3M6MTI6ImNvbXBhbnktbmFtZSI7czowOiIiO3M6MTU6ImNvbXBhbnktYWRkcmVzcyI7czowOiIiO3M6MTc6ImNvbXBhbnktYWRkcmVzcy0yIjtzOjA6IiI7czoxMzoicGFzc2VuZ2VyX3NleCI7YToxOntpOjA7czoxOiIxIjt9czo5OiJwYXNzZW5nZXIiO2E6MTp7aTowO3M6MTI6Ik5ndXllbiBWYW4gQSI7fXM6MTg6InBhc3Nlbmdlcl9iaXJ0aGRheSI7YToxOntpOjA7czowOiIiO31zOjE0OiJwYXNzZW5nZXJfcGFzcyI7YToxOntpOjA7czowOiIiO31zOjIyOiJwYXNzZW5nZXJfZGF0ZXBhc3NkYXRlIjthOjE6e2k6MDtzOjA6IiI7fXM6MTg6InBhc3Nlbmdlcl9xdW9jdGljaCI7YToxOntpOjA7czowOiIiO31zOjE0OiJvcmlnaW5fYmFnZ2FnZSI7YToxOntpOjA7czoxOiIxIjt9czoxMDoibW9uYW5pbnB1dCI7czoyOiJuZCI7czo0OiJub3RlIjtzOjA6IiI7czo0OiJ0aHVlIjtzOjA6IiI7czoxMjoicmFkaW9wYXltZW50IjtzOjE6IjEiO3M6MTM6ImNoa0FncmVlVGVybXMiO3M6Mjoib24iO3M6NzoidGllcHR1YyI7czoxMjoiVGnhur9wIHThu6VjIjtzOjc6InNlc3Npb24iO2k6MTk2ODg5MTg3ODtzOjk6ImFuY2hpZXVkaSI7aTowO3M6OToiYW5jaGlldXZlIjtpOjA7fQ==">
+                <input hidden name="post_data" id="post_data" value="@Model">
                 <div class="clear"></div>
                 <img style="margin-top: 8px; margin-left: 168px;" src="themes/nokair/img/arrow1.gif">
                 <button class="common-button2" type="submit">XÁC NHẬN THÔNG TIN &amp; ĐẶT VÉ</button>

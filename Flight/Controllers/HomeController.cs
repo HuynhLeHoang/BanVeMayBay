@@ -61,18 +61,43 @@ namespace Flight.Controllers
             Session[CommonSession.FLIGHT_SESION]= Flightif;
             return View(Flightif);
         }
-       [HttpPost]
-        public ActionResult Review(string fullname,string txtPax1_Ctry, string phone, string email, string address, List<HanhKhachModel> HanhKhachs)
+        [HttpPost]
+        public ActionResult Review(string fullname, string txtPax1_Ctry, string phone, string email, string address, int tongtien, IList<adult> adults, IList<child> childs, IList<infant> infants)
         {
             new F_ThemKhachHang().ThemKhachHang( fullname, txtPax1_Ctry, phone, email, address);
-            foreach(HanhKhachModel item in HanhKhachs)
+            HanhKhachModel hkModel = new HanhKhachModel();
+            hkModel.adultList = new List<adult>();
+            hkModel.childList = new List<child>();
+            hkModel.infantList = new List<infant>();
+            foreach(adult item in adults)
             {
-                new F_ThemHanhKhach().ThemHanhKhach(item);
+                if(item.adultName != null)
+                {
+                    HanhLy temp = new F_ThemHanhKhach().FindEntity(item.adultBaggage);
+                    item.adultBaggageType = temp.TenHanhLy;
+                    new F_ThemHanhKhach().ThemHanhKhach(item);
+                    adult temp1 = new F_ThemHanhKhach().ha
+                    hkModel.adultList.Add(item);                  
+                }            
             }
-            return Json(new
+            foreach(child item in childs)
             {
-                msg = "S"
-            });
+               if(item.childName != null)
+                {
+                    HanhLy temp = new F_ThemHanhKhach().FindEntity(item.childBaggage);
+                    item.childBaggageType = temp.TenHanhLy;
+                    new F_ThemHanhKhach().ThemHanhKhach(item);
+                    hkModel.childList.Add(item);
+                }
+            }
+            foreach(infant item in infants)
+            {
+                if(item.infantName != null)
+                {
+                    new F_ThemHanhKhach().ThemHanhKhach(item);
+                    hkModel.infantList.Add(item);
+                }
+            }
             KhachHang model = new KhachHang();
             model.HoTenKhachHang = fullname;
             model.KhuVuc = txtPax1_Ctry;
@@ -80,10 +105,10 @@ namespace Flight.Controllers
             model.Email = email;
             model.Diachi = address;
             ViewBag.khachhang = model;
-     
-            return View(HanhKhachs);
+            ViewBag.tongtien = tongtien;
+            return View(hkModel);
         }
-        public ActionResult Thankyou()
+        public ActionResult Thankyou(HanhKhachModel hkmodel)
         {
             return View();
         }

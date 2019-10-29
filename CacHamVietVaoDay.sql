@@ -26,7 +26,7 @@ as
 begin 
 	
 	declare @MaHanhKhach nvarchar (10)
-	insert into HanhKhach(MaHanhKhach,GioiTinh, HoTen, NgaySinh, MaHanhLy) values('HK'+CONVERT(NVARCHAR(4),cast(rand()*10000 as int)), @GioiTinh, @HoTen, @NgaySinh, @MaHanhLi)
+	insert into HanhKhach(MaHanhKhach,GioiTinh, HoTen, NgaySinh, MaHanhLy) values('KH'+CONVERT(NVARCHAR(4),cast(rand()*10000 as int)), @GioiTinh, @HoTen, @NgaySinh, @MaHanhLi)
 end
 go
 

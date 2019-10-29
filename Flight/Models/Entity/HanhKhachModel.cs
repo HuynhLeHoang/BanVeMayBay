@@ -7,10 +7,9 @@ namespace Flight.Models.Entity
 {
     public class HanhKhachModel
     {
-        public string gioitinh { get; set; }
-        public string hoten { get; set; }
-        public DateTime ngaysinh { get; set; }
-        public string hanhly { get; set; }
+        public List<adult> adultList { get; set; }
+        public List<child> childList { get; set; }
+        public List<infant> infantList { get; set; }
 
     }
 }

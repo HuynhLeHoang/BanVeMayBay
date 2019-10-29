@@ -61,13 +61,17 @@ namespace Flight.Models.Entity
                 .Property(e => e.MaHanhLy)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.DienThoai)
+            modelBuilder.Entity<HanhLy>()
+                .Property(e => e.TenHanhLy)
                 .IsUnicode(false);
 
             modelBuilder.Entity<KhachHang>()
+                .Property(e => e.DienThoai)
+                .IsFixedLength();
+
+            modelBuilder.Entity<KhachHang>()
                 .Property(e => e.Email)
-                .IsUnicode(false);
+                .IsFixedLength();
 
             modelBuilder.Entity<MayBay>()
                 .Property(e => e.PlaneID)

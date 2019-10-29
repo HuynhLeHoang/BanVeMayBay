@@ -19,6 +19,9 @@ namespace Flight.Models.Entity
         [StringLength(3)]
         public string MaHanhLy { get; set; }
 
+        [StringLength(100)]
+        public string TenHanhLy { get; set; }
+
         public int? LoaiHanhLy { get; set; }
 
         public int? GiaTien { get; set; }
