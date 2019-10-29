@@ -11,9 +11,11 @@ as
 begin 
 	declare @count int 
 	declare @MaKhachHang nchar(10)
+	declare @randomString nvarchar(10)
+	SELECT @randomString = CONVERT(varchar(255), NEWID())
 	select @count = count(*) from KhachHang as kh where kh.DienThoai = @DienThoai and kh.Email = @email 
 	if (@count = 0)
-		insert into KhachHang(MaKhachHang,HoTenKhachHang,KhuVuc,DienThoai,Email,Diachi) values('KH'+CONVERT(NVARCHAR(4),cast(rand()*10000 as int)), @HoTen, @KhuVuc, @DienThoai, @email, @Diachi)
+		insert into KhachHang(MaKhachHang,HoTenKhachHang,KhuVuc,DienThoai,Email,Diachi) values(@randomString, @HoTen, @KhuVuc, @DienThoai, @email, @Diachi)
 end
 go 
 
@@ -24,11 +26,32 @@ create proc ThemHanhKhach
 @MaHanhLi int 
 as
 begin 
-	
+	declare @count int
 	declare @MaHanhKhach nvarchar (10)
-	insert into HanhKhach(MaHanhKhach,GioiTinh, HoTen, NgaySinh, MaHanhLy) values('KH'+CONVERT(NVARCHAR(4),cast(rand()*10000 as int)), @GioiTinh, @HoTen, @NgaySinh, @MaHanhLi)
+	declare @randomString nvarchar(10)
+	SELECT @randomString = CONVERT(varchar(255), NEWID())
+	select @count = count(*) from HanhKhach as hk where hk.GioiTinh = @GioiTinh and hk.HoTen = @HoTen and hk.NgaySinh = @NgaySinh and hk.MaHanhLy = @MaHanhLi
+	if(@count = 0)
+		insert into HanhKhach(MaHanhKhach,GioiTinh, HoTen, NgaySinh, MaHanhLy) values(@randomString, @GioiTinh, @HoTen, @NgaySinh, @MaHanhLi)
 end
 go
+
+create proc GenerateCode
+@MaHanhKhach nvarchar(10),
+@MaChuyenBay nvarchar(10),
+@MaCode nvarchar(10),
+@tonggiave int
+as 
+begin 
+	declare @randomString varchar(8)
+	SELECT @randomString = CONVERT(varchar(255), NEWID())
+	insert into KhachHang_ChuyenBay(MaKhachHang, MaChuyenBay, MaCode, TongTien) values (@MaHanhKhach, @MaChuyenBay, @randomString, @tonggiave)
+
+end
+go 
+
+
+
 
 
 

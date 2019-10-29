@@ -34,7 +34,7 @@ namespace Flight.Models.Functions
         }
         public void ThemHanhKhach(child HanhKhach)
         {
-            DateTime temp = DateTime.ParseExact(HanhKhach.childBirthday, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime temp = DateTime.ParseExact(HanhKhach.childBirthday,"dd/MM/yyyy", CultureInfo.InvariantCulture);
             object[] sqlparams = new SqlParameter[]
             {
                 new SqlParameter("@GioiTinh", HanhKhach.childSex),
@@ -52,7 +52,7 @@ namespace Flight.Models.Functions
                 new SqlParameter("@GioiTinh", HanhKhach.infantSex),
                 new SqlParameter("@HoTen", HanhKhach.infantName),
                 new SqlParameter("@NgaySinh", temp),
-                new SqlParameter("@MaHanhLi", null),
+                new SqlParameter("@MaHanhLi", "1"),
             };
             context.Database.ExecuteSqlCommand("exec ThemHanhKhach @GioiTinh,@HoTen,@NgaySinh,@MaHanhLi", sqlparams);
         }

@@ -159,6 +159,7 @@
     <Compile Include="Models\Entity\PhiCong.cs" />
     <Compile Include="Models\Entity\SearchResultOneWay.cs" />
     <Compile Include="Models\Entity\sysdiagram.cs" />
+    <Compile Include="Models\Functions\F_GenerateCode.cs" />
     <Compile Include="Models\Functions\F_Login.cs" />
     <Compile Include="Models\Functions\F_DanhSachChuyenBay.cs" />
     <Compile Include="Models\Functions\F_ThemHanhKhach.cs" />

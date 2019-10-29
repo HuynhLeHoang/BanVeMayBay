@@ -115,11 +115,24 @@
 
             <div class="text-center">
                 <!--   <input type="hidden" name="payment_method" value="1" /> -->
-                <input type="hidden" name="amount" id="amount" value="0">
-                <input hidden name="post_data" id="post_data" value="@Model">
+                <input type="hidden" name="amount" id="amount" value="@ViewBag.tongtien">
                 <div class="clear"></div>
+                @foreach (adult item in Model.adultList)
+                {
+                    <input hidden type="text" name="hkID" id="hkID" value="@item.adultID" />
+
+                }
+                @foreach (child item in Model.childList)
+                {
+                    <input hidden type="text" name="hkID" id="hkID" value="@item.childID" />
+
+                }
+                @foreach (infant item in Model.infantList)
+                {
+                    <input hidden type="text" name="hkID" id="hkID" value="@item.infantID" />
+                }
                 <img style="margin-top: 8px; margin-left: 168px;" src="themes/nokair/img/arrow1.gif">
-                <button class="common-button2" type="submit">XÁC NHẬN THÔNG TIN &amp; ĐẶT VÉ</button>
+                <button class="common-button2" id="btnSubmit" type="submit">XÁC NHẬN THÔNG TIN &amp; ĐẶT VÉ</button>
                 <br>
                 <br>
                 <br>
@@ -132,6 +145,7 @@
 
 
         </form>
+        
     </div>
   
 </div>

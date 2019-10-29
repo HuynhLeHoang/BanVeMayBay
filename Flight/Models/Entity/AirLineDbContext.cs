@@ -19,7 +19,6 @@ namespace Flight.Models.Entity
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<MayBay> MayBays { get; set; }
         public virtual DbSet<PhiCong> PhiCongs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<KhachHang_ChuyenBay> KhachHang_ChuyenBay { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

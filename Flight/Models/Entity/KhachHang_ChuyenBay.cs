@@ -18,8 +18,7 @@ namespace Flight.Models.Entity
         [StringLength(10)]
         public string MaCode { get; set; }
 
-        [StringLength(10)]
-        public string Chitiet { get; set; }
+        public int? TongTien { get; set; }
 
         public virtual ChuyenBay ChuyenBay { get; set; }
 

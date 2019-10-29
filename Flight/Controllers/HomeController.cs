@@ -69,14 +69,24 @@ namespace Flight.Controllers
             hkModel.adultList = new List<adult>();
             hkModel.childList = new List<child>();
             hkModel.infantList = new List<infant>();
+            ViewBag.tongtien = 0;
             foreach(adult item in adults)
             {
                 if(item.adultName != null)
                 {
                     HanhLy temp = new F_ThemHanhKhach().FindEntity(item.adultBaggage);
                     item.adultBaggageType = temp.TenHanhLy;
+                    ViewBag.tongtien += temp.GiaTien;
+                    // them hanh khach vao co so du lieu va gan cho mot ma 
                     new F_ThemHanhKhach().ThemHanhKhach(item);
-                    adult temp1 = new F_ThemHanhKhach().ha
+                    // lay len tu co so du lieu ma hanh khach 
+                    DateTime ngaysinh = DateTime.ParseExact(item.adultBirthday, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    HanhKhach temp1 = new AirLineDbContext().HanhKhaches.Where(x => x.GioiTinh == item.adultSex
+                    && x.HoTen == item.adultName
+                    && x.NgaySinh == ngaysinh
+                    && x.MaHanhLy == item.adultBaggage
+                    ).SingleOrDefault();
+                    item.adultID = temp1.MaHanhKhach;                  
                     hkModel.adultList.Add(item);                  
                 }            
             }
@@ -86,7 +96,15 @@ namespace Flight.Controllers
                 {
                     HanhLy temp = new F_ThemHanhKhach().FindEntity(item.childBaggage);
                     item.childBaggageType = temp.TenHanhLy;
+                    ViewBag.tongtien += temp.GiaTien;
                     new F_ThemHanhKhach().ThemHanhKhach(item);
+                    DateTime ngaysinh = DateTime.ParseExact(item.childBirthday, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    HanhKhach temp1 = new AirLineDbContext().HanhKhaches.Where(x => x.GioiTinh == item.childSex
+                    && x.HoTen == item.childName
+                    && x.NgaySinh == ngaysinh
+                    && x.MaHanhLy == item.childBaggage
+                    ).SingleOrDefault();
+                    item.childID = temp1.MaHanhKhach;
                     hkModel.childList.Add(item);
                 }
             }
@@ -95,6 +113,13 @@ namespace Flight.Controllers
                 if(item.infantName != null)
                 {
                     new F_ThemHanhKhach().ThemHanhKhach(item);
+                    DateTime ngaysinh = DateTime.ParseExact(item.infantBirthday, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    HanhKhach temp1 = new AirLineDbContext().HanhKhaches.Where(x => x.GioiTinh == item.infantSex
+                    && x.HoTen == item.infantName
+                    && x.NgaySinh == ngaysinh
+                    && x.MaHanhLy == "1"
+                    ).SingleOrDefault();
+                    item.infantID = temp1.MaHanhKhach;
                     hkModel.infantList.Add(item);
                 }
             }
@@ -105,13 +130,21 @@ namespace Flight.Controllers
             model.Email = email;
             model.Diachi = address;
             ViewBag.khachhang = model;
-            ViewBag.tongtien = tongtien;
+            ViewBag.tongtien += tongtien;
             return View(hkModel);
         }
-        public ActionResult Thankyou(HanhKhachModel hkmodel)
+        public ActionResult Thankyou(int amount, List<string> hkID)
         {
+            FlightInfo flightInfo = new FlightInfo();
+            flightInfo = Session[CommonSession.FLIGHT_SESION] as FlightInfo;
+            string maCode = new F_GenerateCode().RandomString();
+            foreach (string item in hkID)
+            {
+                new F_GenerateCode().Generatecode(flightInfo.cb.MaChuyenBay, amount, maCode, item);
+            }
             return View();
         }
+        
 
     }
 }
