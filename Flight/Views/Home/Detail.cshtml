@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout1.cshtml";
-    int tong = @Model.tongGiaVeNguoiLon + @Model.tongGiaVetreEm + @Model.tongGiaveSoSinh; 
+
 }
 @using Flight.Models.Entity;
     <div id="wrap">
@@ -52,88 +52,97 @@
                     }
                 </style>
 
-                <div class="block block-price-detail">
-                    <div class="block-header">
-                        <h4 class="block-title" style="font-weight: bold;">Chi tiết Giá</h4>
-                    </div>
-                    <div class="block-content">
-                        <div class="table-price">
-                            <div class="row table-price-head">
-                                <div class="col-xs-3">
-                                    <span style="font-weight: bold;">Hành khách</span>
-                                </div>
-                                <div class="col-xs-3">
-                                    <span style="font-weight: bold;">Giá vé</span>
-                                </div>
-                                <div class="col-xs-3">
-                                    <span style="font-weight: bold;">Thuế &amp; Phí</span>
-                                </div>
-                                <div class="col-xs-3">
-                                    <span style="font-weight: bold;">Tổng cộng</span>
-                                </div>
+                @foreach (FlightInfo item in Model)
+                {
+                    if (item.LoaiCb != null)
+                    {
+                        <div class="block block-price-detail">
+                            <div class="block-header">
+                                <h4 class="block-title" style="font-weight: bold;">@item.LoaiCb </h4>
                             </div>
-                            @if (@Model.adultNo > 0)
-                            {
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <span>@Model.adultNo x </span><span>Người lớn</span>
+                            <div class="block-content">
+                                <div class="table-price">
+                                    <div class="row table-price-head">
+                                        <div class="col-xs-3">
+                                            <span style="font-weight: bold;">Hành khách</span>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <span style="font-weight: bold;">Giá vé</span>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <span style="font-weight: bold;">Thuế &amp; Phí</span>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <span style="font-weight: bold;">Tổng cộng</span>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">@Model.cb.Gia VNĐ</span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">@Model.cb.Thue VNĐ</span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">@Model.tongGiaVeNguoiLon VNĐ</span>
-                                    </div>
+                                    @if (item.adultNo > 0)
+                                    {
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <span>@item.adultNo x </span><span>Người lớn</span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">@item.cb.Gia VNĐ</span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">@item.cb.Thue VNĐ</span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">@item.tongGiaVeNguoiLon VNĐ</span>
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (item.childNo > 0)
+                                    {
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <span>@item.childNo x </span><span>Trẻ em </span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">@item.cb.GiaTreEm VNĐ</span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">@item.cb.ThueTreEm VNĐ</span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">@item.tongGiaVetreEm VNĐ</span>
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (item.infantNo > 0)
+                                    {
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <span>@item.childNo x </span><span>Trẻ Sơ Sinh </span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">@item.cb.GiaVeTreSoSinh VNĐ</span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">0 VNĐ</span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <span class="currency">@item.tongGiaveSoSinh VNĐ</span>
+                                            </div>
+                                        </div>
+                                    }
+
+
                                 </div>
-                            }
-                            @if (@Model.childNo > 0)
-                            {
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <span>@Model.childNo x </span><span>Trẻ em </span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">@Model.cb.GiaTreEm VNĐ</span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">@Model.cb.ThueTreEm VNĐ</span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">@Model.tongGiaVetreEm VNĐ</span>
-                                    </div>
-                                </div>
-                            }
-                            @if (@Model.infantNo > 0)
-                            {
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <span>@Model.childNo x </span><span>Trẻ Sơ Sinh </span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">@Model.cb.GiaVeTreSoSinh VNĐ</span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">0 VNĐ</span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <span class="currency">@Model.tongGiaveSoSinh VNĐ</span>
-                                    </div>
-                                </div>
-                            }
+
+
+                            </div>
 
 
                         </div>
+                    }
+                }
+                <h4 style="text-align:center; color:red" class="total"><span class=""><b>Tổng tiền: </b></span>&nbsp;<strong><span id="TongTien" class="currency">@ViewBag.tongtien VNĐ</span></strong></h4>
 
 
-                    </div>
-                    <h4 style="text-align:center; color:red" class="total"><span class=""><b>Tổng tiền: </b></span>&nbsp;<strong><span  id="TongTien"class="currency">@tong VNĐ</span></strong></h4>
-                    
-                </div>
-                 
-              
+
+
 
 
                 <div class="text-info" style="line-height: 24px;">
@@ -145,7 +154,7 @@
 
 
             <form id="book_information" method="POST" role="form" action="~/Home/Review">
-                <input name="TongTien" id=" TongTien" value="@tong" hidden />
+                <input name="TongTien" id=" TongTien" value="@ViewBag.tongtien" hidden />
                 <h4 class="head-title1">1. NHẬP THÔNG TIN NGƯỜI LIÊN HỆ</h4>
                 <table class="table1">
                     <tr>
@@ -2028,7 +2037,7 @@
                 <table id="Information_adult" class="table1b" style="width: 100%;">
                     <tbody>
 
-                        @for (int i = 0; i < @Model.adultNo; i++)
+                        @for (int i = 0; i < ViewBag.adultNo; i++)
                         {
                             <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Người lớn @i  </div>	</td>	</tr>
                             <tr style=" none repeat scroll 0px 0px; border-top: 1px solid rgb(0, 99, 152);">
@@ -2075,7 +2084,7 @@
                 </table>
                 <table id="Information_child" class="table1b" style="width: 100%;">
                     <tbody>
-                        @for (int i = 0; i < @Model.childNo; i++)
+                        @for (int i = 0; i < ViewBag.childNo; i++)
                         {
                             <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Trẻ em @i  </div>	</td>	</tr>
                             <tr style=" none repeat scroll 0px 0px; border-top: 1px solid rgb(0, 99, 152);">
@@ -2098,7 +2107,7 @@
                                 </td>
                                 <td>
                                     <span>Hành Lý</span> <br>
-                                    <select id="childBaggage" name="[@i].childBaggage" class="form-control" >
+                                    <select id="childBaggage" name="[@i].childBaggage" class="form-control">
                                         <option value="1">Không mua thêm hành lý</option>
 
                                         <option value="2">Gói 1 - 15kg - 175.000 VNĐ</option>
@@ -2121,14 +2130,14 @@
                 </table>
                 <table id="Information_infant" class="table1b" style="width: 100%;">
                     <tbody>
-                        @for (int i = 0; i < @Model.infantNo; i++)
+                        @for (int i = 0; i < ViewBag.infantNo; i++)
                         {
                             <tr><td colspan="3" style="padding-bottom: 0px;"><div style="border-bottom: 0px solid gray; color: #006398; text-transform: uppercase; font-weight: bold; padding-bottom: 1px;">Em bé @i  </div>	</td>	</tr>
                             <tr style=" none repeat scroll 0px 0px; border-top: 1px solid rgb(0, 99, 152);">
 
                                 <td>
                                     <span>Giới tính<div style="color: red; display: inline;"> (*)</div></span> <br>
-                                    <select  id="infantSex" name="[@i].infantSex" class="form-control">
+                                    <select id="infantSex" name="[@i].infantSex" class="form-control">
                                         <option value="Nam">Nam</option>
                                         <option value="Nữ">Nữ</option>
                                     </select>
@@ -2822,11 +2831,11 @@
                             <img src="themes/nokair/img/arrow1.gif" style="margin-top: 8px; margin-left: calc(100% - 255px);" />
                             <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" />
                         </div>
-       
+
                         <div id="submitFlight" class="fixed">
                             <span class="moreScroll">Vui lòng điền đầy đủ thông tin và nhấp nút TIẾP TỤC  &nbsp;<img style="margin-top: -16px;" src="arrow-down.gif" /></span>
                         </div>
-                  
+
 
                         <div class="clear"> </div> <br />
 

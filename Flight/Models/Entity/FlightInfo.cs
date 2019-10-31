@@ -7,6 +7,7 @@ namespace Flight.Models.Entity
 {
     public class FlightInfo
     {
+        public string LoaiCb { set; get; }
         public ChuyenBay cb { set; get; }
         public int adultNo { set; get; }
         public int tongGiaVeNguoiLon { set; get; }

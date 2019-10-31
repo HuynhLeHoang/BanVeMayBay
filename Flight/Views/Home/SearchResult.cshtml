@@ -209,9 +209,13 @@
                                 <td class=" td1 f-time">@item.KhoiHanh</td>
                                 <td class=" td1 t-time hidden-xs">@item.Den</td>
                                 <td class=" td1 price">
-                                    <form method="get" action="Detail">
+                                    <form method="post" action="@ViewBag.redirect">
                                         <span data-base="@item.Gia">@item.Gia VNĐ</span>
-                                        <input name="MaChuyenBay" value="@item.MaChuyenBay" hidden="hidden" />
+                                        <input name="MaChuyenBayLuotDi" value="@item.MaChuyenBay" hidden="hidden" />
+                                        <input name="MaChuyenBayLuotVe" value="" hidden="hidden" />
+                                        <input name="depAirport" value="@Model.departAirport" hidden="hidden" />
+                                        <input name="arvAirport" value="@Model.arrivedAirport" hidden="hidden" />
+                                        <input name="ReturnDate" value="@Model.rtndate" hidden="hidden"/>
                                         <input name="adultNo" value="@Model.adultNo" hidden="hidden" />
                                         <input name="childNo" value="@Model.childNo" hidden="hidden" />
                                         <input name="infantNo" value="@Model.infantNo" hidden="hidden" />

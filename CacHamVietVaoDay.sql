@@ -38,18 +38,17 @@ go
 
 create proc GenerateCode
 @MaHanhKhach nvarchar(10),
+@MaKhachHang nvarchar(10),
 @MaChuyenBay nvarchar(10),
 @MaCode nvarchar(10),
 @tonggiave int
+
 as 
 begin 
-	declare @randomString varchar(8)
-	SELECT @randomString = CONVERT(varchar(255), NEWID())
-	insert into KhachHang_ChuyenBay(MaKhachHang, MaChuyenBay, MaCode, TongTien) values (@MaHanhKhach, @MaChuyenBay, @randomString, @tonggiave)
+	insert into KhachHang_ChuyenBay(MaHanhKhach,MaKhachHang, MaChuyenBay, MaCode, TongTien) values (@MaHanhKhach,@MaKhachHang, @MaChuyenBay, @MaCode, @tonggiave)
 
 end
 go 
-
 
 
 

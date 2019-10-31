@@ -21,18 +21,20 @@ namespace Flight.Models.Functions
         {
             context = new AirLineDbContext();
         }
-        public void Generatecode(string machuyenbay ,int tongtien, string macode, string maHanhKhach)
+        public void Generatecode(string machuyenbay ,int tongtien, string macode, string maHanhKhach, string makhachhang)
         {
             object[] sqlparams = new SqlParameter[]
             {
                 new SqlParameter("@MaHanhKhach", maHanhKhach),
+                new SqlParameter("@MaKhachHang",makhachhang),
                 new SqlParameter("@MaChuyenBay", machuyenbay),
                 new SqlParameter("@tonggiave", tongtien),
                 new SqlParameter("@MaCode", macode)
 
+
                 
             };
-            context.Database.ExecuteSqlCommand("exec GenerateCode @MaHanhKhach,@MaChuyenBay,@MaCode,@tonggiave", sqlparams);
+            context.Database.ExecuteSqlCommand("exec GenerateCode @MaHanhKhach,@MaKhachHang,@MaChuyenBay,@MaCode,@tonggiave", sqlparams);
 
         }
     }

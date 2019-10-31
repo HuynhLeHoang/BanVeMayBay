@@ -27,5 +27,12 @@ namespace Flight.Models.Functions
             };
             context.Database.ExecuteSqlCommand("exec ThemKhachHang @HoTen,@KhuVuc,@DienThoai,@email,@Diachi", sqlparams);
         }
+        public string Find(string fullname, string phone, string email)
+        {
+            KhachHang temp = context.KhachHangs.Where(x => x.HoTenKhachHang == fullname && x.DienThoai == phone && x.Email == email).SingleOrDefault();
+            string result = temp.MaKhachHang;
+            return result;
+        }
+
     }
 }

@@ -11,6 +11,7 @@ namespace Flight.Models.Entity
         public string departAirport { set; get; }
         public string arrivedAirport { set; get; }
         public string date { set; get; }
+        public string rtndate { set; get; }
         public int adultNo { set; get; }
         public int childNo { set; get; }
         public int infantNo { set; get; }

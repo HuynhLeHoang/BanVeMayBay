@@ -25,51 +25,103 @@ namespace Flight.Controllers
 
             return View();
         }
-     
-        public ActionResult SearchResult(string depAirport, string arvAirport, string depDate, int adultNo, int childNo, int infantNo)
+        
+        [HttpPost]
+        public ActionResult SearchResult(string depAirport, string arvAirport, string depDate, string rtnDate, int adultNo, int childNo, int infantNo, int flightType)
         { 
+            if(flightType == 0)
+            {
+                ViewBag.redirect = "Detail";
+            }
+            else
+            {
+                ViewBag.redirect = "SearchResultReturn";
+            }
             SearchResultOneWay result = new SearchResultOneWay();
             DateTime dt = DateTime.ParseExact(depDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             result.cb = new  F_DanhSachChuyenBay().DS_ChuyenBay.Where(x=>x.DiemDi == depAirport && x.DiemDen == arvAirport && x.Ngay == dt).ToList();
             result.departAirport = depAirport;
             result.arrivedAirport = arvAirport;
             result.date = depDate;
+            result.rtndate = rtnDate;
             result.adultNo = adultNo;
             result.childNo = childNo;
             result.infantNo = infantNo;
             return View(result);
         }
-
+        //Bản nháp 
         public ActionResult Preview()
         {
             String DanhMuc = "VietJet";
             var model = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x=>x.Title == DanhMuc).ToList();
             return View(model);
         }
-       
-        public ActionResult Detail(string MaChuyenBay, int adultNo, int childNo, int infantNo)
+        [HttpPost  ]
+        public ActionResult SearchResultReturn(string depAirport, string arvAirport, string ReturnDate, string MaChuyenBayLuotDi, int adultNo, int childNo, int infantNo)
         {
-            ChuyenBay model = new F_DanhSachChuyenBay().FindEntity(MaChuyenBay);
+
+            SearchResultOneWay result = new SearchResultOneWay();
+            DateTime dt = DateTime.ParseExact(ReturnDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            result.cb = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x => x.DiemDi == arvAirport && x.DiemDen == depAirport && x.Ngay == dt).ToList();
+            result.departAirport = arvAirport;
+            result.arrivedAirport = depAirport;
+            result.date = null;
+            result.rtndate = ReturnDate;
+            result.adultNo = adultNo;
+            result.childNo = childNo;
+            result.infantNo = infantNo;
+            ViewBag.MaChuyenBayLuotDi = MaChuyenBayLuotDi;
+            return View(result);
+        }
+        public ActionResult Detail(string MaChuyenBayLuotDi, string MaChuyenBayLuotVe, int adultNo, int childNo, int infantNo)
+        {
+            ViewBag.tongtien = 0;
+            List<FlightInfo> result = new List<FlightInfo>();
+            ChuyenBay model = new F_DanhSachChuyenBay().FindEntity(MaChuyenBayLuotDi);
             FlightInfo Flightif = new FlightInfo();
+            Flightif.LoaiCb = "Chuyến Bay Lượt đi";
             Flightif.cb = model;
             Flightif.adultNo = adultNo;
             Flightif.childNo = childNo;
             Flightif.infantNo = infantNo;
+            ViewBag.adultNo = adultNo;
+            ViewBag.childNo = childNo;
+            ViewBag.infantNo = infantNo;
+            Session[CommonSession.FLIGHTDEP_ID] = MaChuyenBayLuotDi;
             Flightif.tongGiaVeNguoiLon = adultNo * ( (int)(Flightif.cb.Gia) + (int)(Flightif.cb.Thue));
             Flightif.tongGiaVetreEm = childNo * ((int)(Flightif.cb.GiaTreEm) + (int)(Flightif.cb.ThueTreEm));
             Flightif.tongGiaveSoSinh = infantNo * (int)(Flightif.cb.GiaVeTreSoSinh);
-            Session[CommonSession.FLIGHT_SESION]= Flightif;
-            return View(Flightif);
+            ViewBag.tongtien += Flightif.tongGiaVeNguoiLon + Flightif.tongGiaVetreEm + Flightif.tongGiaveSoSinh;
+            result.Add(Flightif);
+            if(MaChuyenBayLuotVe != "")
+            {
+                ChuyenBay tmp = new F_DanhSachChuyenBay().FindEntity(MaChuyenBayLuotVe);
+                FlightInfo t = new FlightInfo();
+                t.LoaiCb = "Chuyến Bay Lượt Về";
+                t.cb = tmp;
+                t.adultNo = adultNo;
+                t.childNo = childNo;
+                t.infantNo = infantNo;
+                t.tongGiaVeNguoiLon = adultNo * ((int)(t.cb.Gia) + (int)(t.cb.Thue));
+                t.tongGiaVetreEm = childNo * ((int)(t.cb.GiaTreEm) + (int)(t.cb.ThueTreEm));
+                t.tongGiaveSoSinh = infantNo * (int)(t.cb.GiaVeTreSoSinh);
+                ViewBag.tongtien += t.tongGiaVeNguoiLon + t.tongGiaVetreEm + t.tongGiaveSoSinh;
+                Session[CommonSession.FLIGHTARV_ID] = MaChuyenBayLuotVe;
+                result.Add(t);
+            }
+            return View(result);
         }
         [HttpPost]
         public ActionResult Review(string fullname, string txtPax1_Ctry, string phone, string email, string address, int tongtien, IList<adult> adults, IList<child> childs, IList<infant> infants)
         {
             new F_ThemKhachHang().ThemKhachHang( fullname, txtPax1_Ctry, phone, email, address);
+            string makhachhang = new F_ThemKhachHang().Find(fullname, phone, email);
             HanhKhachModel hkModel = new HanhKhachModel();
             hkModel.adultList = new List<adult>();
             hkModel.childList = new List<child>();
             hkModel.infantList = new List<infant>();
             ViewBag.tongtien = 0;
+            ViewBag.makhachhang = makhachhang;
             foreach(adult item in adults)
             {
                 if(item.adultName != null)
@@ -133,14 +185,21 @@ namespace Flight.Controllers
             ViewBag.tongtien += tongtien;
             return View(hkModel);
         }
-        public ActionResult Thankyou(int amount, List<string> hkID)
+        public ActionResult Thankyou(string makhachhang,int amount, List<string> hkID)
         {
-            FlightInfo flightInfo = new FlightInfo();
-            flightInfo = Session[CommonSession.FLIGHT_SESION] as FlightInfo;
+            string machuyenbayluotdi = Session[CommonSession.FLIGHTDEP_ID] as string;         
             string maCode = new F_GenerateCode().RandomString();
             foreach (string item in hkID)
             {
-                new F_GenerateCode().Generatecode(flightInfo.cb.MaChuyenBay, amount, maCode, item);
+                new F_GenerateCode().Generatecode(machuyenbayluotdi, amount, maCode, item, makhachhang);
+            }
+            if(Session[CommonSession.FLIGHTARV_ID] != null)
+            {
+                string machuyenbayluotve = Session[CommonSession.FLIGHTARV_ID] as string;
+                foreach (string item in hkID)
+                {
+                    new F_GenerateCode().Generatecode(machuyenbayluotve, amount, maCode, item, makhachhang);
+                }
             }
             return View();
         }
