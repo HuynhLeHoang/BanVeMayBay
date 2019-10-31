@@ -69,14 +69,14 @@
                         <tr>
                             <td class="text-right" style="width: 29%;">Mã vé<div style="color: red; display: inline;"> (*)</div></td>
                             <td>
-                                <input name="ticketcode" class="form-control" id=ticketcode" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên."/>
+                                <input name="ticketcode" class="form-control" id=ticketcode" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập mã vé." pattern=".{1,}" required="" />
 
                             </td>
                         </tr>
                         <tr>
                             <td class="text-right" style="width: 29%;">Họ và Tên<div style="color: red; display: inline;"> (*)</div></td>
                             <td>
-                                <input name="fullname" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên."/>
+                                <input name="fullname" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên." pattern=".{1,}" required="" />
 
                             </td>
                         </tr>
@@ -88,62 +88,62 @@
 
                                     <select name="country" id="txtPax1_Ctry" class="FormValue">
                                         <option value="-1"></option>
-                                        <option value="234" selected="selected">Vietnam</option>
-                                        <option value="82">South Korea</option>
-                                        <option value="110">Japan</option>
-                                        <option value="210">Taiwan</option>
-                                        <option value="5">Singapore</option>
+                                        <option value="Vietnam" selected="selected">Vietnam</option>
+                                        <option value="South Korea">South Korea</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Taiwan">Taiwan</option>
+                                        <option value="Singapore">Singapore</option>
                                         <option value="" disabled="" class="grot"> ------- </option>
-                                        <option value="7">Afghanistan</option>
-                                        <option value="8">Albania</option>
-                                        <option value="9">Algeria</option>
-                                        <option value="10">American Samoa</option>
-                                        <option value="11">Andorra</option>
-                                        <option value="12">Angola</option>
-                                        <option value="13">Anguilla</option>
-                                        <option value="14">Antarctica</option>
-                                        <option value="15">Antigua</option>
-                                        <option value="16">Argentina</option>
-                                        <option value="17">Armenia</option>
-                                        <option value="18">Aruba</option>
-                                        <option value="3">Australia</option>
-                                        <option value="19">Austria</option>
-                                        <option value="20">Azerbaijan</option>
-                                        <option value="21">Bahamas</option>
-                                        <option value="22">Bahrain</option>
-                                        <option value="23">Bangladesh</option>
-                                        <option value="24">Barbados</option>
-                                        <option value="25">Belarus</option>
-                                        <option value="26">Belgium</option>
-                                        <option value="27">Belize</option>
-                                        <option value="28">Benin</option>
-                                        <option value="29">Bermuda</option>
-                                        <option value="30">Bhutan</option>
-                                        <option value="31">Bolivia</option>
-                                        <option value="32">Bosnia Herzegovina</option>
-                                        <option value="33">Botswana</option>
-                                        <option value="34">Bouvet Island</option>
-                                        <option value="35">Brazil</option>
-                                        <option value="36">British Indian Ocean</option>
-                                        <option value="37">Brunei</option>
-                                        <option value="38">Bulgaria</option>
-                                        <option value="39">Burkina Faso</option>
-                                        <option value="40">Burundi</option>
-                                        <option value="41">Cambodia</option>
-                                        <option value="42">Cameroon</option>
-                                        <option value="1">Canada</option>
-                                        <option value="44">Cape Verde</option>
-                                        <option value="45">Cayman Islands</option>
-                                        <option value="46">Central African Repu</option>
-                                        <option value="47">Chad</option>
-                                        <option value="48">Chile</option>
-                                        <option value="49">China</option>
-                                        <option value="50">Cocs (Keeling) Islan</option>
-                                        <option value="51">Colombia</option>
-                                        <option value="52">Comoros</option>
-                                        <option value="53">Congo</option>
-                                        <option value="54">Cook Island</option>
-                                        <option value="55">Costa Rica</option>
+                                        <option value="Afghanistan">Afghanistan</option>
+                                        <option value="Albania">Albania</option>
+                                        <option value="Algeria">Algeria</option>
+                                        <option value="American Samoa">American Samoa</option>
+                                        <option value="Andorra">Andorra</option>
+                                        <option value="Angola">Angola</option>
+                                        <option value="Anguilla">Anguilla</option>
+                                        <option value="Antarctica">Antarctica</option>
+                                        <option value="Antigua">Antigua</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Armenia">Armenia</option>
+                                        <option value="Aruba">Aruba</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Azerbaijan">Azerbaijan</option>
+                                        <option value="Bahamas">Bahamas</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Barbados">Barbados</option>
+                                        <option value="Belarus">Belarus</option>
+                                        <option value="Belgium">Belgium</option>
+                                        <option value="Belize">Belize</option>
+                                        <option value="Benin">Benin</option>
+                                        <option value="Bermuda">Bermuda</option>
+                                        <option value="Bhutan">Bhutan</option>
+                                        <option value="Bolivia">Bolivia</option>
+                                        <option value="Bosnia Herzegovina">Bosnia Herzegovina</option>
+                                        <option value="Botswana">Botswana</option>
+                                        <option value="Bouvet Island">Bouvet Island</option>
+                                        <option value="Brazil">Brazil</option>
+                                        <option value="British">British Indian Ocean</option>
+                                        <option value="Brunei">Brunei</option>
+                                        <option value="Bulgaria">Bulgaria</option>
+                                        <option value="Burkina">Burkina Faso</option>
+                                        <option value="Burundi">Burundi</option>
+                                        <option value="Cambodia">Cambodia</option>
+                                        <option value="Cameroon">Cameroon</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Cape Verde">Cape Verde</option>
+                                        <option value="Cayman Islands">Cayman Islands</option>
+                                        <option value="Central African Repu">Central African Repu</option>
+                                        <option value="Chad">Chad</option>
+                                        <option value="Chile">Chile</option>
+                                        <option value="China">China</option>
+                                        <option value="Cocs (Keeling) Islan">Cocs (Keeling) Islan</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Comoros">Comoros</option>
+                                        <option value="Congo">Congo</option>
+                                        <option value="Cook Island">Cook Island</option>
+                                        <option value="Costa Rica">Costa Rica</option>
                                         <option value="56">Cote D'lvoire</option>
                                         <option value="57">Croatia</option>
                                         <option value="58">Cuba</option>
@@ -1833,7 +1833,7 @@ $(document).ready(function() {
                                     <div class="intl-tel-input allow-dropdown separate-dial-code iti-sdc-3">
                                         <div class="flag-container"> </div>
 
-                                        <input name="phone" id="txtPax1_Phone2" class="FormValue" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" id="phone" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại."style="width: 350px;" />
+                                        <input name="phone" id="txtPax1_Phone2" class="FormValue" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" id="phone" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại."style="width: 350px;"  pattern=".{1,}" required="" />
                                     </div>
                                 </span>
                             </td>
@@ -1854,14 +1854,14 @@ $(document).ready(function() {
                         <tr>
                             <td class="text-right">Email<div style="color: red; display: inline;"> (*)</div></td>
                             <td>
-                                <input name="email" class="form-control" id="email" value="" type="email" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Email bắt buộc" placeholder="nguyenvana@gmail.com" title="Vui lòng nhập email."/>
+                                <input name="email" class="form-control" id="email" value="" type="email" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Email bắt buộc" placeholder="nguyenvana@gmail.com" title="Vui lòng nhập email." pattern=".{1,}" required="" />
                             </td>
                         </tr>
 
                         <tr>
                             <td class="text-right">Địa chỉ</td>
                             <td>
-                                <input name="address" class="form-control" rows="3" style="padding: 10px; width: 328px;"></input>
+                                <input name="address" class="form-control" rows="3" style="padding: 10px; width: 328px;" pattern=".{1,}" required="" ></input>
                             </td>
                         </tr>
 
@@ -1921,7 +1921,7 @@ $(document).ready(function() {
                             </td>
                             <td>
                                 <span>Ngày sinh</span> </br>
-                                <input name="passenger_birthday" type="text" class="form-controlxxx input-smxxx adult_birthday" placeholder="28/01/1970" style="padding: 6px 1px 7px 11px;" />
+                                <input name="passenger_birthday" type="text" class="form-controlxxx input-smxxx adult_birthday" placeholder="28/01/1970" style="padding: 6px 1px 7px 11px;"  pattern=".{1,}" required="" />
                             </td>
                         </tr>
 
@@ -1929,15 +1929,15 @@ $(document).ready(function() {
 
                             <td style="width: 150px;">
                                 <span>Số hộ chiếu / CMND</span> </br>
-                                <input name="passenger_pass" type="text" class="form-controlx input-sm passenger_pass" placeholder="B9887544" style="padding: 6px;" />
+                                <input name="passenger_pass" type="text" class="form-controlx input-sm passenger_pass" placeholder="B9887544" style="padding: 6px;"  pattern=".{1,}" required="" />
                             </td>
                             <td style="width: 310px;">
                                 <span>Ngày cấp</span> </br>
-                                <input name="passenger_datepassdate" type="text" class="form-controlx input-sm passenger_datepassdate" placeholder="20/10/2018" style="padding: 6px;" />
+                                <input name="passenger_datepassdate" type="text" class="form-controlx input-sm passenger_datepassdate" placeholder="20/10/2018" style="padding: 6px;"  pattern=".{1,}" required="" />
                             </td>
                             <td>
                                 <span>Quốc tịch</span> </br>
-                                <input name="passenger_quoctich" type="text" class="form-controlx input-sm passenger_quoctich" placeholder="VIET NAM" style="margin-bottom: 0px; padding: 6px;" />
+                                <input name="passenger_quoctich" type="text" class="form-controlx input-sm passenger_quoctich" placeholder="VIET NAM" style="margin-bottom: 0px; padding: 6px;"  pattern=".{1,}" required="" />
                             </td>
 
                         </tr>
