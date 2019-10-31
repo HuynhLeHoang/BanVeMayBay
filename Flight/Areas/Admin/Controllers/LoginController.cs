@@ -15,15 +15,20 @@ namespace Flight.Areas.Admin.Controllers
     {
         [HttpGet]
         // GET: Admin/Login
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
        
         
         public ActionResult Login()
         {
-            return View();
+            try
+            {
+                Session[CommonSession.USER_SESSION] = null;
+                return View("Login");
+            }
+            catch
+            {
+                return View();
+            }
         }
         [HttpPost]
         public ActionResult SignIn(LoginModel model)
