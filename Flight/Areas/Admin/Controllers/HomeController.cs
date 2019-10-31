@@ -115,25 +115,34 @@ namespace Flight.Areas.Admin.Controllers
 
         public ActionResult SuaVe(ThongTinKhachHang ThongTin)
         {
-            string ticketcode = ThongTin.ticketcode;
-            var connection = new AirLineDbContext();
-            string passengercode = connection.KhachHang_ChuyenBay.Find(ticketcode).MaKhachHang;
-            var ticket = connection.KhachHangs.Find(passengercode);
-            if (ticket == null)
+            
+            try
             {
-                return HttpNotFound();
-            }
-            else
-            {
+                string ticketcode = ThongTin.ticketcode;
+                var connection = new AirLineDbContext();
+                string passengercode = connection.KhachHang_ChuyenBay.Find(ticketcode).MaKhachHang;
+                var ticket = connection.KhachHangs.Find(passengercode);
 
-                ticket.HoTenKhachHang = ThongTin.fullname;
-                ticket.KhuVuc = ThongTin.country;
-                ticket.DienThoai = ThongTin.phone;
-                ticket.Email = ThongTin.email;
-                ticket.Diachi = ThongTin.address;
-                
-                connection.SaveChanges();
-                return View("ModifyTicket");
+                if (ticket == null)
+                {
+                    return HttpNotFound();
+                }
+                else
+                {
+
+                    ticket.HoTenKhachHang = ThongTin.fullname;
+                    ticket.KhuVuc = ThongTin.country;
+                    ticket.DienThoai = ThongTin.phone;
+                    ticket.Email = ThongTin.email;
+                    ticket.Diachi = ThongTin.address;
+
+                    connection.SaveChanges();
+                    return View("Success", TempData["notice"] = "Sửa vé thành công!");
+                }
+            }
+            catch
+            {
+                return View("Success", TempData["notice"] = "Đã có lỗi xảy ra!");
             }
         }
         public ActionResult DeleteTicket()
