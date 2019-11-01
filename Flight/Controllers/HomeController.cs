@@ -16,6 +16,14 @@ namespace Flight.Controllers
         
         public ActionResult Index()
         {
+            var session = (UserLogin)Session[CommonSession.AMDIN_SESSION];
+            var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+            if (session1 != null || session != null)
+            {
+                TempData["layout"] = "logged in";
+                return View();
+            }
+            
             return View();
         }
 
@@ -203,7 +211,11 @@ namespace Flight.Controllers
             }
             return View();
         }
-        
 
+        public ActionResult Logout()
+        {
+            Session[CommonSession.USER_SESSION] = null;
+            return RedirectToAction("Index");
+        }
     }
 }

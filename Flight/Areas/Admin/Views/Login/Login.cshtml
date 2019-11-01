@@ -73,9 +73,12 @@
                                 dataType: "json",
                                 contentType: 'application/json; charset=utf-8',
                         success: function (data) {
-                                    if (data.msg === "S") {
+                                    if (data.msg === "A") {
                                         window.location.href = "/Admin/Home/ModifyFlight";
                                         
+                                    }
+                                    else if (data.msg === "M") {
+                                        window.location.href = "../../Home/Index";
                                     }
                                         
                                     else {

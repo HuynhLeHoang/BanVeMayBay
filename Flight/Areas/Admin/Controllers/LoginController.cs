@@ -47,11 +47,24 @@ namespace Flight.Areas.Admin.Controllers
                         var UserSession = new UserLogin();
                         UserSession.UserName = model.Username;
                         UserSession.UserID = temp.MaThanhVien;
-                        Session.Add(CommonSession.USER_SESSION,UserSession);
-                    return Json(new
+                        UserSession.Role = temp.Role;
+                    if (UserSession.Role == "MEMBER")
                     {
-                        msg = "S"
-                    });
+                        Session.Add(CommonSession.USER_SESSION, UserSession);
+                        return Json(new
+                        {
+                            msg = "M"
+                        });
+                    }
+                    else if (UserSession.Role == "ADMIN")
+                    {
+                        Session.Add(CommonSession.AMDIN_SESSION, UserSession);
+                        return Json(new
+                        {
+                            msg = "A"
+                        });
+                    }
+                    
                 }
                 else
                     {
