@@ -2186,6 +2186,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Infrastructure\" />
     <Folder Include="Areas\Admin\Views\Base\" />
   </ItemGroup>
   <ItemGroup>
