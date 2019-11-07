@@ -31,7 +31,7 @@ namespace Flight.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public ActionResult SignIn(LoginModel model)    
+        public ActionResult SignIn(LoginModel model, bool isLoginAdmin = false)    
         {
 
 
@@ -47,18 +47,21 @@ namespace Flight.Areas.Admin.Controllers
                         var UserSession = new UserLogin();
                         UserSession.UserName = model.Username;
                         UserSession.UserID = temp.MaThanhVien;
-                        UserSession.Role = temp.Role;
-                    if (UserSession.Role == "MEMBER")
+                        UserSession.GroupID = temp.GroupID;
+                    var listCredential = F_login.GetListCredential(model.Username);
+                    Session.Add(CommonConstants.SESSION_CREDENTIAL, listCredential);
+                    Session.Add(CommonSession.USER_SESSION, UserSession);
+                    if (UserSession.GroupID == "MEMBER")
                     {
-                        Session.Add(CommonSession.USER_SESSION, UserSession);
+                       
                         return Json(new
                         {
                             msg = "M"
                         });
                     }
-                    else if (UserSession.Role == "ADMIN")
+                    else if (UserSession.GroupID == "ADMIN")
                     {
-                        Session.Add(CommonSession.AMDIN_SESSION, UserSession);
+                    
                         return Json(new
                         {
                             msg = "A"

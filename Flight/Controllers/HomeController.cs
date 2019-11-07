@@ -16,9 +16,9 @@ namespace Flight.Controllers
         
         public ActionResult Index()
         {
-            var session = (UserLogin)Session[CommonSession.AMDIN_SESSION];
+            
             var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
-            if (session1 != null || session != null)
+            if (session1 != null)
             {
                 TempData["layout"] = "logged in";
                 return View();

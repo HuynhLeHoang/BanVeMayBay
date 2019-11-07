@@ -26,6 +26,6 @@ namespace Flight.Models.Entity
         public string Password { get; set; }
 
         [StringLength(20)]
-        public string Role { get; set; }
+        public string GroupID { get; set; }
     }
 }

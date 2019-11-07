@@ -11,5 +11,8 @@ namespace Flight.Models.Entity
         [Required]
         public string Username { set; get; }
         public string Password { set; get; }
+        
+
+
     }
 }

@@ -18,13 +18,14 @@ namespace Flight.Areas.Admin.Controllers
         {
             return View();
         }
-
+        [HasCredential(RoleID = "ADD_FLIGHT")]
         public ActionResult AddFlight()
         {
             return View();
         }
 
         [HttpPost]
+        [HasCredential(RoleID = "ADD_FLIGHT")]
         public ActionResult AddFlight(ThongTinChuyenBay ThongTin)
         {
             try
@@ -67,11 +68,13 @@ namespace Flight.Areas.Admin.Controllers
         {
             return View();
         }
+        [HasCredential(RoleID = "EDIT_FLIGHT")]
         public ActionResult ModifyFlight()
         {
             return View();
         }
         [HttpPost]
+        [HasCredential(RoleID = "EDIT_FLIGHT")]
         public ActionResult ModifyFlight(ThongTinChuyenBay ThongTin)
         {
             try
