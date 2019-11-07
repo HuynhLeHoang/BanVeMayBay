@@ -23,7 +23,5 @@ namespace Flight.Models.Entity
         public virtual ChuyenBay ChuyenBay { get; set; }
 
         public virtual HanhKhach HanhKhach { get; set; }
-
-        public virtual KhachHang KhachHang { get; set; }
     }
 }

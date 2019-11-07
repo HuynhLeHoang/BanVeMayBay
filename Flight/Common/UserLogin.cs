@@ -5,11 +5,13 @@ using System.Web;
 
 namespace Flight
 {
+    [Serializable]
     public class UserLogin
     {
+      
         public string UserID { set; get; }
         public string UserName { set; get; }
-        public string Role { set; get; }
+        public string GroupID { set; get; }
 
     }
 }

@@ -20,6 +20,9 @@ namespace Flight.Models.Entity
         public virtual DbSet<MayBay> MayBays { get; set; }
         public virtual DbSet<PhiCong> PhiCongs { get; set; }
         public virtual DbSet<KhachHang_ChuyenBay> KhachHang_ChuyenBay { get; set; }
+        public virtual DbSet<Role> Roles { set; get; }
+        public virtual DbSet<Credential> Credentials { set; get; }
+        public virtual DbSet<UserGroup> UserGroups { set; get; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,6 +32,10 @@ namespace Flight.Models.Entity
 
             modelBuilder.Entity<Admin>()
                 .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.GroupID)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ChuyenBay>()

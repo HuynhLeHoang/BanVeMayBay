@@ -9,12 +9,6 @@ namespace Flight.Models.Entity
     [Table("KhachHang")]
     public partial class KhachHang
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KhachHang()
-        {
-            KhachHang_ChuyenBay = new HashSet<KhachHang_ChuyenBay>();
-        }
-
         [Key]
         [StringLength(10)]
         public string MaKhachHang { get; set; }
@@ -33,8 +27,5 @@ namespace Flight.Models.Entity
 
         [StringLength(100)]
         public string Diachi { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachHang_ChuyenBay> KhachHang_ChuyenBay { get; set; }
     }
 }

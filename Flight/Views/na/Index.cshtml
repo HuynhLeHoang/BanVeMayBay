@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+@using Flight.Models.Entity;
+
+    <table>
+        @foreach (ChuyenBay item in Model)
+        {
+        <tr>
+            <td>@item.DiemDi</td>
+            <td>@item.DiemDen</td>
+            <td>@item.Gia</td>
+            <td>
+                <form action="~/na/detail">
+                    <input type="hidden" id="machuyenbay" value="@item.MaChuyenBay" hidden />
+                    <input type="submit" name=" submit" />
+                </form>
+            </td>
+        </tr>
+        }
+    </table>
+
+

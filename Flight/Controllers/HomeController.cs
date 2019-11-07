@@ -16,9 +16,9 @@ namespace Flight.Controllers
         
         public ActionResult Index()
         {
-            var session = (UserLogin)Session[CommonSession.AMDIN_SESSION];
+            
             var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
-            if (session1 != null || session != null)
+            if (session1 != null)
             {
                 TempData["layout"] = "logged in";
                 return View();
@@ -35,9 +35,11 @@ namespace Flight.Controllers
         }
         
         [HttpPost]
-        public ActionResult SearchResult(string depAirport, string arvAirport, string depDate, string rtnDate, int adultNo, int childNo, int infantNo, int flightType)
+        public ActionResult SearchResult(Request request)
         { 
-            if(flightType == 0)
+            //Nếu là chuyến bay một chiều thì chọn chuyến bay sẽ về luôn nhập thông tin
+            // Nếu không thì sẽ chuyeenrr sang một action trong controller cho phép chọn thêm một chuyến bay nữa 
+            if(request.flightType == 0)
             {
                 ViewBag.redirect = "Detail";
             }
@@ -46,15 +48,15 @@ namespace Flight.Controllers
                 ViewBag.redirect = "SearchResultReturn";
             }
             SearchResultOneWay result = new SearchResultOneWay();
-            DateTime dt = DateTime.ParseExact(depDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            result.cb = new  F_DanhSachChuyenBay().DS_ChuyenBay.Where(x=>x.DiemDi == depAirport && x.DiemDen == arvAirport && x.Ngay == dt).ToList();
-            result.departAirport = depAirport;
-            result.arrivedAirport = arvAirport;
-            result.date = depDate;
-            result.rtndate = rtnDate;
-            result.adultNo = adultNo;
-            result.childNo = childNo;
-            result.infantNo = infantNo;
+            DateTime dt = DateTime.ParseExact(request.depDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            result.cb = new  F_DanhSachChuyenBay().DS_ChuyenBay.Where(x=>x.DiemDi == request.depAirport && x.DiemDen == request.arvAirport && x.Ngay == dt).ToList();
+            result.departAirport = request.depAirport;
+            result.arrivedAirport = request.arvAirport;
+            result.date = request.depDate;
+            result.rtndate = request.rtnDate;
+            result.adultNo = request.adultNo;
+            result.childNo = request.childNo;
+            result.infantNo = request.infantNo;
             return View(result);
         }
         //Bản nháp 
@@ -84,6 +86,7 @@ namespace Flight.Controllers
         public ActionResult Detail(string MaChuyenBayLuotDi, string MaChuyenBayLuotVe, int adultNo, int childNo, int infantNo)
         {
             ViewBag.tongtien = 0;
+            // Hiển thị chi tiết của từng chuyến bay(tạo một list có 2 chuyến bay là lượt đi và  lượt về )
             List<FlightInfo> result = new List<FlightInfo>();
             ChuyenBay model = new F_DanhSachChuyenBay().FindEntity(MaChuyenBayLuotDi);
             FlightInfo Flightif = new FlightInfo();
@@ -120,10 +123,10 @@ namespace Flight.Controllers
             return View(result);
         }
         [HttpPost]
-        public ActionResult Review(string fullname, string txtPax1_Ctry, string phone, string email, string address, int tongtien, IList<adult> adults, IList<child> childs, IList<infant> infants)
+        public ActionResult Review(KhachHangModel khmodel, IList<adult> adults, IList<child> childs, IList<infant> infants)
         {
-            new F_ThemKhachHang().ThemKhachHang( fullname, txtPax1_Ctry, phone, email, address);
-            string makhachhang = new F_ThemKhachHang().Find(fullname, phone, email);
+            new F_ThemKhachHang().ThemKhachHang( khmodel.fullname, khmodel.txtPax1_Ctry, khmodel.phone, khmodel.email, khmodel.address);
+            string makhachhang = new F_ThemKhachHang().Find(khmodel.fullname, khmodel.phone, khmodel.email);
             HanhKhachModel hkModel = new HanhKhachModel();
             hkModel.adultList = new List<adult>();
             hkModel.childList = new List<child>();
@@ -184,13 +187,13 @@ namespace Flight.Controllers
                 }
             }
             KhachHang model = new KhachHang();
-            model.HoTenKhachHang = fullname;
-            model.KhuVuc = txtPax1_Ctry;
-            model.DienThoai = phone;
-            model.Email = email;
-            model.Diachi = address;
+            model.HoTenKhachHang = khmodel.fullname;
+            model.KhuVuc = khmodel.txtPax1_Ctry;
+            model.DienThoai = khmodel.phone;
+            model.Email = khmodel.email;
+            model.Diachi = khmodel.address;
             ViewBag.khachhang = model;
-            ViewBag.tongtien += tongtien;
+            ViewBag.tongtien += khmodel.tongtien;
             return View(hkModel);
         }
         public ActionResult Thankyou(string makhachhang,int amount, List<string> hkID)

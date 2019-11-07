@@ -11,15 +11,15 @@ namespace Flight.Areas.Admin.Controllers
     {
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var session = (UserLogin)Session[CommonSession.AMDIN_SESSION];
+           
             var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
-            if (session1 != null)
+            if (session1.GroupID == "MEMBER")
             {
                 filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { controller = "Home", action = "Index", Area = "~" }));
             }
-            else if (session == null)
+            else if (session1.GroupID == null)
             {
-                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { controller = "Login", action = "Login", Area = "Admin" }));
+                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { controller = "Home", action = "Index", Area = "Admin" }));
             }
             base.OnActionExecuting(filterContext);
         }

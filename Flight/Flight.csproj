@@ -135,8 +135,11 @@
     <Compile Include="Areas\Admin\Models\ThongTinChuyenBay.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinKhachHang.cs" />
     <Compile Include="Areas\Admin\Models\Ve.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\CommonSession.cs" />
+    <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\naController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,6 +148,7 @@
     <Compile Include="Models\Entity\AirLineDbContext.cs" />
     <Compile Include="Models\Entity\child.cs" />
     <Compile Include="Models\Entity\ChuyenBay.cs" />
+    <Compile Include="Models\Entity\Credential.cs" />
     <Compile Include="Models\Entity\FlightInfo.cs" />
     <Compile Include="Models\Entity\HanhKhach.cs" />
     <Compile Include="Models\Entity\HanhKhachModel.cs" />
@@ -157,8 +161,11 @@
     <Compile Include="Models\Entity\MaCB.cs" />
     <Compile Include="Models\Entity\MayBay.cs" />
     <Compile Include="Models\Entity\PhiCong.cs" />
+    <Compile Include="Models\Entity\Request.cs" />
+    <Compile Include="Models\Entity\Role.cs" />
     <Compile Include="Models\Entity\SearchResultOneWay.cs" />
     <Compile Include="Models\Entity\sysdiagram.cs" />
+    <Compile Include="Models\Entity\UserGroup.cs" />
     <Compile Include="Models\Functions\F_GenerateCode.cs" />
     <Compile Include="Models\Functions\F_Login.cs" />
     <Compile Include="Models\Functions\F_DanhSachChuyenBay.cs" />
@@ -2183,6 +2190,9 @@
     <Content Include="Views\Home\Review.cshtml" />
     <Content Include="Views\Home\Thankyou.cshtml" />
     <Content Include="Views\Home\SearchResultReturn.cshtml" />
+    <Content Include="Views\na\Index.cshtml" />
+    <Content Include="Views\na\detail.cshtml" />
+    <Content Include="Views\Shared\401.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
