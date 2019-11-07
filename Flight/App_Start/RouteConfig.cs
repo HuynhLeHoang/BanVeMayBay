@@ -16,7 +16,7 @@ namespace Flight
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                defaults: new { controller = "na", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "Flight.Controllers" }
             );
         }

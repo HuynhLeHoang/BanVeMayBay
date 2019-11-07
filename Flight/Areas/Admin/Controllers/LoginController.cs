@@ -31,7 +31,7 @@ namespace Flight.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public ActionResult SignIn(LoginModel model)
+        public ActionResult SignIn(LoginModel model)    
         {
 
 

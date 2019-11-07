@@ -24,6 +24,7 @@ namespace Flight.Models.Entity
 
         [StringLength(20)]
         public string Password { get; set; }
+
         [StringLength(20)]
         public string Role { get; set; }
     }

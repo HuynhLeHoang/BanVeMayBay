@@ -31,6 +31,10 @@ namespace Flight.Models.Entity
                 .Property(e => e.Password)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Role)
+                .IsUnicode(false);
+
             modelBuilder.Entity<ChuyenBay>()
                 .Property(e => e.UrlAnh)
                 .IsUnicode(false);
