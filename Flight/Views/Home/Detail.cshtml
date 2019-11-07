@@ -75,6 +75,7 @@
                                         <div class="col-xs-3">
                                             <span style="font-weight: bold;">Tổng cộng</span>
                                         </div>
+                                        
                                     </div>
                                     @if (item.adultNo > 0)
                                     {
@@ -139,7 +140,24 @@
                     }
                 }
                 <h4 style="text-align:center; color:red" class="total"><span class=""><b>Tổng tiền: </b></span>&nbsp;<strong><span id="TongTien" class="currency">@ViewBag.tongtien VNĐ</span></strong></h4>
-
+                <table class="subtable" cellpading="0" width="100%" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4 class="block-title" style="font-weight: bold;">Điều kiện hành lý</h4><p><span><strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">HÀNH LÝ XÁCH TAY:</span></span>&nbsp;</strong></span>Mỗi hành khách (ngoại trừ em bé) được phép mang 01 kiện hành lý xách tay chính và 01 kiện hành lý xách tay nhỏ với<strong>&nbsp;tổng trọng lượng tối đa không vượt quá 07kg</strong></p>
+                                <p>* &nbsp;Kiện hành lý xách tay chính có kích thước tối đa&nbsp;<strong>56cm x 36cm x 23cm</strong></p>
+                                <p>* &nbsp;Kiện hành lý xách tay nhỏ (bao gồm những túi sau)<br>&nbsp;+ 01 túi xách phụ nữ hoặc sách, tạp chí, máy ảnh, túi đựng thức ăn cho em bé, túi mua hàng tại sân bay...có kích thước không quá&nbsp;<strong>30cm x 20cm x 10cm</strong><br>&nbsp;+ 01 túi đựng áo khoác có kích thước tối đa khi mở ra không quá&nbsp;<strong>114cm x 60cm x 11cm</strong><br>&nbsp;+ 01 túi đựng máy tính xách tay có khích thước tối đa là&nbsp;<strong>40cm x 30cm x 10cm</strong></p>
+                                <p>* Quý Hành Khách vui lòng liên hệ nhân viên VietJet để dán nhãn cho hành lý xách tay theo quy định của hãng tại quầy Check-in.&nbsp;Tất cả hành lý xách tay không dán<em><strong>&nbsp;<span style="color: #ff0000;">“nhãn hành lý xách tay”</span></strong>&nbsp;</em>sẽ bị từ chối mang lên tàu bay.&nbsp;<br>* Hành lý xách tay không đúng quy định, quý khách sẽ phải trả phí gửi hành lý hoặc hành lý của quý khách sẽ bị từ chối chuyên chở.</p>
+                                <p><span style="text-decoration: underline;"><span style="color: #ff0000;"><strong>HÀNH LÝ KÝ GỬI :</strong></span></span><span><strong>&nbsp;&nbsp;Mỗi hành khách (ngoại trừ em bé) được phép mua đa 40kg hàng lý và có thể đóng làm 02 kiện mỗi kiện không quá 32kg.</strong></span></p>
+                                <p>* Kích thước không quá : 119cm x 119cm x 81cm/kiện</p>
+                                <p><span lang="EN-SG">* Quý khách mua hành lý trả trước theo các gói cước ưu đãi trả trước tại website vui lòng chọn ở bước kế tiếp</span></p><h6 class="heading">điều kiện giá vé</h6><p><strong><span style="color: #ff0000;">Hoàn vé :&nbsp;</span>Không được phép</strong></p>
+                                <p><span style="color: #ff0000;"><strong>Đổi hành trình, ngày, giờ bay</strong> </span>:&nbsp;<strong>Phí đổi 450.000đ /chặng (nội địa) - 850<strong>.000đ /chặng (quốc tế)</strong>+ Chênh lêch giá vé (nếu có)</strong></p>
+                                <p><span style="color: #ff0000;"><strong>Đổi tên :</strong></span>&nbsp;<strong>Phí đổi&nbsp; 450.000đ /chặng (nội địa) - 85<strong>0.000đ /chặng (quốc tế)&nbsp;<strong><strong><strong>+ Chênh lêch giá vé (nếu có)</strong></strong></strong></strong></strong></p>
+                                <p><strong>(Mọi thay đổi phải thực hiện tối thiểu trước giờ khởi hành 4h)</strong></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
 
 
@@ -2832,7 +2850,7 @@
                             <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" />
                         </div>
 
-                        <div id="submitFlight" class="fixed">
+                        <div id="submitFlight" class="fixe<td>Họ và tên</td>d">
                             <span class="moreScroll">Vui lòng điền đầy đủ thông tin và nhấp nút TIẾP TỤC  &nbsp;<img style="margin-top: -16px;" src="arrow-down.gif" /></span>
                         </div>
 
