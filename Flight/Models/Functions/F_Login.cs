@@ -4,12 +4,26 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Security.Cryptography;
+using System.Text;
+
 
 namespace Flight.Models.Functions
 {
     public class F_Login
     {
         private AirLineDbContext context = null;
+        public static string EncMD5(string passwword)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            UTF8Encoding encoder = new UTF8Encoding();
+            byte[] originalBytes = encoder.GetBytes(passwword);
+            byte[] encodedBytes = md5.ComputeHash(originalBytes);
+            passwword = BitConverter.ToString(encodedBytes).Replace("-", "");
+            var result = passwword.ToLower();
+            return result;
+
+        }
         public F_Login()
         {
             context = new AirLineDbContext();
@@ -41,10 +55,11 @@ namespace Flight.Models.Functions
         }
         public bool login (string username, string password)
         {
+            var pass = Flight.Models.Functions.F_Login.EncMD5(password);
             object[] sqlparams = new SqlParameter[]
             {
                 new SqlParameter("@username", username),
-                new SqlParameter("@password", password),
+                new SqlParameter("@password", pass),
             };
             var res = context.Database.SqlQuery<bool>("Account_Login @username,@password",sqlparams).SingleOrDefault();
             return res;

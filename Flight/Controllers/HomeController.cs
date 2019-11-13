@@ -48,6 +48,7 @@ namespace Flight.Controllers
                 ViewBag.redirect = "SearchResultReturn";
             }
             SearchResultOneWay result = new SearchResultOneWay();
+
             DateTime dt = DateTime.ParseExact(request.depDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             result.cb = new  F_DanhSachChuyenBay().DS_ChuyenBay.Where(x=>x.DiemDi == request.depAirport && x.DiemDen == request.arvAirport && x.Ngay == dt).ToList();
             result.departAirport = request.depAirport;

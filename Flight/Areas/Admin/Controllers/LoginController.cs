@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Flight.Areas.Admin.Controllers
 {
     public class LoginController : Controller
@@ -43,7 +44,8 @@ namespace Flight.Areas.Admin.Controllers
                 
                 if (F_login.login(model.Username, model.Password))
                     {
-                        var temp = new F_Login().DS_Admin.Where(x => x.UserName == model.Username && x.Password == model.Password).SingleOrDefault();
+                    var password = Flight.Models.Functions.F_Login.EncMD5(model.Password);
+                        var temp = new F_Login().DS_Admin.Where(x => x.UserName == model.Username && x.Password == password).SingleOrDefault();
                         var UserSession = new UserLogin();
                         UserSession.UserName = model.Username;
                         UserSession.UserID = temp.MaThanhVien;
@@ -82,6 +84,7 @@ namespace Flight.Areas.Admin.Controllers
             return View("Login");
             
         }
-    
+
+        
     }
 }
