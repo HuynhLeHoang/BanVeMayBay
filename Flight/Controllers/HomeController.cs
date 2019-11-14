@@ -29,36 +29,44 @@ namespace Flight.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            try
+            {
+                ViewBag.Message = "Your application description page.";
 
-            return View();
+                return View();
+            }
+            catch
+            {
+                return View("Index");
+            }
         }
         
         [HttpPost]
         public ActionResult SearchResult(Request request)
-        { 
-            //Nếu là chuyến bay một chiều thì chọn chuyến bay sẽ về luôn nhập thông tin
-            // Nếu không thì sẽ chuyeenrr sang một action trong controller cho phép chọn thêm một chuyến bay nữa 
-            if(request.flightType == 0)
-            {
-                ViewBag.redirect = "Detail";
-            }
-            else
-            {
-                ViewBag.redirect = "SearchResultReturn";
-            }
-            SearchResultOneWay result = new SearchResultOneWay();
+        {
+                //Nếu là chuyến bay một chiều thì chọn chuyến bay sẽ về luôn nhập thông tin
+                // Nếu không thì sẽ chuyeenrr sang một action trong controller cho phép chọn thêm một chuyến bay nữa 
+                if (request.flightType == 0)
+                {
+                    ViewBag.redirect = "Detail";
+                }
+                else
+                {
+                    ViewBag.redirect = "SearchResultReturn";
+                }
+                SearchResultOneWay result = new SearchResultOneWay();
 
-            DateTime dt = DateTime.ParseExact(request.depDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            result.cb = new  F_DanhSachChuyenBay().DS_ChuyenBay.Where(x=>x.DiemDi == request.depAirport && x.DiemDen == request.arvAirport && x.Ngay == dt).ToList();
-            result.departAirport = request.depAirport;
-            result.arrivedAirport = request.arvAirport;
-            result.date = request.depDate;
-            result.rtndate = request.rtnDate;
-            result.adultNo = request.adultNo;
-            result.childNo = request.childNo;
-            result.infantNo = request.infantNo;
-            return View(result);
+                DateTime dt = DateTime.ParseExact(request.depDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                result.cb = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x => x.DiemDi == request.depAirport && x.DiemDen == request.arvAirport && x.Ngay == dt).ToList();
+                result.departAirport = request.depAirport;
+                result.arrivedAirport = request.arvAirport;
+                result.date = request.depDate;
+                result.rtndate = request.rtnDate;
+                result.adultNo = request.adultNo;
+                result.childNo = request.childNo;
+                result.infantNo = request.infantNo;
+                return View(result);
+            
         }
         //Bản nháp 
         public ActionResult Preview()
@@ -100,12 +108,12 @@ namespace Flight.Controllers
             ViewBag.childNo = childNo;
             ViewBag.infantNo = infantNo;
             Session[CommonSession.FLIGHTDEP_ID] = MaChuyenBayLuotDi;
-            Flightif.tongGiaVeNguoiLon = adultNo * ( (int)(Flightif.cb.Gia) + (int)(Flightif.cb.Thue));
+            Flightif.tongGiaVeNguoiLon = adultNo * ((int)(Flightif.cb.Gia) + (int)(Flightif.cb.Thue));
             Flightif.tongGiaVetreEm = childNo * ((int)(Flightif.cb.GiaTreEm) + (int)(Flightif.cb.ThueTreEm));
             Flightif.tongGiaveSoSinh = infantNo * (int)(Flightif.cb.GiaVeTreSoSinh);
             ViewBag.tongtien += Flightif.tongGiaVeNguoiLon + Flightif.tongGiaVetreEm + Flightif.tongGiaveSoSinh;
             result.Add(Flightif);
-            if(MaChuyenBayLuotVe != "")
+            if (MaChuyenBayLuotVe != "")
             {
                 ChuyenBay tmp = new F_DanhSachChuyenBay().FindEntity(MaChuyenBayLuotVe);
                 FlightInfo t = new FlightInfo();
@@ -124,9 +132,9 @@ namespace Flight.Controllers
             return View(result);
         }
         [HttpPost]
-        public ActionResult Review(KhachHangModel khmodel, IList<adult> adults, IList<child> childs, IList<infant> infants)
+        public ActionResult Review(KhachHangModel khmodel, IList<adult> adults, IList<child> childs, IList<infant> infants, int radiopayment)
         {
-            new F_ThemKhachHang().ThemKhachHang( khmodel.fullname, khmodel.txtPax1_Ctry, khmodel.phone, khmodel.email, khmodel.address);
+            new F_ThemKhachHang().ThemKhachHang( khmodel.fullname, khmodel.txtPax1_Ctry, khmodel.phone, khmodel.email, khmodel.address,radiopayment);
             string makhachhang = new F_ThemKhachHang().Find(khmodel.fullname, khmodel.phone, khmodel.email);
             HanhKhachModel hkModel = new HanhKhachModel();
             hkModel.adultList = new List<adult>();
@@ -138,9 +146,9 @@ namespace Flight.Controllers
             {
                 if(item.adultName != null)
                 {
-                    HanhLy temp = new F_ThemHanhKhach().FindEntity(item.adultBaggage);
-                    item.adultBaggageType = temp.TenHanhLy;
-                    ViewBag.tongtien += temp.GiaTien;
+                    HanhLy adultBaggage = new F_ThemHanhKhach().FindEntity(item.adultBaggage);
+                    item.adultBaggageType = adultBaggage.TenHanhLy;
+                    ViewBag.tongtien += adultBaggage.GiaTien;
                     // them hanh khach vao co so du lieu va gan cho mot ma 
                     new F_ThemHanhKhach().ThemHanhKhach(item);
                     // lay len tu co so du lieu ma hanh khach 
@@ -158,9 +166,9 @@ namespace Flight.Controllers
             {
                if(item.childName != null)
                 {
-                    HanhLy temp = new F_ThemHanhKhach().FindEntity(item.childBaggage);
-                    item.childBaggageType = temp.TenHanhLy;
-                    ViewBag.tongtien += temp.GiaTien;
+                    HanhLy childBaggage = new F_ThemHanhKhach().FindEntity(item.childBaggage);
+                    item.childBaggageType = childBaggage.TenHanhLy;
+                    ViewBag.tongtien += childBaggage.GiaTien;
                     new F_ThemHanhKhach().ThemHanhKhach(item);
                     DateTime ngaysinh = DateTime.ParseExact(item.childBirthday, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                     HanhKhach temp1 = new AirLineDbContext().HanhKhaches.Where(x => x.GioiTinh == item.childSex
@@ -193,24 +201,27 @@ namespace Flight.Controllers
             model.DienThoai = khmodel.phone;
             model.Email = khmodel.email;
             model.Diachi = khmodel.address;
+            var temp = new AirLineDbContext().ThanhToans.Where(x => x.MaThanhToan == radiopayment).SingleOrDefault();
+            ViewBag.HinhThucThanhToan = temp.TenHinhThucThanhToan;
             ViewBag.khachhang = model;
             ViewBag.tongtien += khmodel.tongtien;
             return View(hkModel);
         }
         public ActionResult Thankyou(string makhachhang,int amount, List<string> hkID)
         {
-            string machuyenbayluotdi = Session[CommonSession.FLIGHTDEP_ID] as string;         
+            string machuyenbayluotdi = Session[CommonSession.FLIGHTDEP_ID] as string;
+            DateTime date = DateTime.Today;
             string maCode = new F_GenerateCode().RandomString();
             foreach (string item in hkID)
             {
-                new F_GenerateCode().Generatecode(machuyenbayluotdi, amount, maCode, item, makhachhang);
+                new F_GenerateCode().Generatecode(machuyenbayluotdi, amount, maCode, item, makhachhang,date);
             }
             if(Session[CommonSession.FLIGHTARV_ID] != null)
             {
                 string machuyenbayluotve = Session[CommonSession.FLIGHTARV_ID] as string;
                 foreach (string item in hkID)
                 {
-                    new F_GenerateCode().Generatecode(machuyenbayluotve, amount, maCode, item, makhachhang);
+                    new F_GenerateCode().Generatecode(machuyenbayluotve, amount, maCode, item, makhachhang,date);
                 }
             }
             return View();

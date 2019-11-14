@@ -165,6 +165,7 @@
     <Compile Include="Models\Entity\Role.cs" />
     <Compile Include="Models\Entity\SearchResultOneWay.cs" />
     <Compile Include="Models\Entity\sysdiagram.cs" />
+    <Compile Include="Models\Entity\ThanhToan.cs" />
     <Compile Include="Models\Entity\UserGroup.cs" />
     <Compile Include="Models\Functions\F_GenerateCode.cs" />
     <Compile Include="Models\Functions\F_Login.cs" />

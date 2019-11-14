@@ -23,6 +23,7 @@ namespace Flight.Models.Entity
         public virtual DbSet<Role> Roles { set; get; }
         public virtual DbSet<Credential> Credentials { set; get; }
         public virtual DbSet<UserGroup> UserGroups { set; get; }
+        public virtual DbSet<ThanhToan> ThanhToans { set; get; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

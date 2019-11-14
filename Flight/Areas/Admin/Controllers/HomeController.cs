@@ -16,6 +16,7 @@ namespace Flight.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
+             
             return View();
         }
         [HasCredential(RoleID = "ADD_FLIGHT")]

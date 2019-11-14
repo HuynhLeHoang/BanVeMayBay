@@ -14,18 +14,19 @@ namespace Flight.Models.Functions
         {
             context = new AirLineDbContext();
         }
-       public void ThemKhachHang(string fullname, string txtPax1_Ctry, string phone, string email, string address)
+       public void ThemKhachHang(string fullname, string txtPax1_Ctry, string phone, string email, string address, int radiopayment)
         {
-     
+
             object[] sqlparams = new SqlParameter[]
             {
                 new SqlParameter("@HoTen", fullname),
                 new SqlParameter("@KhuVuc", txtPax1_Ctry),
                 new SqlParameter("@DienThoai", phone),
                 new SqlParameter("@email", email),
-                new SqlParameter("@Diachi", address)
+                new SqlParameter("@Diachi", address),
+                new SqlParameter("@MaThanhToan",radiopayment)
             };
-            context.Database.ExecuteSqlCommand("exec ThemKhachHang @HoTen,@KhuVuc,@DienThoai,@email,@Diachi", sqlparams);
+            context.Database.ExecuteSqlCommand("exec ThemKhachHang @HoTen,@KhuVuc,@DienThoai,@email,@Diachi,@MaThanhToan", sqlparams);
         }
         public string Find(string fullname, string phone, string email)
         {

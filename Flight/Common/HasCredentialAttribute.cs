@@ -14,6 +14,7 @@ namespace Flight
             var session = (UserLogin)HttpContext.Current.Session[Common.CommonSession.USER_SESSION];
             if(session == null)
             {
+                
                 return false;
             }
 
@@ -31,10 +32,23 @@ namespace Flight
         }
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            filterContext.Result = new ViewResult
+            var session = (UserLogin)HttpContext.Current.Session[Common.CommonSession.USER_SESSION];
+            if(session == null)
             {
-                ViewName = "~/Views/Shared/401.cshtml"
-            };
+                filterContext.Result =  new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary {
+                    {"action","Login" },
+                    { "Controller","Login"}
+                
+                });
+
+            }
+            else
+            {
+                filterContext.Result = new ViewResult
+                {
+                    ViewName = "~/Views/Shared/401.cshtml"
+                };
+            }
         }
         private List<string> GetCredentialByLoggedInUser(string username)
         {
