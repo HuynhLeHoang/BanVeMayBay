@@ -27,5 +27,7 @@ namespace Flight.Models.Entity
 
         [StringLength(100)]
         public string Diachi { get; set; }
+        public int MaThanhToan { get; set; }
+        
     }
 }

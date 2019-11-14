@@ -19,6 +19,7 @@ namespace Flight.Models.Entity
         public string MaCode { get; set; }
 
         public int? TongTien { get; set; }
+        public DateTime NgayDatVe { get; set; }
 
         public virtual ChuyenBay ChuyenBay { get; set; }
 
