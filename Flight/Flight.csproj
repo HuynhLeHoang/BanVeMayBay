@@ -133,12 +133,17 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinChuyenBay.cs" />
+    <Compile Include="Areas\Admin\Models\ThongTinDatVe.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinKhachHang.cs" />
     <Compile Include="Areas\Admin\Models\Ve.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\CommonSession.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+
+    <Compile Include="Controllers\naController.cs" />
+
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2148,6 +2153,9 @@
     <Content Include="Areas\Admin\Views\Home\AddFlight.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Success.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout1.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Adult.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Child.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Infant.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2192,6 +2200,7 @@
     <Content Include="Views\Home\Thankyou.cshtml" />
     <Content Include="Views\Home\SearchResultReturn.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
