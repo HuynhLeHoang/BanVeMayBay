@@ -48,7 +48,7 @@ namespace Flight.Areas.Admin.Controllers
                     GiaTreEm = int.Parse(ThongTin.giatreem),
                     ThueTreEm = int.Parse(ThongTin.thuetreem),
                     GiaVeTreSoSinh = int.Parse(ThongTin.giavetresosinh),
-                    SoChoConTrong = int.Parse(ThongTin.sochocontrong),
+                    SoCho = int.Parse(ThongTin.sochocontrong),
                     PlaneID = ThongTin.planeID,
                     PilotID1 = ThongTin.pilotID1,
                     PilotID2 = ThongTin.pilotID2,
@@ -96,7 +96,7 @@ namespace Flight.Areas.Admin.Controllers
                 info.GiaTreEm = int.Parse(ThongTin.giatreem);
                 info.ThueTreEm = int.Parse(ThongTin.thuetreem);
                 info.GiaVeTreSoSinh = int.Parse(ThongTin.giavetresosinh);
-                info.SoChoConTrong = int.Parse(ThongTin.sochocontrong);
+                info.SoCho = int.Parse(ThongTin.sochocontrong);
                 info.PlaneID = ThongTin.planeID;
                 info.PilotID1 = ThongTin.pilotID1;
                 info.PilotID2 = ThongTin.pilotID2;

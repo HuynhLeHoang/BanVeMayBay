@@ -54,7 +54,7 @@ namespace Flight.Models.Entity
 
         public int? GiaVeTreSoSinh { get; set; }
 
-        public int? SoChoConTrong { get; set; }
+        public int? SoCho { get; set; }
 
         [StringLength(10)]
         public string PlaneID { get; set; }
