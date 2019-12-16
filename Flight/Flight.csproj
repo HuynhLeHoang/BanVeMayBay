@@ -131,7 +131,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\KiemTraController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinChuyenBay.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinDatVe.cs" />
@@ -141,7 +140,6 @@
     <Compile Include="Common\CommonSession.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\naController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -166,8 +164,10 @@
     <Compile Include="Models\Entity\Request.cs" />
     <Compile Include="Models\Entity\Role.cs" />
     <Compile Include="Models\Entity\SearchResultOneWay.cs" />
+    <Compile Include="Models\Entity\SearchReturn.cs" />
     <Compile Include="Models\Entity\sysdiagram.cs" />
     <Compile Include="Models\Entity\ThanhToan.cs" />
+    <Compile Include="Models\Entity\TravelerDetail.cs" />
     <Compile Include="Models\Entity\UserGroup.cs" />
     <Compile Include="Models\Functions\F_GenerateCode.cs" />
     <Compile Include="Models\Functions\F_Login.cs" />
@@ -2191,13 +2191,10 @@
     <Content Include="themes\nokair\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="Views\Home\SearchResult.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
-    <Content Include="Views\Home\Preview.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Review.cshtml" />
     <Content Include="Views\Home\Thankyou.cshtml" />
     <Content Include="Views\Home\SearchResultReturn.cshtml" />
-    <Content Include="Views\na\Index.cshtml" />
-    <Content Include="Views\na\detail.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
