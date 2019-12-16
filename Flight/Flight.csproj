@@ -131,7 +131,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\KiemTraController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinChuyenBay.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinKhachHang.cs" />
@@ -140,8 +139,6 @@
     <Compile Include="Common\CommonSession.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Khoa_thu6Controller.cs" />
-    <Compile Include="Controllers\naController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -166,15 +163,16 @@
     <Compile Include="Models\Entity\Request.cs" />
     <Compile Include="Models\Entity\Role.cs" />
     <Compile Include="Models\Entity\SearchResultOneWay.cs" />
+    <Compile Include="Models\Entity\SearchReturn.cs" />
     <Compile Include="Models\Entity\sysdiagram.cs" />
     <Compile Include="Models\Entity\ThanhToan.cs" />
+    <Compile Include="Models\Entity\TravelerDetail.cs" />
     <Compile Include="Models\Entity\UserGroup.cs" />
     <Compile Include="Models\Functions\F_GenerateCode.cs" />
     <Compile Include="Models\Functions\F_Login.cs" />
     <Compile Include="Models\Functions\F_DanhSachChuyenBay.cs" />
     <Compile Include="Models\Functions\F_ThemHanhKhach.cs" />
     <Compile Include="Models\Functions\F_ThemKhachHang.cs" />
-    <Compile Include="Models\Functions\F_thongke.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\UserLogin.cs" />
   </ItemGroup>
@@ -2189,23 +2187,11 @@
     <Content Include="themes\nokair\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="Views\Home\SearchResult.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
-    <Content Include="Views\Home\Preview.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Review.cshtml" />
     <Content Include="Views\Home\Thankyou.cshtml" />
     <Content Include="Views\Home\SearchResultReturn.cshtml" />
-    <Content Include="Views\na\Index.cshtml" />
-    <Content Include="Views\na\detail.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
-    <Content Include="Views\Khoa_thu6\Index.cshtml" />
-    <Content Include="Views\Khoa_thu6\StartModify.cshtml" />
-    <Content Include="Views\Khoa_thu6\StartDelete.cshtml" />
-    <Content Include="Views\Khoa_thu6\AddBaggage.cshtml" />
-    <Content Include="Views\Khoa_thu6\ModifyBaggage.cshtml" />
-    <Content Include="Views\Khoa_thu6\DeleteBaggage.cshtml" />
-    <Content Include="Views\Khoa_thu6\ThongKeThanhCong.cshtml" />
-    <Content Include="Views\Khoa_thu6\StartThongKe.cshtml" />
-    <Content Include="Views\Khoa_thu6\ThongKe_KiemTra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

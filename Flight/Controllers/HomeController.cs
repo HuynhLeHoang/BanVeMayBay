@@ -86,66 +86,61 @@ namespace Flight.Controllers
             }
         }
         //Bản nháp 
-        public ActionResult Preview()
-        {
-            String DanhMuc = "VietJet";
-            var model = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x=>x.Title == DanhMuc).ToList();
-            return View(model);
-        }
+ 
         [HttpPost  ]
-        public ActionResult SearchResultReturn(string depAirport, string arvAirport, string ReturnDate, string MaChuyenBayLuotDi, int adultNo, int childNo, int infantNo)
+        public ActionResult SearchResultReturn(SearchReturn SearchReturn)
         {
 
             SearchResultOneWay result = new SearchResultOneWay();
-            DateTime dt = DateTime.ParseExact(ReturnDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            result.cb = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x => x.DiemDi == arvAirport && x.DiemDen == depAirport && x.Ngay == dt).ToList();
-            result.departAirport = arvAirport;
-            result.arrivedAirport = depAirport;
+            DateTime dt = DateTime.ParseExact(SearchReturn.ReturnDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            result.cb = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x => x.DiemDi == SearchReturn.arvAirport && x.DiemDen == SearchReturn.depAirport && x.Ngay == dt).ToList();
+            result.departAirport = SearchReturn.arvAirport;
+            result.arrivedAirport = SearchReturn.depAirport;
             result.date = null;
-            result.rtndate = ReturnDate;
-            result.adultNo = adultNo;
-            result.childNo = childNo;
-            result.infantNo = infantNo;
-            ViewBag.MaChuyenBayLuotDi = MaChuyenBayLuotDi;
+            result.rtndate = SearchReturn.ReturnDate;
+            result.adultNo = SearchReturn.adultNo;
+            result.childNo = SearchReturn.childNo;
+            result.infantNo = SearchReturn.infantNo;
+            ViewBag.MaChuyenBayLuotDi = SearchReturn.MaChuyenBayLuotDi;
             return View(result);
         }
-        public ActionResult Detail(string MaChuyenBayLuotDi, string MaChuyenBayLuotVe, int adultNo, int childNo, int infantNo)
+        public ActionResult Detail(TravelerDetail DeTail)
         {
             ViewBag.tongtien = 0;
             // Hiển thị chi tiết của từng chuyến bay(tạo một list có 2 chuyến bay là lượt đi và  lượt về )
             List<FlightInfo> result = new List<FlightInfo>();
-            ChuyenBay model = new F_DanhSachChuyenBay().FindEntity(MaChuyenBayLuotDi);
+            ChuyenBay model = new F_DanhSachChuyenBay().FindEntity(DeTail.MaChuyenBayLuotDi);
             FlightInfo Flightif = new FlightInfo();
             Flightif.LoaiCb = "Chuyến Bay Lượt đi";
             Flightif.cb = model;
-            Flightif.adultNo = adultNo;
-            Flightif.childNo = childNo;
-            Flightif.infantNo = infantNo;
-            ViewBag.adultNo = adultNo;
-            ViewBag.childNo = childNo;
-            ViewBag.infantNo = infantNo;
+            Flightif.adultNo = DeTail.adultNo;
+            Flightif.childNo = DeTail.childNo;
+            Flightif.infantNo = DeTail.infantNo;
+            ViewBag.adultNo = DeTail.adultNo;
+            ViewBag.childNo = DeTail.childNo;
+            ViewBag.infantNo = DeTail.infantNo;
             //Lưu mã chuyến bay lượt đi vào sesion 
-            Session[CommonSession.FLIGHTDEP_ID] = MaChuyenBayLuotDi;
-            Flightif.tongGiaVeNguoiLon = adultNo * ((int)(Flightif.cb.Gia) + (int)(Flightif.cb.Thue));
-            Flightif.tongGiaVetreEm = childNo * ((int)(Flightif.cb.GiaTreEm) + (int)(Flightif.cb.ThueTreEm));
-            Flightif.tongGiaveSoSinh = infantNo * (int)(Flightif.cb.GiaVeTreSoSinh);
+            Session[CommonSession.FLIGHTDEP_ID] = DeTail.MaChuyenBayLuotDi;
+            Flightif.tongGiaVeNguoiLon = DeTail.adultNo * ((int)(Flightif.cb.Gia) + (int)(Flightif.cb.Thue));
+            Flightif.tongGiaVetreEm = DeTail.childNo * ((int)(Flightif.cb.GiaTreEm) + (int)(Flightif.cb.ThueTreEm));
+            Flightif.tongGiaveSoSinh = DeTail.infantNo * (int)(Flightif.cb.GiaVeTreSoSinh);
             ViewBag.tongtien += Flightif.tongGiaVeNguoiLon + Flightif.tongGiaVetreEm + Flightif.tongGiaveSoSinh;
             result.Add(Flightif);
-            if (MaChuyenBayLuotVe != "")
+            if (DeTail.MaChuyenBayLuotVe != null)
             {
-                ChuyenBay tmp = new F_DanhSachChuyenBay().FindEntity(MaChuyenBayLuotVe);
+                ChuyenBay tmp = new F_DanhSachChuyenBay().FindEntity(DeTail.MaChuyenBayLuotVe);
                 FlightInfo t = new FlightInfo();
                 t.LoaiCb = "Chuyến Bay Lượt Về";
                 t.cb = tmp;
-                t.adultNo = adultNo;
-                t.childNo = childNo;
-                t.infantNo = infantNo;
-                t.tongGiaVeNguoiLon = adultNo * ((int)(t.cb.Gia) + (int)(t.cb.Thue));
-                t.tongGiaVetreEm = childNo * ((int)(t.cb.GiaTreEm) + (int)(t.cb.ThueTreEm));
-                t.tongGiaveSoSinh = infantNo * (int)(t.cb.GiaVeTreSoSinh);
+                t.adultNo = DeTail.adultNo;
+                t.childNo = DeTail.childNo;
+                t.infantNo = DeTail.infantNo;
+                t.tongGiaVeNguoiLon = DeTail.adultNo * ((int)(t.cb.Gia) + (int)(t.cb.Thue));
+                t.tongGiaVetreEm = DeTail.childNo * ((int)(t.cb.GiaTreEm) + (int)(t.cb.ThueTreEm));
+                t.tongGiaveSoSinh = DeTail.infantNo * (int)(t.cb.GiaVeTreSoSinh);
                 ViewBag.tongtien += t.tongGiaVeNguoiLon + t.tongGiaVetreEm + t.tongGiaveSoSinh;
                 //lưu mã chuyến bay lượt về vào session 
-                Session[CommonSession.FLIGHTARV_ID] = MaChuyenBayLuotVe;
+                Session[CommonSession.FLIGHTARV_ID] = DeTail.MaChuyenBayLuotVe;
                 result.Add(t);
             }
             return View(result);
@@ -196,6 +191,7 @@ namespace Flight.Controllers
                     && x.NgaySinh == ngaysinh
                     && x.MaHanhLy == item.childBaggage
                     ).SingleOrDefault();
+                    // lấy lại mã hành khách để sinh vé ở bước cuối cùng 
                     item.childID = temp1.MaHanhKhach;
                     hkModel.childList.Add(item);
                 }
