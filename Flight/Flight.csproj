@@ -139,6 +139,7 @@
     <Compile Include="Common\CommonSession.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Khoa_thu6Controller.cs" />
     <Compile Include="Controllers\naController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -172,6 +173,7 @@
     <Compile Include="Models\Functions\F_DanhSachChuyenBay.cs" />
     <Compile Include="Models\Functions\F_ThemHanhKhach.cs" />
     <Compile Include="Models\Functions\F_ThemKhachHang.cs" />
+    <Compile Include="Models\Functions\F_thongke.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\UserLogin.cs" />
   </ItemGroup>
@@ -2194,6 +2196,15 @@
     <Content Include="Views\na\Index.cshtml" />
     <Content Include="Views\na\detail.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
+    <Content Include="Views\Khoa_thu6\Index.cshtml" />
+    <Content Include="Views\Khoa_thu6\StartModify.cshtml" />
+    <Content Include="Views\Khoa_thu6\StartDelete.cshtml" />
+    <Content Include="Views\Khoa_thu6\AddBaggage.cshtml" />
+    <Content Include="Views\Khoa_thu6\ModifyBaggage.cshtml" />
+    <Content Include="Views\Khoa_thu6\DeleteBaggage.cshtml" />
+    <Content Include="Views\Khoa_thu6\ThongKeThanhCong.cshtml" />
+    <Content Include="Views\Khoa_thu6\StartThongKe.cshtml" />
+    <Content Include="Views\Khoa_thu6\ThongKe_KiemTra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

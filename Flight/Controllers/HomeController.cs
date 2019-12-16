@@ -41,9 +41,22 @@ namespace Flight.Controllers
             }
         }
         
+        public ActionResult SearchResult()
+        {
+            try
+            {
+                return View();
+            }
+            catch
+            {
+                return View("Index");
+            }
+        }
         [HttpPost]
         public ActionResult SearchResult(Request request)
         {
+            try
+            {
                 //Nếu là chuyến bay một chiều thì chọn chuyến bay sẽ về luôn nhập thông tin
                 // Nếu không thì sẽ chuyeenrr sang một action trong controller cho phép chọn thêm một chuyến bay nữa 
                 if (request.flightType == 0)
@@ -66,7 +79,11 @@ namespace Flight.Controllers
                 result.childNo = request.childNo;
                 result.infantNo = request.infantNo;
                 return View(result);
-            
+            }
+            catch
+            {
+                return View("Index");
+            }
         }
         //Bản nháp 
         public ActionResult Preview()
@@ -107,6 +124,7 @@ namespace Flight.Controllers
             ViewBag.adultNo = adultNo;
             ViewBag.childNo = childNo;
             ViewBag.infantNo = infantNo;
+            //Lưu mã chuyến bay lượt đi vào sesion 
             Session[CommonSession.FLIGHTDEP_ID] = MaChuyenBayLuotDi;
             Flightif.tongGiaVeNguoiLon = adultNo * ((int)(Flightif.cb.Gia) + (int)(Flightif.cb.Thue));
             Flightif.tongGiaVetreEm = childNo * ((int)(Flightif.cb.GiaTreEm) + (int)(Flightif.cb.ThueTreEm));
@@ -126,6 +144,7 @@ namespace Flight.Controllers
                 t.tongGiaVetreEm = childNo * ((int)(t.cb.GiaTreEm) + (int)(t.cb.ThueTreEm));
                 t.tongGiaveSoSinh = infantNo * (int)(t.cb.GiaVeTreSoSinh);
                 ViewBag.tongtien += t.tongGiaVeNguoiLon + t.tongGiaVetreEm + t.tongGiaveSoSinh;
+                //lưu mã chuyến bay lượt về vào session 
                 Session[CommonSession.FLIGHTARV_ID] = MaChuyenBayLuotVe;
                 result.Add(t);
             }
@@ -134,6 +153,7 @@ namespace Flight.Controllers
         [HttpPost]
         public ActionResult Review(KhachHangModel khmodel, IList<adult> adults, IList<child> childs, IList<infant> infants, int radiopayment)
         {
+            //Lưu Khách hàng(người đặt vé) vào cơ sở dữ liệu 
             new F_ThemKhachHang().ThemKhachHang( khmodel.fullname, khmodel.txtPax1_Ctry, khmodel.phone, khmodel.email, khmodel.address,radiopayment);
             string makhachhang = new F_ThemKhachHang().Find(khmodel.fullname, khmodel.phone, khmodel.email);
             HanhKhachModel hkModel = new HanhKhachModel();
@@ -202,9 +222,12 @@ namespace Flight.Controllers
             model.Email = khmodel.email;
             model.Diachi = khmodel.address;
             var temp = new AirLineDbContext().ThanhToans.Where(x => x.MaThanhToan == radiopayment).SingleOrDefault();
+            //Khách Hàng(Người đặt vé) thì truyền qua ViewBag, hanh khach thi truyen qua view 
+
             ViewBag.HinhThucThanhToan = temp.TenHinhThucThanhToan;
             ViewBag.khachhang = model;
             ViewBag.tongtien += khmodel.tongtien;
+
             return View(hkModel);
         }
         public ActionResult Thankyou(string makhachhang,int amount, List<string> hkID)
