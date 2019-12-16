@@ -1,39 +1,29 @@
 ﻿using Flight.Areas.Admin.Models;
-using Flight.Common;
 using Flight.Models.Entity;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace Flight.Areas.Admin.Controllers
 {
-    public class HomeController : BaseController
+    public class KiemTraController : Controller
     {
-        // GET: Admin/Home
-        public ActionResult Index()
-        {
-             
-            return View();
-        }
-        [HasCredential(RoleID = "ADD_FLIGHT")]
+        // GET: Admin/KiemTra
         public ActionResult AddFlight()
         {
             return View();
         }
 
-        [HttpPost]
-        [HasCredential(RoleID = "ADD_FLIGHT")]
         public ActionResult AddFlight(ThongTinChuyenBay ThongTin)
         {
             try
             {
                 var connect = new AirLineDbContext();
 
-                connect.ChuyenBays.Add(new ChuyenBay {
+                connect.ChuyenBays.Add(new ChuyenBay
+                {
                     Title = "VietJet",
                     UrlAnh = "vietJet.png",
                     MaChuyenBay = ThongTin.flightID,
@@ -54,27 +44,25 @@ namespace Flight.Areas.Admin.Controllers
                     PilotID2 = ThongTin.pilotID2,
                 });
                 connect.SaveChanges();
-                
+
                 return View("Success", TempData["notice"] = "Thêm chuyến bay thành công!");
             }
-            catch 
+            catch
             {
-                
+
                 return View("Success", TempData["notice"] = "Đã có lỗi xảy ra!");
             }
         }
-
         public ActionResult Success()
         {
             return View();
         }
-        [HasCredential(RoleID = "EDIT_FLIGHT")]
         public ActionResult ModifyFlight()
         {
             return View();
         }
         [HttpPost]
-        [HasCredential(RoleID = "EDIT_FLIGHT")]
+      
         public ActionResult ModifyFlight(ThongTinChuyenBay ThongTin)
         {
             try
@@ -108,17 +96,16 @@ namespace Flight.Areas.Admin.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-
         public ActionResult ModifyTicket()
         {
-            return View();        
+            return View();
         }
 
-        
+
 
         public ActionResult SuaVe(ThongTinKhachHang ThongTin)
         {
-            
+
             try
             {
                 string ticketcode = ThongTin.ticketcode;
@@ -162,19 +149,13 @@ namespace Flight.Areas.Admin.Controllers
                 connection.KhachHang_ChuyenBay.Remove(ticket);
                 connection.SaveChanges();
             }
-            catch(ArgumentNullException e)
+            catch (ArgumentNullException e)
             {
                 TempData["notice"] = "Ticket not found";
                 return View("DeleteTicket");
             }
             TempData["notice"] = "Ticket has been delete";
             return View("DeleteTicket");
-        }
-
-        public ActionResult Logout()
-        {
-            Session[CommonSession.USER_SESSION] = null;
-            return RedirectToAction("Index", "../Home");
         }
     }
 }

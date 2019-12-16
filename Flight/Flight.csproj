@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KiemTraController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinChuyenBay.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinKhachHang.cs" />
@@ -2210,6 +2211,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Infrastructure\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\KiemTra\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
