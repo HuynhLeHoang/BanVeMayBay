@@ -25,36 +25,39 @@ namespace Flight.Models.Functions
             DateTime temp = DateTime.ParseExact(HanhKhach.adultBirthday, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             object[] sqlparams = new SqlParameter[]
             {
+                new SqlParameter("@LoaiHanhKhach","Người Lớn"),
                 new SqlParameter("@GioiTinh", HanhKhach.adultSex),
                 new SqlParameter("@HoTen", HanhKhach.adultName),
                 new SqlParameter("@NgaySinh", temp),
                 new SqlParameter("@MaHanhLi", HanhKhach.adultBaggage),
             };
-            context.Database.ExecuteSqlCommand("exec ThemHanhKhach @GioiTinh,@HoTen,@NgaySinh,@MaHanhLi", sqlparams);
+            context.Database.ExecuteSqlCommand("exec ThemHanhKhach @LoaiHanhKhach,@GioiTinh,@HoTen,@NgaySinh,@MaHanhLi", sqlparams);
         }
         public void ThemHanhKhach(child HanhKhach)
         {
             DateTime temp = DateTime.ParseExact(HanhKhach.childBirthday,"dd/MM/yyyy", CultureInfo.InvariantCulture);
             object[] sqlparams = new SqlParameter[]
             {
+                new SqlParameter("@LoaiHanhKhach","Trẻ em"),
                 new SqlParameter("@GioiTinh", HanhKhach.childSex),
                 new SqlParameter("@HoTen", HanhKhach.childName),
                 new SqlParameter("@NgaySinh", temp),
                 new SqlParameter("@MaHanhLi", HanhKhach.childBaggage),
             };
-            context.Database.ExecuteSqlCommand("exec ThemHanhKhach @GioiTinh,@HoTen,@NgaySinh,@MaHanhLi", sqlparams);
+            context.Database.ExecuteSqlCommand("exec ThemHanhKhach @LoaiHanhKhach,@GioiTinh,@HoTen,@NgaySinh,@MaHanhLi", sqlparams);
         }
         public void ThemHanhKhach(infant HanhKhach)
         {
             DateTime temp = DateTime.ParseExact(HanhKhach.infantBirthday, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             object[] sqlparams = new SqlParameter[]
             {
+                new SqlParameter("@LoaiHanhKhach","Trẻ sơ sinh"),
                 new SqlParameter("@GioiTinh", HanhKhach.infantSex),
                 new SqlParameter("@HoTen", HanhKhach.infantName),
                 new SqlParameter("@NgaySinh", temp),
                 new SqlParameter("@MaHanhLi", "1"),
             };
-            context.Database.ExecuteSqlCommand("exec ThemHanhKhach @GioiTinh,@HoTen,@NgaySinh,@MaHanhLi", sqlparams);
+            context.Database.ExecuteSqlCommand("exec ThemHanhKhach @LoaiHanhKhach,@GioiTinh,@HoTen,@NgaySinh,@MaHanhLi", sqlparams);
         }
     }
 }

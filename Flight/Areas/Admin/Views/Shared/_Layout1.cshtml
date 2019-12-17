@@ -36,19 +36,18 @@
 
 
     <div id="content">
-        <header>
-
+        <header style="background: #FFEA90">
             <div class="logo">
-                <a href="#" title="Vietjet Air | Bay giá rẻ - Vui vẻ cả nhà | Giá chỉ từ 58.OOO VNĐ">
-
+                <a href="/Home/Index" title="Vietjet Air | Bay giá rẻ - Vui vẻ cả nhà | Giá chỉ từ 58.OOO VNĐ">
+                    <img src="~/Content/image/logoa.jpg" width="300" height="80" alt="" />
                 </a>
             </div>
 
 
 
             <div id="toolbar">
-                <div id="toolbardiv"><a href="gioi-thieu-ve-chung-toi.html">Về chúng tôi</a></div>
-                <div id="toolbardiv"><a href="Logout">Đăng xuất</a></div>
+                <div id="toolbardiv"><a style="background: white; color: black" href="Index">Về chúng tôi</a></div>
+                <div id="toolbardiv"><a style="background: white; color: red" href="~/Admin/Login/Login">Đăng nhập đại lý</a></div>
             </div>
 
 
@@ -56,12 +55,10 @@
                 <div class="userdmenud">
                     <ul>
 
-                        <li><a href="/Home/Index">Trang chủ</a></li>
-                        <li><a href="/Admin/Home//ModifyTicket">Sửa thông tin đặt vé</a></li>
-                        <li><a href="/Admin/Home//AddFlight">Thêm chuyến bay</a></li>
-                        <li><a href="/Admin/Home//ModifyFlight">Sửa thông tin chuyến bay</a></li>
-                        <li><a href="/Admin/Home//DeleteTicket">Hủy vé</a></li>
-                        
+                        <li><a style=" ; color: white; font-size: 20px" href="/Home/Index">Trang chủ</a></li>
+
+
+
                     </ul>
                 </div>
             </div>
@@ -70,8 +67,8 @@
         </header>  <div class="clear"></div>
 
 
-        
-    @RenderBody()
+
+        @RenderBody()
 
         <div class="clear"></div>
 

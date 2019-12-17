@@ -68,9 +68,22 @@ namespace Flight.Controllers
                     ViewBag.redirect = "SearchResultReturn";
                 }
                 SearchResultOneWay result = new SearchResultOneWay();
-
+                //người lớn và trẻ em thì cho ngồi ghế còn trẻ sơ  sinh thì người lớn bế 
+                int soluonghanhkhach = request.adultNo + request.childNo;
+                List<ChuyenBay> temp = new List<ChuyenBay>();
                 DateTime dt = DateTime.ParseExact(request.depDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                result.cb = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x => x.DiemDi == request.depAirport && x.DiemDen == request.arvAirport && x.Ngay == dt).ToList();
+                result.cb = new List<ChuyenBay>();
+                temp = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x => x.DiemDi == request.depAirport && x.DiemDen == request.arvAirport && x.Ngay == dt).ToList();
+                //kiểm tra thử còn chỗ không với các chuyến bay phù hợp với ngày đã chọn
+                foreach (ChuyenBay item in temp)
+                {
+                    int a = new AirLineDbContext().KhachHang_ChuyenBay.Where(x => x.MaChuyenBay == item.MaChuyenBay && x.NgayBay == item.Ngay).ToList().Count();
+                    if (item.SoCho - a >= soluonghanhkhach)
+                    {
+                        result.cb.Add(item);
+                    }
+                }
+
                 result.departAirport = request.depAirport;
                 result.arrivedAirport = request.arvAirport;
                 result.date = request.depDate;
@@ -79,11 +92,13 @@ namespace Flight.Controllers
                 result.childNo = request.childNo;
                 result.infantNo = request.infantNo;
                 return View(result);
+
             }
             catch
             {
                 return View("Index");
             }
+            
         }
         //Bản nháp 
  
@@ -92,8 +107,21 @@ namespace Flight.Controllers
         {
 
             SearchResultOneWay result = new SearchResultOneWay();
+            result.cb = new List<ChuyenBay>();
             DateTime dt = DateTime.ParseExact(SearchReturn.ReturnDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            //người lớn và trẻ em thì cho ngồi ghế còn trẻ sơ  sinh thì người lớn bế 
+            int soluonghanhkhach = SearchReturn.adultNo + SearchReturn.childNo;
+            List<ChuyenBay> temp = new List<ChuyenBay>();
             result.cb = new F_DanhSachChuyenBay().DS_ChuyenBay.Where(x => x.DiemDi == SearchReturn.arvAirport && x.DiemDen == SearchReturn.depAirport && x.Ngay == dt).ToList();
+            //kiểm tra thử còn chỗ không trên các chuyến bay với ngày đã chọn 
+            foreach (ChuyenBay item in temp)
+            {
+                int a = new AirLineDbContext().KhachHang_ChuyenBay.Where(x => x.MaChuyenBay == item.MaChuyenBay && x.NgayBay == item.Ngay).ToList().Count();
+                if (item.SoCho - a >= soluonghanhkhach)
+                {
+                    result.cb.Add(item);
+                }
+            }
             result.departAirport = SearchReturn.arvAirport;
             result.arrivedAirport = SearchReturn.depAirport;
             result.date = null;

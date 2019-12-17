@@ -20,7 +20,7 @@ namespace Flight.Models.Entity
 
         public int? TongTien { get; set; }
         public DateTime NgayDatVe { get; set; }
-
+        public DateTime NgayBay { set; get; }
         public virtual ChuyenBay ChuyenBay { get; set; }
 
         public virtual HanhKhach HanhKhach { get; set; }
