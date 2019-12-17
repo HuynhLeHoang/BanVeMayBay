@@ -251,5 +251,50 @@ namespace Flight.Controllers
             Session[CommonSession.USER_SESSION] = null;
             return RedirectToAction("Index");
         }
+        
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(Member member)
+        {
+            var db = new AirLineDbContext();
+            var user = db.Admins.SingleOrDefault(x => x.UserName == member.UserName);
+            if (member.Password != member.RePassword)
+            {
+                return Json(new
+                {
+                    status = "LoiMatKhau",
+                    msg = "Nhập lại mật khẩu không trùng khớp"
+                });
+            }
+            if (user != null)
+            {
+                return Json(new
+                {
+                    status = "ThatBai",
+                    msg = "Tên đăng nhập đã tồn tại"
+                });
+            }
+            var counter = db.Admins.Count();
+            string str = counter.ToString();
+            db.Admins.Add(new Admin
+            {
+                MaThanhVien = str,
+                TenThanhVien = member.FullName,
+                UserName = member.UserName,
+                Password = member.Password,
+                GroupID = "MEMBER"
+                
+            });
+            db.SaveChanges();
+            return Json(new
+            {
+                status = "ThanhCong",
+                msg = "Đăng ký thành công"
+            });
+        }
     }
 }

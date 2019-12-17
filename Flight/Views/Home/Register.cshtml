@@ -4,6 +4,41 @@
 }
 
 <!DOCTYPE html>
+
+<script>
+    $(function () {
+        $('#btnRegister').click(function () {
+            var member = {
+                FullName: document.getElementById("FullName").value,
+                UserName: document.getElementById("UserName").value,
+                Password: document.getElementById("Password").value,
+                RePassword: document.getElementById("RePassword").value,
+            };
+            $.ajax({
+                type: "POST",
+                url: "../Home/Register",
+                data: JSON.stringify(member),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    var notitag = document.getElementById("Notification");
+                    notitag.innerHTML = data.msg;
+                    if (data.status == "ThanhCong") {
+                        setTimeout(() => { console.log(""); }, 2000);
+                        window.location.href = "../../Admin/Login/Login";
+                    }                   
+                    
+                },
+                error: function (data) {
+                    alert('Error');
+                }
+            });
+        });
+    });
+</script>
+
+
+
 <div id="wrap">
     <style>
         #xuathoadon {
@@ -59,41 +94,33 @@
 
 
 
-        <form id="book_information" method="POST" action="SuaVe" role="form">
-            <h4 class="head-title1">SỬA THÔNG TIN KHÁCH HÀNG</h4>
+        <form>
+            <h4 class="head-title1">ĐĂNG KÝ</h4>
             <table class="table1">
                 <tr>
                     <td class="text-right" style="width: 29%;">Họ và tên<div style="color: red; display: inline;"> (*)</div></td>
                     <td>
-                        <input name="ticketcode" class="form-control" id=ticketcode" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập mã vé." pattern=".{1,}" required="" />
-
-                    </td>
+                        <input name="FullName" class="form-control" id="FullName" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="0" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ tên." pattern=".{1,}" required="" />
+                   </td>
                 </tr>
                 <div id="info">
                     <tr>
                         <td class="text-right" style="width: 29%;">Tên đăng nhập<div style="color: red; display: inline;"> (*)</div></td>
                         <td>
-                            <input name="fullname" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên." pattern=".{1,}" required="" />
+                            <input name="UserName" class="form-control" id="UserName" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="0" data-val-required="Tên đăng nhập bắt buộc" placeholder="" title="Vui lòng nhập tên đăng nhập." pattern=".{1,}" required="" />
 
                         </td>
                     </tr>
                     <tr>
                         <td class="text-right">Mật khẩu<div style="color: red; display: inline;"> (*)</div></td>
                         <td>
-
-                            <span class="mobileNumber">
-                                <div class="intl-tel-input allow-dropdown separate-dial-code iti-sdc-3">
-                                    <div class="flag-container"> </div>
-
-                                    <input name="phone" id="txtPax1_Phone2" class="FormValue" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" id="phone" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại." style="width: 350px;" pattern=".{1,}" required="" />
-                                </div>
-                            </span>
+                            <input type="password" name="Password" class="form-control" id="Password" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="0" data-val-required="Mật khẩu bắt buộc" placeholder="" title="Vui lòng nhập mật khẩu." pattern=".{1,}" required="" />
                         </td>
                     </tr>
                     <tr>
                         <td class="text-right">Nhập lại mật khẩu<div style="color: red; display: inline;"> (*)</div></td>
                         <td>
-                            <input name="email" class="form-control" id="email" value="" type="email" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Email bắt buộc" placeholder="nguyenvana@gmail.com" title="Vui lòng nhập email." pattern=".{1,}" required="" />
+                            <input type="password" name="RePassword" class="form-control" id="RePassword" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="0" data-val-required="Mật khẩu bắt buộc" placeholder="" title="Vui lòng nhập lại mật khẩu." pattern=".{1,}" required="" />
                         </td>
                     </tr>
 
@@ -122,13 +149,16 @@
             <div id="GuestInfo">
                 <div class="main cf" style="display: ">
                     <div class="cheap" style="height: 41px; margin-top: 13px;">
+                        <a id="Notification" class="common-button2"></a>
+                    </div>
+                    <div class="cheap" style="height: 41px; margin-top: 13px;">
                         <img src="~/themes/nokair/img/arrow1.gif" style="margin-top: 8px; margin-left: calc(100% - 255px);" />
-                        <input id="btnContinue" name="tieptuc" class="common-button2" type="submit" value="Tiếp tục" />
+                        <input id="btnRegister" class="common-button2" value="ĐĂNG KÝ" />
                     </div>
 
 
                     <div id="submitFlight" class="fixed">
-                        <span class="moreScroll">Vui lòng điền đầy đủ thông tin và nhấp nút TIẾP TỤC  &nbsp;<img style="margin-top: -16px;" src="arrow-down.gif" /></span>
+                        <span class="moreScroll">Vui lòng điền đầy đủ thông tin và nhấp nút ĐĂNG KÝ  &nbsp;<img style="margin-top: -16px;" src="arrow-down.gif" /></span>
                     </div>
                     <style>
                         #submitFlight.fixed {

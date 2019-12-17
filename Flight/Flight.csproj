@@ -160,6 +160,7 @@
     <Compile Include="Models\Entity\LoginModel.cs" />
     <Compile Include="Models\Entity\MaCB.cs" />
     <Compile Include="Models\Entity\MayBay.cs" />
+    <Compile Include="Models\Entity\Member.cs" />
     <Compile Include="Models\Entity\PhiCong.cs" />
     <Compile Include="Models\Entity\Request.cs" />
     <Compile Include="Models\Entity\Role.cs" />
