@@ -108,14 +108,15 @@ namespace Flight.Areas.Admin.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-
+     
+        [HasCredential(RoleID = "EDIT_TICKET")]
         public ActionResult ModifyTicket()
         {
             return View();        
         }
 
-        
-
+        [HttpPost]
+        [HasCredential(RoleID = "EDIT_TICKET")]
         public ActionResult SuaVe(ThongTinKhachHang ThongTin)
         {
             
@@ -148,11 +149,13 @@ namespace Flight.Areas.Admin.Controllers
                 return View("Success", TempData["notice"] = "Đã có lỗi xảy ra!");
             }
         }
+        [HasCredential(RoleID = "DELETE_TICKET")]
         public ActionResult DeleteTicket()
         {
             return View();
         }
-
+        [HttpPost]
+        [HasCredential(RoleID = "DELETE_TICKET")]
         public ActionResult Delete(Ve ve)
         {
             var connection = new AirLineDbContext();
@@ -175,6 +178,11 @@ namespace Flight.Areas.Admin.Controllers
         {
             Session[CommonSession.USER_SESSION] = null;
             return RedirectToAction("Index", "../Home");
+        }
+
+        public GetGuestInfo(string TicketCode)
+        {
+
         }
     }
 }

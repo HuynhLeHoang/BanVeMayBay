@@ -13,7 +13,11 @@ namespace Flight.Areas.Admin.Controllers
         {
            
             var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
-            if (session1.GroupID == "MEMBER")
+            if (session1 == null)
+            {
+                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { controller = "Login", action = "Login", Area = "Admin" }));
+            }
+            else if (session1.GroupID == "MEMBER")
             {
                 filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { controller = "Home", action = "Index", Area = "~" }));
             }

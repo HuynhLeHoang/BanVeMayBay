@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Flight.Common;
 using Flight.Models.Entity;
 using Flight.Models.Functions;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Flight.Controllers
 {
@@ -285,6 +287,18 @@ namespace Flight.Controllers
             return View();
         }
 
+        public static string EncMD5(string passwword)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            UTF8Encoding encoder = new UTF8Encoding();
+            byte[] originalBytes = encoder.GetBytes(passwword);
+            byte[] encodedBytes = md5.ComputeHash(originalBytes);
+            passwword = BitConverter.ToString(encodedBytes).Replace("-", "");
+            var result = passwword.ToLower();
+            return result;
+
+        }
+
         [HttpPost]
         public ActionResult Register(Member member)
         {
@@ -306,16 +320,17 @@ namespace Flight.Controllers
                     msg = "Tên đăng nhập đã tồn tại"
                 });
             }
-            var counter = db.Admins.Count();
+            var counter = db.Admins.Count() + 1;
             string str = counter.ToString();
+            string encpsw = EncMD5(member.Password);
             db.Admins.Add(new Admin
             {
                 MaThanhVien = str,
                 TenThanhVien = member.FullName,
                 UserName = member.UserName,
-                Password = member.Password,
-                GroupID = "MEMBER"
-                
+                Password = encpsw,
+                //Password = member.Password,
+                GroupID = "MEMBER"                
             });
             db.SaveChanges();
             return Json(new

@@ -14,6 +14,7 @@
                 Password: document.getElementById("Password").value,
                 RePassword: document.getElementById("RePassword").value,
             };
+            document.getElementById("btnRegister").value = "ĐANG XỬ LÝ ...";
             $.ajax({
                 type: "POST",
                 url: "../Home/Register",
@@ -27,7 +28,7 @@
                         setTimeout(() => { console.log(""); }, 2000);
                         window.location.href = "../../Admin/Login/Login";
                     }                   
-                    
+                    document.getElementById("btnRegister").value = "ĐĂNG KÝ"
                 },
                 error: function (data) {
                     alert('Error');

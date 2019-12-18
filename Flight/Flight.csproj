@@ -132,6 +132,7 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\HanhKhach.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinChuyenBay.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinDatVe.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinKhachHang.cs" />
