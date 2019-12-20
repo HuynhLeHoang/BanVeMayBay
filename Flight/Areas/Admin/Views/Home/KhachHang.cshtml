@@ -1,0 +1,49 @@
+﻿@using Flight.Models.Entity
+@model KhachHang
+
+</tr>
+<tr  hidden="true">
+    <td class="text-right" style="width: 29%;">Họ và Tên<div style="color: red; display: inline;"> (*)</div></td>
+    <td>
+        <input value="@Model.MaKhachHang" name="fullname" class="form-control" id="makhachhang" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên." pattern=".{1,}" required="" />
+
+    </td>
+</tr>
+<tr>
+    <td class="text-right" style="width: 29%;">Họ và Tên<div style="color: red; display: inline;"> (*)</div></td>
+    <td>
+        <input value="@Model.HoTenKhachHang" name="fullname" class="form-control" id="fullname" value="" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" placeholder="Nguyen Van A" title="Vui lòng nhập họ và tên." pattern=".{1,}" required="" />
+
+    </td>
+</tr>
+
+
+
+<tr>
+    <td class="text-right">Số điện thoại di động<div style="color: red; display: inline;"> (*)</div></td>
+    <td>
+
+        <span class="mobileNumber">
+            <div class="intl-tel-input allow-dropdown separate-dial-code iti-sdc-3">
+                <div class="flag-container"> </div>
+
+                <input value="@Model.DienThoai" name="phone" id="DienThoai" class="FormValue" onfocus="/*HiliteControlContents()*/" maxlength="16" autocomplete="on" id="phone" value="" data-val="true" data-val-phone="Số điện thoại không hợp lệ" data-val-length-max="200" data-val-length-min="9" data-val-required="Phone bắt buộc" placeholder="091678678" title="Vui lòng nhập số điện thoại." style="width: 350px;" pattern=".{1,}" required="" />
+            </div>
+        </span>
+    </td>
+</tr>
+<tr>
+    <td class="text-right">Email<div style="color: red; display: inline;"> (*)</div></td>
+    <td>
+        <input value="@Model.Email" name="email" class="form-control" id="email" value="" type="email" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Email bắt buộc" placeholder="nguyenvana@gmail.com" title="Vui lòng nhập email." pattern=".{1,}" required="" />
+    </td>
+</tr>
+
+<tr>
+    <td class="text-right">Địa chỉ</td>
+    <td>
+        <input id="diachi" value="@Model.Diachi" name="address" class="form-control" rows="3" style="padding: 10px; width: 328px;" pattern=".{1,}" required=""></input>
+    </td>
+</tr>
+
+

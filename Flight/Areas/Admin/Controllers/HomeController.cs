@@ -180,9 +180,75 @@ namespace Flight.Areas.Admin.Controllers
             return RedirectToAction("Index", "../Home");
         }
 
-        public GetGuestInfo(string TicketCode)
+        public ActionResult GetCustomerInfo(string TicketCode)
         {
+            var db = new AirLineDbContext();
+            //try
+            {
+                KhachHang_ChuyenBay ticket = db.KhachHang_ChuyenBay.AsNoTracking().Where(x => x.MaCode == TicketCode).ToList()[0];
+                if (ticket == null)
+                {
+                    return HttpNotFound();
+                }
+                var hanhkhach = db.KhachHangs.Find(ticket.MaKhachHang.ToString());
+              
+                return PartialView("KhachHang", hanhkhach);
+            }
+            /*catch
+            {
+                return HttpNotFound();
+            }*/
+        }
 
+        public ActionResult GetGuestInfo(string TicketCode)
+        {
+            
+            var db = new AirLineDbContext();
+            List<KhachHang_ChuyenBay> ticket = new List<KhachHang_ChuyenBay>();
+            try
+            {
+                ticket = db.KhachHang_ChuyenBay.AsNoTracking().Where(x => x.MaCode == TicketCode).ToList();
+                if(ticket == null)
+                {
+                    return HttpNotFound();
+                }
+                List<Flight.Models.Entity.HanhKhach> hanhkhach = new List<Flight.Models.Entity.HanhKhach>();
+                foreach (KhachHang_ChuyenBay khcb in ticket)
+                {
+                    hanhkhach.Add(db.HanhKhaches.Find(khcb.MaHanhKhach.ToString()));
+                }
+                return PartialView("HanhKhach", hanhkhach);
+            }
+            catch
+            {
+                return HttpNotFound();
+            }
+            
+        }
+        [HttpPost]
+        public ActionResult ModifyTicketNew(ModifyTicket ticket)
+        {
+            var db = new AirLineDbContext();
+            var KH = db.KhachHangs.Find(ticket.MaKhachHang);
+            KH.HoTenKhachHang = ticket.FullName;
+            KH.DienThoai = ticket.SDT;
+            KH.Email = ticket.Email;
+            KH.Diachi = ticket.DiaChi;
+            db.SaveChanges();
+            for(var i = 0; i < ticket.HanhKhach.Count; i++)
+            {
+                var HK = db.HanhKhaches.Find(ticket.HanhKhach[i].MaHanhKhach);
+                DateTime outTemp;
+                outTemp = DateTime.Parse(ticket.HanhKhach[i].NgaySinh + " 12:00:00 AM");
+                HK.NgaySinh = outTemp.Date;
+                HK.GioiTinh = ticket.HanhKhach[i].GioiTinh;
+                HK.HoTen = ticket.HanhKhach[i].HoTen;
+                db.SaveChanges();
+            }
+            return Json(new
+            {
+                msg = "M"
+            });
         }
     }
 }

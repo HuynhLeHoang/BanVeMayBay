@@ -1,0 +1,21 @@
+﻿@using Flight.Models.Entity
+
+@foreach (HanhKhach hanhkhach in Model)
+{
+    <tr id= "@hanhkhach.MaHanhKhach" style=" none repeat scroll 0px 0px; border-top: 1px solid rgb(0, 99, 152);">
+
+        <td style="width: 200px;">
+            <span>Giới tính<div style="color: red; display: inline;"> (*)</div></span> <br>
+            <input id="sex" name="sex" class="form-control" style=" " value="@hanhkhach.GioiTinh"/>
+        
+        </td>
+        <td style="width: 310px;">
+            <span>Họ tên<div style="color: red; display: inline;"> (*)</div></span> <br>
+            <input value="@hanhkhach.HoTen" placeholder="Nguyen Van A" id="name" name="name" class="form-control" type="text" data-val="true" data-val-length="The field Name must be a string with a maximum length of 200." data-val-length-max="200" data-val-length-min="5" data-val-required="Họ tên bắt buộc" title="Vui lòng nhập họ và tên." pattern=".{6,}" required="">
+        </td>
+        <td>
+            <span>Ngày sinh(Tháng/Ngày/Năm)</span> <br>
+            <input value="@hanhkhach.NgaySinh.Value.Date.ToString("M/dd/yyyy")" id="birthday" name="birthday" type="text" class="form-control" placeholder="28/01/1970" style="padding: 6px 1px 7px 11px;">
+        </td>
+    </tr>
+}

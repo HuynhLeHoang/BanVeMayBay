@@ -132,7 +132,8 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Areas\Admin\Models\HanhKhach.cs" />
+    <Compile Include="Areas\Admin\Models\Khach.cs" />
+    <Compile Include="Areas\Admin\Models\ModifyTicket.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinChuyenBay.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinDatVe.cs" />
     <Compile Include="Areas\Admin\Models\ThongTinKhachHang.cs" />
@@ -2151,9 +2152,9 @@
     <Content Include="Areas\Admin\Views\Home\AddFlight.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Success.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout1.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Adult.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\HanhKhach.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Child.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Infant.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\KhachHang.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

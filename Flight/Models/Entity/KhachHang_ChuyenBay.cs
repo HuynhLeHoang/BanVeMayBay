@@ -9,6 +9,9 @@ namespace Flight.Models.Entity
     public partial class KhachHang_ChuyenBay
     {
         [StringLength(10)]
+        public string MaHanhKhach { get; set; }
+
+        [StringLength(10)]
         public string MaKhachHang { get; set; }
 
         [StringLength(10)]

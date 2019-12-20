@@ -10,6 +10,7 @@ using Flight.Models.Entity;
 using Flight.Models.Functions;
 using System.Security.Cryptography;
 using System.Text;
+using Flight.Areas.Admin.Models;
 
 namespace Flight.Controllers
 {
@@ -339,5 +340,7 @@ namespace Flight.Controllers
                 msg = "Đăng ký thành công"
             });
         }
+        
+        
     }
 }
