@@ -142,6 +142,7 @@
     <Compile Include="Common\CommonSession.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhoaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1961,6 +1962,7 @@
     <Content Include="userupload\huongdandatve.png" />
     <Content Include="userupload\nganhang.png" />
     <Content Include="userupload\Od-1_1.jpg" />
+    <Content Include="userupload\quydinhhanhly.png" />
     <Content Include="userupload\saigon-hanoi3.png" />
     <Content Include="userupload\saigonnha.png" />
     <Content Include="userupload\saigontaipei.png" />
@@ -2200,6 +2202,13 @@
     <Content Include="Views\Home\SearchResultReturn.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Khoa\Index.cshtml" />
+    <Content Include="Views\Khoa\ThemHanhLiThanhCong.cshtml" />
+    <Content Include="Views\Khoa\Suahanhli.cshtml" />
+    <Content Include="Views\Khoa\SuaHanhLiThanhCong.cshtml" />
+    <Content Include="Views\Khoa\XoaHanhLi.cshtml" />
+    <Content Include="Views\Khoa\XoaHanhLiThanhCong.cshtml" />
+    <Content Include="Views\Khoa\DsHanhLi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
