@@ -2,7 +2,17 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-
+@if (TempData["layout"] != null)
+{
+    if (TempData["layout"].ToString() == "logged in")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout1.cshtml";
+    }
+}
 
 @using Flight.Models.Entity;
 

@@ -34,6 +34,12 @@ namespace Flight.Controllers
         {
             try
             {
+                var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+                if (session1 != null)
+                {
+                    TempData["layout"] = "logged in";
+                    return View();
+                }
                 ViewBag.Message = "Your application description page.";
 
                 return View();
@@ -48,6 +54,12 @@ namespace Flight.Controllers
         {
             try
             {
+                var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+                if (session1 != null)
+                {
+                    TempData["layout"] = "logged in";
+                    return View();
+                }
                 return View();
             }
             catch
@@ -133,6 +145,12 @@ namespace Flight.Controllers
             result.childNo = SearchReturn.childNo;
             result.infantNo = SearchReturn.infantNo;
             ViewBag.MaChuyenBayLuotDi = SearchReturn.MaChuyenBayLuotDi;
+            var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+            if (session1 != null)
+            {
+                TempData["layout"] = "logged in";
+                return View();
+            }
             return View(result);
         }
         public ActionResult Detail(TravelerDetail DeTail)
@@ -173,6 +191,12 @@ namespace Flight.Controllers
                 //lưu mã chuyến bay lượt về vào session 
                 Session[CommonSession.FLIGHTARV_ID] = DeTail.MaChuyenBayLuotVe;
                 result.Add(t);
+            }
+            var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+            if (session1 != null)
+            {
+                TempData["layout"] = "logged in";
+                return View();
             }
             return View(result);
         }
@@ -274,6 +298,12 @@ namespace Flight.Controllers
                     new F_GenerateCode().Generatecode(machuyenbayluotve, amount, maCode, item, makhachhang,date);
                 }
             }
+            var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+            if (session1 != null)
+            {
+                TempData["layout"] = "logged in";
+                return View();
+            }
             return View();
         }
 
@@ -285,6 +315,12 @@ namespace Flight.Controllers
         
         public ActionResult Register()
         {
+            var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+            if (session1 != null)
+            {
+                TempData["layout"] = "logged in";
+                return View();
+            }
             return View();
         }
 

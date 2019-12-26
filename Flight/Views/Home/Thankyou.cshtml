@@ -2,6 +2,17 @@
     ViewBag.Title = "Thankyou";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
+@if (TempData["layout"] != null)
+{
+    if (TempData["layout"].ToString() == "logged in")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout1.cshtml";
+    }
+}
     <div id="wrap">
         <h4 class="expire-time text-center" style="font-weight: bold; color: red; line-height: 30px; font-size: 16px;">
             <b style=""> Cảm ơn quý khách đã đặt vé tại MTA Air </b><br> Quý Khách vui lòng thanh toán  theo hướng dẫn trong email.!

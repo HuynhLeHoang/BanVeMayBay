@@ -2,7 +2,17 @@
 @{
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
-
+@if (TempData["layout"] != null)
+{
+    if (TempData["layout"].ToString() == "logged in")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout1.cshtml";
+    }
+}
 <div id="wrap">
     <h4 class="head-title3"><a href="gioi-thieu-ve-chung-toi.html">Giới thiệu về chúng tôi</a></h4>
     <p style="text-align: justify;"><strong><strong>Phạm Đăng Khoa - Bảo đảm an toàn thông tin </strong></strong></p>

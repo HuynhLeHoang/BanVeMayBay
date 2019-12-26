@@ -55,7 +55,7 @@ namespace Flight.Areas.Admin.Controllers
                     Session.Add(CommonSession.USER_SESSION, UserSession);
                     if (UserSession.GroupID == "MEMBER")
                     {
-                       
+
                         return Json(new
                         {
                             msg = "M"
