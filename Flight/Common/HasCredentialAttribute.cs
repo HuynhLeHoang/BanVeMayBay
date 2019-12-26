@@ -27,8 +27,6 @@ namespace Flight
             {
                 return false;
             }
-            
-
         }
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {

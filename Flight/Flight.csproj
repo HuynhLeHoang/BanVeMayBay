@@ -142,6 +142,7 @@
     <Compile Include="Common\CommonSession.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhoaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -173,6 +174,7 @@
     <Compile Include="Models\Entity\TravelerDetail.cs" />
     <Compile Include="Models\Entity\UserGroup.cs" />
     <Compile Include="Models\Functions\F_GenerateCode.cs" />
+    <Compile Include="Models\Functions\F_HanhLy.cs" />
     <Compile Include="Models\Functions\F_Login.cs" />
     <Compile Include="Models\Functions\F_DanhSachChuyenBay.cs" />
     <Compile Include="Models\Functions\F_ThemHanhKhach.cs" />
@@ -2200,6 +2202,13 @@
     <Content Include="Views\Home\SearchResultReturn.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Khoa\Index.cshtml" />
+    <Content Include="Views\Khoa\ThemHanhLiThanhCong.cshtml" />
+    <Content Include="Views\Khoa\Suahanhli.cshtml" />
+    <Content Include="Views\Khoa\SuaHanhLiThanhCong.cshtml" />
+    <Content Include="Views\Khoa\XoaHanhLi.cshtml" />
+    <Content Include="Views\Khoa\XoaHanhLiThanhCong.cshtml" />
+    <Content Include="Views\Khoa\DsHanhLi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

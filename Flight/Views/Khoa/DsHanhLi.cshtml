@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DsHanhLi</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <thead>
+                <tr>
+                    <td> Mã hành lí</td><br />
+                    <td>Tên hành lí</td><br />
+                    <td>Loại hành lí</td><br />
+                    <td>Giá tiền</td><br />
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr id="@item.MaHanhLy">
+                        <td>@item.MaHanhLy</td>
+                        <td>@item.TenHanhLy</td>
+                        <td>@item.LoaiHanhLy</td>
+                        <td>@item.GiaTien</td>
+                        <td>
+                            @Ajax.ActionLink("Xóa", "Delete", new AjaxOptions
+                       {
+                           Confirm="Bạn có muốn xóa bản ghi này?",
+                           OnComplete="$("+@item.MaHanhLy+").remove()",
+                           HttpMethod="Delete"
+                       })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
