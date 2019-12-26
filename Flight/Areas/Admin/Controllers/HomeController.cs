@@ -183,7 +183,7 @@ namespace Flight.Areas.Admin.Controllers
         public ActionResult GetCustomerInfo(string TicketCode)
         {
             var db = new AirLineDbContext();
-            //try
+            try
             {
                 KhachHang_ChuyenBay ticket = db.KhachHang_ChuyenBay.AsNoTracking().Where(x => x.MaCode == TicketCode).ToList()[0];
                 if (ticket == null)
@@ -194,10 +194,10 @@ namespace Flight.Areas.Admin.Controllers
               
                 return PartialView("KhachHang", hanhkhach);
             }
-            /*catch
+            catch
             {
                 return HttpNotFound();
-            }*/
+            }
         }
 
         public ActionResult GetGuestInfo(string TicketCode)
@@ -208,7 +208,7 @@ namespace Flight.Areas.Admin.Controllers
             try
             {
                 ticket = db.KhachHang_ChuyenBay.AsNoTracking().Where(x => x.MaCode == TicketCode).ToList();
-                if(ticket == null)
+                if(ticket.Count == 0)
                 {
                     return HttpNotFound();
                 }
