@@ -174,7 +174,6 @@
     <Compile Include="Models\Entity\TravelerDetail.cs" />
     <Compile Include="Models\Entity\UserGroup.cs" />
     <Compile Include="Models\Functions\F_GenerateCode.cs" />
-    <Compile Include="Models\Functions\F_HanhLy.cs" />
     <Compile Include="Models\Functions\F_Login.cs" />
     <Compile Include="Models\Functions\F_DanhSachChuyenBay.cs" />
     <Compile Include="Models\Functions\F_ThemHanhKhach.cs" />
@@ -1963,6 +1962,7 @@
     <Content Include="userupload\huongdandatve.png" />
     <Content Include="userupload\nganhang.png" />
     <Content Include="userupload\Od-1_1.jpg" />
+    <Content Include="userupload\quydinhhanhly.png" />
     <Content Include="userupload\saigon-hanoi3.png" />
     <Content Include="userupload\saigonnha.png" />
     <Content Include="userupload\saigontaipei.png" />

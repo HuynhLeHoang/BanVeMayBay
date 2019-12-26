@@ -64,13 +64,7 @@ namespace Flight.Controllers
             List<HanhLy> DShanhli = connect.HanhLies.ToList();
             return View(DShanhli);
         }
-        [HttpDelete]
-        public ActionResult Delete(string  MaHanhLy)
-        {
-            new F_HanhLy().Delete(MaHanhLy);
-
-            return RedirectToAction("DsHanhLi");
-        }
+        
         
     }
 }
