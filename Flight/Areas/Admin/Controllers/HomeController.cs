@@ -16,7 +16,12 @@ namespace Flight.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
-             
+            var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+            if (session1 != null)
+            {
+                TempData["layout"] = "logged in";
+                return View();
+            }
             return View();
         }
         [HasCredential(RoleID = "ADD_FLIGHT")]
