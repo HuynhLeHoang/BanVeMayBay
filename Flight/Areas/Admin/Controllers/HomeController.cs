@@ -111,7 +111,7 @@ namespace Flight.Areas.Admin.Controllers
             {
 
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ModifyFlight", "Home");
         }
      
         [HasCredential(RoleID = "EDIT_TICKET")]
