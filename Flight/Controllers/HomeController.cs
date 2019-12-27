@@ -92,7 +92,7 @@ namespace Flight.Controllers
                 //kiểm tra thử còn chỗ không với các chuyến bay phù hợp với ngày đã chọn
                 foreach (ChuyenBay item in temp)
                 {
-                    int a = new AirLineDbContext().KhachHang_ChuyenBay.Where(x => x.MaChuyenBay == item.MaChuyenBay && x.NgayBay == item.Ngay).ToList().Count();
+                    int a = new AirLineDbContext().KhachHang_ChuyenBay.Where(x => x.MaChuyenBay == item.MaChuyenBay && x.NgayBay == item.Ngay).ToList().Count();// Lấy ra số chỗ đã đặt thành công 
                     if (item.SoCho - a >= soluonghanhkhach)
                     {
                         result.cb.Add(item);
@@ -106,6 +106,12 @@ namespace Flight.Controllers
                 result.adultNo = request.adultNo;
                 result.childNo = request.childNo;
                 result.infantNo = request.infantNo;
+                var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+                if (session1 != null)
+                {
+                    TempData["layout"] = "logged in";
+
+                }
                 return View(result);
 
             }
@@ -149,7 +155,7 @@ namespace Flight.Controllers
             if (session1 != null)
             {
                 TempData["layout"] = "logged in";
-                return View();
+            
             }
             return View(result);
         }
@@ -196,7 +202,7 @@ namespace Flight.Controllers
             if (session1 != null)
             {
                 TempData["layout"] = "logged in";
-                return View();
+                
             }
             return View(result);
         }
@@ -278,9 +284,15 @@ namespace Flight.Controllers
             ViewBag.HinhThucThanhToan = temp.TenHinhThucThanhToan;
             ViewBag.khachhang = model;
             ViewBag.tongtien += khmodel.tongtien;
+            var session1 = (UserLogin)Session[CommonSession.USER_SESSION];
+            if (session1 != null)
+            {
+                TempData["layout"] = "logged in";
 
+            }
             return View(hkModel);
         }
+
         public ActionResult Thankyou(string makhachhang,int amount, List<string> hkID)
         {
             string machuyenbayluotdi = Session[CommonSession.FLIGHTDEP_ID] as string;
@@ -302,7 +314,7 @@ namespace Flight.Controllers
             if (session1 != null)
             {
                 TempData["layout"] = "logged in";
-                return View();
+ 
             }
             return View();
         }
